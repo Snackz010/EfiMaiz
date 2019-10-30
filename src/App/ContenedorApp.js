@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import LogIn from '../LogIn/LogIn';
 import SignUp from '../SignUp/SignUp';
+import ContenedorSignUp from '../SignUp/ContenedorSignUp';
 import Opciones from '../Opciones/Opciones';
 import CaracterizacionSitio from '../Opciones/CaracterizacionSitio/CaracterizacionSitio';
 import Clima from '../Opciones/CaracterizacionSitio/Clima/Clima';
@@ -15,7 +16,6 @@ export default class ContenedorApp extends Component {
   }
 
   render() {
-
     return(
       <LogIn/>
     );

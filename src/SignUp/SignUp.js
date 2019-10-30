@@ -9,9 +9,13 @@ import {
   TextInput,
   Image,
   ScrollView,
+  Picker,
 } from 'react-native';
 
-const LogIn = (props) => {
+const SignUp = (props) => {
+
+    const {valorDepto, changeDepto, changeOcupacion, valorOcupacion} = props;
+
     return (
       <>
         <StatusBar barStyle="light-content" backgroundColor='#000000'/>
@@ -33,9 +37,38 @@ const LogIn = (props) => {
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Apellido'></TextInput>
                     <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Teléfono'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Correo'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Ocupación'></TextInput>
+                    <View>
+                      <Picker style={styles.selectInput} selectedValue={valorOcupacion} onValueChange={changeOcupacion}>
+                        <Picker.Item label="Ocupación" value="" />
+                        <Picker.Item label="Estudiante" value="Estudiante" />
+                        <Picker.Item label="Docente" value="Docente" />
+                        <Picker.Item label="Productor" value="Productor" />
+                      </Picker>
+                    </View>
+                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Nombre de la Finca'></TextInput>
                     <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Coordenadas'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Departamento'></TextInput>
+                    <View>
+                      <Picker style={styles.selectInput} selectedValue={valorDepto} onValueChange={changeDepto}>
+                        <Picker.Item label="Departamento" value="" />
+                        <Picker.Item label="Boaco" value="Boaco" />
+                        <Picker.Item label="Carazo" value="Carazo" />
+                        <Picker.Item label="Chinandega" value="Chinandega" />
+                        <Picker.Item label="Chontales" value="Chontales" />
+                        <Picker.Item label="Costa Caribe Norte" value="Costa Caribe Norte" />
+                        <Picker.Item label="Costa Caribe Sur" value="Costa Caribe Sur" />
+                        <Picker.Item label="Estelí" value="Estelí" />
+                        <Picker.Item label="Granda" value="Granda" />
+                        <Picker.Item label="Jinotega" value="Jinotega" />
+                        <Picker.Item label="León" value="León" />
+                        <Picker.Item label="Madriz" value="Madriz" />
+                        <Picker.Item label="Managua" value="Managua" />
+                        <Picker.Item label="Masaya" value="Masaya" />
+                        <Picker.Item label="Matagalpa" value="Matagalpa" />
+                        <Picker.Item label="Nueva Segovia" value="Nueva Segovia" />
+                        <Picker.Item label="Rio San Juan" value="Rio San Juan" />
+                        <Picker.Item label="Rivas" value="Rivas" />
+                      </Picker>
+                    </View>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Usuario'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
                   </View>
@@ -78,6 +111,14 @@ const styles = StyleSheet.create({
     color: 'white',
     width: 300,
     textAlign: 'left'
+  },
+  selectInput: {
+    backgroundColor: 'rgba(255,255,255,0.3)',
+    fontSize: 16,
+    paddingLeft: 10,
+    marginTop: 30,
+    color: '#bbb',
+    width: 300,
   },
   text: {
     fontSize: 16, 
@@ -135,4 +176,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LogIn;
+export default SignUp;
