@@ -15,6 +15,7 @@ import {
 const SignUp = (props) => {
 
     const {valorDepto, changeDepto, changeOcupacion, valorOcupacion} = props;
+    const hidden = "flex";
 
     return (
       <>
@@ -69,6 +70,9 @@ const SignUp = (props) => {
                         <Picker.Item label="Rivas" value="Rivas" />
                       </Picker>
                     </View>
+                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Ocupación'></TextInput>
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={{...styles.textInput, ...styles.textiptOculto}} placeholder='Coordenadas'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={{...styles.textInput, ...styles.textiptOculto}} placeholder='Departamento'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Usuario'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
                   </View>
@@ -173,6 +177,9 @@ const styles = StyleSheet.create({
     width: 140,
     height: 125,
     marginTop: 50
+  },
+  textiptOculto:{
+    display:hidden
   }
 });
 

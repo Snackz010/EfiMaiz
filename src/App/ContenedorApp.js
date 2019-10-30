@@ -13,11 +13,46 @@ export default class ContenedorApp extends Component {
 
   constructor(props){
     super(props);
+    this.state = {
+      vistualActual: 'LogIn',
+    }
+
   }
 
-  render() {
-    return(
-      <LogIn/>
-    );
+
+  cambiarPantalla = () =>{
+   const { vistualActual } = this.state;
+
+    (vistualActual==='LogIn')?
+    this.setState({
+      vistualActual:'SignUp',
+    }) :
+    this.setState({
+      vistualActual:'LogIn'
+    });
+
   }
+
+
+  render() {
+    const {vistualActual} = this.state;
+
+    switch (vistualActual) {
+      case 'LogIn':
+          return(
+            <LogIn 
+            cambiarPantallas={this.cambiarPantalla}/>
+          );
+        break;
+      
+      case 'SignUp':
+            return(
+              <SignUp />
+            );
+          break;
+      default:
+        break;
+    }
+  }
+
 }
