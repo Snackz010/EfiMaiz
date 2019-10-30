@@ -10,15 +10,19 @@ import {
   Image,
   ScrollView,
   Picker,
+  Modal,
   Alert
 } from 'react-native';
 
 var hidde;
 const SignUp = (props) => {
 
-    const {valorDepto, changeDepto, changeOcupacion, valorOcupacion} = props;
-    
-    hidde = (valorOcupacion==='Productor')?'flex':'none';
+    const {
+          pickerDisplayed, 
+          pickerValues,
+          setPickerValue, 
+          togglePicker,
+          pickerSelection} = props;
 
     return (
       <>
@@ -41,45 +45,39 @@ const SignUp = (props) => {
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Apellido'></TextInput>
                     <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Teléfono'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Correo'></TextInput>
-                    <View>
-                      <Picker style={styles.selectInput} selectedValue={valorOcupacion} onValueChange={changeOcupacion}>
-                        <Picker.Item label="Ocupación" value="" />
-                        <Picker.Item label="Estudiante" value="Estudiante" />
-                        <Picker.Item label="Docente" value="Docente" />
-                        <Picker.Item label="Productor" value="Productor" />
-                      </Picker>
+                    <View style={styles.button}>
+                      <TouchableHighlight onPress={togglePicker} style={[styles.buttonContainer, styles.logInButton]}>
+                        <Text style={styles.signUpText}>{pickerSelection}</Text>
+                      </TouchableHighlight>
                     </View>
+                    <Modal visible={pickerDisplayed} animationType={"slide"} transparent={true}>
+                      <View style={{ margin: 20, padding: 20,
+                        backgroundColor: '#efefef',
+                        bottom: 20,
+                        left: 20,
+                        right: 20,
+                        alignItems: 'center',
+                        position: 'absolute' }}>
+                        <Text>Elija una ocupación</Text>
+                        { pickerValues.map((value, index) => {
+                          return <TouchableHighlight key={index} onPress={() => setPickerValue(value.value)} style={{ paddingTop: 4, paddingBottom: 4 }}>
+                              <Text>{ value.title }</Text>
+                            </TouchableHighlight>
+                        })}
+                        <TouchableHighlight onPress={togglePicker} style={{ paddingTop: 4, paddingBottom: 4 }}>
+                          <Text style={{ color: '#999' }}>Cancelar</Text>
+                        </TouchableHighlight>
+                      </View>
+                    </Modal>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={{...styles.textInput,...styles.hidden}} placeholder='Nombre de la Finca'></TextInput>
                     <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Coordenadas'></TextInput>
-                    <View>
-                      <Picker style={styles.selectInput} selectedValue={valorDepto} onValueChange={changeDepto}>
-                        <Picker.Item label="Departamento" value="" />
-                        <Picker.Item label="Boaco" value="Boaco" />
-                        <Picker.Item label="Carazo" value="Carazo" />
-                        <Picker.Item label="Chinandega" value="Chinandega" />
-                        <Picker.Item label="Chontales" value="Chontales" />
-                        <Picker.Item label="Costa Caribe Norte" value="Costa Caribe Norte" />
-                        <Picker.Item label="Costa Caribe Sur" value="Costa Caribe Sur" />
-                        <Picker.Item label="Estelí" value="Estelí" />
-                        <Picker.Item label="Granda" value="Granda" />
-                        <Picker.Item label="Jinotega" value="Jinotega" />
-                        <Picker.Item label="León" value="León" />
-                        <Picker.Item label="Madriz" value="Madriz" />
-                        <Picker.Item label="Managua" value="Managua" />
-                        <Picker.Item label="Masaya" value="Masaya" />
-                        <Picker.Item label="Matagalpa" value="Matagalpa" />
-                        <Picker.Item label="Nueva Segovia" value="Nueva Segovia" />
-                        <Picker.Item label="Rio San Juan" value="Rio San Juan" />
-                        <Picker.Item label="Rivas" value="Rivas" />
-                      </Picker>
-                    </View>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" style={styles.textInput} placeholder='Usuario'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
                   </View>
                 </View>
                 <View style={styles.button}>
                   <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}>
-                    <Text style={styles.signUpText}>Ingresar</Text>
+                    <Text style={styles.signUpText}>Registrarse</Text>
                   </TouchableHighlight>
                 </View>
               </ScrollView>

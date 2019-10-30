@@ -15,12 +15,20 @@ export default class ContenedorApp extends Component {
     super(props);
     this.state = {
       vistualActual: 'LogIn',
-      valorDepto: '',
-      valorOcupacion: ''
+      pickerSelection: 'Departamento',
+      pickerDisplayed: false
     }
 
   }
 
+  //Esta función modifica el el valor del estado del elemento seleccionado
+  //Y tambien cierra el modal al llamar la función togglePicker
+  setPickerValue = (newValue) =>{
+    this.setState({
+      pickerSelection: newValue
+    })
+    this.togglePicker();
+  }
 
   cambiarPantalla = () =>{
    const { vistualActual } = this.state;
@@ -34,18 +42,31 @@ export default class ContenedorApp extends Component {
     });
   }
 
-  changeDepto = (valorDepto) => {
-    this.setState({ valorDepto: valorDepto })
+  //Esta función cambia el estado del modal
+  togglePicker = () => {
+    this.setState({
+      pickerDisplayed: !this.state.pickerDisplayed
+    })
   }
-
-  changeOcupacion = (valorOcupacion) => {
-    this.setState({ valorOcupacion: valorOcupacion })
-  }
-
-
 
   render() {
-    const {vistualActual} = this.state;
+    const {vistualActual, pickerDisplayed, pickerSelection} = this.state;
+    
+    //Valores que se cargan en el modal
+    const pickerValues = [
+      {
+        title: 'Estudiante',
+        value: 'Estudiante'
+      },
+      {
+        title: 'Docente',
+        value: 'Docente'
+      },
+      {
+        title: 'Productor',
+        value: 'Productor'
+      }
+    ]
 
     switch (vistualActual) {
       case 'LogIn':
@@ -57,7 +78,13 @@ export default class ContenedorApp extends Component {
       
       case 'SignUp':
             return(
-              <SignUp />
+              <SignUp 
+              pickerDisplayed={pickerDisplayed}
+              pickerValues={pickerValues}
+              togglePicker={this.togglePicker}
+              setPickerValue={this.setPickerValue}
+              pickerSelection={pickerSelection}
+              />
             );
           break;
       default:
