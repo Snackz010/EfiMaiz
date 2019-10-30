@@ -12,6 +12,10 @@ import {
 } from 'react-native';
 
 const LogIn = (props) => {
+
+
+    const { cambiarPantallas } = props;
+
     return (
       <>
         <StatusBar barStyle="light-content" backgroundColor='#000000'/>
@@ -38,7 +42,7 @@ const LogIn = (props) => {
                     <Text style={styles.signUpText}>Ingresar</Text>
                   </TouchableHighlight>
                 </View>
-                <Text style={styles.textContainer}>Ingresar con <Text style={styles.text2}>Google</Text>   |   <Text style={styles.text2}>Registrarse</Text></Text>
+                <Text style={styles.textContainer}>Ingresar con <Text style={styles.text2}>Google</Text>   |   <Text onPress={cambiarPantallas} style={styles.text2}>Registrarse</Text></Text>
               </ScrollView>
             </View>
           </View>

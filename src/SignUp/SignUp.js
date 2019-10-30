@@ -11,7 +11,11 @@ import {
   ScrollView,
 } from 'react-native';
 
+const hidden = "flex";
 const LogIn = (props) => {
+
+    
+
     return (
       <>
         <StatusBar barStyle="light-content" backgroundColor='#000000'/>
@@ -34,8 +38,8 @@ const LogIn = (props) => {
                     <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Teléfono'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Correo'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Ocupación'></TextInput>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Coordenadas'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Departamento'></TextInput>
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={{...styles.textInput, ...styles.textiptOculto}} placeholder='Coordenadas'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={{...styles.textInput, ...styles.textiptOculto}} placeholder='Departamento'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Usuario'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
                   </View>
@@ -132,6 +136,9 @@ const styles = StyleSheet.create({
     width: 140,
     height: 125,
     marginTop: 50
+  },
+  textiptOculto:{
+    display:hidden
   }
 });
 
