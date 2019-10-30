@@ -17,7 +17,7 @@ export default class ContenedorApp extends Component {
   render() {
 
     return(
-      <Agua/>
+      <LogIn/>
     );
   }
 }

@@ -64,15 +64,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   textInput: {
-    borderBottomWidth: 0.4,
-    borderColor: 'white',
-    borderRadius: 5,
-    fontSize: 18,
+    backgroundColor: 'rgba(255,255,255,0.3)',
+    borderRadius: 10,
+    fontSize: 16,
     paddingLeft: 10,
-    marginTop: 40,
+    marginTop: 30,
     color: 'white',
     width: 300,
-    height: 50,
     textAlign: 'center'
   },
   text: {

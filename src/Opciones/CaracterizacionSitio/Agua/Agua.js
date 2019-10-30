@@ -24,8 +24,8 @@ const Agua = (props) => {
                   </View>
                   <View style={styles.center}>
                     <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Volumen'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Calidad'></TextInput>
-                    <TextInput keyboardType={"defautl"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Fuente'></TextInput>
+                    <TextInput placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Calidad'></TextInput>
+                    <TextInput placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Fuente'></TextInput>
                   </View>
                 </View>
                 <View style={styles.button}>
@@ -57,15 +57,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   textInput: {
-    borderBottomWidth: 0.4,
-    borderColor: 'white',
-    borderRadius: 5,
-    fontSize: 18,
+    backgroundColor: 'rgba(255,255,255,0.3)',
+    borderRadius: 10,
+    fontSize: 16,
     paddingLeft: 10,
     marginTop: 40,
     color: 'white',
     width: 300,
-    height: 50,
     textAlign: 'left'
   },
   text: {
