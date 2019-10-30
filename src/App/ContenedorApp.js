@@ -15,6 +15,8 @@ export default class ContenedorApp extends Component {
     super(props);
     this.state = {
       vistualActual: 'LogIn',
+      valorDepto: '',
+      valorOcupacion: ''
     }
 
   }
@@ -30,8 +32,16 @@ export default class ContenedorApp extends Component {
     this.setState({
       vistualActual:'LogIn'
     });
-
   }
+
+  changeDepto = (valorDepto) => {
+    this.setState({ valorDepto: valorDepto })
+  }
+
+  changeOcupacion = (valorOcupacion) => {
+    this.setState({ valorOcupacion: valorOcupacion })
+  }
+
 
 
   render() {

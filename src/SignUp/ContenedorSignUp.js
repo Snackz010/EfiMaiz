@@ -10,19 +10,19 @@ export default class ContenedorSignUp extends Component{
     }
   }
 
+  changeDepto = (valorDepto) => {
+    this.setState({ valorDepto: valorDepto })
+  }
+
+  changeOcupacion = (valorOcupacion) => {
+    this.setState({ valorOcupacion: valorOcupacion })
+  }
+
   render(){
     const {valorDepto, valorOcupacion} = this.state
-    
-    const changeDepto = (valorDepto) => {
-      this.setState({ valorDepto: valorDepto })
-    }
-
-    const changeOcupacion = (valorOcupacion) => {
-      this.setState({ valorOcupacion: valorOcupacion })
-    }
-
     return(
-      <SignUp valorDepto={valorDepto} valorOcupacion={valorOcupacion} changeDepto={changeDepto} changeOcupacion={changeOcupacion}/>
+      <SignUp valorDepto={valorDepto} valorOcupacion={valorOcupacion} changeDepto={this.changeDepto} changeOcupacion={this.changeOcupacion}
+      />
     )
   }
 

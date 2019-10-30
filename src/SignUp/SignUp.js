@@ -10,12 +10,15 @@ import {
   Image,
   ScrollView,
   Picker,
+  Alert
 } from 'react-native';
 
+var hidde;
 const SignUp = (props) => {
 
     const {valorDepto, changeDepto, changeOcupacion, valorOcupacion} = props;
-    const hidden = "flex";
+    
+    hidde = (valorOcupacion==='Productor')?'flex':'none';
 
     return (
       <>
@@ -46,7 +49,7 @@ const SignUp = (props) => {
                         <Picker.Item label="Productor" value="Productor" />
                       </Picker>
                     </View>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Nombre de la Finca'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={{...styles.textInput,...styles.hidden}} placeholder='Nombre de la Finca'></TextInput>
                     <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Coordenadas'></TextInput>
                     <View>
                       <Picker style={styles.selectInput} selectedValue={valorDepto} onValueChange={changeDepto}>
@@ -70,10 +73,7 @@ const SignUp = (props) => {
                         <Picker.Item label="Rivas" value="Rivas" />
                       </Picker>
                     </View>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Ocupación'></TextInput>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={{...styles.textInput, ...styles.textiptOculto}} placeholder='Coordenadas'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={{...styles.textInput, ...styles.textiptOculto}} placeholder='Departamento'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Usuario'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" style={styles.textInput} placeholder='Usuario'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
                   </View>
                 </View>
@@ -178,8 +178,8 @@ const styles = StyleSheet.create({
     height: 125,
     marginTop: 50
   },
-  textiptOculto:{
-    display:hidden
+  hidden:{
+    display:hidde
   }
 });
 
