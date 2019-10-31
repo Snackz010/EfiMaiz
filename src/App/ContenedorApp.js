@@ -15,7 +15,7 @@ export default class ContenedorApp extends Component {
     super(props);
     this.state = {
       vistualActual: 'LogIn',
-      pickerSelection: 'Departamento',
+      pickerSelection: 'Ocupación',
       pickerDisplayed: false
     }
 

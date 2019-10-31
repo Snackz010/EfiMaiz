@@ -43,43 +43,37 @@ const SignUp = (props) => {
                     <Text style={styles.textSubTitle}></Text>
                   </View>
                   <View style={styles.center}>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Nombre'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Apellido'></TextInput>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Teléfono'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Correo'></TextInput>
-                    <View style={styles.button}>
-                      <TouchableHighlight onPress={togglePicker} style={[styles.buttonContainer, styles.logInButton]}>
-                        <Text style={styles.signUpText}>{pickerSelection}</Text>
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Nombre'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Apellido'></TextInput>
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Teléfono'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Correo'></TextInput>
+                    <View style={styles.button2}>
+                      <TouchableHighlight onPress={togglePicker} style={[styles.buttonContainer2, styles.ocupationButton]}>
+                        <Text style={styles.buttonText}>{pickerSelection}</Text>
                       </TouchableHighlight>
                     </View>
                     <Modal visible={pickerDisplayed} animationType={"slide"} transparent={true}>
-                      <View style={{ margin: 20, padding: 20,
-                        backgroundColor: '#efefef',
-                        bottom: 20,
-                        left: 20,
-                        right: 20,
-                        alignItems: 'center',
-                        position: 'absolute' }}>
-                        <Text>Elija una ocupación</Text>
+                      <View style={styles.modal}>
+                        <Text style={styles.textOpacity}>Elija una ocupación</Text>
                         { pickerValues.map((value, index) => {
-                          return <TouchableHighlight key={index} onPress={() => setPickerValue(value.value)} style={{ paddingTop: 4, paddingBottom: 4 }}>
-                              <Text>{ value.title }</Text>
-                            </TouchableHighlight>
+                          return <TouchableHighlight key={index} onPress={() => setPickerValue(value.value)} style={styles.itemText}>
+                                    <Text>{ value.title }</Text>
+                                 </TouchableHighlight>
                         })}
-                        <TouchableHighlight onPress={togglePicker} style={{ paddingTop: 4, paddingBottom: 4 }}>
-                          <Text style={{ color: '#999' }}>Cancelar</Text>
+                        <TouchableHighlight onPress={togglePicker} style={styles.buttonCancel}>
+                          <Text style={styles.textOpacity}>Cancelar</Text>
                         </TouchableHighlight>
                       </View>
                     </Modal>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={{...styles.textInput, display:displayMode}} placeholder='Nombre de la Finca'></TextInput>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={{...styles.textInput, display:displayMode}} placeholder='Coordenadas'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" style={styles.textInput} placeholder='Usuario'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={{...styles.textInput, display:displayMode}} placeholder='Nombre de la Finca'></TextInput>
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={{...styles.textInput, display:displayMode}} placeholder='Coordenadas'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" style={styles.textInput} placeholder='Usuario'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
                   </View>
                 </View>
                 <View style={styles.button}>
-                  <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}>
-                    <Text style={styles.signUpText}>Registrarse</Text>
+                  <TouchableHighlight style={[styles.buttonContainer, styles.signUpButton]}>
+                    <Text style={styles.buttonText}>Registrarse</Text>
                   </TouchableHighlight>
                 </View>
               </ScrollView>
@@ -99,10 +93,21 @@ const styles = StyleSheet.create({
     width:300,
     borderRadius:20,
   },
-  logInButton: {
+  buttonContainer2: {
+    height:50,
+    flexDirection: 'row',
+    paddingLeft: 10,
+    paddingTop: 10,
+    width:300,
+    borderRadius:10,
+  },
+  signUpButton: {
     backgroundColor: 'rgba(70, 160, 90, .9)',
   },
-  signUpText: {
+  ocupationButton: {
+    backgroundColor: 'rgba(255, 255, 255, .3)',
+  },
+  buttonText: {
     color: 'white',
     fontSize: 16,
   },
@@ -134,6 +139,13 @@ const styles = StyleSheet.create({
     color: '#9ed4a3',
     textAlign: 'center',
   },
+  textOpacity: {
+    color: '#999' 
+  },
+  itemText: { 
+    paddingTop: 4,
+    paddingBottom: 4 
+  },
   textContainer: {
     fontSize: 12, 
     color: '#eee',
@@ -157,6 +169,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  button2: {
+    marginTop: 30,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonCancel: {
+    paddingTop: 4, 
+    paddingBottom: 4 
+  },
   title: {
     fontSize: 24,
     color: 'white',
@@ -177,6 +199,16 @@ const styles = StyleSheet.create({
     width: 140,
     height: 125,
     marginTop: 50
+  },
+  modal: {
+    margin: 20, padding: 20,
+    backgroundColor: '#efefef',
+    bottom: 20,
+    left: 20,
+    right: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+    position: 'absolute'
   }
 });
 

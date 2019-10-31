@@ -33,8 +33,8 @@ const LogIn = (props) => {
                     <Text style={styles.textSubTitle}></Text>
                   </View>
                   <View style={styles.center}>
-                    <TextInput placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Usuario'></TextInput>
-                    <TextInput placeholderTextColor="#c3c3c3" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
+                    <TextInput placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Usuario'></TextInput>
+                    <TextInput placeholderTextColor="white" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
                   </View>
                 </View>
                 <View style={styles.button}>
