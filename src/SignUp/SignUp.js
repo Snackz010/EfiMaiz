@@ -24,6 +24,8 @@ const SignUp = (props) => {
           togglePicker,
           pickerSelection} = props;
 
+    const displayMode = (pickerSelection === 'Productor')?'flex':'none';
+    
     return (
       <>
         <StatusBar barStyle="light-content" backgroundColor='#000000'/>
@@ -69,8 +71,8 @@ const SignUp = (props) => {
                         </TouchableHighlight>
                       </View>
                     </Modal>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={{...styles.textInput,...styles.hidden}} placeholder='Nombre de la Finca'></TextInput>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Coordenadas'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={{...styles.textInput, display:displayMode}} placeholder='Nombre de la Finca'></TextInput>
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={{...styles.textInput, display:displayMode}} placeholder='Coordenadas'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" style={styles.textInput} placeholder='Usuario'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
                   </View>
@@ -175,9 +177,6 @@ const styles = StyleSheet.create({
     width: 140,
     height: 125,
     marginTop: 50
-  },
-  hidden:{
-    display:hidde
   }
 });
 
