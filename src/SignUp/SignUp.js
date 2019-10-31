@@ -14,7 +14,7 @@ import {
   Alert
 } from 'react-native';
 
-var hidde;
+
 const SignUp = (props) => {
 
     const {
