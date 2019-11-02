@@ -14,7 +14,7 @@ import {
   Alert
 } from 'react-native';
 
-
+var pickerSelectionValue;
 const SignUp = (props) => {
 
     const {
@@ -24,7 +24,7 @@ const SignUp = (props) => {
           togglePicker,
           pickerSelection} = props;
 
-    
+    pickerSelectionValue = pickerSelection;
     return (
       <>
         <StatusBar barStyle="light-content" backgroundColor='#000000'/>
@@ -65,7 +65,7 @@ const SignUp = (props) => {
                       </View>
                     </Modal>
                     {
-                      elementosOcultos(pickerSelection)
+                      elementosOcultos()
                     }
                     <TextInput keyboardType={"default"} placeholderTextColor="white" style={styles.textInput} placeholder='Usuario'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="white" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
@@ -84,11 +84,9 @@ const SignUp = (props) => {
     );
 };
 
-elementosOcultos = (props) => {
+elementosOcultos = () => {
 
-  const {pickerSelection}=props;
-
-  if(pickerSelection === 'Productor'){
+  if(pickerSelectionValue === 'Productor'){
     return(
       <>
       <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Nombre de la Finca'></TextInput>
