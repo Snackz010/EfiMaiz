@@ -24,7 +24,6 @@ const SignUp = (props) => {
           togglePicker,
           pickerSelection} = props;
 
-    const displayMode = (pickerSelection === 'Productor')?'flex':'none';
     
     return (
       <>
@@ -65,8 +64,9 @@ const SignUp = (props) => {
                         </TouchableHighlight>
                       </View>
                     </Modal>
-                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={{...styles.textInput, display:displayMode}} placeholder='Nombre de la Finca'></TextInput>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={{...styles.textInput, display:displayMode}} placeholder='Coordenadas'></TextInput>
+                    {
+                      elementosOcultos(pickerSelection)
+                    }
                     <TextInput keyboardType={"default"} placeholderTextColor="white" style={styles.textInput} placeholder='Usuario'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="white" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
                   </View>
@@ -83,6 +83,20 @@ const SignUp = (props) => {
       </>
     );
 };
+
+elementosOcultos = (props) => {
+
+  const {pickerSelection}=props;
+
+  if(pickerSelection === 'Productor'){
+    return(
+      <>
+      <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Nombre de la Finca'></TextInput>
+      <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Coordenadas'></TextInput> 
+      </>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   buttonContainer: {
@@ -213,3 +227,5 @@ const styles = StyleSheet.create({
 });
 
 export default SignUp;
+
+
