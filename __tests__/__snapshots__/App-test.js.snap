@@ -1,0 +1,2425 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componente Agua de caracterización de sitio se renderiza correctamente 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, .7)",
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <RCTScrollView>
+      <View>
+        <View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 24,
+                  "marginTop": 10,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Agua
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#eee",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Ingrese los datos del agua del sitio.
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "rgba(255, 255, 255, .4)",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              keyboardType="numeric"
+              placeholder="Volumen"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              placeholder="Calidad"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              placeholder="Fuente"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "justifyContent": "center",
+              "marginBottom": 50,
+              "marginTop": 50,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={false}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 20,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "justifyContent": "center",
+                  "width": 300,
+                },
+                Object {
+                  "backgroundColor": "rgba(70, 160, 90, .9)",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 16,
+                }
+              }
+            >
+              Registrar
+            </Text>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`Componente CaracterizacionSitio se renderiza correctamente 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "id": 1,
+          "imagen": "1",
+          "subtitulo": "Evaluación del clima del sitio.",
+          "titulo": "Clima",
+        },
+        Object {
+          "id": 2,
+          "imagen": "2",
+          "subtitulo": "Evaluación del suelo del sitio.",
+          "titulo": "Suelo",
+        },
+        Object {
+          "id": 3,
+          "imagen": "3",
+          "subtitulo": "Evaluación del agua del sitio.",
+          "titulo": "Agua",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "lightblue",
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "lightblue",
+                "borderColor": "white",
+                "borderRadius": 5,
+                "borderWidth": 2,
+                "marginBottom": 2,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 2,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "1",
+                }
+              }
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 150,
+                  "width": null,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "flex": 1,
+                  "left": 0,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 12.5,
+                  "position": "absolute",
+                  "right": 0,
+                  "zIndex": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 22,
+                      "fontWeight": "bold",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  Clima
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 13,
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  Evaluación del clima del sitio.
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "lightblue",
+                "borderColor": "white",
+                "borderRadius": 5,
+                "borderWidth": 2,
+                "marginBottom": 2,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 2,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "2",
+                }
+              }
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 150,
+                  "width": null,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "flex": 1,
+                  "left": 0,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 12.5,
+                  "position": "absolute",
+                  "right": 0,
+                  "zIndex": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 22,
+                      "fontWeight": "bold",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  Suelo
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 13,
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  Evaluación del suelo del sitio.
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "lightblue",
+                "borderColor": "white",
+                "borderRadius": 5,
+                "borderWidth": 2,
+                "marginBottom": 2,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 2,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "3",
+                }
+              }
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 150,
+                  "width": null,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "flex": 1,
+                  "left": 0,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 12.5,
+                  "position": "absolute",
+                  "right": 0,
+                  "zIndex": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 22,
+                      "fontWeight": "bold",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  Agua
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 13,
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  Evaluación del agua del sitio.
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Componente Clima de caracterización de sitio se renderiza correctamente 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, .7)",
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <RCTScrollView>
+      <View>
+        <View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 24,
+                  "marginTop": 10,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Clima
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#eee",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Ingrese los datos del clima del sitio.
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "rgba(255, 255, 255, .4)",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              keyboardType="numeric"
+              placeholder="Temperatura"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              keyboardType="numeric"
+              placeholder="Precipitación"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              keyboardType="numeric"
+              placeholder="Humedad"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              keyboardType="numeric"
+              placeholder="Velocidad del viento"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              keyboardType="numeric"
+              placeholder="Altitud"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              keyboardType="numeric"
+              placeholder="Nivel de Radiación"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "justifyContent": "center",
+              "marginBottom": 50,
+              "marginTop": 50,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={false}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 20,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "justifyContent": "center",
+                  "width": 300,
+                },
+                Object {
+                  "backgroundColor": "rgba(70, 160, 90, .9)",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 16,
+                }
+              }
+            >
+              Registrar
+            </Text>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`Componente ContenedorApp se renderiza correctamente 1`] = `
+<View
+  accessibilityIgnoresInvertColors={true}
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/assets/fondo3.jpg",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        Object {
+          "height": "100%",
+          "width": "100%",
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, .7)",
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    >
+      <RCTScrollView>
+        <View>
+          <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../src/assets/logo.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 125,
+                    "marginTop": 50,
+                    "width": 140,
+                  }
+                }
+              />
+            </View>
+            <View>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 32,
+                    "marginTop": 10,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Bienvenido
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#eee",
+                    "fontSize": 16,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Ingrese sus datos para inciar sesión.
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "rgba(255, 255, 255, .4)",
+                    "fontSize": 16,
+                    "textAlign": "center",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <TextInput
+                allowFontScaling={true}
+                autoCapitalize="words"
+                placeholder="Usuario"
+                placeholderTextColor="white"
+                rejectResponderTermination={true}
+                style={
+                  Object {
+                    "backgroundColor": "rgba(255,255,255,0.3)",
+                    "borderRadius": 10,
+                    "color": "white",
+                    "fontSize": 16,
+                    "marginTop": 30,
+                    "paddingLeft": 10,
+                    "textAlign": "center",
+                    "width": 300,
+                  }
+                }
+                underlineColorAndroid="transparent"
+              />
+              <TextInput
+                allowFontScaling={true}
+                placeholder="Contraseña"
+                placeholderTextColor="white"
+                rejectResponderTermination={true}
+                secureTextEntry={true}
+                style={
+                  Object {
+                    "backgroundColor": "rgba(255,255,255,0.3)",
+                    "borderRadius": 10,
+                    "color": "white",
+                    "fontSize": 16,
+                    "marginTop": 30,
+                    "paddingLeft": 10,
+                    "textAlign": "center",
+                    "width": 300,
+                  }
+                }
+                underlineColorAndroid="transparent"
+              />
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "center",
+                "marginTop": 50,
+              }
+            }
+          >
+            <View
+              accessible={true}
+              focusable={false}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 20,
+                    "flexDirection": "row",
+                    "height": 50,
+                    "justifyContent": "center",
+                    "width": 300,
+                  },
+                  Object {
+                    "backgroundColor": "rgba(70, 160, 90, .9)",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 16,
+                  }
+                }
+              >
+                Ingresar
+              </Text>
+            </View>
+          </View>
+          <Text
+            style={
+              Object {
+                "color": "#eee",
+                "fontSize": 12,
+                "marginBottom": 20,
+                "marginTop": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            Ingresar con 
+            <Text
+              style={
+                Object {
+                  "color": "#9ed4a3",
+                  "fontSize": 12,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Google
+            </Text>
+               |   
+            <Text
+              onPress={[Function]}
+              style={
+                Object {
+                  "color": "#9ed4a3",
+                  "fontSize": 12,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Registrarse
+            </Text>
+          </Text>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Componente LogIn se renderiza correctamente 1`] = `
+<View
+  accessibilityIgnoresInvertColors={true}
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/assets/fondo3.jpg",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        Object {
+          "height": "100%",
+          "width": "100%",
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, .7)",
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    >
+      <RCTScrollView>
+        <View>
+          <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../src/assets/logo.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 125,
+                    "marginTop": 50,
+                    "width": 140,
+                  }
+                }
+              />
+            </View>
+            <View>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 32,
+                    "marginTop": 10,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Bienvenido
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#eee",
+                    "fontSize": 16,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Ingrese sus datos para inciar sesión.
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "rgba(255, 255, 255, .4)",
+                    "fontSize": 16,
+                    "textAlign": "center",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <TextInput
+                allowFontScaling={true}
+                autoCapitalize="words"
+                placeholder="Usuario"
+                placeholderTextColor="white"
+                rejectResponderTermination={true}
+                style={
+                  Object {
+                    "backgroundColor": "rgba(255,255,255,0.3)",
+                    "borderRadius": 10,
+                    "color": "white",
+                    "fontSize": 16,
+                    "marginTop": 30,
+                    "paddingLeft": 10,
+                    "textAlign": "center",
+                    "width": 300,
+                  }
+                }
+                underlineColorAndroid="transparent"
+              />
+              <TextInput
+                allowFontScaling={true}
+                placeholder="Contraseña"
+                placeholderTextColor="white"
+                rejectResponderTermination={true}
+                secureTextEntry={true}
+                style={
+                  Object {
+                    "backgroundColor": "rgba(255,255,255,0.3)",
+                    "borderRadius": 10,
+                    "color": "white",
+                    "fontSize": 16,
+                    "marginTop": 30,
+                    "paddingLeft": 10,
+                    "textAlign": "center",
+                    "width": 300,
+                  }
+                }
+                underlineColorAndroid="transparent"
+              />
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "center",
+                "marginTop": 50,
+              }
+            }
+          >
+            <View
+              accessible={true}
+              focusable={false}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 20,
+                    "flexDirection": "row",
+                    "height": 50,
+                    "justifyContent": "center",
+                    "width": 300,
+                  },
+                  Object {
+                    "backgroundColor": "rgba(70, 160, 90, .9)",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 16,
+                  }
+                }
+              >
+                Ingresar
+              </Text>
+            </View>
+          </View>
+          <Text
+            style={
+              Object {
+                "color": "#eee",
+                "fontSize": 12,
+                "marginBottom": 20,
+                "marginTop": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            Ingresar con 
+            <Text
+              style={
+                Object {
+                  "color": "#9ed4a3",
+                  "fontSize": 12,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Google
+            </Text>
+               |   
+            <Text
+              style={
+                Object {
+                  "color": "#9ed4a3",
+                  "fontSize": 12,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Registrarse
+            </Text>
+          </Text>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Componente SignUp se renderiza correctamente 1`] = `
+<View
+  accessibilityIgnoresInvertColors={true}
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/assets/fondo3.jpg",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        Object {
+          "height": "100%",
+          "width": "100%",
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, .7)",
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    >
+      <RCTScrollView>
+        <View>
+          <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../src/assets/logo.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 125,
+                    "marginTop": 50,
+                    "width": 140,
+                  }
+                }
+              />
+            </View>
+            <View>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 32,
+                    "marginTop": 10,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Bienvenido
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#eee",
+                    "fontSize": 16,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Ingrese sus datos para inciar sesión.
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "rgba(255, 255, 255, .4)",
+                    "fontSize": 16,
+                    "textAlign": "center",
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <TextInput
+                allowFontScaling={true}
+                autoCapitalize="words"
+                placeholder="Usuario"
+                placeholderTextColor="white"
+                rejectResponderTermination={true}
+                style={
+                  Object {
+                    "backgroundColor": "rgba(255,255,255,0.3)",
+                    "borderRadius": 10,
+                    "color": "white",
+                    "fontSize": 16,
+                    "marginTop": 30,
+                    "paddingLeft": 10,
+                    "textAlign": "center",
+                    "width": 300,
+                  }
+                }
+                underlineColorAndroid="transparent"
+              />
+              <TextInput
+                allowFontScaling={true}
+                placeholder="Contraseña"
+                placeholderTextColor="white"
+                rejectResponderTermination={true}
+                secureTextEntry={true}
+                style={
+                  Object {
+                    "backgroundColor": "rgba(255,255,255,0.3)",
+                    "borderRadius": 10,
+                    "color": "white",
+                    "fontSize": 16,
+                    "marginTop": 30,
+                    "paddingLeft": 10,
+                    "textAlign": "center",
+                    "width": 300,
+                  }
+                }
+                underlineColorAndroid="transparent"
+              />
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "center",
+                "marginTop": 50,
+              }
+            }
+          >
+            <View
+              accessible={true}
+              focusable={false}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 20,
+                    "flexDirection": "row",
+                    "height": 50,
+                    "justifyContent": "center",
+                    "width": 300,
+                  },
+                  Object {
+                    "backgroundColor": "rgba(70, 160, 90, .9)",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 16,
+                  }
+                }
+              >
+                Ingresar
+              </Text>
+            </View>
+          </View>
+          <Text
+            style={
+              Object {
+                "color": "#eee",
+                "fontSize": 12,
+                "marginBottom": 20,
+                "marginTop": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            Ingresar con 
+            <Text
+              style={
+                Object {
+                  "color": "#9ed4a3",
+                  "fontSize": 12,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Google
+            </Text>
+               |   
+            <Text
+              style={
+                Object {
+                  "color": "#9ed4a3",
+                  "fontSize": 12,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Registrarse
+            </Text>
+          </Text>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Componente Suelo de caracterización de sitio se renderiza correctamente 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, .7)",
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <RCTScrollView>
+      <View>
+        <View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 24,
+                  "marginTop": 10,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Suelo
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#eee",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Ingrese los datos del suelo del sitio.
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "rgba(255, 255, 255, .4)",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                }
+              }
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              keyboardType="default"
+              placeholder="Tipo de Suelo"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              keyboardType="default"
+              placeholder="Color"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              keyboardType="numeric"
+              placeholder="PH"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              keyboardType="default"
+              placeholder="Materia Organica"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              keyboardType="default"
+              placeholder="Topografía"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCapitalize="words"
+              keyboardType="default"
+              placeholder="Textura"
+              placeholderTextColor="#c3c3c3"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255,255,255,0.3)",
+                  "borderRadius": 10,
+                  "color": "white",
+                  "fontSize": 16,
+                  "marginTop": 40,
+                  "paddingLeft": 10,
+                  "textAlign": "left",
+                  "width": 300,
+                }
+              }
+              underlineColorAndroid="transparent"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "justifyContent": "center",
+              "marginBottom": 50,
+              "marginTop": 50,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={false}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 20,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "justifyContent": "center",
+                  "width": 300,
+                },
+                Object {
+                  "backgroundColor": "rgba(70, 160, 90, .9)",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 16,
+                }
+              }
+            >
+              Registrar
+            </Text>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`Componente opciones se renderiza correctamente 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "id": 1,
+          "imagen": "1",
+          "subtitulo": "Evaluación del sitio de cultivo.",
+          "titulo": "Caracterización del Sitio",
+        },
+        Object {
+          "id": 2,
+          "imagen": "2",
+          "subtitulo": "Seguimiento y control del cultivo.",
+          "titulo": "Control Agronómico del Cultivo",
+        },
+        Object {
+          "id": 3,
+          "imagen": "3",
+          "subtitulo": "Cálculo del rendimiento cultivo.",
+          "titulo": "Producción",
+        },
+        Object {
+          "id": 4,
+          "imagen": "4",
+          "subtitulo": "Cálculo de ingresos y reportes de producción del cultivo.",
+          "titulo": "Economía",
+        },
+        Object {
+          "id": 5,
+          "imagen": "5",
+          "subtitulo": "Guías informativas del cultivo.",
+          "titulo": "Guías",
+        },
+        Object {
+          "id": 6,
+          "imagen": "6",
+          "subtitulo": "Otras opciones.",
+          "titulo": "Otros",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "lightblue",
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "lightblue",
+                "borderColor": "white",
+                "borderRadius": 5,
+                "borderWidth": 2,
+                "marginBottom": 2,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 2,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "1",
+                }
+              }
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 150,
+                  "width": null,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "flex": 1,
+                  "left": 0,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 12.5,
+                  "position": "absolute",
+                  "right": 0,
+                  "zIndex": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 22,
+                      "fontWeight": "bold",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  Caracterización del Sitio
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 13,
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  Evaluación del sitio de cultivo.
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "lightblue",
+                "borderColor": "white",
+                "borderRadius": 5,
+                "borderWidth": 2,
+                "marginBottom": 2,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 2,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "2",
+                }
+              }
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 150,
+                  "width": null,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "flex": 1,
+                  "left": 0,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 12.5,
+                  "position": "absolute",
+                  "right": 0,
+                  "zIndex": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 22,
+                      "fontWeight": "bold",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  Control Agronómico del Cultivo
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 13,
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  Seguimiento y control del cultivo.
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "lightblue",
+                "borderColor": "white",
+                "borderRadius": 5,
+                "borderWidth": 2,
+                "marginBottom": 2,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 2,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "3",
+                }
+              }
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 150,
+                  "width": null,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "flex": 1,
+                  "left": 0,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 12.5,
+                  "position": "absolute",
+                  "right": 0,
+                  "zIndex": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 22,
+                      "fontWeight": "bold",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  Producción
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 13,
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  Cálculo del rendimiento cultivo.
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "lightblue",
+                "borderColor": "white",
+                "borderRadius": 5,
+                "borderWidth": 2,
+                "marginBottom": 2,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 2,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "4",
+                }
+              }
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 150,
+                  "width": null,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "flex": 1,
+                  "left": 0,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 12.5,
+                  "position": "absolute",
+                  "right": 0,
+                  "zIndex": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 22,
+                      "fontWeight": "bold",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  Economía
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 13,
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  Cálculo de ingresos y reportes de producción del cultivo.
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "lightblue",
+                "borderColor": "white",
+                "borderRadius": 5,
+                "borderWidth": 2,
+                "marginBottom": 2,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 2,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "5",
+                }
+              }
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 150,
+                  "width": null,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "flex": 1,
+                  "left": 0,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 12.5,
+                  "position": "absolute",
+                  "right": 0,
+                  "zIndex": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 22,
+                      "fontWeight": "bold",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  Guías
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 13,
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  Guías informativas del cultivo.
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "lightblue",
+                "borderColor": "white",
+                "borderRadius": 5,
+                "borderWidth": 2,
+                "marginBottom": 2,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 2,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "6",
+                }
+              }
+              style={
+                Object {
+                  "flex": 1,
+                  "height": 150,
+                  "width": null,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "flex": 1,
+                  "left": 0,
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 12.5,
+                  "position": "absolute",
+                  "right": 0,
+                  "zIndex": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 22,
+                      "fontWeight": "bold",
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  Otros
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 13,
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  Otras opciones.
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
