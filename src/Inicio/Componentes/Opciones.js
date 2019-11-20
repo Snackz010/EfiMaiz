@@ -5,55 +5,100 @@ import {
   View,
   TouchableOpacity,
   Image,
-  FlatList,
+  ScrollView
 } from 'react-native';
-
-const opciones= [
-  {id:1, titulo: "Caracterización del Sitio", subtitulo:"Evaluación del sitio de cultivo.", imagen:"1"},
-  {id:2, titulo: "Control Agronómico del Cultivo", subtitulo:"Seguimiento y control del cultivo.", imagen:"2"} ,
-  {id:3, titulo: "Producción", subtitulo:"Cálculo del rendimiento cultivo.", imagen:"3"}, 
-  {id:4, titulo: "Economía", subtitulo:"Cálculo de ingresos y reportes de producción del cultivo.", imagen:"4"}, 
-  {id:5, titulo: "Guías", subtitulo:"Guías informativas del cultivo.", imagen:"5"}, 
-  {id:6, titulo: "Otros", subtitulo:"Otras opciones.", imagen:"6"}, 
-];
 
 const Opciones = (props) => {
 
     return (
-      <View style={styles.container}>
-        <FlatList style={styles.list}
-          data={opciones}
-          keyExtractor= {(item) => {
-            return item.id;
-          }}
-          renderItem={(post) => {
-            const item = post.item;
-            return (
-              <TouchableOpacity>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={{uri:item.imagen}}/>
-                  <View style={styles.cardContent}>
-                    <View>
-                      <Text style={styles.title}>{item.titulo}</Text>
-                      <Text style={styles.subTitle}>{item.subtitulo}</Text>
-                    </View>
+      <>
+        <ScrollView>
+          <View>
+            <TouchableOpacity>
+              <View style={styles.card}>
+                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
+                <View style={styles.cardContent}>
+                  <View>
+                    <Text style={styles.title}>Caracterización del Sitio</Text>
+                    <Text style={styles.subTitle}>Evaluación del sitio de cultivo.</Text>
                   </View>
                 </View>
-              </TouchableOpacity>
-            )
-          }}/>
-      </View>
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity>
+              <View style={styles.card}>
+                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
+                <View style={styles.cardContent}>
+                  <View>
+                    <Text style={styles.title}>Control Agronómico del Cultivo</Text>
+                    <Text style={styles.subTitle}>Seguimiento y control del cultivo.</Text>
+                  </View>
+                </View>
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity>
+              <View style={styles.card}>
+                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
+                <View style={styles.cardContent}>
+                  <View>
+                    <Text style={styles.title}>Producción.</Text>
+                    <Text style={styles.subTitle}>Cálculo del rendimiento cultivo.</Text>
+                  </View>
+                </View>
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity>
+              <View style={styles.card}>
+                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
+                <View style={styles.cardContent}>
+                  <View>
+                    <Text style={styles.title}>Economía</Text>
+                    <Text style={styles.subTitle}>Cálculo de ingresos y reportes de producción del cultivo.</Text>
+                  </View>
+                </View>
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity>
+              <View style={styles.card}>
+                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
+                <View style={styles.cardContent}>
+                  <View>
+                    <Text style={styles.title}>Guías</Text>
+                    <Text style={styles.subTitle}>Guías informativas del cultivo.</Text>
+                  </View>
+                </View>
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity>
+              <View style={styles.card}>
+                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
+                <View style={styles.cardContent}>
+                  <View>
+                    <Text style={styles.title}>Otros</Text>
+                    <Text style={styles.subTitle}>Otras opciones.</Text>
+                  </View>
+                </View>
+              </View>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+      </>
     );
   }
 
 
 const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-  },
-  list: {
-    backgroundColor:"lightblue",
-  },
+
   card:{
     marginRight: 4,
     marginLeft: 4,
@@ -63,6 +108,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "white",
     backgroundColor: "lightblue",
+    height: 150,
   },
   cardContent: {
     paddingVertical: 12.5,
@@ -72,7 +118,7 @@ const styles = StyleSheet.create({
     zIndex: 100,
     left: 0,
     right: 0,
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   cardImage:{
     flex: 1,

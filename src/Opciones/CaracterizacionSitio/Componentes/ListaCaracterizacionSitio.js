@@ -5,52 +5,60 @@ import {
   View,
   TouchableOpacity,
   Image,
-  FlatList,
+  ScrollView
 } from 'react-native';
-
-const opciones= [
-  {id:1, titulo: "Clima", subtitulo:"Evaluación del clima del sitio.", imagen:"1"},
-  {id:2, titulo: "Suelo", subtitulo:"Evaluación del suelo del sitio.", imagen:"2"} ,
-  {id:3, titulo: "Agua", subtitulo:"Evaluación del agua del sitio.", imagen:"3"},  
-];
 
 const CaracterizacionSitio = (props) => {
 
     return (
-      <View style={styles.container}>
-        <FlatList style={styles.list}
-          data={opciones}
-          keyExtractor= {(item) => {
-            return item.id;
-          }}
-          renderItem={(post) => {
-            const item = post.item;
-            return (
-              <TouchableOpacity>
-                <View style={styles.card}>
-                  <Image style={styles.cardImage} source={{uri:item.imagen}}/>
-                  <View style={styles.cardContent}>
-                    <View>
-                      <Text style={styles.title}>{item.titulo}</Text>
-                      <Text style={styles.subTitle}>{item.subtitulo}</Text>
-                    </View>
+      <>
+        <ScrollView>
+          <View>
+            <TouchableOpacity>
+              <View style={styles.card}>
+                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
+                <View style={styles.cardContent}>
+                  <View>
+                    <Text style={styles.title}>Clima</Text>
+                    <Text style={styles.subTitle}>Evaluación del clima del sitio.</Text>
                   </View>
                 </View>
-              </TouchableOpacity>
-            )
-          }}/>
-      </View>
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity>
+              <View style={styles.card}>
+                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
+                <View style={styles.cardContent}>
+                  <View>
+                    <Text style={styles.title}>Suelo</Text>
+                    <Text style={styles.subTitle}>Evaluación del suelo del sitio.</Text>
+                  </View>
+                </View>
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity>
+              <View style={styles.card}>
+                    {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
+                    <View style={styles.cardContent}>
+                     <View>
+                       <Text style={styles.title}>Agua</Text>
+                      <Text style={styles.subTitle}>Evaluación del agua del sitio.</Text>
+                    </View>
+                  </View>
+              </View>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+      </>
     );
   }
 
 
 const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-  },
-  list: {
-    backgroundColor:"lightblue",
-  },
   card:{
     marginRight: 4,
     marginLeft: 4,
@@ -60,6 +68,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "white",
     backgroundColor: "lightblue",
+    height: 150,
   },
   cardContent: {
     paddingVertical: 12.5,
