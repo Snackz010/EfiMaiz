@@ -14,18 +14,18 @@ import {
 const LogIn = (props) => {
 
 
-    const { cambiarPantallas } = props;
+    const { cambiarPantallas,irdrawer } = props;
 
     return (
       <>
         <StatusBar barStyle="light-content" backgroundColor='#000000'/>
-        <ImageBackground source={require('../assets/fondo3.jpg')} style={styles.image}>
+        <ImageBackground source={require('../../assets/fondo3.jpg')} style={styles.image}>
           <View style={styles.center}>
             <View style={styles.body}>
               <ScrollView>
                 <View>
                   <View style={styles.center}>
-                    <Image style={styles.logo} source={require('../assets/logo.png')}/>
+                    <Image style={styles.logo} source={require('../../assets/logo.png')}/>
                   </View>
                   <View >
                     <Text style={styles.title}>Bienvenido</Text>
@@ -38,7 +38,7 @@ const LogIn = (props) => {
                   </View>
                 </View>
                 <View style={styles.button}>
-                  <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}>
+                  <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]} onPress={irdrawer} >
                     <Text style={styles.signUpText}>Ingresar</Text>
                   </TouchableHighlight>
                 </View>

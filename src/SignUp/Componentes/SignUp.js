@@ -28,13 +28,13 @@ const SignUp = (props) => {
     return (
       <>
         <StatusBar barStyle="light-content" backgroundColor='#000000'/>
-        <ImageBackground source={require('../assets/fondo3.jpg')} style={styles.image}>
+        <ImageBackground source={require('../../assets/fondo3.jpg')} style={styles.image}>
           <View style={styles.center}>
             <View style={styles.body}>
               <ScrollView>
                 <View>
                   <View style={styles.center}>
-                    <Image style={styles.logo} source={require('../assets/logo.png')}/>
+                    <Image style={styles.logo} source={require('../../assets/logo.png')}/>
                   </View>
                   <View >
                     <Text style={styles.title}>Regitro</Text>
