@@ -10,11 +10,13 @@ import {
 
 const CaracterizacionSitio = (props) => {
 
+  const { navigation } = props;
+
     return (
       <>
         <ScrollView>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>{navigation.navigate('Clima')}}>
               <View style={styles.card}>
                 {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
                 <View style={styles.cardContent}>
@@ -27,7 +29,7 @@ const CaracterizacionSitio = (props) => {
             </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>{navigation.navigate('Suelo')}}>
               <View style={styles.card}>
                 {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
                 <View style={styles.cardContent}>
@@ -40,7 +42,7 @@ const CaracterizacionSitio = (props) => {
             </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>{navigation.navigate('Agua')}}>
               <View style={styles.card}>
                     {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
                     <View style={styles.cardContent}>

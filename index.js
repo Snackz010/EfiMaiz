@@ -4,6 +4,8 @@
 
 import {AppRegistry} from 'react-native';
 import {name as appName} from './app.json';
-import AppStack from './src/AppStack.js';
+import AppStack from './src/AppStack/AppStack.js';
 
-AppRegistry.registerComponent(appName, () => AppStack);
+import ContenedorApp from './src/ContenedorApp.js'
+
+AppRegistry.registerComponent(appName, () => ContenedorApp);

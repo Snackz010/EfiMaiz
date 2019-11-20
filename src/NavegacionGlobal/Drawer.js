@@ -1,8 +1,9 @@
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 
-import Opciones from '../Opciones/CaracterizacionSitio/Componentes/ListaCaracterizacionSitio';
+import Opciones from '../Inicio/Componentes/Opciones.js';
 import ListaCaracterizacion from '../Opciones/CaracterizacionSitio/Componentes/ListaCaracterizacionSitio';
+import StackOpciones from '../Opciones/CaracterizacionSitio/StackOpciones/StackOpciones.js'
 
 const Drawer = createDrawerNavigator({
     Inicio:{
@@ -12,7 +13,7 @@ const Drawer = createDrawerNavigator({
         }
     },
     Caracterizacion:{
-        screen: ListaCaracterizacion,
+        screen: StackOpciones,
         navigationOptions:{
             drawerLabel:'Caracterización del Sitio'
         }
