@@ -11,88 +11,88 @@ import {
 const Opciones = (props) => {
 
     return (
-      <>
-        <ScrollView>
-          <View>
-            <TouchableOpacity>
-              <View style={styles.card}>
-                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
-                <View style={styles.cardContent}>
-                  <View>
-                    <Text style={styles.title}>Caracterización del Sitio</Text>
-                    <Text style={styles.subTitle}>Evaluación del sitio de cultivo.</Text>
+      <ScrollView>
+        <View style={styles.margin}>
+            <View>
+              <TouchableOpacity>
+                <View style={styles.card}>
+                  <Image style={styles.cardImage} source={require('../../assets/sitio.jpg')}/>
+                  <View style={{...styles.cardContent, ...styles.opacity}}>
+                    <View>
+                      <Text style={styles.title}>Caracterización del Sitio</Text>
+                      <Text style={styles.subTitle}>Evaluación del sitio de cultivo.</Text>
+                    </View>
                   </View>
                 </View>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity>
-              <View style={styles.card}>
-                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
-                <View style={styles.cardContent}>
-                  <View>
-                    <Text style={styles.title}>Control Agronómico del Cultivo</Text>
-                    <Text style={styles.subTitle}>Seguimiento y control del cultivo.</Text>
+              </TouchableOpacity>
+            </View>
+            <View>
+              <TouchableOpacity>
+                <View style={styles.card}>
+                  <Image style={styles.cardImage} source={require('../../assets/control.jpg')}/>
+                  <View style={{...styles.cardContent, ...styles.opacity}}>
+                    <View>
+                      <Text style={styles.title}>Control Agronómico del Cultivo</Text>
+                      <Text style={styles.subTitle}>Seguimiento y control del cultivo.</Text>
+                    </View>
                   </View>
                 </View>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity>
-              <View style={styles.card}>
-                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
-                <View style={styles.cardContent}>
-                  <View>
-                    <Text style={styles.title}>Producción.</Text>
-                    <Text style={styles.subTitle}>Cálculo del rendimiento cultivo.</Text>
+              </TouchableOpacity>
+            </View>
+            <View>
+              <TouchableOpacity>
+                <View style={styles.card}>
+                  <Image style={styles.cardImage} source={require('../../assets/produccion.jpg')}/>
+                  <View style={{...styles.cardContent, ...styles.opacity}}>
+                    <View>
+                      <Text style={styles.title}>Producción.</Text>
+                      <Text style={styles.subTitle}>Cálculo del rendimiento cultivo.</Text>
+                    </View>
                   </View>
                 </View>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity>
-              <View style={styles.card}>
-                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
-                <View style={styles.cardContent}>
-                  <View>
-                    <Text style={styles.title}>Economía</Text>
-                    <Text style={styles.subTitle}>Cálculo de ingresos y reportes de producción del cultivo.</Text>
+              </TouchableOpacity>
+            </View>
+            <View>
+              <TouchableOpacity>
+                <View style={styles.card}>
+                  <Image style={styles.cardImage} source={require('../../assets/ingresos.jpg')}/>
+                  <View style={{...styles.cardContent, ...styles.opacity}}>
+                    <View>
+                      <Text style={styles.title}>Economía</Text>
+                      <Text style={styles.subTitle}>Cálculo de ingresos y reportes de producción del cultivo.</Text>
+                    </View>
                   </View>
                 </View>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity>
-              <View style={styles.card}>
-                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
-                <View style={styles.cardContent}>
-                  <View>
-                    <Text style={styles.title}>Guías</Text>
-                    <Text style={styles.subTitle}>Guías informativas del cultivo.</Text>
+              </TouchableOpacity>
+            </View>
+            <View>
+              <TouchableOpacity>
+                <View style={styles.card}>
+                  <Image style={styles.cardImage} source={require('../../assets/guia.jpg')}/>
+                  <View style={{...styles.cardContent, ...styles.opacity}}>
+                    <View>
+                      <Text style={styles.title}>Guías</Text>
+                      <Text style={styles.subTitle}>Guías informativas del cultivo.</Text>
+                    </View>
                   </View>
                 </View>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity>
-              <View style={styles.card}>
-                {/*<Image style={styles.cardImage} source={{uri:item.imagen}}/>*/}
-                <View style={styles.cardContent}>
-                  <View>
-                    <Text style={styles.title}>Otros</Text>
-                    <Text style={styles.subTitle}>Otras opciones.</Text>
+              </TouchableOpacity>
+            </View>
+            <View>
+              <TouchableOpacity>
+                <View style={styles.card}>
+                  <Image style={styles.cardImage} source={require('../../assets/otro.jpg')}/>
+                  <View style={{...styles.cardContent, ...styles.opacity}}>
+                    <View>
+                      <Text style={styles.title}>Otros</Text>
+                      <Text style={styles.subTitle}>Otras opciones.</Text>
+                    </View>
                   </View>
                 </View>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-      </>
+              </TouchableOpacity>
+            </View>
+        </View>
+      </ScrollView>
     );
   }
 
@@ -104,29 +104,30 @@ const styles = StyleSheet.create({
     marginLeft: 4,
     marginTop: 2,
     marginBottom: 2,
-    borderRadius: 5,
+    borderRadius: 10,
     borderWidth: 2,
     borderColor: "white",
     backgroundColor: "lightblue",
-    height: 150,
+    height: 130,
   },
   cardContent: {
     paddingVertical: 12.5,
     paddingHorizontal: 16,
     flex: 1,
     position: 'absolute',
-    zIndex: 100,
+    zIndex: 1,
     left: 0,
     right: 0,
     backgroundColor: 'transparent',
   },
   cardImage:{
     flex: 1,
-    height: 150,
+    height: 130,
     width: null,
+    borderRadius: 10,
   },
   title:{
-    fontSize:22,
+    fontSize:20,
     color: "#ffffff",
     marginTop: 10,
     fontWeight:'bold'
@@ -136,10 +137,21 @@ const styles = StyleSheet.create({
     height:25,
   },
   subTitle:{
-    fontSize:13,
+    fontSize:12,
     color: "#ffffff",
     marginTop: 5
   },
+  opacity:{
+    flex: 1,
+    zIndex: 2,
+    backgroundColor: 'rgba(0,0,0,.2)',
+    borderRadius: 10,
+    height: 127,
+  },
+  margin: {
+    marginTop: 2,
+    marginBottom: 220
+  }
 });
 
 export default Opciones;

@@ -18,7 +18,7 @@ const LogIn = (props) => {
 
     return (
       <>
-        <StatusBar barStyle="light-content" backgroundColor='#000000'/>
+        <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
         <ImageBackground source={require('../../assets/fondo3.jpg')} style={styles.image}>
           <View style={styles.center}>
             <View style={styles.body}>
