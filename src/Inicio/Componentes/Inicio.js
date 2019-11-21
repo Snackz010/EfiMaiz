@@ -9,6 +9,8 @@ import {
 
 const Inicio = (props) => {
 
+  const { navigation } = props;
+
   return (
     <>
       <View>
@@ -21,7 +23,7 @@ const Inicio = (props) => {
             </View>
           </View>
         </View>
-        <Opciones/>
+        <Opciones navigation={navigation}/>
       </View>
     </>
   );

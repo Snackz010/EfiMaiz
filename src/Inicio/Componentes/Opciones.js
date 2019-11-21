@@ -10,11 +10,13 @@ import {
 
 const Opciones = (props) => {
 
+  const {navigation} = props;
+
     return (
       <ScrollView>
         <View style={styles.margin}>
             <View>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={()=>{navigation.navigate('Caracterizacion')}}>
                 <View style={styles.card}>
                   <Image style={styles.cardImage} source={require('../../assets/sitio.jpg')}/>
                   <View style={{...styles.cardContent, ...styles.opacity}}>

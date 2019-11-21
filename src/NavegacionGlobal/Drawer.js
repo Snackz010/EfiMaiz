@@ -17,7 +17,7 @@ const Drawer = createDrawerNavigator({
         navigationOptions:{
             drawerLabel:'Caracterización del Sitio'
         }
-    },
+    }
 });
 
 
