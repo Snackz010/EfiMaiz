@@ -10,6 +10,23 @@ import {
 } from 'react-native';
 
 const Suelo = (props) => {
+
+
+  const {
+    eventoTxtSuelo,
+    eventoTxtColor,
+    eventoTxtPH,
+    eventoTxtMOrganica,
+    eventoTxtTopografia,
+    eventoTxtTextura,
+    suelo,
+    color,
+    ph,
+    mOrganica,
+    topografia,
+    textura,
+  } = props;
+
     return (
       <>
         <StatusBar barStyle="light-content" backgroundColor='#000000'/>
@@ -23,12 +40,30 @@ const Suelo = (props) => {
                     <Text style={styles.textSubTitle}></Text>
                   </View>
                   <View style={styles.center}>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Tipo de Suelo'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Color'></TextInput>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='PH'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Materia Organica'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Topografía'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Textura'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Tipo de Suelo' 
+                      onChangeText={eventoTxtSuelo}
+                      value={suelo}
+                    />
+                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Color' 
+                      onChangeText={eventoTxtColor}
+                      value={color}
+                    />
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='PH' 
+                      onChangeText={eventoTxtPH}
+                      value={ph}
+                    />
+                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Materia Organica' 
+                      onChangeText={eventoTxtMOrganica}
+                      value={mOrganica}
+                    />
+                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Topografía' 
+                      onChangeText={eventoTxtTopografia}
+                      value={topografia}
+                    />
+                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Textura' 
+                      onChangeText={eventoTxtTextura}
+                      value={textura}
+                    />
                   </View>
                 </View>
                 <View style={styles.button}>

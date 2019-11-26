@@ -10,6 +10,22 @@ import {
 } from 'react-native';
 
 const Clima = (props) => {
+
+  const {
+    eventoTxtTemperatura,
+    eventoTxtPrecipitacion,
+    eventoTxtHumedad,
+    eventoTxtVelocidad,
+    eventoTxtAltitud,
+    eventoTxtNRadiacion,
+    temperatura,
+    humedad,
+    precipitacion,
+    velocidadV,
+    altitud,
+    nRadiacion,
+  } = props;
+
     return (
       <>
         <StatusBar barStyle="light-content" backgroundColor='#000000'/>
@@ -23,12 +39,30 @@ const Clima = (props) => {
                     <Text style={styles.textSubTitle}></Text>
                   </View>
                   <View style={styles.center}>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Temperatura'></TextInput>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Precipitación'></TextInput>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Humedad'></TextInput>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Velocidad del viento'></TextInput>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Altitud'></TextInput>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Nivel de Radiación'></TextInput>
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Temperatura' 
+                      onChangeText={eventoTxtTemperatura}
+                      value={temperatura}
+                    />
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Precipitación' 
+                      onChangeText={eventoTxtPrecipitacion}
+                      value={precipitacion}
+                    />
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Humedad' 
+                      onChangeText={eventoTxtHumedad}
+                      value={humedad}
+                    />
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Velocidad del viento' 
+                      onChangeText={eventoTxtVelocidad}
+                      value={velocidadV}
+                    />
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Altitud' 
+                      onChangeText={eventoTxtAltitud}
+                      value={altitud}
+                    />
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Nivel de Radiación' 
+                      onChangeText={eventoTxtNRadiacion}
+                      value={nRadiacion}
+                    />
                   </View>
                 </View>
                 <View style={styles.button}>

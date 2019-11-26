@@ -43,6 +43,7 @@ const Agua = (props) => {
                     />
                     <TextInput placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Fuente'
                       onChangeText={eventoTxtFuente}
+                      value={estadoFuente}
                     />
                   </View>
                 </View>
