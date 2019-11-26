@@ -1,10 +1,10 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 
-import ListaCaracterizacionSitio from '../../CaracterizacionSitio/Componentes/ListaCaracterizacionSitio.js';
-import Agua from '../../CaracterizacionSitio/Componentes/Agua.js';
-import Clima from '../../CaracterizacionSitio/Componentes/Clima.js';
-import Suelo from '../../CaracterizacionSitio/Componentes/Suelo.js';
+import ListaCaracterizacionSitio from '../Pantallas/ListaCaracterizacionSitio.js';
+import ContenedorAgua from '../Pantallas/Agua/Contenedores/ContenedorAgua';
+import ContenedorClima from '../Pantallas/Clima/Contenedores/ContenedorClima';
+import ContenedorSuelo from '../Pantallas/Suelo/Contenedores/ContenedorSuelo';
 
 const ListaCaracterizacionSitioStack = createStackNavigator({
     listaOpciones:{
@@ -15,21 +15,21 @@ const ListaCaracterizacionSitioStack = createStackNavigator({
         }
     },
     Agua:{
-        screen:Agua,
+        screen:ContenedorAgua,
         headerModer:'none',
         navigationOptions:{
             headerShown:false,
         }
     },
     Clima:{
-        screen:Clima,
+        screen:ContenedorClima,
         headerModer:'none',
         navigationOptions:{
-            headerShown:false,
+            header:null
         }
     },
     Suelo:{
-        screen:Suelo,
+        screen:ContenedorSuelo,
         headerModer:'none',
         navigationOptions:{
             headerShown:false,

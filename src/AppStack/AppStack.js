@@ -8,17 +8,15 @@ import Drawer from '../NavegacionGlobal/Drawer.js'
 const StackNavigator = createStackNavigator({
    logSign:{
        screen:ContenedorLogInSignUp,
-       headerMode:'none',
-       navigationOptions:{
-           headerShown: false
-       }
+      navigationOptions:{
+          header:null
+      }
    },
    inicio:{
        screen: Drawer,
-       headerMode:'none',
        navigationOptions:{
-           headerShown:false
-       }
+        header:null
+    }
    }
 });
 

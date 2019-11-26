@@ -10,6 +10,16 @@ import {
 } from 'react-native';
 
 const Agua = (props) => {
+
+  const {
+    eventoTxtVolumen,
+    eventoTxtCalidad,
+    eventoTxtFuente,
+    estadoVolumen,
+    estadoCalidad,
+    estadoFuente
+  } = props;
+
     return (
       <>
         <StatusBar barStyle="light-content" backgroundColor='#000000'/>
@@ -23,9 +33,17 @@ const Agua = (props) => {
                     <Text style={styles.textSubTitle}></Text>
                   </View>
                   <View style={styles.center}>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Volumen'></TextInput>
-                    <TextInput placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Calidad'></TextInput>
-                    <TextInput placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Fuente'></TextInput>
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Volumen'
+                      onChangeText={eventoTxtVolumen}
+                      value={estadoVolumen}
+                    />
+                    <TextInput placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Calidad'
+                      onChangeText={eventoTxtCalidad}
+                      value={estadoCalidad}
+                    />
+                    <TextInput placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Fuente'
+                      onChangeText={eventoTxtFuente}
+                    />
                   </View>
                 </View>
                 <View style={styles.button}>
@@ -36,6 +54,11 @@ const Agua = (props) => {
               </ScrollView>
             </View>
           </View>
+
+            <Text>{estadoCalidad}</Text>
+            <Text>{estadoFuente}</Text>
+            <Text>{estadoVolumen}</Text>
+
       </>
     );
 };

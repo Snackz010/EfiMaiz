@@ -8,4 +8,4 @@ import AppStack from './src/AppStack/AppStack.js';
 
 import ContenedorApp from './src/ContenedorApp.js'
 
-AppRegistry.registerComponent(appName, () => ContenedorApp);
+AppRegistry.registerComponent(appName, () => AppStack);
