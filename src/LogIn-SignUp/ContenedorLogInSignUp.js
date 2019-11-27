@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from 'react-native-firebase';
 
 import LogIn from '../LogIn/Componentes/LogIn.js';
 import SignUp from '../SignUp/Componentes/SignUp.js';
@@ -10,9 +11,32 @@ export default class ContenedorlogInSignUp extends Component {
     this.state = {
       vistualActual: 'LogIn',
       pickerSelection: 'Ocupación',
-      pickerDisplayed: false
+      pickerDisplayed: false,
+      email: '',
+      clave:''
     }
 
+  }
+
+  //Método para iniciar sesión con su correo y contraseña
+  LogInMethod = () => {
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.clave)
+    .then(success => (console.log('Logueo realizado correctamente: ', success)))
+    .catch( error => (console.log('Este es el error: ', error)))
+  }
+
+  ////Manejando el cambio de estado para el correo del usuario
+  handleEmail= (emailCU) =>{
+    this.setState({
+      email:emailCU
+  });
+  }
+
+  //Manejando el cambio de estado para la contraseña del usuario
+  handlePass = (claveCU) =>{
+    this.setState({
+      clave:claveCU
+  });
   }
 
   //Esta función modifica el el valor del estado del elemento seleccionado
@@ -51,6 +75,7 @@ export default class ContenedorlogInSignUp extends Component {
 
   render() {
     const {vistualActual, pickerDisplayed, pickerSelection} = this.state;
+    const {email, clave} = this.state;
     
     //Valores que se cargan en el modal
     const pickerValues = [
@@ -73,7 +98,12 @@ export default class ContenedorlogInSignUp extends Component {
           return(
           <LogIn 
           cambiarPantallas={this.cambiarPantalla}
-          irdrawer={this.cambiaraDrawer}
+          irdrawer={this.cambiaraDrawer} //este posiblemente quede en el olvido, pero porfavor no quitar aún
+          LogInMethod = {this.LogInMethod}
+          handleEmail = {this.handleEmail}
+          estadoEmail = {email}
+          handlePass = {this.handlePass}
+          estadoClave = {clave}
           />
           );
         break;

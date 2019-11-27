@@ -13,8 +13,7 @@ import {
 
 const LogIn = (props) => {
 
-
-    const { cambiarPantallas,irdrawer } = props;
+    const { cambiarPantallas,irdrawer, LogInMethod,handlePass, handleEmail, estadoEmail, estadoClave} = props;
 
     return (
       <>
@@ -33,12 +32,16 @@ const LogIn = (props) => {
                     <Text style={styles.textSubTitle}></Text>
                   </View>
                   <View style={styles.center}>
-                    <TextInput placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Usuario'></TextInput>
-                    <TextInput placeholderTextColor="white" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
+                    <TextInput placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Usuario'
+                    onChangeText = {handleEmail} value = {estadoEmail}
+                    ></TextInput>
+                    <TextInput placeholderTextColor="white" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'
+                    onChangeText = {handlePass} value = {estadoClave}
+                    ></TextInput>
                   </View>
                 </View>
                 <View style={styles.button}>
-                  <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]} onPress={irdrawer} >
+                  <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]} onPress={LogInMethod} >
                     <Text style={styles.signUpText}>Ingresar</Text>
                   </TouchableHighlight>
                 </View>
