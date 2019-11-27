@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
   opacity:{
     flex: 1,
     zIndex: 2,
-    backgroundColor: 'rgba(0,0,0,.2)',
+    backgroundColor: 'rgba(0,0,0,.4)',
     borderRadius: 10,
     height: 127,
   },

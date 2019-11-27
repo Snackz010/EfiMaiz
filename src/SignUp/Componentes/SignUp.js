@@ -69,6 +69,7 @@ const SignUp = (props) => {
                     }
                     <TextInput keyboardType={"default"} placeholderTextColor="white" style={styles.textInput} placeholder='Usuario'></TextInput>
                     <TextInput keyboardType={"default"} placeholderTextColor="white" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" secureTextEntry={true} style={styles.textInput} placeholder='Confirmar Contraseña'></TextInput>
                   </View>
                 </View>
                 <View style={styles.button}>
@@ -89,8 +90,10 @@ elementosOcultos = () => {
   if(pickerSelectionValue === 'Productor'){
     return(
       <>
+      <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Departamento'></TextInput>
       <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Nombre de la Finca'></TextInput>
-      <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Coordenadas'></TextInput> 
+      <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Coordenada X'></TextInput> 
+      <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Coordenada Y'></TextInput> 
       </>
     );
   }
