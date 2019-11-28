@@ -15,13 +15,23 @@ export default class ContenedorlogInSignUp extends Component {
       email: '',
       clave:''
     }
+  }
 
+  //Método para registro de usurios con su correo y contraseña
+  SignUpMethod = () => {
+    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.clave)
+    .then(success => ( 
+      this.cambiaraDrawer(),
+      console.log('El resgistro realizado correctamente: ', success)))
+    .catch( error => (console.log('Este es el error: ', error)))
   }
 
   //Método para iniciar sesión con su correo y contraseña
   LogInMethod = () => {
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.clave)
-    .then(success => (console.log('Logueo realizado correctamente: ', success)))
+    .then(success => (
+      this.cambiaraDrawer(),
+      console.log('Logueo realizado correctamente: ', success)))
     .catch( error => (console.log('Este es el error: ', error)))
   }
 
@@ -67,6 +77,7 @@ export default class ContenedorlogInSignUp extends Component {
   }
 
   //Esta función cambia el estado del modal
+  //No borrar, lo estoy usuando para redireccionar al inicio luego del loggueo y del registro
   togglePicker = () => {
     this.setState({
       pickerDisplayed: !this.state.pickerDisplayed
@@ -116,6 +127,11 @@ export default class ContenedorlogInSignUp extends Component {
               togglePicker={this.togglePicker}
               setPickerValue={this.setPickerValue}
               pickerSelection={pickerSelection}
+              SignUpMethod = {this.SignUpMethod}
+              handleEmail = {this.handleEmail}
+              estadoEmail = {email}
+              handlePass = {this.handlePass}
+              estadoClave = {clave}
               />
             );
           break;
