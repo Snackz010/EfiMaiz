@@ -28,11 +28,17 @@ export default class ContenedorlogInSignUp extends Component {
 
   //Método para iniciar sesión con su correo y contraseña
   LogInMethod = () => {
-    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.clave)
-    .then(success => (
-      this.cambiaraDrawer(),
-      console.log('Logueo realizado correctamente: ', success)))
-    .catch( error => (console.log('Este es el error: ', error)))
+    const {email, clave} = this.state;
+
+    //if(email != '' && clave != ''){
+      //firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.clave)
+      //.then(success => (
+        this.cambiaraDrawer();
+        //console.log('Logueo realizado correctamente: ', success)))
+      //.catch( error => (console.log('Este es el error: ', error)))
+    //}else{
+    //  alert("Por favor ingrese un usuario y contraseña valido");
+    //}
   }
 
   ////Manejando el cambio de estado para el correo del usuario

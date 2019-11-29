@@ -24,6 +24,7 @@ const Clima = (props) => {
     velocidadV,
     altitud,
     nRadiacion,
+    eventoIrSuelo
   } = props;
 
     return (
@@ -66,7 +67,9 @@ const Clima = (props) => {
                   </View>
                 </View>
                 <View style={styles.button}>
-                  <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}>
+                  <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}
+                    onPress={eventoIrSuelo}
+                  >
                     <Text style={styles.signUpText}>Registrar</Text>
                   </TouchableHighlight>
                 </View>

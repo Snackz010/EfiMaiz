@@ -17,7 +17,7 @@ const Agua = (props) => {
     eventoTxtFuente,
     estadoVolumen,
     estadoCalidad,
-    estadoFuente
+    estadoFuente,
   } = props;
 
     return (

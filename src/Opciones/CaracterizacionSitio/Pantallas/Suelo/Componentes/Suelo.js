@@ -25,8 +25,8 @@ const Suelo = (props) => {
     mOrganica,
     topografia,
     textura,
+    eventoIrAgua,
   } = props;
-
     return (
       <>
         <StatusBar barStyle="light-content" backgroundColor='#000000'/>
@@ -67,7 +67,9 @@ const Suelo = (props) => {
                   </View>
                 </View>
                 <View style={styles.button}>
-                  <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}>
+                  <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}
+                    onPress={eventoIrAgua}
+                  >
                     <Text style={styles.signUpText}>Registrar</Text>
                   </TouchableHighlight>
                 </View>

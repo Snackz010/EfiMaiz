@@ -23,22 +23,22 @@ const ListaCaracterizacionSitioStack = createStackNavigator({
         }
     },
 
-    Agua:{
-        screen:ContenedorAgua,
+    Clima:{
+        screen:ContenedorClima,
         headerModer:'none',
         navigationOptions:{
             headerShown:false,
         }
     },
-    Clima:{
-        screen:ContenedorClima,
+    Suelo:{
+        screen:ContenedorSuelo,
         headerModer:'none',
         navigationOptions:{
             header:null
         }
     },
-    Suelo:{
-        screen:ContenedorSuelo,
+    Agua:{
+        screen:ContenedorAgua,
         headerModer:'none',
         navigationOptions:{
             headerShown:false,

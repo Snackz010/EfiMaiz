@@ -39,8 +39,42 @@ class ContenedorAgua extends Component{
         });
     }
 
+
+    extraerParametros = () => {
+        const {navigation} = this.props;
+        const Datos = {
+            TemperaturaC: navigation.getParam('TemperaturaC'),
+            PrecipitacionC: navigation.getParam('PrecipitacionC'),
+            VelocidadVC: navigation.getParam('VelocidadVC'),
+            HumedadC: navigation.getParam('HumedadC'),
+            AltitudC: navigation.getParam('AltitudC'),
+            NRadiacionC: navigation.getParam('NRadiacionC'),
+            TSueloS: navigation.getParam('TSueloS'),
+            ColorS:navigation.getParam('ColorS'),
+            PHS:navigation.getParam('PHS'),
+            MOrganicaS:navigation.getParam('MOrganicas'),
+            TopografiaS:navigation.getParam('TopografiaS'),
+            TexturaS:navigation.getParam('TexturaS'),
+
+        }
+        console.log('Agua', Datos)
+    }
+
+    irResultados = () => {
+        const {navigation} = this.props;
+        const { Volumen, Calidad, Fuente } = this.state;
+
+        
+
+    }
+
     render(){
+        const {navigation} = this.props;
         const {Volumen, Calidad, Fuente} = this.state;
+        
+
+        this.extraerParametros();
+        
         return(
             <Agua 
                 eventoTxtCalidad={this.eventoTxtCalidad}

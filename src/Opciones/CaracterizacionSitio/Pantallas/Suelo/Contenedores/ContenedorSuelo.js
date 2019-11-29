@@ -14,6 +14,9 @@ class ContenedorSuelo extends Component{
             Topografia:'',
             Textura:''
         }
+
+
+
     }
 
     //Funciones para pantalla de suelo
@@ -56,8 +59,42 @@ class ContenedorSuelo extends Component{
         })
     }
 
-    render(){
 
+
+    extraerParametros = () => {
+        const { navigation } = this.props;
+        const Data = {
+            TemperaturaC: navigation.getParam('TemperaturaC'),
+            PrecipitacionC: navigation.getParam('PrecipitacionC'),
+            VelocidadVC: navigation.getParam('VelocidadVC'),
+            HumedadC: navigation.getParam('HumedadC'),
+            AltitudC: navigation.getParam('AltitudC'),
+            NRadiacionC: navigation.getParam('NRadiacionC'),
+        }
+        return {...Data};
+    }
+
+    navegarAgua = () => {
+        const { TSuelo, Color, PH, MOrganica,Topografia,Textura } = this.state;
+        const {navigation} = this.props;
+
+        const ADatos = {
+            ...this.extraerParametros(),
+            TSueloS: TSuelo,
+            ColorS:Color,
+            PHS:PH,
+            MOrganicaS:MOrganica,
+            TopografiaS:Topografia,
+            TexturaS:Textura
+        }
+        
+        navigation.navigate('Agua',{...ADatos});
+
+    } 
+
+    //Funcion para hacer evaluacion del suelo
+
+    render(){
         const { TSuelo, Color, PH, MOrganica, Topografia, Textura } = this.state;
         return(
             <Suelo 
@@ -73,6 +110,7 @@ class ContenedorSuelo extends Component{
             mOrganica={MOrganica}
             topografia={Topografia}
             textura={Textura}
+            eventoIrAgua={this.navegarAgua}
             />
         );
     }

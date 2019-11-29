@@ -54,6 +54,25 @@ class ContenedorClima extends Component{
         });
     }
 
+
+    navegarSuelo = () => {
+        const { Temperatura, Precipitacion, VelocidadV, Humedad, Altitud, NRadiacion } = this.state;
+        const { navigation } = this.props;
+  
+        const Datos = {
+            TemperaturaC: Temperatura,
+            PrecipitacionC: Precipitacion,
+            VelocidadVC: VelocidadV,
+            HumedadC: Humedad,
+            AltitudC: Altitud,
+            NRadiacionC: NRadiacion 
+        }
+
+        navigation.navigate('Suelo',Datos);
+
+    }
+
+
     render(){
 
         const { Temperatura, Humedad, VelocidadV, Altitud, NRadiacion, Precipitacion } = this.state
@@ -72,6 +91,9 @@ class ContenedorClima extends Component{
                 velocidadV={VelocidadV}
                 altitud={Altitud}
                 nRadiacion={NRadiacion}
+
+                eventoIrSuelo={this.navegarSuelo} 
+
             />
         );
     }
