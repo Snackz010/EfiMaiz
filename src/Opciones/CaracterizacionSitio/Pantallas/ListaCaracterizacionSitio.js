@@ -15,6 +15,7 @@ const CaracterizacionSitio = (props) => {
     return (
       <>
         <ScrollView>
+          <View style={styles.margin}>
           <View>
             <TouchableOpacity onPress={()=>{navigation.navigate('Clima')}}>
               <View style={styles.card}>
@@ -53,6 +54,7 @@ const CaracterizacionSitio = (props) => {
                 </View>
               </View>
             </TouchableOpacity>
+          </View>
           </View>
         </ScrollView>
       </>
@@ -110,6 +112,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: 127,
   },
+  margin:{
+    marginBottom: 230
+  }
 });
 
 export default CaracterizacionSitio;

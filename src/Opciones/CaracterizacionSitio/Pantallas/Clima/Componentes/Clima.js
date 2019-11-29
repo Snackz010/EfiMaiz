@@ -39,27 +39,27 @@ const Clima = (props) => {
                     <Text style={styles.textSubTitle}></Text>
                   </View>
                   <View style={styles.center}>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Temperatura' 
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Temperatura' 
                       onChangeText={eventoTxtTemperatura}
                       value={temperatura}
                     />
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Precipitación' 
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Precipitación' 
                       onChangeText={eventoTxtPrecipitacion}
                       value={precipitacion}
                     />
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Humedad' 
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Humedad' 
                       onChangeText={eventoTxtHumedad}
                       value={humedad}
                     />
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Velocidad del viento' 
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Velocidad del viento' 
                       onChangeText={eventoTxtVelocidad}
                       value={velocidadV}
                     />
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Altitud' 
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Altitud' 
                       onChangeText={eventoTxtAltitud}
                       value={altitud}
                     />
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Nivel de Radiación' 
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Nivel de Radiación' 
                       onChangeText={eventoTxtNRadiacion}
                       value={nRadiacion}
                     />
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   textInput: {
-    backgroundColor: 'rgba(255,255,255,0.3)',
+    backgroundColor: 'rgba(0,0,0,0.4)',
     borderRadius: 10,
     fontSize: 16,
     paddingLeft: 10,
@@ -105,7 +105,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16, 
-    color: '#eee',
     textAlign: 'center',
   },
   text2: {
@@ -122,7 +121,6 @@ const styles = StyleSheet.create({
   textSubTitle: {
     fontSize: 16, 
     textAlign: 'justify', 
-    color: 'rgba(255, 255, 255, .4)',
     textAlign: 'center',
   },
   image: {
@@ -138,12 +136,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    color: 'white',
     textAlign: 'center',
     marginTop: 10
   },
   body: {
-    backgroundColor: 'rgba(0, 0, 0, .7)',
     width: '100%',
     height: '100%',
   },

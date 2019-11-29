@@ -40,27 +40,27 @@ const Suelo = (props) => {
                     <Text style={styles.textSubTitle}></Text>
                   </View>
                   <View style={styles.center}>
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Tipo de Suelo' 
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Tipo de Suelo' 
                       onChangeText={eventoTxtSuelo}
                       value={suelo}
                     />
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Color' 
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Color' 
                       onChangeText={eventoTxtColor}
                       value={color}
                     />
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='PH' 
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='PH' 
                       onChangeText={eventoTxtPH}
                       value={ph}
                     />
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Materia Organica' 
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Materia Organica' 
                       onChangeText={eventoTxtMOrganica}
                       value={mOrganica}
                     />
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Topografía' 
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Topografía' 
                       onChangeText={eventoTxtTopografia}
                       value={topografia}
                     />
-                    <TextInput keyboardType={"default"} placeholderTextColor="#c3c3c3" autoCapitalize={'words'} style={styles.textInput} placeholder='Textura' 
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Textura' 
                       onChangeText={eventoTxtTextura}
                       value={textura}
                     />
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   textInput: {
-    backgroundColor: 'rgba(255,255,255,0.3)',
+    backgroundColor: 'rgba(0,0,0,0.4)',
     borderRadius: 10,
     fontSize: 16,
     paddingLeft: 10,
@@ -106,7 +106,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16, 
-    color: '#eee',
     textAlign: 'center',
   },
   text2: {
@@ -123,7 +122,6 @@ const styles = StyleSheet.create({
   textSubTitle: {
     fontSize: 16, 
     textAlign: 'justify', 
-    color: 'rgba(255, 255, 255, .4)',
     textAlign: 'center',
   },
   image: {
@@ -139,12 +137,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    color: 'white',
     textAlign: 'center',
     marginTop: 10
   },
   body: {
-    backgroundColor: 'rgba(0, 0, 0, .7)',
     width: '100%',
     height: '100%',
   },

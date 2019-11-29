@@ -32,10 +32,10 @@ const Inicio = (props) => {
 const styles = StyleSheet.create({
   header:{
     backgroundColor: "white",
-    height:220,
+    height:200,
   },
   headerImage:{
-    height:220,
+    height:200,
     flex: 1,
     width: null,
   },
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     zIndex: 0,
     backgroundColor: 'rgba(0,0,0,.3)',
     borderRadius: 10,
-    height: 220,
+    height: 200,
   },
 });
 
