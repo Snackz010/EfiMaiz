@@ -4,20 +4,22 @@
 
 import 'react-native';
 import React from 'react';
-import ContenedorApp from '../src/App/ContenedorApp.js';
-import LogIn from '../src/LogIn/LogIn.js';
-import SignUp from '../src/LogIn/LogIn.js';
+//import ContenedorApp from '../src/App/ContenedorApp.js';
+// import LogIn from '../src/LogIn/LogIn.js';
+// import SignUp from '../src/LogIn/LogIn.js';
 
-import Opciones from '../src/Opciones/Opciones.js'
-import CaracterizacionSitio from '../src/Opciones/CaracterizacionSitio/CaracterizacionSitio.js'
-import Agua from '../src/Opciones/CaracterizacionSitio/Agua/Agua.js'
-import Suelo from '../src/Opciones/CaracterizacionSitio/Suelo/Suelo.js'
-import Clima from '../src/Opciones/CaracterizacionSitio/Clima/Clima.js'
+// import Opciones from '../src/Opciones/Opciones.js'
+// import CaracterizacionSitio from '../src/Opciones/CaracterizacionSitio/CaracterizacionSitio.js'
+// import Agua from '../src/Opciones/CaracterizacionSitio/Agua/Agua.js'
+// import Suelo from '../src/Opciones/CaracterizacionSitio/Suelo/Suelo.js'
+// import Clima from '../src/Opciones/CaracterizacionSitio/Clima/Clima.js'
+
+import evaluarClima from '../src/Opciones/CaracterizacionSitio/Pantallas/Clima/Contenedores/ContenedorClima'
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-it('Componente ContenedorApp se renderiza correctamente', () => {
+/*it('Componente ContenedorApp se renderiza correctamente', () => {
   const componente = renderer.create(<ContenedorApp />).toJSON();
   expect(componente).toMatchSnapshot();
 });
@@ -59,4 +61,14 @@ it('Componente Clima de caracterización de sitio se renderiza correctamente', (
 it('Componente Agua de caracterización de sitio se renderiza correctamente', () => {
   const componente = renderer.create(<Agua />).toJSON();
   expect(componente).toMatchSnapshot();
+}); */
+
+it('Evaluar eficiencia del suelo para el cultivo de maiz', () => {
+
+  const valores = {
+    Temperatura: 29 , 
+    Altitud: 50,
+    Precipitacion:2000
+  }
+  expect(evaluarClima(valores)).toBe(9);
 });

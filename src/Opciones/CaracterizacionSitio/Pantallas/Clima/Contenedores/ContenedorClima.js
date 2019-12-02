@@ -72,8 +72,9 @@ class ContenedorClima extends Component{
 
     }
 
-        evaluarClima = () => {
-            const {Temperatura, Altitud, Precipitacion } = this.state;
+        evaluarClima = (props) => {
+            //const {Temperatura, Altitud, Precipitacion } = this.state;
+            const {Temperatura, Altitud, Precipitacion } = props;
 
             var contador = 0;
 
@@ -108,6 +109,7 @@ class ContenedorClima extends Component{
             }else if(contador === 3){
                 alert("Clima marginal");
             }
+            return contador;
         }
 
     render(){
@@ -135,5 +137,47 @@ class ContenedorClima extends Component{
         );
     }
 }
+
+
+evaluarClima = (props) => {
+    //const {Temperatura, Altitud, Precipitacion } = this.state;
+    const {Temperatura, Altitud, Precipitacion } = props;
+
+    var contador = 0;
+
+    if(parseInt(Temperatura)>=19 && parseInt(Temperatura)<=24){
+        contador += 3;
+    }else if((parseInt(Temperatura)>24 && parseInt(Temperatura)<=28)||(parseInt(Temperatura)>=15 && parseInt(Temperatura)<=18)){
+        contador += 2;
+    }else if(parseInt(Temperatura)>=29){
+        contador += 1;
+    }
+
+    if(parseInt(Precipitacion)>=700 && parseInt(Precipitacion)<= 850){
+        contador += 3;
+    }else if((parseInt(Precipitacion)>=500 && parseInt(Precipitacion)<=700)||(parseInt(Precipitacion)>=850 && parseInt(Precipitacion)<=1000)){
+        contador += 2;
+    }else if(parseInt(Temperatura)<=500 || parseInt(Temperatura)>=1000){
+        contador += 1;
+    }
+
+    if(parseInt(Altitud)>=200 && parseInt(Altitud)<= 800){
+        contador += 3;
+    }else if((parseInt(Altitud)>=100 && parseInt(Altitud)<=199)||(parseInt(Altitud)>=801 && parseInt(Altitud)<=1000)){
+        contador += 2;
+    }else if(parseInt(Altitud)>=0 && parseInt(Altitud)< 100){
+        contador += 1;
+    }
+
+    if(contador === 9){
+        //alert("Clima optimo");
+    }else if(contador === 6){
+        //alert("Clima Bueno");
+    }else if(contador === 3){
+        //alert("Clima marginal");
+    }
+    return contador;
+}
+
 
 export default ContenedorClima;

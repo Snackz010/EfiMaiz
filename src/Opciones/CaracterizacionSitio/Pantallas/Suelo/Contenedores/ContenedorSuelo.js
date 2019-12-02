@@ -12,7 +12,9 @@ class ContenedorSuelo extends Component{
             PH:'',
             MOrganica:'',
             Topografia:'',
-            Textura:''
+            Textura:'',
+            Profundidad:'',
+            Pendiente:''
         }
 
 
@@ -59,6 +61,17 @@ class ContenedorSuelo extends Component{
         })
     }
 
+    eventoTxtProfundidad = (value) => {
+        this.setState({
+            Profundidad:value
+        });
+    }
+
+    eventoTxtPendiente = (value) => {
+        this.setState({
+            Pendiente:value
+        });
+    }
 
 
     extraerParametros = () => {
@@ -95,7 +108,7 @@ class ContenedorSuelo extends Component{
     //Funcion para hacer evaluacion del suelo
 
     evaluarSuelo = () => {
-        const { TSuelo, PH } = this.state;
+        const { TSuelo, PH, Profundidad, Pendiente } = this.state;
         var contador = 0;
 
         if(TSuelo === 'Franco'){
@@ -108,16 +121,41 @@ class ContenedorSuelo extends Component{
 
         if(parseFloat(PH) >= 6.5 && parseFloat(PH) <= 7.0){
             contador += 3;
-        }else if(parseFloat(PH) === 6.0 && parseFloat(PH) <= 6.4){
+        }else if(parseFloat(PH) >= 6.0 && parseFloat(PH) <= 6.4){
             contador += 2;
         }else if(PH < 6.0){
             contador += 1; 
         }
+        
+        if(parseInt(Profundidad)>=60){
+            contador +=3;
+        }else if(parseInt(Profundidad)>40 && parseInt(Profundidad)<60){
+            contador += 2;
+        }else if(parseInt(Profundidad)>10 && parseInt(Profundidad)<20){
+            contador += 1;
+        }
+      
+        alert(contador);
 
+        if(parseInt(Pendiente)<=15){
+            contador += 3;
+        }else if(parseInt(Pendiente)>15 && parseInt(Pendiente)<=30){
+            contador += 2;
+        }else if(parseInt(Pendiente)>30){
+            contador += 1;
+        }
+        
+        if(contador === 12){
+            alert("Suelo optimo");
+        }else if(contador === 8){
+            alert("Suelo Bueno");
+        }else if(contador === 4){
+            alert("Suelo marginal");
+        }
     }
 
     render(){
-        const { TSuelo, Color, PH, MOrganica, Topografia, Textura } = this.state;
+        const { TSuelo, Color, PH, MOrganica, Topografia, Textura, Pendiente, Profundidad } = this.state;
         return(
             <Suelo 
             eventoTxtSuelo={this.eventoTxtSuelo}
@@ -126,13 +164,17 @@ class ContenedorSuelo extends Component{
             eventoTxtMOrganica={this.eventoTxtMOrganica}
             eventoTxtTopografia={this.eventoTxtTopografia}
             eventoTxtTextura={this.eventoTxtTextura}
-            suelo={TSuelo}
+            eventoTxtProfundidad={this.eventoTxtProfundidad}
+            eventoTxtPendiente = {this.eventoTxtPendiente}
+            suelo={TSuelo} 
             color={Color}
             ph={PH}
             mOrganica={MOrganica}
             topografia={Topografia}
             textura={Textura}
-            eventoIrAgua={this.navegarAgua}
+            pendiente={Pendiente}
+            profundidad={Profundidad}
+            eventoIrAgua={this.evaluarSuelo}
             />
         );
     }

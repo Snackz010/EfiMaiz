@@ -20,6 +20,8 @@ const Suelo = (props) => {
     eventoTxtMOrganica,
     eventoTxtTopografia,
     eventoTxtTextura,
+    eventoTxtProfundidad,
+    eventoTxtPendiente,
     suelo,
     color,
     ph,
@@ -27,6 +29,8 @@ const Suelo = (props) => {
     topografia,
     textura,
     eventoIrAgua,
+    pendiente,
+    profundidad
   } = props;
     return (
       <>
@@ -68,12 +72,12 @@ const Suelo = (props) => {
                       value={textura}
                     />
                     <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Profundidad' 
-                      onChangeText={eventoTxtTextura}
-                      value={textura}
+                      onChangeText={eventoTxtProfundidad}
+                      value={profundidad}
                     />
-                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Pendiente' 
-                      onChangeText={eventoTxtTextura}
-                      value={textura}
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Pendiente %' 
+                      onChangeText={eventoTxtPendiente}
+                      value={pendiente}
                     />
                   </View>
                 </View>
