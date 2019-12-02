@@ -6,13 +6,12 @@ export default class ContenedorResultados extends Component {
     modalVisible: false,
     tableHead: ['Variable', 'Muestreo', 'Req. Necesarios'],
     tableData: [
-      ['Temperatura', '2','3'],
-      ['Temperatura', '2','3'],
-      ['Temperatura', '2','3'],
-      ['Temperatura', '2','3'],
-      ['Temperatura', '2','3'],
-      ['Temperatura', '2','3'],
-      ['Temperatura', '2','3'],
+      ['Temperatura', '2','30°'],
+      ['Precipitación', '2','1000mn'],
+      ['Humedad', '2','50%'],
+      ['Velocidad del viento', '2','40km/h'],
+      ['Altitud', '2','800msnm'],
+      ['Nivel de radiación', '2','100W/m'],
     ]
   };
 
