@@ -22,7 +22,7 @@ const Opciones = (props) => {
                   <View style={{...styles.cardContent, ...styles.opacity}}>
                     <View>
                       <Text style={styles.title}>Caracterización del Sitio</Text>
-                      <Text style={styles.subTitle}>Evaluación del sitio de cultivo.</Text>
+                      <Text style={styles.subTitle}>Evaluación del clima, suelo y agua del sitio de cultivo.</Text>
                     </View>
                   </View>
                 </View>
