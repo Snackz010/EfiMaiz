@@ -16,12 +16,13 @@ const Inicio = (props) => {
 
   return (
     <>
-    <Icon name='rocket' size={30}/>
+
       <View>
         <View style={styles.header}>
           <Image style={styles.headerImage} source={require('../../assets/encabezado.jpg')}/>
           <View style={{...styles.cardContent, ...styles.opacity}}>
             <View>
+              <Icon name='corn' color="white" size={30}/>
               <Text style={styles.title}>Maíz</Text>
               <Text style={styles.subTitle}>Manejo eficiente del cultivo</Text>
             </View>

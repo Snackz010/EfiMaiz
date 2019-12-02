@@ -57,14 +57,14 @@ class ContenedorAgua extends Component{
             TexturaS:navigation.getParam('TexturaS'),
 
         }
-        console.log('Agua', Datos)
+        //console.log('Agua', Datos)
     }
 
     irResultados = () => {
         const {navigation} = this.props;
         const { Volumen, Calidad, Fuente } = this.state;
 
-        
+        navigation.navigate('Resultados');        
 
     }
 
@@ -83,6 +83,7 @@ class ContenedorAgua extends Component{
                 estadoFuente={Fuente}
                 eventoTxtVolumen={this.eventoTxtVolumen}
                 estadoVolumen={Volumen}
+                irResultados={this.irResultados}
             />
 
         );

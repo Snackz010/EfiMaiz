@@ -5,6 +5,7 @@ import ListaCaracterizacionSitio from '../Pantallas/ListaCaracterizacionSitio.js
 import ContenedorAgua from '../Pantallas/Agua/Contenedores/ContenedorAgua';
 import ContenedorClima from '../Pantallas/Clima/Contenedores/ContenedorClima';
 import ContenedorSuelo from '../Pantallas/Suelo/Contenedores/ContenedorSuelo';
+import ContenedorResultados from '../Pantallas/Resultados/ContenedorResultados';
 import InicioListaCS from '../Pantallas/InicioListaCS';
 
 const ListaCaracterizacionSitioStack = createStackNavigator({
@@ -28,6 +29,10 @@ const ListaCaracterizacionSitioStack = createStackNavigator({
         navigationOptions:{
             headerShown:false,
         }
+    },
+    Resultados:{
+        screen:ContenedorResultados,
+        header:null,
     }
 });
 

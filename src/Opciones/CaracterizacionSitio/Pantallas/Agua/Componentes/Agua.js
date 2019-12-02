@@ -18,6 +18,7 @@ const Agua = (props) => {
     estadoVolumen,
     estadoCalidad,
     estadoFuente,
+    irResultados
   } = props;
 
     return (
@@ -48,7 +49,9 @@ const Agua = (props) => {
                   </View>
                 </View>
                 <View style={styles.button}>
-                  <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}>
+                  <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}
+                    onPress={irResultados}
+                  >
                     <Text style={styles.signUpText}>Registrar</Text>
                   </TouchableHighlight>
                 </View>
