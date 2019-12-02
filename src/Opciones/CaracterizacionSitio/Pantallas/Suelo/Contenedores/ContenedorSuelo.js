@@ -94,6 +94,28 @@ class ContenedorSuelo extends Component{
 
     //Funcion para hacer evaluacion del suelo
 
+    evaluarSuelo = () => {
+        const { TSuelo, PH } = this.state;
+        var contador = 0;
+
+        if(TSuelo === 'Franco'){
+            contador += 3;
+        }else if(TSuelo === 'Francoarenoso'){
+            contador += 2;
+        }else if(TSuelo === 'Francoarcilloso'){
+            contador += 1;
+        }
+
+        if(parseFloat(PH) >= 6.5 && parseFloat(PH) <= 7.0){
+            contador += 3;
+        }else if(parseFloat(PH) === 6.0 && parseFloat(PH) <= 6.4){
+            contador += 2;
+        }else if(PH < 6.0){
+            contador += 1; 
+        }
+
+    }
+
     render(){
         const { TSuelo, Color, PH, MOrganica, Topografia, Textura } = this.state;
         return(

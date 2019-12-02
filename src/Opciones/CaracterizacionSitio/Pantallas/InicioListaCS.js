@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ListaCaracterizacionSitio from './ListaCaracterizacionSitio';
+
 import {
   StyleSheet,
   Text,
