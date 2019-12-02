@@ -51,20 +51,16 @@ export default class ContenedorlogInSignUp extends Component {
       var db = firebase.firestore();
       //const {nombre, apellido, telefono, correo, pickerSelection, usuario} = this.props;
   
-      /*db.collection("users").doc(this.state.email).set({
+      db.collection("users").doc(this.state.email).set({
         fNombre: this.state.nombre,
         fApellido: this.state.apellido,
         fTelefono: this.state.telefono,
         fCorreoE: this.state.email,
         fOcupacion: this.state.pickerSelection,
-        fUsuario: this.state.usuario*/
-        db.collection("users").get().then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-              console.log(`${doc.id} => ${doc.data()}`);
-          });
+        fUsuario: this.state.usuario
 
       }).then(function(docRef) {
-        console.log("ya hay datos")
+        console.log("Datos registrados:", docRef.data)
       }).catch(function(error) {
         console.error("Error adding document: ", error);
       });
@@ -72,14 +68,26 @@ export default class ContenedorlogInSignUp extends Component {
 
     //obteniendo datos desde firebase
     getDataFirebase = () => {
-      var db = firebase.firestore();
-      
-      db.collection("users").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data()}`);
-        });
 
-    });
+      var db = firebase.firestore();
+      var docRef = db.collection('users').doc(this.state.email);
+
+      docRef.get().then (function (doc) {
+
+        if (doc.exists) {
+          console.log("Datos del documento: ", doc.data().fCorreoE);
+                   
+        }else {
+          console.log("No se encontró ningún documento");
+        }
+        
+      }).catch (function(error) {
+
+        console.log('Ha surgido el siguiente error: ', error)
+        
+      })
+
+      
     
 
     }
