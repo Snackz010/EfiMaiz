@@ -38,12 +38,9 @@ const ResultadoCaracterizacion = (props) => {
                       <View style={styles.modalContainer}>
                         <Text style={styles.title}>Resultados del Análisis del Clima</Text>
                         <View style={styles.container}>
-                          <Table borderStyle={{borderWidth: 1}}>
-                            <Row data={tableHead} flexArr={[1,,2]} style={styles.head} textStyle={styles.text}/>
-                            <TableWrapper style={styles.wrapper}>
-                              <Col data={tableTitle} style={styles.tableTitle} heightArr={[28,28]} textStyle={styles.text}/>
-                              <Rows data={tableData} flexArr={[1,2,3]} style={styles.row} textStyle={styles.text}/>
-                            </TableWrapper>
+                          <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+                            <Row data={tableHead} style={styles.head} textStyle={styles.text}/>
+                            <Rows data={tableData} textStyle={styles.text}/>
                           </Table>
                         </View>
                         <View style={styles.button}>
@@ -70,7 +67,7 @@ const ResultadoCaracterizacion = (props) => {
               </View>
               <View style={styles.button}>
                 <TouchableHighlight style={[styles.buttonContainer, styles.actionButton]}>
-                  <Text style={styles.buttonText}>Ir a Inicio</Text>
+                  <Text style={styles.buttonText}>Ir a Inicio <Icon name='home' color="white" size={18}/></Text>
                 </TouchableHighlight>
               </View>
             </View>
@@ -167,12 +164,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center'
   },
-  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-  head: {  height: 40,  backgroundColor: '#f1f8ff'  },
-  wrapper: { flexDirection: 'row' },
-  tableTitle: { flex: 1, backgroundColor: '#f6f8fa' },
-  row: {  height: 28  },
-  text: { textAlign: 'center' }
+  container: {
+    flex: 1,
+    padding: 16,
+    paddingTop: 30,
+    backgroundColor: '#fff'
+  },
+  head: {
+    height: 40,
+    backgroundColor: '#f1f8ff'
+  },
+  text: { 
+    margin: 6
+  }
 });
 
 export default ResultadoCaracterizacion;

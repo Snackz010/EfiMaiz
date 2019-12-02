@@ -8,6 +8,8 @@ import {
   TextInput,
   ScrollView,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons.js';
+
 
 const Agua = (props) => {
 
@@ -52,7 +54,7 @@ const Agua = (props) => {
                   <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}
                     onPress={irResultados}
                   >
-                    <Text style={styles.signUpText}>Registrar</Text>
+                    <Text style={styles.signUpText}>Registrar <Icon name='plus-circle' color="white" size={18}/></Text>
                   </TouchableHighlight>
                 </View>
               </ScrollView>

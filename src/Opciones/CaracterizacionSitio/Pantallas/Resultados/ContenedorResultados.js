@@ -4,15 +4,15 @@ import ResultadosCaracterizacion from './ResultadosCaracterizacion';
 export default class ContenedorResultados extends Component {
   state = {
     modalVisible: false,
-    tableHead: ['Variable', 'Muestreo', 'Requerimientos'],
-    tableTitle: ['Title', 'Title2', 'Title3'],
+    tableHead: ['Variable', 'Muestreo', 'Req. Necesarios'],
     tableData: [
-      ['1', '2'],
-      ['a', 'b'],
-      ['1', '2'],
-      ['1', '2'],
-      ['a', 'b'],
-      ['1', '2'],
+      ['Temperatura', '2','3'],
+      ['Temperatura', '2','3'],
+      ['Temperatura', '2','3'],
+      ['Temperatura', '2','3'],
+      ['Temperatura', '2','3'],
+      ['Temperatura', '2','3'],
+      ['Temperatura', '2','3'],
     ]
   };
 

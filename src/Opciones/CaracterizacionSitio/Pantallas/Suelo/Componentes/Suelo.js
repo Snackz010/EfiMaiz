@@ -8,6 +8,7 @@ import {
   TextInput,
   ScrollView,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons.js';
 
 const Suelo = (props) => {
 
@@ -40,10 +41,12 @@ const Suelo = (props) => {
                     <Text style={styles.textSubTitle}></Text>
                   </View>
                   <View style={styles.center}>
+                    <View style={styles.inputContainer}>
                     <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Tipo de Suelo' 
                       onChangeText={eventoTxtSuelo}
                       value={suelo}
                     />
+                    </View>
                     <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Color' 
                       onChangeText={eventoTxtColor}
                       value={color}
@@ -70,7 +73,7 @@ const Suelo = (props) => {
                   <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}
                     onPress={eventoIrAgua}
                   >
-                    <Text style={styles.signUpText}>Registrar</Text>
+                    <Text style={styles.signUpText}>Registrar <Icon name='plus-circle' color="white" size={18}/></Text>
                   </TouchableHighlight>
                 </View>
               </ScrollView>
