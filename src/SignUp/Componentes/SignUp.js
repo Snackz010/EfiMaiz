@@ -17,8 +17,10 @@ import {
 var pickerSelectionValue;
 const SignUp = (props) => {
 
-    const {pickerDisplayed, pickerValues,setPickerValue,togglePicker,pickerSelection} = props;
-    const { SignUpMethod,handlePass, handleEmail, estadoEmail, estadoClave} = props;
+    const { pickerDisplayed, pickerValues,setPickerValue,togglePicker,pickerSelection,
+            SignUpMethod, handlePass, handleEmail, estadoEmail, estadoClave, saveDataMethod,
+            handleNombre, estadoNombre, handleApellido, estadoApellido, handleTelefono, estadoTelefono,
+            handleUsuario, estadoUsuario } = props;
 
     pickerSelectionValue = pickerSelection;
     return (
@@ -38,12 +40,22 @@ const SignUp = (props) => {
                     <Text style={styles.textSubTitle}></Text>
                   </View>
                   <View style={styles.center}>
-                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Nombre'></TextInput>
-                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Apellido'></TextInput>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Teléfono'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Nombre'
+                      onChangeText={handleNombre} value={estadoNombre}
+                    ></TextInput>
+
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Apellido'
+                      onChangeText = {handleApellido} value = {estadoApellido}
+                    ></TextInput>
+
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Teléfono'
+                      onChangeText = {handleTelefono} value = {estadoTelefono}
+                    ></TextInput>
+
                     <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Correo'
                     onChangeText = {handleEmail} value = {estadoEmail}
                     ></TextInput>
+
                     <View style={styles.button2}>
                       <TouchableHighlight onPress={togglePicker} style={[styles.buttonContainer2, styles.ocupationButton]}>
                         <Text style={styles.buttonText}>{pickerSelection}</Text>
@@ -65,17 +77,21 @@ const SignUp = (props) => {
                     {
                       elementosOcultos()
                     }
-                    <TextInput keyboardType={"default"} placeholderTextColor="white" style={styles.textInput} placeholder='Usuario'></TextInput>
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" style={styles.textInput} placeholder='Usuario'
+                    onChangeText = {handleUsuario} value = {estadoUsuario}
+                    ></TextInput>
+                    
                     <TextInput keyboardType={"default"} placeholderTextColor="white" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'
                     onChangeText = {handlePass} value = {estadoClave}
                     ></TextInput>
+
                     <TextInput keyboardType={"default"} placeholderTextColor="white" secureTextEntry={true} style={styles.textInput} placeholder='Confirmar Contraseña'
                     
                     ></TextInput>
                   </View>
                 </View>
                 <View style={styles.button}>
-                  <TouchableHighlight style={[styles.buttonContainer, styles.signUpButton]} onPress = {SignUpMethod}>
+                  <TouchableHighlight style={[styles.buttonContainer, styles.signUpButton]}onPress = {saveDataMethod}  >
                     <Text style={styles.buttonText}>Registrarse</Text>
                   </TouchableHighlight>
                 </View>

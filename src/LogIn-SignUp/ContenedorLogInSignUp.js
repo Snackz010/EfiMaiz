@@ -4,6 +4,7 @@ import firebase from 'react-native-firebase';
 import LogIn from '../LogIn/Componentes/LogIn.js';
 import SignUp from '../SignUp/Componentes/SignUp.js';
 
+
 export default class ContenedorlogInSignUp extends Component {
 
   constructor(props){
@@ -13,7 +14,11 @@ export default class ContenedorlogInSignUp extends Component {
       pickerSelection: 'Ocupación',
       pickerDisplayed: false,
       email: '',
-      clave:''
+      clave:'',
+      nombre:'',
+      apellido:'',
+      telefono:'',
+      usuario:''
     }
   }
 
@@ -41,7 +46,66 @@ export default class ContenedorlogInSignUp extends Component {
     //}
   }
 
-  ////Manejando el cambio de estado para el correo del usuario
+  //Metodo para guardar datos en firestore
+    saveDataMethod = () =>{
+      var db = firebase.firestore();
+      //const {nombre, apellido, telefono, correo, pickerSelection, usuario} = this.props;
+  
+      /*db.collection("users").doc(this.state.email).set({
+        fNombre: this.state.nombre,
+        fApellido: this.state.apellido,
+        fTelefono: this.state.telefono,
+        fCorreoE: this.state.email,
+        fOcupacion: this.state.pickerSelection,
+        fUsuario: this.state.usuario*/
+        db.collection("users").get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+              console.log(`${doc.id} => ${doc.data()}`);
+          });
+
+      }).then(function(docRef) {
+        console.log("ya hay datos")
+      }).catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
+    }
+
+    //obteniendo datos desde firebase
+    getDataFirebase = () => {
+      var db = firebase.firestore();
+      
+      db.collection("users").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data()}`);
+        });
+
+    });
+    
+
+    }
+  
+    //Manejando el cambio de estado para el correo del usuario
+    handleNombre = (nombreU) =>{
+      this.setState({
+        nombre:nombreU
+      })
+    }
+
+  //Manejando el cambio de estado para el apellido del usuario
+  handleApellido = (apellidoU) =>{
+    this.setState({
+      apellido:apellidoU
+    })
+  }
+
+    //Manejando el cambio de estado para el teléfono del usuario
+  handleTelefono = (telefonoU) => {
+    this.setState({
+      telefono:telefonoU
+    })
+  }
+
+  //Manejando el cambio de estado para el correo del usuario
   handleEmail= (emailCU) =>{
     this.setState({
       email:emailCU
@@ -54,6 +118,13 @@ export default class ContenedorlogInSignUp extends Component {
       clave:claveCU
   });
   }
+
+    //Manejando el cambio de estado para la contraseña del usuario
+    handleUsuario = (usuarioCU) =>{
+      this.setState({
+        usuario:usuarioCU
+    });
+    }
 
   //Esta función modifica el el valor del estado del elemento seleccionado
   //Y tambien cierra el modal al llamar la función togglePicker
@@ -92,7 +163,7 @@ export default class ContenedorlogInSignUp extends Component {
 
   render() {
     const {vistualActual, pickerDisplayed, pickerSelection} = this.state;
-    const {email, clave} = this.state;
+    const {email, clave, nombre,apellido, telefono,usuario} = this.state;
     
     //Valores que se cargan en el modal
     const pickerValues = [
@@ -129,7 +200,7 @@ export default class ContenedorlogInSignUp extends Component {
             return(
               <SignUp 
               pickerDisplayed={pickerDisplayed}
-              pickerValues={pickerValues}
+              pickerValues={pickerValues} //Valores que necesito para el registro de la ocupación del usuario
               togglePicker={this.togglePicker}
               setPickerValue={this.setPickerValue}
               pickerSelection={pickerSelection}
@@ -138,6 +209,15 @@ export default class ContenedorlogInSignUp extends Component {
               estadoEmail = {email}
               handlePass = {this.handlePass}
               estadoClave = {clave}
+              handleNombre = {this.handleNombre}
+              estadoNombre = {nombre}
+              handleApellido = {this.handleApellido}
+              estadoApellido = {apellido}
+              handleTelefono = {this.handleTelefono}
+              estadoTelefono = {telefono}
+              handleUsuario = {this.handleUsuario}
+              estadoUsuario = {usuario}
+              saveDataMethod = {this.saveDataMethod}
               />
             );
           break;
