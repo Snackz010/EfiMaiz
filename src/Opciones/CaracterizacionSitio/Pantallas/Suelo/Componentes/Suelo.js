@@ -67,6 +67,14 @@ const Suelo = (props) => {
                       onChangeText={eventoTxtTextura}
                       value={textura}
                     />
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Profundidad' 
+                      onChangeText={eventoTxtTextura}
+                      value={textura}
+                    />
+                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Pendiente' 
+                      onChangeText={eventoTxtTextura}
+                      value={textura}
+                    />
                   </View>
                 </View>
                 <View style={styles.button}>
