@@ -67,14 +67,14 @@ class ContenedorClima extends Component{
             AltitudC: Altitud,
             NRadiacionC: NRadiacion 
         }
-
+        this.evaluarClima();
         navigation.navigate('Suelo',Datos);
 
     }
 
         evaluarClima = (props) => {
-            //const {Temperatura, Altitud, Precipitacion } = this.state;
-            const {Temperatura, Altitud, Precipitacion } = props;
+            const {Temperatura, Altitud, Precipitacion } = this.state;
+            //const {Temperatura, Altitud, Precipitacion } = props;
 
             var contador = 0;
 
@@ -170,11 +170,11 @@ evaluarClima = (props) => {
     }
 
     if(contador === 9){
-        //alert("Clima optimo");
+        alert("Clima optimo");
     }else if(contador === 6){
-        //alert("Clima Bueno");
+        alert("Clima Bueno");
     }else if(contador === 3){
-        //alert("Clima marginal");
+        alert("Clima marginal");
     }
     return contador;
 }

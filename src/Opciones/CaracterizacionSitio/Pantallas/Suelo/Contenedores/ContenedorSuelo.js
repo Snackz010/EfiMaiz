@@ -100,7 +100,7 @@ class ContenedorSuelo extends Component{
             TopografiaS:Topografia,
             TexturaS:Textura
         }
-        
+        this.evaluarSuelo();
         navigation.navigate('Agua',{...ADatos});
 
     } 
@@ -174,7 +174,7 @@ class ContenedorSuelo extends Component{
             textura={Textura}
             pendiente={Pendiente}
             profundidad={Profundidad}
-            eventoIrAgua={this.evaluarSuelo}
+            eventoIrAgua={this.navegarAgua}
             />
         );
     }
