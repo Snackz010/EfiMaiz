@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Opciones from './Opciones';
+
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons.js';
+
 import {
   StyleSheet,
   Text,
@@ -13,6 +16,7 @@ const Inicio = (props) => {
 
   return (
     <>
+    <Icon name='rocket' size={30}/>
       <View>
         <View style={styles.header}>
           <Image style={styles.headerImage} source={require('../../assets/encabezado.jpg')}/>
