@@ -28,7 +28,7 @@ const Perfil = (props) => {
           <ScrollView>
             <TouchableOpacity>
               <View style={styles.row}>
-                <Image source={{ uri: "https://bootdey.com/img/Content/avatar/avatar7.png" }} style={styles.pic} />
+                <Image source={require('../../assets/userProfile.png')} style={styles.pic} />
                 <View>
                   <View style={styles.nameContainer}>
                     <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">Nombre</Text>
@@ -41,7 +41,7 @@ const Perfil = (props) => {
             </TouchableOpacity>
             <TouchableOpacity>
               <View style={styles.row}>
-                <Image source={{ uri: "https://bootdey.com/img/Content/avatar/avatar7.png" }} style={styles.pic} />
+                <Image source={require('../../assets/userProfile.png')} style={styles.pic} />
                 <View>
                   <View style={styles.nameContainer}>
                     <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">Apellido</Text>
@@ -54,7 +54,7 @@ const Perfil = (props) => {
             </TouchableOpacity>
             <TouchableOpacity>
               <View style={styles.row}>
-                <Image source={{ uri: "https://bootdey.com/img/Content/avatar/avatar7.png" }} style={styles.pic} />
+                <Image source={require('../../assets/phone.png')} style={styles.pic} />
                 <View>
                   <View style={styles.nameContainer}>
                     <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">Teléfono</Text>
@@ -67,7 +67,7 @@ const Perfil = (props) => {
             </TouchableOpacity>
             <TouchableOpacity>
               <View style={styles.row}>
-                <Image source={{ uri: "https://bootdey.com/img/Content/avatar/avatar7.png" }} style={styles.pic} />
+                <Image source={require('../../assets/email.png')} style={styles.pic} />
                 <View>
                   <View style={styles.nameContainer}>
                     <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">Correo</Text>
@@ -80,7 +80,7 @@ const Perfil = (props) => {
             </TouchableOpacity>
             <TouchableOpacity>
               <View style={styles.row}>
-                <Image source={{ uri: "https://bootdey.com/img/Content/avatar/avatar7.png" }} style={styles.pic} />
+                <Image source={require('../../assets/ocupation.png')} style={styles.pic} />
                 <View>
                   <View style={styles.nameContainer}>
                     <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">Ocupación</Text>
@@ -93,7 +93,7 @@ const Perfil = (props) => {
             </TouchableOpacity>
             <TouchableOpacity>
               <View style={styles.row}>
-                <Image source={{ uri: "https://bootdey.com/img/Content/avatar/avatar7.png" }} style={styles.pic} />
+                <Image source={require('../../assets/user2.png')} style={styles.pic} />
                 <View>
                   <View style={styles.nameContainer}>
                     <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">Usuario</Text>
