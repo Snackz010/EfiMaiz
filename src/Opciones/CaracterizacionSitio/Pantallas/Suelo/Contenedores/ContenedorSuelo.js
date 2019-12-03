@@ -143,7 +143,7 @@ class ContenedorSuelo extends Component{
         }else if(parseInt(Pendiente)>30){
             contador += 1;
         }
-        
+        //dasddasd
         // if(contador === 12){
         //     alert("Suelo optimo");
         // }else if(contador === 8){
