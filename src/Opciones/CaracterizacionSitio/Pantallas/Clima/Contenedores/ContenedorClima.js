@@ -102,13 +102,13 @@ class ContenedorClima extends Component{
                 contador += 1;
             }
 
-            if(contador === 9){
-                alert("Clima optimo");
-            }else if(contador === 6){
-                alert("Clima Bueno");
-            }else if(contador === 3){
-                alert("Clima marginal");
-            }
+            // if(contador === 9){
+            //     alert("Clima optimo");
+            // }else if(contador === 6){
+            //     alert("Clima Bueno");
+            // }else if(contador === 3){
+            //     alert("Clima marginal");
+            // }
             return contador;
         }
 
