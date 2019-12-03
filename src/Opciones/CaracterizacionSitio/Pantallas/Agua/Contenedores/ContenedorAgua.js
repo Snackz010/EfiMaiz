@@ -58,18 +58,25 @@ class ContenedorAgua extends Component{
 
         }
         //console.log('Agua', Datos)
+        return Datos;
     }
 
     irResultados = () => {
         const {navigation} = this.props;
         const { Volumen, Calidad, Fuente } = this.state;
 
-        navigation.navigate('Resultados');        
+        const ADatos = {
+            ...this.extraerParametros(),
+            VolumenA:Volumen,
+            CalidadA: Calidad,
+            FuenteA: Fuente
+        }
+
+        navigation.navigate('Resultados',ADatos);        
 
     }
 
     render(){
-        const {navigation} = this.props;
         const {Volumen, Calidad, Fuente} = this.state;
         
 

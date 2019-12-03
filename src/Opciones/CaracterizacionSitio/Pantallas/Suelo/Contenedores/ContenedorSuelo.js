@@ -135,7 +135,6 @@ class ContenedorSuelo extends Component{
             contador += 1;
         }
       
-        alert(contador);
 
         if(parseInt(Pendiente)<=15){
             contador += 3;
@@ -145,13 +144,13 @@ class ContenedorSuelo extends Component{
             contador += 1;
         }
         
-        if(contador === 12){
-            alert("Suelo optimo");
-        }else if(contador === 8){
-            alert("Suelo Bueno");
-        }else if(contador === 4){
-            alert("Suelo marginal");
-        }
+        // if(contador === 12){
+        //     alert("Suelo optimo");
+        // }else if(contador === 8){
+        //     alert("Suelo Bueno");
+        // }else if(contador === 4){
+        //     alert("Suelo marginal");
+        // }
     }
 
     render(){

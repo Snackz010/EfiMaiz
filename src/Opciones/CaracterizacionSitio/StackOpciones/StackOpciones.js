@@ -32,7 +32,10 @@ const ListaCaracterizacionSitioStack = createStackNavigator({
     },
     Resultados:{
         screen:ContenedorResultados,
-        header:null,
+        headerModer:'none',
+        navigationOptions:{
+            headerShown:false,
+        }
     }
 });
 
