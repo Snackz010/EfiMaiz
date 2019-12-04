@@ -14,7 +14,9 @@ class ContenedorSuelo extends Component{
             Topografia:'',
             Textura:'',
             Profundidad:'',
-            Pendiente:''
+            Pendiente:'',
+            pickerSelection: 'Tipo de suelo',
+            pickerDisplayed: false,
         }
 
 
@@ -168,27 +170,75 @@ class ContenedorSuelo extends Component{
        }
     }
 
+    togglePicker = () => {
+        this.setState({
+            pickerDisplayed: !this.state.pickerDisplayed
+        })
+    }
+
+    setPickerValue = (newValue) =>{
+        this.setState({
+            pickerSelection: newValue
+        })
+        this.togglePicker();
+    }
+
     render(){
-        const { TSuelo, Color, PH, MOrganica, Topografia, Textura, Pendiente, Profundidad } = this.state;
+        const pickerValues = [
+            {
+                title: 'Arenoso',
+                value: 'Arenoso'
+            },
+            {
+                title: 'Arena Franca',
+                value: 'Arena Franca'
+            },
+            {
+                title: 'Franco Limoso',
+                value: 'Franco Limoso'
+            },
+            {
+                title: 'Franco',
+                value: 'Franco'
+            },
+            {
+                title: 'Franco Arcilloso',
+                value: 'Franco Arcilloso'
+            },
+            {
+                title: 'Arcilla Fina',
+                value: 'Arcilla Fina'
+            },
+            {
+                title: 'Franco Pesada',
+                value: 'Franco Pesada'
+            }
+        ]
+        const { pickerSelection, pickerDisplayed, TSuelo, Color, PH, MOrganica, Topografia, Textura, Pendiente, Profundidad } = this.state;
         return(
-            <Suelo 
-            eventoTxtSuelo={this.eventoTxtSuelo}
-            eventoTxtColor={this.eventoTxtColor}
-            eventoTxtPH={this.eventoTxtPH}
-            eventoTxtMOrganica={this.eventoTxtMOrganica}
-            eventoTxtTopografia={this.eventoTxtTopografia}
-            eventoTxtTextura={this.eventoTxtTextura}
-            eventoTxtProfundidad={this.eventoTxtProfundidad}
-            eventoTxtPendiente = {this.eventoTxtPendiente}
-            suelo={TSuelo} 
-            color={Color}
-            ph={PH}
-            mOrganica={MOrganica}
-            topografia={Topografia}
-            textura={Textura}
-            pendiente={Pendiente}
-            profundidad={Profundidad}
-            eventoIrAgua={this.navegarAgua}
+            <Suelo
+                pickerDisplayed={pickerDisplayed}
+                pickerValues={pickerValues}
+                togglePicker={this.togglePicker}
+                setPickerValue={this.setPickerValue}
+                pickerSelection={pickerSelection}
+                eventoTxtSuelo={this.eventoTxtSuelo}
+                eventoTxtColor={this.eventoTxtColor}
+                eventoTxtPH={this.eventoTxtPH}
+                eventoTxtMOrganica={this.eventoTxtMOrganica}
+                eventoTxtTopografia={this.eventoTxtTopografia}
+                eventoTxtTextura={this.eventoTxtTextura}
+                eventoTxtProfundidad={this.eventoTxtProfundidad}
+                eventoTxtPendiente = {this.eventoTxtPendiente}
+                suelo={TSuelo} 
+                color={Color}
+                ph={PH}
+                mOrganica={MOrganica}
+                topografia={Topografia}
+                textura={Textura}
+                pendiente={Pendiente}
+                profundidad={Profundidad}
+                eventoIrAgua={this.navegarAgua}
             />
         );
     }

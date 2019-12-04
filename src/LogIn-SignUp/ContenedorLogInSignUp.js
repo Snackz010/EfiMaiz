@@ -47,57 +47,54 @@ export default class ContenedorlogInSignUp extends Component {
   }
 
   //Metodo para guardar datos en firestore
-    saveDataMethod = () =>{
-      var db = firebase.firestore();
-      //const {nombre, apellido, telefono, correo, pickerSelection, usuario} = this.props;
-  
-      db.collection("users").doc(this.state.email).set({
-        fNombre: this.state.nombre,
-        fApellido: this.state.apellido,
-        fTelefono: this.state.telefono,
-        fCorreoE: this.state.email,
-        fOcupacion: this.state.pickerSelection,
-        fUsuario: this.state.usuario
+  saveDataMethod = () =>{
+    var db = firebase.firestore();
+    //const {nombre, apellido, telefono, correo, pickerSelection, usuario} = this.props;
 
-      }).then(function(docRef) {
-        console.log("Datos registrados:", docRef.data)
-      }).catch(function(error) {
-        console.error("Error adding document: ", error);
-      });
-    }
+    db.collection("users").doc(this.state.email).set({
+      fNombre: this.state.nombre,
+      fApellido: this.state.apellido,
+      fTelefono: this.state.telefono,
+      fCorreoE: this.state.email,
+      fOcupacion: this.state.pickerSelection,
+      fUsuario: this.state.usuario
 
-    //obteniendo datos desde firebase
-    getDataFirebase = () => {
+    }).then(function(docRef) {
+      console.log("Datos registrados:", docRef.data)
+    }).catch(function(error) {
+      console.error("Error adding document: ", error);
+    });
+  }
 
-      var db = firebase.firestore();
-      var docRef = db.collection('users').doc(this.state.email);
+  //obteniendo datos desde firebase
+  getDataFirebase = () => {
 
-      docRef.get().then (function (doc) {
+    var db = firebase.firestore();
+    var docRef = db.collection('users').doc(this.state.email);
 
-        if (doc.exists) {
-          console.log("Datos del documento: ", doc.data().fCorreoE);
-                   
-        }else {
-          console.log("No se encontró ningún documento");
-        }
-        
-      }).catch (function(error) {
+    docRef.get().then (function (doc) {
 
-        console.log('Ha surgido el siguiente error: ', error)
-        
-      })
-
+      if (doc.exists) {
+        console.log("Datos del documento: ", doc.data().fCorreoE);
+                  
+      }else {
+        console.log("No se encontró ningún documento");
+      }
       
-    
+    }).catch (function(error) {
 
-    }
+      console.log('Ha surgido el siguiente error: ', error)
+      
+    })
+
+  }
   
-    //Manejando el cambio de estado para el correo del usuario
-    handleNombre = (nombreU) =>{
-      this.setState({
-        nombre:nombreU
-      })
-    }
+  //Manejando el cambio de estado para el correo del usuario
+  handleNombre = (nombreU) =>{
+    this.setState({
+      nombre:nombreU
+    })
+  }
 
   //Manejando el cambio de estado para el apellido del usuario
   handleApellido = (apellidoU) =>{
@@ -127,12 +124,12 @@ export default class ContenedorlogInSignUp extends Component {
   });
   }
 
-    //Manejando el cambio de estado para la contraseña del usuario
-    handleUsuario = (usuarioCU) =>{
-      this.setState({
-        usuario:usuarioCU
-    });
-    }
+  //Manejando el cambio de estado para la contraseña del usuario
+  handleUsuario = (usuarioCU) =>{
+    this.setState({
+      usuario:usuarioCU
+  });
+  }
 
   //Esta función modifica el el valor del estado del elemento seleccionado
   //Y tambien cierra el modal al llamar la función togglePicker
