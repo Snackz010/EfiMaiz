@@ -106,7 +106,7 @@ class ContenedorSuelo extends Component{
             SueloApto:valoaptoSuelo
         }
         this.evaluarSuelo();
-        if(pickerSelection!='' || pickerSelection2 != '' || pickerSelection3 != '', PH != '' || Pendiente != '' || Profundidad != ''){
+        if(pickerSelection != '' && pickerSelection2 != '' && pickerSelection3 != '' && PH != '' && Pendiente != '' && Profundidad != ''){
             navigation.navigate('Agua',{...ADatos});
         }else{
             alert("¡Oops Parece que olvidas llenar algunos datos!");

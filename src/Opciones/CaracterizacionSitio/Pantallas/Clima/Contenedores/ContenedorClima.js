@@ -116,7 +116,7 @@ class ContenedorClima extends Component{
             NivelaptoC:Nivelapto
         }
         
-        if(Temperatura != '' || Precipitacion != ''||VelocidadV != '' || Humedad != '' || Altitud != ''|| NRadiacion != ''){
+        if(Temperatura != '' && Precipitacion != '' && VelocidadV != '' && Humedad != '' && Altitud != ''&& NRadiacion != ''){
             navigation.navigate('Suelo',Datos);
         }else{
             alert("¡Ops! Hacen falta algunos datos");
