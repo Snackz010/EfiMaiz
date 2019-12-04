@@ -27,6 +27,11 @@ const ResultadoCaracterizacion = (props) => {
       changeState2,
       tableHead2,
       tableData2,
+      mostrarModal3, 
+      visible3, 
+      changeState3,
+      tableHead3,
+      tableData3,
       mostrarC,
       nivelClima,
       nivelSuelo

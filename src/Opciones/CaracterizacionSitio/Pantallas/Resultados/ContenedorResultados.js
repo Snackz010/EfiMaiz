@@ -25,6 +25,16 @@ export default class ContenedorResultados extends Component {
         ['Profundidad', '100 cm','100 cm'],
         ['Pendiente', '20%','20%'],
       ],
+      modalVisible3: false,
+      tableHead3: ['Variable', 'Muestreo', 'Req. Necesarios'],
+      tableData3: [
+        ['Tipo suelo', 'Arenoso','Arenoso'],
+        ['Color', 'Rojo','Negro'],
+        ['Textura', 'Limoso','Limoso'],
+        ['PH', '7','7'],
+        ['Profundidad', '100 cm','100 cm'],
+        ['Pendiente', '20%','20%'],
+      ],
       Parametros:{...this.obtenerParametros()},
       NivelClima:'',
       NivelSuelo:''
@@ -86,6 +96,18 @@ export default class ContenedorResultados extends Component {
     this.setModalVisible2(!this.state.modalVisible2);
   }
 
+  setModalVisible3(visible) {
+    this.setState({modalVisible3: visible});
+  }
+
+  mostrarModal3 = () => {
+    this.setModalVisible3(true);
+  }
+
+  changeState3 = () => {
+    this.setModalVisible3(!this.state.modalVisible3);
+  }
+
   render() {
     const {
       tableData,
@@ -95,6 +117,9 @@ export default class ContenedorResultados extends Component {
       tableData2,
       tableHead2,
       modalVisible2,
+      tableData3,
+      tableHead3,
+      modalVisible3,
       NivelClima,
       NivelSuelo} = this.state
     return (
@@ -111,6 +136,12 @@ export default class ContenedorResultados extends Component {
           changeState2={this.changeState2}
           tableHead2={tableHead2}
           tableData2={tableData2}
+
+          mostrarModal3={this.mostrarModal3}
+          visible3={modalVisible3}
+          changeState3={this.changeState3}
+          tableHead3={tableHead3}
+          tableData3={tableData3}
 
           mostrarC={this.mostrarPara}
           nivelClima = {NivelClima}
