@@ -20,7 +20,7 @@ const SignUp = (props) => {
     const { pickerDisplayed, pickerValues,setPickerValue,togglePicker,pickerSelection,
             SignUpMethod, handlePass, handleEmail, estadoEmail, estadoClave, saveDataMethod,
             handleNombre, estadoNombre, handleApellido, estadoApellido, handleTelefono, estadoTelefono,
-            handleUsuario, estadoUsuario } = props;
+            handleUsuario, estadoUsuario, cambiarPantalla } = props;
 
     pickerSelectionValue = pickerSelection;
     return (
@@ -134,7 +134,9 @@ const SignUp = (props) => {
                     <Text style={styles.buttonText}>Registrarse</Text>
                   </TouchableHighlight>
                 </View>
+                <Text style={styles.textContainer}><Text onPress={cambiarPantalla} style={styles.text2}>Regresar a LogIn</Text></Text>
               </ScrollView>
+              
             </View>
           </View>
         </ImageBackground>
@@ -281,6 +283,18 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     position: 'absolute'
+  },
+  text2: {
+    fontSize: 12, 
+    color: '#9ed4a3',
+    textAlign: 'center',
+  },
+  textContainer: {
+    fontSize: 12, 
+    color: '#eee',
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 20,
   }
 });
 
