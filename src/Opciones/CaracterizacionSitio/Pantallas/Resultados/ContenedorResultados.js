@@ -167,6 +167,11 @@ export default class ContenedorResultados extends Component {
         ['Profundidad', ADatos.ProfundidadS+' cm','< 60 cm'],
         ['Pendiente', ADatos.PendienteS+' %','15%'],
       ],
+      tableData3: [
+        ['Volumen', ADatos.VolumenA+'gl/mz','- gl/mz'],
+        ['Calidad', ADatos.CalidadA,'Buena'],
+        ['Fuente', ADatos.FuenteA,'-'],
+      ],
       NivelClima:ADatos.NivelaptoC,
       NivelSuelo:ADatos.SueloApto
     })
