@@ -100,6 +100,31 @@ const ResultadoCaracterizacion = (props) => {
                       </View>
                     </View>
                   </Modal>
+                  <Modal
+                    animationType="slide"
+                    transparent={false}
+                    visible={visible3}
+                  >
+                    <View style={styles.center}>
+                      <View style={styles.modalContainer}>
+                        <Text style={styles.title}>Resultados del Análisis del Agua</Text>
+                        <View style={styles.container}>
+                          <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+                            <Row data={tableHead3} style={styles.head} textStyle={styles.text}/>
+                            <Rows data={tableData3} textStyle={styles.text}/>
+                          </Table>
+                        </View>
+                        <View style={styles.button}>
+                          <TouchableHighlight
+                            style={[styles.buttonContainer, styles.actionButton]}
+                            onPress={changeState3}
+                          >
+                            <Text style={styles.buttonText}>Ok</Text>
+                          </TouchableHighlight>
+                        </View>
+                      </View>
+                    </View>
+                  </Modal>
                 </View>
                 {
                   resultadosClima()
@@ -107,7 +132,7 @@ const ResultadoCaracterizacion = (props) => {
                 {
                   resultadosSuelo()
                 }
-                <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton2]}>
+                <TouchableHighlight onPress={mostrarModal3} style={[styles.buttonContainer2, styles.actionButton2]}>
                   <Text style={styles.buttonText2}>Análisis del agua: Apto<Icon name='check' color="green" size={18}/></Text>
                 </TouchableHighlight>
               </View>
@@ -150,21 +175,21 @@ resultadosSuelo = () => {
   console.log(nivelSueloValue);
   if(nivelSueloValue === 'Optimo'){
     return(
-          <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton2]}>
-            <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
-          </TouchableHighlight>
+      <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton2]}>
+        <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
+      </TouchableHighlight>
     );
   }else if(nivelSueloValue === 'Bueno'){
     return(
-          <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton3]}>
-            <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
-          </TouchableHighlight>
+      <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton3]}>
+        <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
+      </TouchableHighlight>
     );
   }else if(nivelSueloValue === 'Marginal'){
     return(
-          <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton4]}>
-            <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
-          </TouchableHighlight>
+      <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton4]}>
+        <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
+      </TouchableHighlight>
     );
   }
 }
