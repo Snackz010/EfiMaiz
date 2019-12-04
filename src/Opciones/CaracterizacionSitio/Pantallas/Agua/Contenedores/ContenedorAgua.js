@@ -49,12 +49,14 @@ class ContenedorAgua extends Component{
             HumedadC: navigation.getParam('HumedadC'),
             AltitudC: navigation.getParam('AltitudC'),
             NRadiacionC: navigation.getParam('NRadiacionC'),
+            NivelaptoC: navigation.getParam('NivelaptoC'),
             TSueloS: navigation.getParam('TSueloS'),
             ColorS:navigation.getParam('ColorS'),
             PHS:navigation.getParam('PHS'),
-            MOrganicaS:navigation.getParam('MOrganicas'),
+            MOrganicaS:navigation.getParam('MOrganicaS'),
             TopografiaS:navigation.getParam('TopografiaS'),
             TexturaS:navigation.getParam('TexturaS'),
+            SueloApto: navigation.getParam('SueloApto')
 
         }
         //console.log('Agua', Datos)

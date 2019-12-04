@@ -12,7 +12,7 @@ class ContenedorClima extends Component{
             Humedad:'',
             VelocidadV:'',
             Altitud:'',
-            NRadiacion:''
+            NRadiacion:'',
         }
     }
 
@@ -55,24 +55,8 @@ class ContenedorClima extends Component{
     }
 
 
-    navegarSuelo = () => {
-        const { Temperatura, Precipitacion, VelocidadV, Humedad, Altitud, NRadiacion } = this.state;
-        const { navigation } = this.props;
-  
-        const Datos = {
-            TemperaturaC: Temperatura,
-            PrecipitacionC: Precipitacion,
-            VelocidadVC: VelocidadV,
-            HumedadC: Humedad,
-            AltitudC: Altitud,
-            NRadiacionC: NRadiacion 
-        }
-        this.evaluarClima();
-        navigation.navigate('Suelo',Datos);
 
-    }
-
-        evaluarClima = (props) => {
+    evaluarClima = () => {
             const {Temperatura, Altitud, Precipitacion } = this.state;
             //const {Temperatura, Altitud, Precipitacion } = props;
 
@@ -101,16 +85,41 @@ class ContenedorClima extends Component{
             }else if(parseInt(Altitud)>=0 && parseInt(Altitud)< 100){
                 contador += 1;
             }
-
-            // if(contador === 9){
-            //     alert("Clima optimo");
-            // }else if(contador === 6){
-            //     alert("Clima Bueno");
-            // }else if(contador === 3){
-            //     alert("Clima marginal");
-            // }
             return contador;
+    }
+
+   
+    setValorApto = (contador) =>{
+        if(contador === 9){
+            return 'Optimo'
+        }else if(contador === 6){
+            return 'Bueno'
+        }else if(contador === 3){
+            return 'Marginal'
+       }
+    }
+
+    navegarSuelo = () => {
+        const { Temperatura, Precipitacion, VelocidadV, Humedad, Altitud, NRadiacion } = this.state;
+        const { navigation } = this.props;
+  
+
+        const Nivelapto = this.setValorApto(this.evaluarClima());
+
+        const Datos = {
+            TemperaturaC: Temperatura,
+            PrecipitacionC: Precipitacion,
+            VelocidadVC: VelocidadV,
+            HumedadC: Humedad,
+            AltitudC: Altitud,
+            NRadiacionC: NRadiacion,
+            NivelaptoC:Nivelapto
         }
+        
+        navigation.navigate('Suelo',Datos);
+
+    }
+
 
     render(){
 
