@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { AsyncStorage } from 'react-native'
+import firebase from 'react-native-firebase'
 import ResultadosCaracterizacion from './ResultadosCaracterizacion';
 
 export default class ContenedorResultados extends Component {
@@ -34,9 +36,33 @@ export default class ContenedorResultados extends Component {
       ],
       Parametros:{...this.obtenerParametros()},
       NivelClima:'',
-      NivelSuelo:''
+      NivelSuelo:'',
+      Email:''
     };
     
+  }
+
+  //Método para obtener el email del usuario para la extracción de los datos
+  ObtenerEmail = async () => {
+    const emailAsycn = await AsyncStorage.getItem ('DATO');
+    return emailAsycn;
+    }
+
+  GuardarResultadosCSitio = () =>{
+
+  const db = firebase.firestore();
+  const ResultadosCSRef = db.collection("users").doc(this.state.Email);
+    
+  ResultadosCSRef.set(
+      {fResultadosCS: 
+        {...this.obtenerParametros()}
+      },
+      {
+        merge: true
+      }).then( () => {
+      console.log("Resultados creados");
+    });
+  
   }
   
   obtenerParametros=() => {
@@ -140,15 +166,15 @@ export default class ContenedorResultados extends Component {
           tableHead3={tableHead3}
           tableData3={tableData3}
 
-          mostrarC={this.mostrarPara}
+          guardarResultados={this.GuardarResultadosCSitio}
           nivelClima = {NivelClima}
           nivelSuelo = {NivelSuelo}
-          
+        
         />
     );
   }
 
-  componentDidMount(){
+  async componentDidMount(){
     const ADatos = {...this.obtenerParametros()};
     this.setState({
       tableData:[
@@ -175,5 +201,17 @@ export default class ContenedorResultados extends Component {
       NivelClima:ADatos.NivelaptoC,
       NivelSuelo:ADatos.SueloApto
     })
+
+    //Obteniendo el correo ID par guardar los resultados de caraterización del sito del usuario logueado en ese moment
+    const datos = await this.ObtenerEmail();
+    console.log(datos);
+    if (datos !== null) {
+      const emailStorage = JSON.parse(datos);
+      this.setState({
+        Email: emailStorage,
+      })
+      //this.getDataFirebase(); //Enviar resultados de la caracterizaión del sitio al firebase
+    }
+
   }
 }
