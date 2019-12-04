@@ -240,6 +240,7 @@ export default class ContenedorlogInSignUp extends Component {
               handleUsuario = {this.handleUsuario}
               estadoUsuario = {usuario}
               saveDataMethod = {this.saveDataMethod}
+              cambiarPantalla = {this.cambiarPantalla}
               />
             );
           break;
