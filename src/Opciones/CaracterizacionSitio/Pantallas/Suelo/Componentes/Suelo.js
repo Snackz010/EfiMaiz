@@ -37,6 +37,16 @@ const Suelo = (props) => {
     togglePicker,
     setPickerValue,
     pickerSelection,
+    pickerDisplayed2,
+    pickerValues2,
+    togglePicker2,
+    setPickerValue2,
+    pickerSelection2,
+    pickerDisplayed3,
+    pickerValues3,
+    togglePicker3,
+    setPickerValue3,
+    pickerSelection3,
   } = props;
     return (
       <>
@@ -51,6 +61,7 @@ const Suelo = (props) => {
                     <Text style={styles.textSubTitle}></Text>
                   </View>
                   <View style={styles.center}>
+
                     <View style={styles.button2}>
                       <TouchableHighlight onPress={togglePicker} style={[styles.buttonContainer2, styles.colorPickerButton]}>
                         <Text style={styles.buttonText}>{pickerSelection}</Text>
@@ -58,7 +69,7 @@ const Suelo = (props) => {
                     </View>
                     <Modal visible={pickerDisplayed} animationType={"slide"} transparent={true}>
                       <View style={styles.modal}>
-                        <Text style={styles.textOpacity}>Elija una ocupación</Text>
+                        <Text style={styles.textOpacity}>Elija el tipo de suelo</Text>
                         { pickerValues.map((value, index) => {
                           return <TouchableHighlight key={index} onPress={() => setPickerValue(value.value)} style={styles.itemText}>
                                     <Text>{ value.title }</Text>
@@ -69,15 +80,45 @@ const Suelo = (props) => {
                         </TouchableHighlight>
                       </View>
                     </Modal>
-                    <TextInput
-                      keyboardType={"default"}
-                      placeholderTextColor="white"
-                      autoCapitalize={'words'}
-                      style={styles.textInput}
-                      placeholder='Color' 
-                      onChangeText={eventoTxtColor}
-                      value={color}
-                    />
+
+                    <View style={styles.button2}>
+                      <TouchableHighlight onPress={togglePicker2} style={[styles.buttonContainer2, styles.colorPickerButton]}>
+                        <Text style={styles.buttonText}>{pickerSelection2}</Text>
+                      </TouchableHighlight>
+                    </View>
+                    <Modal visible={pickerDisplayed2} animationType={"slide"} transparent={true}>
+                      <View style={styles.modal}>
+                        <Text style={styles.textOpacity}>Elija el color del suelo</Text>
+                        { pickerValues2.map((value, index) => {
+                          return <TouchableHighlight key={index} onPress={() => setPickerValue2(value.value)} style={styles.itemText}>
+                                    <Text>{ value.title }</Text>
+                                 </TouchableHighlight>
+                        })}
+                        <TouchableHighlight onPress={togglePicker2} style={styles.buttonCancel}>
+                          <Text style={styles.textOpacity}>Cancelar</Text>
+                        </TouchableHighlight>
+                      </View>
+                    </Modal>
+
+                    <View style={styles.button2}>
+                      <TouchableHighlight onPress={togglePicker3} style={[styles.buttonContainer2, styles.colorPickerButton]}>
+                        <Text style={styles.buttonText}>{pickerSelection3}</Text>
+                      </TouchableHighlight>
+                    </View>
+                    <Modal visible={pickerDisplayed3} animationType={"slide"} transparent={true}>
+                      <View style={styles.modal}>
+                        <Text style={styles.textOpacity}>Elija la textura del suelo</Text>
+                        { pickerValues3.map((value, index) => {
+                          return <TouchableHighlight key={index} onPress={() => setPickerValue3(value.value)} style={styles.itemText}>
+                                    <Text>{ value.title }</Text>
+                                 </TouchableHighlight>
+                        })}
+                        <TouchableHighlight onPress={togglePicker3} style={styles.buttonCancel}>
+                          <Text style={styles.textOpacity}>Cancelar</Text>
+                        </TouchableHighlight>
+                      </View>
+                    </Modal>
+
                     <TextInput
                       keyboardType={"numeric"}
                       placeholderTextColor="white"
@@ -88,38 +129,11 @@ const Suelo = (props) => {
                       value={ph}
                     />
                     <TextInput
-                      keyboardType={"default"}
-                      placeholderTextColor="white"
-                      autoCapitalize={'words'}
-                      style={styles.textInput}
-                      placeholder='Materia Organica' 
-                      onChangeText={eventoTxtMOrganica}
-                      value={mOrganica}
-                    />
-                    <TextInput
-                      keyboardType={"default"}
-                      placeholderTextColor="white"
-                      autoCapitalize={'words'}
-                      style={styles.textInput}
-                      placeholder='Topografía' 
-                      onChangeText={eventoTxtTopografia}
-                      value={topografia}
-                    />
-                    <TextInput
-                      keyboardType={"default"}
-                      placeholderTextColor="white"
-                      autoCapitalize={'words'}
-                      style={styles.textInput}
-                      placeholder='Textura' 
-                      onChangeText={eventoTxtTextura}
-                      value={textura}
-                    />
-                    <TextInput
                       keyboardType={"numeric"}
                       placeholderTextColor="white"
                       autoCapitalize={'words'}
                       style={styles.textInput}
-                      placeholder='Profundidad' 
+                      placeholder='Profundidad cm' 
                       onChangeText={eventoTxtProfundidad}
                       value={profundidad}
                     />

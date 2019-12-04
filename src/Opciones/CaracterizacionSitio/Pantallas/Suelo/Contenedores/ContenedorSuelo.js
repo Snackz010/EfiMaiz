@@ -15,8 +15,12 @@ class ContenedorSuelo extends Component{
             Textura:'',
             Profundidad:'',
             Pendiente:'',
-            pickerSelection: 'Tipo de suelo',
+            pickerSelection: 'Tipo de suelos',
             pickerDisplayed: false,
+            pickerSelection2: 'Color del suelo',
+            pickerDisplayed2: false,
+            pickerSelection3: 'Textura',
+            pickerDisplayed3: false,
         }
 
 
@@ -183,6 +187,32 @@ class ContenedorSuelo extends Component{
         this.togglePicker();
     }
 
+    togglePicker2 = () => {
+        this.setState({
+            pickerDisplayed2: !this.state.pickerDisplayed2
+        })
+    }
+
+    setPickerValue2 = (newValue) =>{
+        this.setState({
+            pickerSelection2: newValue
+        })
+        this.togglePicker2();
+    }
+
+    togglePicker3 = () => {
+        this.setState({
+            pickerDisplayed3: !this.state.pickerDisplayed3
+        })
+    }
+
+    setPickerValue3 = (newValue) =>{
+        this.setState({
+            pickerSelection3: newValue
+        })
+        this.togglePicker3();
+    }
+
     render(){
         const pickerValues = [
             {
@@ -214,7 +244,35 @@ class ContenedorSuelo extends Component{
                 value: 'Franco Pesada'
             }
         ]
-        const { pickerSelection, pickerDisplayed, TSuelo, Color, PH, MOrganica, Topografia, Textura, Pendiente, Profundidad } = this.state;
+        const pickerValues2 = [
+            {
+                title: 'Negro',
+                value: 'Negro'
+            },
+            {
+                title: 'Rojizo',
+                value: 'Rojizo'
+            },
+            {
+                title: 'Amarillento',
+                value: 'Amarillento'
+            },
+        ]
+        const pickerValues3 = [
+            {
+                title: 'Arcilloso',
+                value: 'Arcilloso'
+            },
+            {
+                title: 'Limoso',
+                value: 'Limoso'
+            },
+            {
+                title: 'Arenoso',
+                value: 'Arenoso'
+            },
+        ]
+        const { pickerSelection, pickerDisplayed,  pickerSelection2, pickerDisplayed2, pickerSelection3, pickerDisplayed3, TSuelo, Color, PH, MOrganica, Topografia, Textura, Pendiente, Profundidad } = this.state;
         return(
             <Suelo
                 pickerDisplayed={pickerDisplayed}
@@ -222,6 +280,19 @@ class ContenedorSuelo extends Component{
                 togglePicker={this.togglePicker}
                 setPickerValue={this.setPickerValue}
                 pickerSelection={pickerSelection}
+                
+                pickerDisplayed2={pickerDisplayed2}
+                pickerValues2={pickerValues2}
+                togglePicker2={this.togglePicker2}
+                setPickerValue2={this.setPickerValue2}
+                pickerSelection2={pickerSelection2}
+
+                pickerDisplayed3={pickerDisplayed3}
+                pickerValues3={pickerValues3}
+                togglePicker3={this.togglePicker3}
+                setPickerValue3={this.setPickerValue3}
+                pickerSelection3={pickerSelection3}
+
                 eventoTxtSuelo={this.eventoTxtSuelo}
                 eventoTxtColor={this.eventoTxtColor}
                 eventoTxtPH={this.eventoTxtPH}
