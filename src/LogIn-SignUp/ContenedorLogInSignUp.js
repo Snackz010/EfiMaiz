@@ -72,10 +72,12 @@ export default class ContenedorlogInSignUp extends Component {
       fTelefono: this.state.telefono,
       fCorreoE: this.state.email,
       fOcupacion: this.state.pickerSelection,
-      fUsuario: this.state.usuario
+      fUsuario: this.state.usuario,
+      
 
-    }).then(function(docRef) {
-      console.log("Datos registrados:", docRef.data)
+    }).then((docRef) => {
+      this.SignUpMethod();
+      console.log("Datos registrados:")
     }).catch(function(error) {
       console.error("Error adding document: ", error);
     });
