@@ -7,12 +7,13 @@ import {
   View,
   Image,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  TouchableHighlight
 } from 'react-native';
 
 const Perfil = (props) => {
 
-  const {nombredb, apellidodb, ocupaciondb, telefonodb, usuariodb, correodb} = props;
+  const {nombredb, apellidodb, ocupaciondb, telefonodb, usuariodb, correodb, irEditarPerfil} = props;
 
   return (
     <>
@@ -106,6 +107,13 @@ const Perfil = (props) => {
                 </View>
               </View>
             </TouchableOpacity>
+            <View style={styles.button}>
+              <TouchableHighlight style={[styles.buttonContainer, styles.bacButton]}
+                onPress={irEditarPerfil}
+              >
+                <Text style={styles.editText}>Editar<Icon name='pencil' color="white" size={18}/></Text>
+              </TouchableHighlight>
+            </View>
           </ScrollView>
         </View>
       </View>
@@ -208,7 +216,30 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
   listContainer:{
-    marginTop: 60
+    marginTop: 60,
+    marginBottom:380,
+  },
+  button: {
+    marginTop: 20,
+    marginBottom: 50,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonContainer: {
+    height:50,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width:150,
+    borderRadius:20,
+  },
+  bacButton: {
+    backgroundColor: 'rgba(70, 160, 90, .9)',
+  },
+  editText: {
+    color: 'white',
+    fontSize: 16,
   },
 });
 
