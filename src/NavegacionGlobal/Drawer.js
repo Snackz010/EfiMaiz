@@ -1,6 +1,6 @@
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
-import ContenedorPerfil from '../Perfil/Contenedores/ContenedorPerfil';
+import StackPerfil from '../Perfil/stackPerfil';
 import ContenedorInicio from '../Inicio//Contenedores/ContenedorInicio';
 import StackOpciones from '../Opciones/CaracterizacionSitio/StackOpciones/StackOpciones.js'
 import Guias from '../Opciones/GuiasInformativas/Componentes/GuiasInformativas';
@@ -24,7 +24,7 @@ const Drawer = createDrawerNavigator({
         }
     },
     Perfil:{
-        screen: ContenedorPerfil,
+        screen: StackPerfil,
         navigationOptions:{
             drawerLabel:'Perfil de Usuario'
         }

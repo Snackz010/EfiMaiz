@@ -44,6 +44,11 @@ export default class ContenedorPerfil extends Component{
     return emailAsycn;
     }
 
+  irEditarPerfil = () => {
+    const {navigation} = this.props;
+
+    navigation.navigate('EditarPerfil');
+  }
   render(){
     const {Email, Nombre, Apellido, Ocupacion, Telefono, Usuario} = this.state;
       return(
@@ -54,6 +59,7 @@ export default class ContenedorPerfil extends Component{
           ocupaciondb = {Ocupacion}
           telefonodb = {Telefono}
           usuariodb= {Usuario}
+          irEditarPerfil={this.irEditarPerfil}
           />
       );
   }
