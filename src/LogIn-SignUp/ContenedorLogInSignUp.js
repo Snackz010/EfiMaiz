@@ -26,10 +26,19 @@ export default class ContenedorlogInSignUp extends Component {
   //Método para registro de usurios con su correo y contraseña
   SignUpMethod = () => {
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.clave)
-    .then(success => ( 
+    .then(success => (
+      this.saveDataMethod(), 
       this.cambiaraDrawer(),
       console.log('El resgistro realizado correctamente: ', success)))
-    .catch( error => (console.log('Este es el error: ', error)))
+    .catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      if (errorCode == 'auth/email-already-in-use') {
+        alert('el usuario ya existe, resgistre otro');
+      }
+      console.log(error);
+    })
   }
 
   //Método para iniciar sesión con su correo y contraseña
@@ -73,8 +82,6 @@ export default class ContenedorlogInSignUp extends Component {
       fCorreoE: this.state.email,
       fOcupacion: this.state.pickerSelection,
       fUsuario: this.state.usuario,
-      
-
     }).then((docRef) => {
       this.SignUpMethod();
       console.log("Datos registrados:")

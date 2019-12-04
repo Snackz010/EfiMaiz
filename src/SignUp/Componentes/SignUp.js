@@ -130,7 +130,7 @@ const SignUp = (props) => {
                   </View>
                 </View>
                 <View style={styles.button}>
-                  <TouchableHighlight style={[styles.buttonContainer, styles.signUpButton]}onPress = {saveDataMethod}  >
+                  <TouchableHighlight style={[styles.buttonContainer, styles.signUpButton]} onPress = {SignUpMethod}  >
                     <Text style={styles.buttonText}>Registrarse</Text>
                   </TouchableHighlight>
                 </View>

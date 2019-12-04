@@ -32,7 +32,7 @@ const ResultadoCaracterizacion = (props) => {
       changeState3,
       tableHead3,
       tableData3,
-      mostrarC,
+      guardarResultados,
       nivelClima,
       nivelSuelo
     } = props;
@@ -138,7 +138,7 @@ const ResultadoCaracterizacion = (props) => {
               </View>
               <View style={styles.button}>
                 <TouchableHighlight style={[styles.buttonContainer, styles.actionButton]}
-                  onPress={mostrarC}
+                  onPress={guardarResultados}
                 >
                   <Text style={styles.buttonText}>Ir a Inicio <Icon name='home' color="white" size={18}/></Text>
                 </TouchableHighlight>
