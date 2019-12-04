@@ -16,7 +16,7 @@ export default class ContenedorResultados extends Component {
         ['Nivel de radiación', '2','100W/m'],
       ],
       modalVisible2: false,
-      tableHead2: ['Variable', 'Muestreo', 'Req. Necesarios'],
+      tableHead2: ['Variable', 'Muestreo', 'Req. Optimos'],
       tableData2: [
         ['Tipo suelo', 'Arenoso','Arenoso'],
         ['Color', 'Rojo','Negro'],
@@ -161,6 +161,14 @@ export default class ContenedorResultados extends Component {
         ['Velocidad del viento', ADatos.VelocidadVC+'K/h','-'],
         ['Altitud', ADatos.AltitudC+'msnm','200 msnm - 800msnm'],
         ['Nivel de radiación', ADatos.NRadiacionC+'W/m','-'],
+      ],
+      tableData2: [
+        ['Tipo suelo', ADatos.TSueloS,'Franco'],
+        ['Color', ADatos.ColorS,'-'],
+        ['Textura', ADatos.TexturaS,'-'],
+        ['PH', ADatos.PHS,'6.5 - 7.0'],
+        ['Profundidad', ADatos.ProfundidadS+' cm','< 60 cm'],
+        ['Pendiente', ADatos.PendienteS+' %','15%'],
       ],
       NivelClima:ADatos.NivelaptoC,
       NivelSuelo:ADatos.SueloApto
