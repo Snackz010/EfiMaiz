@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'react-native-firebase';
+import { AsyncStorage} from 'react-native';
 
 import LogIn from '../LogIn/Componentes/LogIn.js';
 import SignUp from '../SignUp/Componentes/SignUp.js';
@@ -35,15 +36,29 @@ export default class ContenedorlogInSignUp extends Component {
   LogInMethod = () => {
     const {email, clave} = this.state;
 
-    //if(email != '' && clave != ''){
-      //firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.clave)
-      //.then(success => (
-        this.cambiaraDrawer();
-        //console.log('Logueo realizado correctamente: ', success)))
-        //.catch( error => (console.log('Este es el error: ', error)))
-    //}else{
-      //alert("Por favor ingrese un usuario y contraseña valido");
-    //}
+    if(email != '' && clave != ''){
+      firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.clave)
+      .then(success => (
+        this.GuardarEmail(),
+        this.cambiaraDrawer(),
+        console.log('Logueo realizado correctamente: ', success)))
+        .catch( error => (console.log('Este es el error: ', error)))
+    }else{
+      alert("Por favor ingrese un usuario y contraseña valido");
+    }
+  }
+
+  //Método para guardar el email que funciona como id de usuarios, guardarlos en el AsyncStorage y obtenerlos en el perfil
+  GuardarEmail  = async  () => {
+    const { email } = this.state;
+    const EmailConvertido  = JSON.stringify(email);
+    await AsyncStorage.setItem('DATO',EmailConvertido);
+  }
+
+  //Método para obtener el email del usuario para la extracción de los datos
+  ObtenerEmail = async () => {
+    const emailAsycn = await AsyncStorage.getItem('DATO');
+    return emailAsycn;
   }
 
   //Metodo para guardar datos en firestore

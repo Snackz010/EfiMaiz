@@ -12,6 +12,8 @@ import {
 
 const Perfil = (props) => {
 
+  const {nombredb, apellidodb, ocupaciondb, telefonodb, usuariodb, correodb} = props;
+
   return (
     <>
       <View>
@@ -19,8 +21,8 @@ const Perfil = (props) => {
           <Image style={styles.avatar} source={require('../../assets/user.png')}/>
           <View style={{...styles.cardContent}}>
             <View>
-              <Text style={styles.title}>Eliab Javier Selva Cruz</Text>
-              <Text style={styles.subTitle}>eliabjselvacruz51@gmail.com</Text>
+              <Text style={styles.title}> {nombredb} </Text>
+              <Text style={styles.subTitle}> {correodb} </Text>
             </View>
           </View>
         </View>
@@ -34,7 +36,7 @@ const Perfil = (props) => {
                     <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">Nombre</Text>
                   </View>
                   <View style={styles.msgContainer}>
-                    <Text style={styles.msgTxt}>Eliab Javier</Text>
+                    <Text style={styles.msgTxt}> {nombredb} </Text>
                   </View>
                 </View>
               </View>
@@ -47,7 +49,7 @@ const Perfil = (props) => {
                     <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">Apellido</Text>
                   </View>
                   <View style={styles.msgContainer}>
-                    <Text style={styles.msgTxt}>Selva Cruz</Text>
+                    <Text style={styles.msgTxt}> {apellidodb} </Text>
                   </View>
                 </View>
               </View>
@@ -60,7 +62,7 @@ const Perfil = (props) => {
                     <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">Teléfono</Text>
                   </View>
                   <View style={styles.msgContainer}>
-                    <Text style={styles.msgTxt}>87373581</Text>
+                    <Text style={styles.msgTxt}> {telefonodb} </Text>
                   </View>
                 </View>
               </View>
@@ -73,7 +75,7 @@ const Perfil = (props) => {
                     <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">Correo</Text>
                   </View>
                   <View style={styles.msgContainer}>
-                    <Text style={styles.msgTxt}>eliabjselvacruz51@gmail.com</Text>
+                    <Text style={styles.msgTxt}> {correodb} </Text>
                   </View>
                 </View>
               </View>
@@ -86,7 +88,7 @@ const Perfil = (props) => {
                     <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">Ocupación</Text>
                   </View>
                   <View style={styles.msgContainer}>
-                    <Text style={styles.msgTxt}>Estudiante</Text>
+                    <Text style={styles.msgTxt}> {ocupaciondb} </Text>
                   </View>
                 </View>
               </View>
@@ -99,7 +101,7 @@ const Perfil = (props) => {
                     <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">Usuario</Text>
                   </View>
                   <View style={styles.msgContainer}>
-                    <Text style={styles.msgTxt}>eliab51</Text>
+                    <Text style={styles.msgTxt}> {usuariodb} </Text>
                   </View>
                 </View>
               </View>
