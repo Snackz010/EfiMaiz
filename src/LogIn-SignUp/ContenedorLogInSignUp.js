@@ -158,7 +158,7 @@ export default class ContenedorlogInSignUp extends Component {
   cambiaraDrawer = () => {
       const { navigation } = this.props;
 
-      navigation.navigate('inicio');
+      navigation.navigate('inicio',{email:this.state.email});
   }
 
   //Esta función cambia el estado del modal

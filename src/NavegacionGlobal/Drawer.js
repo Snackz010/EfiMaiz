@@ -28,8 +28,11 @@ const Drawer = createDrawerNavigator({
         navigationOptions:{
             drawerLabel:'Perfil de Usuario'
         }
-    },
-});
+    }
+}
+);
+
+
 
 
 export default createAppContainer(Drawer);

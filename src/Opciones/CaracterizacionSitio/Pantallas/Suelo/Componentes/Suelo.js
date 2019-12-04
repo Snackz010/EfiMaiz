@@ -71,11 +71,11 @@ const Suelo = (props) => {
                       onChangeText={eventoTxtTextura}
                       value={textura}
                     />
-                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Profundidad' 
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Profundidad' 
                       onChangeText={eventoTxtProfundidad}
                       value={profundidad}
                     />
-                    <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Pendiente %' 
+                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Pendiente %' 
                       onChangeText={eventoTxtPendiente}
                       value={pendiente}
                     />

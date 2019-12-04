@@ -83,7 +83,9 @@ class ContenedorSuelo extends Component{
             HumedadC: navigation.getParam('HumedadC'),
             AltitudC: navigation.getParam('AltitudC'),
             NRadiacionC: navigation.getParam('NRadiacionC'),
+            NivelaptoC: navigation.getParam('NivelaptoC')
         }
+        console.log(Data)
         return {...Data};
     }
 
@@ -91,6 +93,7 @@ class ContenedorSuelo extends Component{
         const { TSuelo, Color, PH, MOrganica,Topografia,Textura } = this.state;
         const {navigation} = this.props;
 
+        const valoaptoSuelo = this.setValorApto(this.evaluarSuelo());
         const ADatos = {
             ...this.extraerParametros(),
             TSueloS: TSuelo,
@@ -98,7 +101,8 @@ class ContenedorSuelo extends Component{
             PHS:PH,
             MOrganicaS:MOrganica,
             TopografiaS:Topografia,
-            TexturaS:Textura
+            TexturaS:Textura,
+            SueloApto:valoaptoSuelo
         }
         this.evaluarSuelo();
         navigation.navigate('Agua',{...ADatos});
@@ -151,6 +155,17 @@ class ContenedorSuelo extends Component{
         // }else if(contador === 4){
         //     alert("Suelo marginal");
         // }
+        return contador;
+    }
+
+    setValorApto = (contador) =>{
+        if(contador === 12){
+            return 'Optimo'
+        }else if(contador === 8){
+            return 'Bueno'
+        }else if(contador === 4){
+            return 'Marginal'
+       }
     }
 
     render(){

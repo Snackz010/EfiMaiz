@@ -9,7 +9,11 @@ import {
 } from 'react-native';
 import { Table, Row, Rows,TableWrapper, Col } from 'react-native-table-component';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons.js';
+import ContenedorResultados from './ContenedorResultados';
 
+var nivelClimaValue;
+var nivelSueloValue;
+var mostrarModl;
 const ResultadoCaracterizacion = (props) => {
     const {
       mostrarModal, 
@@ -18,8 +22,13 @@ const ResultadoCaracterizacion = (props) => {
       tableHead,
       tableData,
       tableTitle,
-      mostrarC
+      mostrarC,
+      nivelClima,
+      nivelSuelo
     } = props;
+    nivelClimaValue = nivelClima;
+    mostrarModl = mostrarModal;
+    nivelSueloValue = nivelSuelo
     return (
       <>
         <StatusBar barStyle="light-content" backgroundColor='#000000'/>
@@ -56,12 +65,10 @@ const ResultadoCaracterizacion = (props) => {
                     </View>
                   </Modal>
                 </View>
-                <TouchableHighlight onPress={mostrarModal} style={[styles.buttonContainer2, styles.actionButton2]}>
-                  <Text style={styles.buttonText2}>Análisis del clima: Apto<Icon name='check' color="green" size={18}/></Text>
-                </TouchableHighlight>
-                <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton2]}>
-                  <Text style={styles.buttonText2}>Análisis del suelo: Apto<Icon name='check' color="green" size={18}/></Text>
-                </TouchableHighlight>
+                {
+                  resultadosClima(),
+                  resultadosSuelo()
+                }
                 <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton2]}>
                   <Text style={styles.buttonText2}>Análisis del agua: Apto<Icon name='check' color="green" size={18}/></Text>
                 </TouchableHighlight>
@@ -78,6 +85,51 @@ const ResultadoCaracterizacion = (props) => {
       </>
     );
 };
+
+resultadosClima = () => {
+  if(nivelClimaValue==='Optimo'){
+    return(
+      <TouchableHighlight onPress={mostrarModl} style={[styles.buttonContainer2, styles.actionButton2]}>
+        <Text style={styles.buttonText2}>Análisis del clima: {nivelClimaValue}<Icon name='check' color="green" size={18}/></Text>
+      </TouchableHighlight>
+    );
+  }else if(nivelClimaValue==='Bueno'){
+    return(
+      <TouchableHighlight onPress={mostrarModl} style={[styles.buttonContainer2, styles.actionButton3]}>
+        <Text style={styles.buttonText2}>Análisis del clima: {nivelClimaValue}<Icon name='check' color="green" size={18}/></Text>
+      </TouchableHighlight>
+    );
+  }else if(nivelClimaValue==='Marginal'){
+    return(
+      <TouchableHighlight onPress={mostrarModl} style={[styles.buttonContainer2, styles.actionButton4]}>
+        <Text style={styles.buttonText2}>Análisis del clima: {nivelClimaValue}<Icon name='check' color="green" size={18}/></Text>
+      </TouchableHighlight>
+    );
+  }
+}
+
+resultadosSuelo = () => {
+  console.log(nivelSueloValue);
+  if(nivelSueloValue === 'Optimo'){
+    return(
+          <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton2]}>
+            <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
+          </TouchableHighlight>
+    );
+  }else if(nivelSueloValue === 'Bueno'){
+    return(
+          <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton2]}>
+            <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
+          </TouchableHighlight>
+    );
+  }else if(nivelSueloValue === 'Marginal'){
+    return(
+          <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton2]}>
+            <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
+          </TouchableHighlight>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   buttonContainer: {
@@ -104,6 +156,12 @@ const styles = StyleSheet.create({
   },
   actionButton2: {
     backgroundColor: '#d8fde2',
+  },
+  actionButton3:{
+    backgroundColor:'#e1aa1e'
+  },
+  actionButton4:{
+    backgroundColor:'#d02328'
   },
   buttonText: {
     color: 'white',

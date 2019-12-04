@@ -15,7 +15,9 @@ export default class ContenedorResultados extends Component {
         ['Altitud', '2','800msnm'],
         ['Nivel de radiación', '2','100W/m'],
       ],
-      Parametros:{...this.obtenerParametros()}
+      Parametros:{...this.obtenerParametros()},
+      NivelClima:'',
+      NivelSuelo:''
     };
     
   }
@@ -29,12 +31,14 @@ export default class ContenedorResultados extends Component {
             HumedadC: navigation.getParam('HumedadC'),
             AltitudC: navigation.getParam('AltitudC'),
             NRadiacionC: navigation.getParam('NRadiacionC'),
+            NivelaptoC: navigation.getParam('NivelaptoC'),
             TSueloS: navigation.getParam('TSueloS'),
             ColorS:navigation.getParam('ColorS'),
             PHS:navigation.getParam('PHS'),
-            MOrganicaS:navigation.getParam('MOrganicas'),
+            MOrganicaS:navigation.getParam('MOrganicaS'),
             TopografiaS:navigation.getParam('TopografiaS'),
             TexturaS:navigation.getParam('TexturaS'),
+            SueloApto:navigation.getParam('SueloApto'),
             VolumenA:navigation.getParam('VolumenA'),
             FuenteA:navigation.getParam('FuenteA'),
             CalidadA:navigation.getParam('CalidadA'),
@@ -61,7 +65,7 @@ export default class ContenedorResultados extends Component {
   }
 
   render() {
-    const {tableData, tableHead, modalVisible, tableTitle} = this.state
+    const {tableData, tableHead, modalVisible, tableTitle, NivelClima,NivelSuelo} = this.state
     return (
         <ResultadosCaracterizacion 
           mostrarModal={this.mostrarModal}
@@ -71,6 +75,9 @@ export default class ContenedorResultados extends Component {
           tableData={tableData}
           tableTitle={tableTitle}
           mostrarC={this.mostrarPara}
+          nivelClima = {NivelClima}
+          nivelSuelo = {NivelSuelo}
+          
         />
     );
   }
@@ -85,7 +92,9 @@ export default class ContenedorResultados extends Component {
         ['Velocidad del viento', ADatos.VelocidadVC+'K/h','-'],
         ['Altitud', ADatos.AltitudC,'200 msnm - 800msnm'],
         ['Nivel de radiación', ADatos.NRadiacionC+'W/m','-'],
-      ]
+      ],
+      NivelClima:ADatos.NivelaptoC,
+      NivelSuelo:ADatos.SueloApto
     })
   }
 }
