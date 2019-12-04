@@ -6,7 +6,7 @@ export default class ContenedorResultados extends Component {
     super(props);
     this.state = {
       modalVisible: false,
-      tableHead: ['Variable', 'Muestreo', 'Req. Necesarios'],
+      tableHead: ['Variable', 'Muestreo', 'Req. Optimos'],
       tableData: [
         ['Temperatura', '2','30°'],
         ['Precipitación', '2','1000mn'],
@@ -14,6 +14,16 @@ export default class ContenedorResultados extends Component {
         ['Velocidad del viento', '2','40km/h'],
         ['Altitud', '2','800msnm'],
         ['Nivel de radiación', '2','100W/m'],
+      ],
+      modalVisible2: false,
+      tableHead2: ['Variable', 'Muestreo', 'Req. Necesarios'],
+      tableData2: [
+        ['Tipo suelo', 'Arenoso','Arenoso'],
+        ['Color', 'Rojo','Negro'],
+        ['Textura', 'Limoso','Limoso'],
+        ['PH', '7','7'],
+        ['Profundidad', '100 cm','100 cm'],
+        ['Pendiente', '20%','20%'],
       ],
       Parametros:{...this.obtenerParametros()},
       NivelClima:'',
@@ -25,23 +35,23 @@ export default class ContenedorResultados extends Component {
   obtenerParametros=() => {
     const {navigation} = this.props;
     const ADatos = {
-            TemperaturaC: navigation.getParam('TemperaturaC'),
-            PrecipitacionC: navigation.getParam('PrecipitacionC'),
-            VelocidadVC: navigation.getParam('VelocidadVC'),
-            HumedadC: navigation.getParam('HumedadC'),
-            AltitudC: navigation.getParam('AltitudC'),
-            NRadiacionC: navigation.getParam('NRadiacionC'),
-            NivelaptoC: navigation.getParam('NivelaptoC'),
-            TSueloS: navigation.getParam('TSueloS'),
-            ColorS:navigation.getParam('ColorS'),
-            PHS:navigation.getParam('PHS'),
-            ProfundidadS:navigation.getParam('ProfundidadS'),
-            PendienteS:navigation.getParam('PendienteS'),
-            TexturaS:navigation.getParam('TexturaS'),
-            SueloApto:navigation.getParam('SueloApto'),
-            VolumenA:navigation.getParam('VolumenA'),
-            FuenteA:navigation.getParam('FuenteA'),
-            CalidadA:navigation.getParam('CalidadA'),
+      TemperaturaC: navigation.getParam('TemperaturaC'),
+      PrecipitacionC: navigation.getParam('PrecipitacionC'),
+      VelocidadVC: navigation.getParam('VelocidadVC'),
+      HumedadC: navigation.getParam('HumedadC'),
+      AltitudC: navigation.getParam('AltitudC'),
+      NRadiacionC: navigation.getParam('NRadiacionC'),
+      NivelaptoC: navigation.getParam('NivelaptoC'),
+      TSueloS: navigation.getParam('TSueloS'),
+      ColorS:navigation.getParam('ColorS'),
+      PHS:navigation.getParam('PHS'),
+      ProfundidadS:navigation.getParam('ProfundidadS'),
+      PendienteS:navigation.getParam('PendienteS'),
+      TexturaS:navigation.getParam('TexturaS'),
+      SueloApto:navigation.getParam('SueloApto'),
+      VolumenA:navigation.getParam('VolumenA'),
+      FuenteA:navigation.getParam('FuenteA'),
+      CalidadA:navigation.getParam('CalidadA'),
     }
     //console.log(ADatos)
 
@@ -64,8 +74,29 @@ export default class ContenedorResultados extends Component {
     this.setModalVisible(!this.state.modalVisible);
   }
 
+  setModalVisible2(visible) {
+    this.setState({modalVisible2: visible});
+  }
+
+  mostrarModal2 = () => {
+    this.setModalVisible2(true);
+  }
+
+  changeState2 = () => {
+    this.setModalVisible2(!this.state.modalVisible2);
+  }
+
   render() {
-    const {tableData, tableHead, modalVisible, tableTitle, NivelClima,NivelSuelo} = this.state
+    const {
+      tableData,
+      tableHead,
+      modalVisible,
+      tableTitle,
+      tableData2,
+      tableHead2,
+      modalVisible2,
+      NivelClima,
+      NivelSuelo} = this.state
     return (
         <ResultadosCaracterizacion 
           mostrarModal={this.mostrarModal}
@@ -74,6 +105,13 @@ export default class ContenedorResultados extends Component {
           tableHead={tableHead}
           tableData={tableData}
           tableTitle={tableTitle}
+          
+          mostrarModal2={this.mostrarModal2}
+          visible2={modalVisible2}
+          changeState2={this.changeState2}
+          tableHead2={tableHead2}
+          tableData2={tableData2}
+
           mostrarC={this.mostrarPara}
           nivelClima = {NivelClima}
           nivelSuelo = {NivelSuelo}

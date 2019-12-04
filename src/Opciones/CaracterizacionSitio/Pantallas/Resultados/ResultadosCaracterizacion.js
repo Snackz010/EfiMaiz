@@ -14,6 +14,7 @@ import ContenedorResultados from './ContenedorResultados';
 var nivelClimaValue;
 var nivelSueloValue;
 var mostrarModl;
+var mostrarModl2;
 const ResultadoCaracterizacion = (props) => {
     const {
       mostrarModal, 
@@ -21,13 +22,18 @@ const ResultadoCaracterizacion = (props) => {
       changeState,
       tableHead,
       tableData,
-      tableTitle,
+      mostrarModal2, 
+      visible2, 
+      changeState2,
+      tableHead2,
+      tableData2,
       mostrarC,
       nivelClima,
       nivelSuelo
     } = props;
     nivelClimaValue = nivelClima;
     mostrarModl = mostrarModal;
+    mostrarModl2 = mostrarModal2;
     nivelSueloValue = nivelSuelo
     return (
       <>
@@ -57,6 +63,31 @@ const ResultadoCaracterizacion = (props) => {
                           <TouchableHighlight
                             style={[styles.buttonContainer, styles.actionButton]}
                             onPress={changeState}
+                          >
+                            <Text style={styles.buttonText}>Ok</Text>
+                          </TouchableHighlight>
+                        </View>
+                      </View>
+                    </View>
+                  </Modal>
+                  <Modal
+                    animationType="slide"
+                    transparent={false}
+                    visible={visible2}
+                  >
+                    <View style={styles.center}>
+                      <View style={styles.modalContainer}>
+                        <Text style={styles.title}>Resultados del Análisis del Suelo</Text>
+                        <View style={styles.container}>
+                          <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+                            <Row data={tableHead2} style={styles.head} textStyle={styles.text}/>
+                            <Rows data={tableData2} textStyle={styles.text}/>
+                          </Table>
+                        </View>
+                        <View style={styles.button}>
+                          <TouchableHighlight
+                            style={[styles.buttonContainer, styles.actionButton]}
+                            onPress={changeState2}
                           >
                             <Text style={styles.buttonText}>Ok</Text>
                           </TouchableHighlight>
@@ -114,19 +145,19 @@ resultadosSuelo = () => {
   console.log(nivelSueloValue);
   if(nivelSueloValue === 'Optimo'){
     return(
-          <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton2]}>
+          <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton2]}>
             <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
           </TouchableHighlight>
     );
   }else if(nivelSueloValue === 'Bueno'){
     return(
-          <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton3]}>
+          <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton3]}>
             <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
           </TouchableHighlight>
     );
   }else if(nivelSueloValue === 'Marginal'){
     return(
-          <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton4]}>
+          <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton4]}>
             <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
           </TouchableHighlight>
     );
