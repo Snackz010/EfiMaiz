@@ -68,7 +68,7 @@ const Opciones = (props) => {
               </TouchableOpacity>
             </View>
             <View>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={()=>{navigation.navigate('GuiasInformativas')}}>
                 <View style={styles.card}>
                   <Image style={styles.cardImage} source={require('../../assets/guia.jpg')}/>
                   <View style={{...styles.cardContent, ...styles.opacity}}>
