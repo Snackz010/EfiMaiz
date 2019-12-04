@@ -7,12 +7,7 @@ class ContenedorSuelo extends Component{
     constructor(props){
         super(props);
         this.state = {
-            TSuelo:'',
-            Color:'',
             PH:'',
-            MOrganica:'',
-            Topografia:'',
-            Textura:'',
             Profundidad:'',
             Pendiente:'',
             pickerSelection: 'Tipo de suelos',
@@ -96,37 +91,44 @@ class ContenedorSuelo extends Component{
     }
 
     navegarAgua = () => {
-        const { TSuelo, Color, PH, MOrganica,Topografia,Textura } = this.state;
+        const { pickerSelection, pickerSelection2, pickerSelection3, PH,Pendiente,Profundidad } = this.state;
         const {navigation} = this.props;
 
         const valoaptoSuelo = this.setValorApto(this.evaluarSuelo());
         const ADatos = {
             ...this.extraerParametros(),
-            TSueloS: TSuelo,
-            ColorS:Color,
             PHS:PH,
-            MOrganicaS:MOrganica,
-            TopografiaS:Topografia,
-            TexturaS:Textura,
+            ProfundidadS:Profundidad,
+            PendienteS:Pendiente,
+            TexturaS:pickerSelection3,
+            ColorS:pickerSelection2,
+            TSueloS:pickerSelection,
             SueloApto:valoaptoSuelo
         }
         this.evaluarSuelo();
-        navigation.navigate('Agua',{...ADatos});
+        if(pickerSelection!='' || pickerSelection2 != '' || pickerSelection3 != '', PH != '' || Pendiente != '' || Profundidad != ''){
+            navigation.navigate('Agua',{...ADatos});
+        }else{
+            alert("¡Oops Parece que olvidas llenar algunos datos!");
+        }
+        
 
     } 
 
     //Funcion para hacer evaluacion del suelo
 
     evaluarSuelo = () => {
-        const { TSuelo, PH, Profundidad, Pendiente } = this.state;
+        const { pickerSelection, PH, Profundidad, Pendiente } = this.state;
         var contador = 0;
 
-        if(TSuelo === 'Franco'){
+        if(pickerSelection === 'Franco'){
             contador += 3;
-        }else if(TSuelo === 'Francoarenoso'){
+        }else if(pickerSelection === 'Francoarenoso'){
             contador += 2;
-        }else if(TSuelo === 'Francoarcilloso'){
+        }else if(pickerSelection === 'Francoarcilloso'){
             contador += 1;
+        }else{
+            contador -=2;
         }
 
         if(parseFloat(PH) >= 6.5 && parseFloat(PH) <= 7.0){
@@ -165,11 +167,11 @@ class ContenedorSuelo extends Component{
     }
 
     setValorApto = (contador) =>{
-        if(contador === 12){
+        if(contador >= 9 && contador <= 12){
             return 'Optimo'
-        }else if(contador === 8){
+        }else if(contador >= 5 && contador <= 8){
             return 'Bueno'
-        }else if(contador === 4){
+        }else if(contador <= 4){
             return 'Marginal'
        }
     }
@@ -293,12 +295,8 @@ class ContenedorSuelo extends Component{
                 setPickerValue3={this.setPickerValue3}
                 pickerSelection3={pickerSelection3}
 
-                eventoTxtSuelo={this.eventoTxtSuelo}
-                eventoTxtColor={this.eventoTxtColor}
+                
                 eventoTxtPH={this.eventoTxtPH}
-                eventoTxtMOrganica={this.eventoTxtMOrganica}
-                eventoTxtTopografia={this.eventoTxtTopografia}
-                eventoTxtTextura={this.eventoTxtTextura}
                 eventoTxtProfundidad={this.eventoTxtProfundidad}
                 eventoTxtPendiente = {this.eventoTxtPendiente}
                 suelo={TSuelo} 

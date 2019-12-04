@@ -66,7 +66,9 @@ const ResultadoCaracterizacion = (props) => {
                   </Modal>
                 </View>
                 {
-                  resultadosClima(),
+                  resultadosClima()
+                }
+                {
                   resultadosSuelo()
                 }
                 <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton2]}>
@@ -118,13 +120,13 @@ resultadosSuelo = () => {
     );
   }else if(nivelSueloValue === 'Bueno'){
     return(
-          <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton2]}>
+          <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton3]}>
             <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
           </TouchableHighlight>
     );
   }else if(nivelSueloValue === 'Marginal'){
     return(
-          <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton2]}>
+          <TouchableHighlight style={[styles.buttonContainer2, styles.actionButton4]}>
             <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
           </TouchableHighlight>
     );

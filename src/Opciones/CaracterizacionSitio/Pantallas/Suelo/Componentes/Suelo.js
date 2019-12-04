@@ -15,20 +15,10 @@ const Suelo = (props) => {
 
 
   const {
-    eventoTxtSuelo,
-    eventoTxtColor,
     eventoTxtPH,
-    eventoTxtMOrganica,
-    eventoTxtTopografia,
-    eventoTxtTextura,
     eventoTxtProfundidad,
     eventoTxtPendiente,
-    suelo,
-    color,
     ph,
-    mOrganica,
-    topografia,
-    textura,
     eventoIrAgua,
     pendiente,
     profundidad,

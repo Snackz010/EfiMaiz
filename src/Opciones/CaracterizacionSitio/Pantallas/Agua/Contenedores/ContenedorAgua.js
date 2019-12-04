@@ -53,13 +53,13 @@ class ContenedorAgua extends Component{
             TSueloS: navigation.getParam('TSueloS'),
             ColorS:navigation.getParam('ColorS'),
             PHS:navigation.getParam('PHS'),
-            MOrganicaS:navigation.getParam('MOrganicaS'),
-            TopografiaS:navigation.getParam('TopografiaS'),
             TexturaS:navigation.getParam('TexturaS'),
+            ProfundidadS:navigation.getParam('ProfundidadS'),
+            PendienteS:navigation.getParam('PendienteS'),
             SueloApto: navigation.getParam('SueloApto')
 
         }
-        //console.log('Agua', Datos)
+        console.log('Agua', Datos)
         return Datos;
     }
 

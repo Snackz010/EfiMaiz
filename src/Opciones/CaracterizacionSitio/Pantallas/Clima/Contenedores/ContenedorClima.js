@@ -80,7 +80,7 @@ class ContenedorClima extends Component{
 
             if(parseInt(Altitud)>=200 && parseInt(Altitud)<= 800){
                 contador += 3;
-            }else if((parseInt(Altitud)>=100 && parseInt(Altitud)<=199)||(parseInt(Altitud)>=801 && parseInt(Altitud)<=1000)){
+            }else if((parseInt(Altitud)>=100 && parseInt(Altitud)<=199)||parseInt(Altitud)>=801){
                 contador += 2;
             }else if(parseInt(Altitud)>=0 && parseInt(Altitud)< 100){
                 contador += 1;
@@ -90,11 +90,11 @@ class ContenedorClima extends Component{
 
    
     setValorApto = (contador) =>{
-        if(contador === 9){
+        if(contador <= 9 && contador >= 8){
             return 'Optimo'
-        }else if(contador === 6){
+        }else if(contador >= 4 && contador <= 7){
             return 'Bueno'
-        }else if(contador === 3){
+        }else if(contador <= 3 ){
             return 'Marginal'
        }
     }
@@ -116,7 +116,13 @@ class ContenedorClima extends Component{
             NivelaptoC:Nivelapto
         }
         
-        navigation.navigate('Suelo',Datos);
+        if(Temperatura != '' || Precipitacion != ''||VelocidadV != '' || Humedad != '' || Altitud != ''|| NRadiacion != ''){
+            navigation.navigate('Suelo',Datos);
+        }else{
+            alert("¡Ops! Hacen falta algunos datos");
+        }
+
+        
 
     }
 
