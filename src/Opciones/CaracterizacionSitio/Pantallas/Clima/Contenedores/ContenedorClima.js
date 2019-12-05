@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {Alert} from 'react-native';
 
 import Clima from '../Componentes/Clima';
 
@@ -119,11 +120,12 @@ class ContenedorClima extends Component{
         if(Temperatura != '' && Precipitacion != '' && VelocidadV != '' && Humedad != '' && Altitud != ''&& NRadiacion != ''){
             navigation.navigate('Suelo',Datos);
         }else{
-            alert("¡Ops! Hacen falta algunos datos");
+            this.mensaje();
         }
+    }
 
-        
-
+    mensaje = () => {
+        Alert.alert('Advertencia', '¡Ups!, Al parecer hacen falta datos.')
     }
 
 
@@ -145,9 +147,8 @@ class ContenedorClima extends Component{
                 velocidadV={VelocidadV}
                 altitud={Altitud}
                 nRadiacion={NRadiacion}
-
-                eventoIrSuelo={this.navegarSuelo} 
-
+                eventoIrSuelo={this.navegarSuelo}
+                mensaje={this.mensaje}
             />
         );
     }
