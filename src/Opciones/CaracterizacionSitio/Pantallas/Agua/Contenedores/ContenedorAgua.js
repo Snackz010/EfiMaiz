@@ -54,8 +54,6 @@ class ContenedorAgua extends Component{
             ColorS:navigation.getParam('ColorS'),
             PHS:navigation.getParam('PHS'),
             TexturaS:navigation.getParam('TexturaS'),
-            ProfundidadS:navigation.getParam('ProfundidadS'),
-            PendienteS:navigation.getParam('PendienteS'),
             SueloApto: navigation.getParam('SueloApto')
 
         }

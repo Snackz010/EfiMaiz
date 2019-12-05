@@ -29,20 +29,24 @@ export default class ContenedorlogInSignUp extends Component {
     const { email,clave,clave2,nombre,apellido,telefono,usuario } = this.state;
 
     if(email != '' && clave != '' && clave2 != '' && nombre != '' && apellido != '' && telefono !='' && usuario!='' ){
-        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.clave)
-        .then(success => (
-          this.saveDataMethod(),
-          this.cambiarPantalla(),
-          console.log('El resgistro realizado correctamente: ', success)))
-        .catch((error) => {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          if (errorCode == 'auth/email-already-in-use') {
-            this.mensaje2();
+          if(clave === clave2 ){
+            firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.clave)
+            .then(success => (
+              this.saveDataMethod(),
+              this.cambiarPantalla(),
+              console.log('El resgistro realizado correctamente: ', success)))
+            .catch((error) => {
+              // Handle Errors here.
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              if (errorCode == 'auth/email-already-in-use') {
+                this.mensaje2();
+              }
+              console.log(error);
+            })
+          }else{
+            Alert.alert('Advertencia','Las contraseñas no coinciden.');
           }
-          console.log(error);
-        })
     }else{
       Alert.alert('Advertencia','Ops, Parece que haz olvidado algunos datos');
     }

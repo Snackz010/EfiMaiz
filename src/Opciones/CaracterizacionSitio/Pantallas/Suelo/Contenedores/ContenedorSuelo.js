@@ -9,8 +9,6 @@ class ContenedorSuelo extends Component{
         super(props);
         this.state = {
             PH:'',
-            Profundidad:'',
-            Pendiente:'',
             pickerSelection: 'Tipo de suelos',
             pickerDisplayed: false,
             pickerSelection2: 'Color del suelo',
@@ -44,35 +42,11 @@ class ContenedorSuelo extends Component{
     }
 
 
-    eventoTxtMOrganica = (value) => {
-        this.setState({
-            MOrganica:value
-        })
-    }
-
-    eventoTxtTopografia = (value) => {
-        this.setState({
-            Topografia:value
-        })
-    }
-
 
     eventoTxtTextura = (value) => {
         this.setState({
             Textura:value
         })
-    }
-
-    eventoTxtProfundidad = (value) => {
-        this.setState({
-            Profundidad:value
-        });
-    }
-
-    eventoTxtPendiente = (value) => {
-        this.setState({
-            Pendiente:value
-        });
     }
 
 
@@ -99,8 +73,6 @@ class ContenedorSuelo extends Component{
         const ADatos = {
             ...this.extraerParametros(),
             PHS:PH,
-            ProfundidadS:Profundidad,
-            PendienteS:Pendiente,
             TexturaS:pickerSelection3,
             ColorS:pickerSelection2,
             TSueloS:pickerSelection,
@@ -121,43 +93,23 @@ class ContenedorSuelo extends Component{
     //Funcion para hacer evaluacion del suelo
 
     evaluarSuelo = () => {
-        const { pickerSelection, PH, Profundidad, Pendiente } = this.state;
+        const { pickerSelection, PH } = this.state;
         var contador = 0;
 
-        if(pickerSelection === 'Franco'){
+        if(pickerSelection === 'Franco' || pickerSelection === 'Arena Franca'||pickerSelection === 'Arenoso'){
             contador += 3;
-        }else if(pickerSelection === 'Francoarenoso'){
+        }else if(pickerSelection === 'Franco Limoso'||pickerSelection === 'Franco Arcilloso'||pickerSelection === 'Arcilla Fina' || pickerSelection === 'Franco Pesada'){
             contador += 2;
-        }else if(pickerSelection === 'Francoarcilloso'){
-            contador += 1;
-        }else{
-            contador -=2;
         }
 
-        if(parseFloat(PH) >= 6.5 && parseFloat(PH) <= 7.0){
+        if(parseFloat(PH) >= 6.0 && parseFloat(PH) <= 7.5){
             contador += 3;
-        }else if(parseFloat(PH) >= 6.0 && parseFloat(PH) <= 6.4){
+        }else if(parseFloat(PH) >= 2.0 && parseFloat(PH) <= 5.9){
             contador += 2;
-        }else if(PH < 6.0){
-            contador += 1; 
+        }else if(PH <= 1.9){
+            contador -= 3; 
         }
         
-        if(parseInt(Profundidad)>=60){
-            contador +=3;
-        }else if(parseInt(Profundidad)>40 && parseInt(Profundidad)<60){
-            contador += 2;
-        }else if(parseInt(Profundidad)>10 && parseInt(Profundidad)<20){
-            contador += 1;
-        }
-      
-
-        if(parseInt(Pendiente)<=15){
-            contador += 3;
-        }else if(parseInt(Pendiente)>15 && parseInt(Pendiente)<=30){
-            contador += 2;
-        }else if(parseInt(Pendiente)>30){
-            contador += 1;
-        }
         //dasddasd
         // if(contador === 12){
         //     alert("Suelo optimo");
@@ -170,11 +122,11 @@ class ContenedorSuelo extends Component{
     }
 
     setValorApto = (contador) =>{
-        if(contador >= 9 && contador <= 12){
+        if(contador === 6){
             return 'Optimo'
-        }else if(contador >= 5 && contador <= 8){
+        }else if(contador >= 3 && contador <= 5){
             return 'Bueno'
-        }else if(contador <= 4){
+        }else if(contador <= 0){
             return 'Marginal'
        }
     }

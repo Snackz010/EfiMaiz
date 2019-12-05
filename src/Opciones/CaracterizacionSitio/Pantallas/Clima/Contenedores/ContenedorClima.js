@@ -67,8 +67,8 @@ class ContenedorClima extends Component{
                 contador += 3;
             }else if((parseInt(Temperatura)>24 && parseInt(Temperatura)<=28)||(parseInt(Temperatura)>=15 && parseInt(Temperatura)<=18)){
                 contador += 2;
-            }else if(parseInt(Temperatura)>=29){
-                contador += 1;
+            }else if(parseInt(Temperatura)>=29 || parseInt(Temperatura)<= 18){
+                contador -= 3;
             }
 
             if(parseInt(Precipitacion)>=700 && parseInt(Precipitacion)<= 850){
@@ -76,15 +76,15 @@ class ContenedorClima extends Component{
             }else if((parseInt(Precipitacion)>=500 && parseInt(Precipitacion)<=700)||(parseInt(Precipitacion)>=850 && parseInt(Precipitacion)<=1000)){
                 contador += 2;
             }else if(parseInt(Temperatura)<=500 || parseInt(Temperatura)>=1000){
-                contador += 1;
+                contador -= 3;
             }
 
             if(parseInt(Altitud)>=200 && parseInt(Altitud)<= 800){
                 contador += 3;
-            }else if((parseInt(Altitud)>=100 && parseInt(Altitud)<=199)||parseInt(Altitud)>=801){
+            }else if((parseInt(Altitud)>=100 && parseInt(Altitud)<=199)||parseInt(Altitud)>=801 &&parseInt(Altitud)<=1000){
                 contador += 2;
-            }else if(parseInt(Altitud)>=0 && parseInt(Altitud)< 100){
-                contador += 1;
+            }else if(parseInt(Altitud)>=0 && parseInt(Altitud)< 100 || parseInt(Altitud)>1000){
+                contador -= 3;
             }
             return contador;
     }

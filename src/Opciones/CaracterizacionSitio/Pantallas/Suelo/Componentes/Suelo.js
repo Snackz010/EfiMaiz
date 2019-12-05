@@ -16,12 +16,8 @@ const Suelo = (props) => {
 
   const {
     eventoTxtPH,
-    eventoTxtProfundidad,
-    eventoTxtPendiente,
     ph,
     eventoIrAgua,
-    pendiente,
-    profundidad,
     pickerDisplayed,
     pickerValues,
     togglePicker,
@@ -117,24 +113,6 @@ const Suelo = (props) => {
                       placeholder='PH' 
                       onChangeText={eventoTxtPH}
                       value={ph}
-                    />
-                    <TextInput
-                      keyboardType={"numeric"}
-                      placeholderTextColor="white"
-                      autoCapitalize={'words'}
-                      style={styles.textInput}
-                      placeholder='Profundidad cm' 
-                      onChangeText={eventoTxtProfundidad}
-                      value={profundidad}
-                    />
-                    <TextInput
-                      keyboardType={"numeric"}
-                      placeholderTextColor="white"
-                      autoCapitalize={'words'}
-                      style={styles.textInput}
-                      placeholder='Pendiente %' 
-                      onChangeText={eventoTxtPendiente}
-                      value={pendiente}
                     />
                   </View>
                 </View>

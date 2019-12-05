@@ -80,8 +80,6 @@ export default class ContenedorResultados extends Component {
       TSueloS: navigation.getParam('TSueloS'),
       ColorS:navigation.getParam('ColorS'),
       PHS:navigation.getParam('PHS'),
-      ProfundidadS:navigation.getParam('ProfundidadS'),
-      PendienteS:navigation.getParam('PendienteS'),
       TexturaS:navigation.getParam('TexturaS'),
       SueloApto:navigation.getParam('SueloApto'),
       VolumenA:navigation.getParam('VolumenA'),
@@ -196,12 +194,10 @@ export default class ContenedorResultados extends Component {
         ['Nivel de radiación', ADatos.NRadiacionC+'W/m','-'],
       ],
       tableData2: [
-        ['Tipo suelo', ADatos.TSueloS,'Franco'],
+        ['Tipo suelo', ADatos.TSueloS,'Franco,   Franco-Arenoso,   Arenoso'],
         ['Color', ADatos.ColorS,'-'],
         ['Textura', ADatos.TexturaS,'-'],
         ['PH', ADatos.PHS,'6.5 - 7.0'],
-        ['Profundidad', ADatos.ProfundidadS+' cm','< 60 cm'],
-        ['Pendiente', ADatos.PendienteS+' %','15%'],
       ],
       tableData3: [
         ['Volumen', ADatos.VolumenA+'gl/mz','- gl/mz'],
