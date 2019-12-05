@@ -29,7 +29,7 @@ const Opciones = (props) => {
             </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>{navigation.navigate('ManejoAgronomico')}}>
               <View style={styles.card}>
                 <Image style={styles.cardImage} source={require('../../assets/control.jpg')}/>
                 <View style={{...styles.cardContent, ...styles.opacity}}>

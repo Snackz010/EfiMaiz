@@ -4,6 +4,7 @@ import StackPerfil from '../Perfil/stackPerfil';
 import ContenedorInicio from '../Inicio//Contenedores/ContenedorInicio';
 import StackOpciones from '../Opciones/CaracterizacionSitio/StackOpciones/StackOpciones.js'
 import StackGuias from '../Opciones/GuiasInformativas/StackGuias/StackGuias';
+import StackMagronomico from '../Opciones/ManejoAgronomico/StackMagronomico/StackMagronomico';
 const Drawer = createDrawerNavigator({
     Inicio:{
         screen: ContenedorInicio,
@@ -21,6 +22,12 @@ const Drawer = createDrawerNavigator({
         screen: StackGuias,
         navigationOptions:{
             drawerLabel:'Gúias informativas'
+        }
+    },
+    ManejoAgronomico:{
+        screen: StackMagronomico,
+        navigationOptions:{
+            drawerLabel:'Manejo Agronómico'
         }
     },
     Perfil:{
