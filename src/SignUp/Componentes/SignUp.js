@@ -18,7 +18,7 @@ var pickerSelectionValue;
 const SignUp = (props) => {
 
     const { pickerDisplayed, pickerValues,setPickerValue,togglePicker,pickerSelection,
-            SignUpMethod, handlePass, handleEmail, estadoEmail, estadoClave, saveDataMethod,
+            SignUpMethod, handlePass,handlePass2, handleEmail, estadoEmail, estadoClave, estadoClave2,saveDataMethod,
             handleNombre, estadoNombre, handleApellido, estadoApellido, handleTelefono, estadoTelefono,
             handleUsuario, estadoUsuario, cambiarPantalla } = props;
 
@@ -121,6 +121,8 @@ const SignUp = (props) => {
                     ></TextInput>
 
                     <TextInput
+                    onChangeText={handlePass2}
+                    value={estadoClave2}
                     keyboardType={"default"}
                     placeholderTextColor="white"
                     secureTextEntry={true}
@@ -144,8 +146,8 @@ const SignUp = (props) => {
     );
 };
 
-elementosOcultos = () => {
-
+const elementosOcultos = () => {
+console.log(pickerSelectionValue)
   if(pickerSelectionValue === 'Productor'){
     return(
       <>

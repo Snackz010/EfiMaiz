@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { AsyncStorage } from 'react-native'
 import firebase from 'react-native-firebase'
 import ResultadosCaracterizacion from './ResultadosCaracterizacion';
+import { StackActions, NavigationActions } from 'react-navigation';
 
 export default class ContenedorResultados extends Component {
   constructor(props){
@@ -60,6 +61,7 @@ export default class ContenedorResultados extends Component {
       {
         merge: true
       }).then( () => {
+        this.irInicio();
       console.log("Resultados creados");
     });
   
@@ -129,6 +131,14 @@ export default class ContenedorResultados extends Component {
 
   changeState3 = () => {
     this.setModalVisible3(!this.state.modalVisible3);
+  }
+
+  irInicio = () => {
+    const resetAction = StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'inicio' })],
+    });
+    this.props.navigation.dispatch(resetAction);
   }
 
   render() {

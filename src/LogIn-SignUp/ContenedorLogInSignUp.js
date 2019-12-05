@@ -19,47 +19,54 @@ export default class ContenedorlogInSignUp extends Component {
       nombre:'',
       apellido:'',
       telefono:'',
-      usuario:''
+      usuario:'',
+      clave2:''
     }
   }
 
   //Método para registro de usurios con su correo y contraseña
   SignUpMethod = () => {
-    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.clave)
-    .then(success => (
-      this.saveDataMethod(), 
-      this.cambiaraDrawer(),
-      console.log('El resgistro realizado correctamente: ', success)))
-    .catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      if (errorCode == 'auth/email-already-in-use') {
-        this.mensaje2();
-      }
-      console.log(error);
-    })
-  }
+    const { email,clave,clave2,nombre,apellido,telefono,usuario } = this.state;
 
-  mensaje2 = () => {
-    Alert.alert('Advertencia', 'El usuario ya existe, porfavor resgistre otro.');
-  }
-
-  //Método para iniciar sesión con su correo y contraseña
-  LogInMethod = () => {
-    const {email, clave} = this.state;
-
-    if(email != '' && clave != ''){
-      firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.clave)
-      .then(success => (
-        this.GuardarEmail(),
-        this.cambiaraDrawer(),
-        console.log('Logueo realizado correctamente: ', success)))
-        .catch( error => (console.log('Este es el error: ', error)))
+    if(email != '' && clave != '' && clave2 != '' && nombre != '' && apellido != '' && telefono !='' && usuario!='' ){
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.clave)
+        .then(success => (
+          this.saveDataMethod(),
+          this.cambiarPantalla(),
+          console.log('El resgistro realizado correctamente: ', success)))
+        .catch((error) => {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          if (errorCode == 'auth/email-already-in-use') {
+            this.mensaje2();
+          }
+          console.log(error);
+        })
     }else{
-      this.mensaje();
+      Alert.alert('Advertencia','Ops, Parece que haz olvidado algunos datos');
     }
   }
+
+    mensaje2 = () => {
+      Alert.alert('Advertencia', 'El usuario ya existe, porfavor resgistre otro.');
+    }
+
+    //Método para iniciar sesión con su correo y contraseña
+    LogInMethod = () => {
+      const {email, clave} = this.state;
+
+      if(email != '' && clave != ''){
+        firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.clave)
+        .then(success => (
+          this.GuardarEmail(),
+          this.cambiaraDrawer(),
+          console.log('Logueo realizado correctamente: ', success)))
+          .catch( error => (console.log('Este es el error: ', error)))
+      }else{
+        this.mensaje();
+      }
+    }
 
   mensaje = () => {
     Alert.alert('Advertencia', 'Por favor ingrese un usuario y contraseña valido')
@@ -156,6 +163,12 @@ export default class ContenedorlogInSignUp extends Component {
   });
   }
 
+  handlePass2 = (claveCU) =>{
+    this.setState({
+      clave2:claveCU
+  });
+  }
+
   //Manejando el cambio de estado para la contraseña del usuario
   handleUsuario = (usuarioCU) =>{
     this.setState({
@@ -198,9 +211,9 @@ export default class ContenedorlogInSignUp extends Component {
     })
   }
 
-  render() {
+  render(){
     const {vistualActual, pickerDisplayed, pickerSelection} = this.state;
-    const {email, clave, nombre,apellido, telefono,usuario} = this.state;
+    const {email, clave, clave2,nombre,apellido, telefono,usuario} = this.state;
     
     //Valores que se cargan en el modal
     const pickerValues = [
@@ -254,6 +267,8 @@ export default class ContenedorlogInSignUp extends Component {
               estadoTelefono = {telefono}
               handleUsuario = {this.handleUsuario}
               estadoUsuario = {usuario}
+              handlePass2 = {this.handlePass2}
+              estadoClave2 = {clave2}
               saveDataMethod = {this.saveDataMethod}
               cambiarPantalla = {this.cambiarPantalla}
               />
