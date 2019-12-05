@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { AsyncStorage } from 'react-native'
 import EditarPerfil from '../Componentes/EditarPerfil';
+import { StackActions, NavigationActions } from 'react-navigation';
+import firebase from 'react-native-firebase'
 
 
 export default class ContenedorEditarPerfil extends Component {
@@ -10,48 +13,90 @@ export default class ContenedorEditarPerfil extends Component {
       vistualActual: 'LogIn',
       pickerSelection: 'Ocupación',
       pickerDisplayed: false,
-      email: 'eliabjselvacruz51@gmail.com',
-      clave:'',
-      nombre:'Eliab Javier',
-      apellido:'Selva Cruz',
-      telefono:'87373581',
-      usuario:'eliab51'
+      Nombre:'Eliab Javier',
+      Apellido:'Selva Cruz',
+      Telefono:'87373581',
+      Usuario:'eliab51'
     }
   }
 
+  getDataFirebase = () => {
+    
+    var db = firebase.firestore(); //Referencia a firestore cloud
+    var docRef = db.collection('users').doc(this.state.Email); // refrencia al directorio específico de donde exraigo datos
+    docRef.get().then ( (doc) => {
+    if(doc.exists){
+      this.setState({
+        Nombre:doc.data().fNombre,
+        Apellido:doc.data().fApellido,
+        Telefono:doc.data().fTelefono,
+        Ocupacion:doc.data().fOcupacion,
+        Usuario:doc.data().fUsuario,
+      })
+    }else{
+      console.log('No existe el documento')
+    }
+    }).catch (function(error) {
+      console.log('Ha surgido el siguiente error: ', error) 
+    })
+  }
+
+  //Actualizando los datos del perfil del usuario
+  updateDataMethod = () =>{
+    var db = firebase.firestore();
+    //const {nombre, apellido, telefono, correo, pickerSelection, usuario} = this.props;
+
+    db.collection("users").doc(this.state.Email).set({
+      fNombre: this.state.Nombre,
+      fApellido: this.state.Apellido,
+      fTelefono: this.state.Telefono,
+      fOcupacion: this.state.pickerSelection,
+      fUsuario: this.state.Usuario,
+    },{
+      merge: true
+    }
+    ).then((docRef) => {
+      alert('Los Datos se han actualizados')
+      console.log("Datos Cambiados correctamente")
+      
+
+    const resetAction = StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'inicio' })],
+    });
+    this.props.navigation.dispatch(resetAction);
+    }).catch(function(error) {
+      console.error("Error al actualizar los datos del usuario: ", error);
+    });
+  }
+
+//Método para obtener el email del usuario para la extracción de los datos
+ObtenerEmail = async () => {
+  const emailAsycn = await AsyncStorage.getItem ('DATO');
+  return emailAsycn;
+}
+
   handleNombre = (nombreU) =>{
     this.setState({
-      nombre:nombreU
+      Nombre:nombreU
     })
   }
 
   handleApellido = (apellidoU) =>{
     this.setState({
-      apellido:apellidoU
+      Apellido:apellidoU
     })
   }
 
   handleTelefono = (telefonoU) => {
     this.setState({
-      telefono:telefonoU
+      Telefono:telefonoU
     })
-  }
-
-  handleEmail= (emailCU) =>{
-    this.setState({
-      email:emailCU
-  });
-  }
-
-  handlePass = (claveCU) =>{
-    this.setState({
-      clave:claveCU
-  });
   }
 
   handleUsuario = (usuarioCU) =>{
     this.setState({
-      usuario:usuarioCU
+      Usuario:usuarioCU
   });
   }
 
@@ -70,7 +115,7 @@ export default class ContenedorEditarPerfil extends Component {
 
   render() {
     const {pickerDisplayed, pickerSelection} = this.state;
-    const {email, clave, nombre,apellido, telefono,usuario} = this.state;
+    const {Nombre, Apellido, Telefono, Usuario} = this.state;
     
     const pickerValues = [
       {
@@ -95,20 +140,34 @@ export default class ContenedorEditarPerfil extends Component {
       setPickerValue={this.setPickerValue}
       pickerSelection={pickerSelection}
       SignUpMethod = {this.SignUpMethod}
-      handleEmail = {this.handleEmail}
-      estadoEmail = {email}
-      handlePass = {this.handlePass}
-      estadoClave = {clave}
       handleNombre = {this.handleNombre}
-      estadoNombre = {nombre}
+      estadoNombre = {Nombre}
       handleApellido = {this.handleApellido}
-      estadoApellido = {apellido}
+      estadoApellido = {Apellido}
       handleTelefono = {this.handleTelefono}
-      estadoTelefono = {telefono}
+      estadoTelefono = {Telefono}
       handleUsuario = {this.handleUsuario}
-      estadoUsuario = {usuario}
-      saveDataMethod = {this.saveDataMethod}
+      estadoUsuario = {Usuario}
+      updateDataMethod = {this.updateDataMethod}
       />
     );
   }
+
+  async componentDidMount (){
+
+    const datos = await this.ObtenerEmail();
+    console.log(datos);
+    if (datos !== null) {
+      const emailStorage = JSON.parse(datos);
+      this.setState({
+        Email: emailStorage,
+      })
+      this.getDataFirebase();
+    }
+  }
+
+  async componentWillMount (){
+      this.getDataFirebase();
+    }
+
 }

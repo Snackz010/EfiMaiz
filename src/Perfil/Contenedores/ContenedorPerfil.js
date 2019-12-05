@@ -75,6 +75,5 @@ export default class ContenedorPerfil extends Component{
       this.getDataFirebase();
     }
   
-}
-
+  }
 }

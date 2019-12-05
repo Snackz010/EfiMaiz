@@ -22,7 +22,7 @@ const Perfil = (props) => {
           <Image style={styles.avatar} source={require('../../assets/user.png')}/>
           <View style={{...styles.cardContent}}>
             <View>
-              <Text style={styles.title}> {nombredb} </Text>
+              <Text style={styles.title}> {nombredb} {apellidodb} </Text>
               <Text style={styles.subTitle}> {correodb} </Text>
             </View>
           </View>

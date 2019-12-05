@@ -19,12 +19,7 @@ const EditarPerfil = (props) => {
       pickerValues,
       setPickerValue,
       togglePicker,
-      pickerSelection, 
-      handlePass,
-      handleEmail,
-      estadoEmail,
-      estadoClave,
-      saveDataMethod,
+      pickerSelection,
       handleNombre, 
       estadoNombre,
       handleApellido,
@@ -32,7 +27,8 @@ const EditarPerfil = (props) => {
       handleTelefono,
       estadoTelefono,
       handleUsuario,
-      estadoUsuario } = props;
+      estadoUsuario, 
+      updateDataMethod } = props;
 
     pickerSelectionValue = pickerSelection;
     return (
@@ -44,7 +40,7 @@ const EditarPerfil = (props) => {
               <View>
                 <View >
                   <Text style={styles.title}>Actualizar Perfil</Text>
-                  <Text style={styles.text}>Ingrese sus datos.</Text>
+                  <Text style={styles.text}>Cambie sus datos.</Text>
                 </View>
                 <View style={styles.center}>
                   <TextInput
@@ -77,16 +73,6 @@ const EditarPerfil = (props) => {
                     value = {estadoTelefono}
                   />
 
-                  <TextInput
-                    keyboardType={"default"}
-                    placeholderTextColor="white"
-                    autoCapitalize={'words'}
-                    style={styles.textInput}
-                    placeholder='Correo'
-                    onChangeText = {handleEmail}
-                    value = {estadoEmail}
-                  />
-
                   <View style={styles.button2}>
                     <TouchableHighlight onPress={togglePicker} style={[styles.buttonContainer2, styles.ocupationButton]}>
                       <Text style={styles.buttonText}>{pickerSelection}</Text>
@@ -116,27 +102,10 @@ const EditarPerfil = (props) => {
                     onChangeText = {handleUsuario}
                     value = {estadoUsuario}
                   />
-                  
-                  <TextInput
-                    keyboardType={"default"}
-                    placeholderTextColor="white"
-                    secureTextEntry={true}
-                    style={styles.textInput}
-                    placeholder='Contraseña'
-                    onChangeText = {handlePass}
-                    value = {estadoClave}
-                  />
-                  <TextInput
-                  keyboardType={"default"}
-                  placeholderTextColor="white"
-                  secureTextEntry={true}
-                  style={styles.textInput}
-                  placeholder='Confirmar Contraseña'
-                  />
                 </View>
               </View>
               <View style={styles.button}>
-                <TouchableHighlight style={[styles.buttonContainer, styles.signUpButton]}onPress = {saveDataMethod}  >
+                <TouchableHighlight style={[styles.buttonContainer, styles.signUpButton]}onPress = {updateDataMethod}  >
                   <Text style={styles.buttonText}>Actualizar</Text>
                 </TouchableHighlight>
               </View>
