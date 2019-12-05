@@ -3,7 +3,7 @@ import { createAppContainer } from 'react-navigation';
 import StackPerfil from '../Perfil/stackPerfil';
 import ContenedorInicio from '../Inicio//Contenedores/ContenedorInicio';
 import StackOpciones from '../Opciones/CaracterizacionSitio/StackOpciones/StackOpciones.js'
-import Guias from '../Opciones/GuiasInformativas/Componentes/GuiasInformativas';
+import StackGuias from '../Opciones/GuiasInformativas/StackGuias/StackGuias';
 const Drawer = createDrawerNavigator({
     Inicio:{
         screen: ContenedorInicio,
@@ -18,7 +18,7 @@ const Drawer = createDrawerNavigator({
         }
     },
     GuiasInformativas:{
-        screen: Guias,
+        screen: StackGuias,
         navigationOptions:{
             drawerLabel:'Gúias informativas'
         }
