@@ -5,7 +5,7 @@ import Cosecha from '../Componentes/Cosecha';
 import Enfermedades from '../Componentes/Enfermedades';
 import Fertilizacion from '../Componentes/Fertilizacion';
 import Generalidades from '../Componentes/Generalidades';
-import GuiasInformativas from '../Componentes/GuiasInformativas';
+import ContenedorGuias from '../Contenedores/ContenedorGuias';
 import Malezas from '../Componentes/Malezas';
 import Postcosecha from '../Componentes/PostCosecha';
 import Siembra from '../Componentes/Siembra';
@@ -13,7 +13,7 @@ import Plagas from '../Componentes/Plagas'
 
 const stackGuias = createStackNavigator({
   GuiasInformativas:{
-    screen:GuiasInformativas,
+    screen:ContenedorGuias,
     navigationOptions:{
       header:null
     }

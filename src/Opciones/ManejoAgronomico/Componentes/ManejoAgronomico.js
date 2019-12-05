@@ -8,7 +8,7 @@ import {
   FlatList,
 } from 'react-native';
 
-const GuiasInformativas = (props) => {
+const ManejoAgronomico = (props) => {
 
   const {data, navegarPantalla} = props;
 
@@ -160,4 +160,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default GuiasInformativas;
+export default ManejoAgronomico;

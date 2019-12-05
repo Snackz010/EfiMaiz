@@ -20,7 +20,7 @@ const Cosecha = (props) => {
             <View style={{...styles.cardContent, ...styles.opacity}}>
               <View>
                 <Text style={styles.title}>Maíz</Text>
-                <Text style={styles.subTitle}>cosecha</Text>
+                <Text style={styles.subTitle}>Cosecha</Text>
               </View>
             </View>
           </View>

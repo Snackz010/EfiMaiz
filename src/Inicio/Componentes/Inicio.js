@@ -37,6 +37,8 @@ const styles = StyleSheet.create({
   header:{
     backgroundColor: "white",
     height:200,
+    borderBottomWidth: 4,
+    borderColor: 'white'
   },
   headerImage:{
     height:200,
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
     zIndex: 0,
     backgroundColor: 'rgba(0,0,0,.3)',
     borderRadius: 10,
-    height: 200,
+    height: 196,
   },
 });
 
