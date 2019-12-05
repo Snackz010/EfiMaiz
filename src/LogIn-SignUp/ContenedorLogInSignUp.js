@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'react-native-firebase';
-import { AsyncStorage} from 'react-native';
+import { AsyncStorage, Alert} from 'react-native';
 
 import LogIn from '../LogIn/Componentes/LogIn.js';
 import SignUp from '../SignUp/Componentes/SignUp.js';
@@ -35,10 +35,14 @@ export default class ContenedorlogInSignUp extends Component {
       var errorCode = error.code;
       var errorMessage = error.message;
       if (errorCode == 'auth/email-already-in-use') {
-        alert('el usuario ya existe, resgistre otro');
+        this.mensaje2();
       }
       console.log(error);
     })
+  }
+
+  mensaje2 = () => {
+    Alert.alert('Advertencia', 'El usuario ya existe, porfavor resgistre otro.');
   }
 
   //Método para iniciar sesión con su correo y contraseña
@@ -53,8 +57,12 @@ export default class ContenedorlogInSignUp extends Component {
         console.log('Logueo realizado correctamente: ', success)))
         .catch( error => (console.log('Este es el error: ', error)))
     }else{
-      alert("Por favor ingrese un usuario y contraseña valido");
+      this.mensaje();
     }
+  }
+
+  mensaje = () => {
+    Alert.alert('Advertencia', 'Por favor ingrese un usuario y contraseña valido')
   }
 
   //Método para guardar el email que funciona como id de usuarios, guardarlos en el AsyncStorage y obtenerlos en el perfil

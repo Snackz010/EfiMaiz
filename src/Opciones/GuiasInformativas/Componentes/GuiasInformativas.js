@@ -16,22 +16,20 @@ export default class Store extends Component {
     super(props);
     this.state = {
       data: [
-        {id:1, title: "Suelo", subTitle:"Gúias", image:"https://lorempixel.com/400/200/nature/6/"},
-        {id:2, title: "Suelo", subTitle:"Gúias", image:"https://lorempixel.com/400/200/nature/5/"} ,
-        {id:3, title: "Suelo", subTitle:"Gúias", image:"https://lorempixel.com/400/200/nature/4/"}, 
-        {id:4, title: "Suelo", subTitle:"Gúias", image:"https://lorempixel.com/400/200/nature/6/"}, 
-        {id:5, title: "Suelo", subTitle:"Gúias", image:"https://lorempixel.com/400/200/sports/1/"}, 
-        {id:6, title: "Suelo", subTitle:"Gúias", image:"https://lorempixel.com/400/200/nature/8/"}, 
-        {id:7, title: "Suelo", subTitle:"Gúias", image:"https://lorempixel.com/400/200/nature/1/"}, 
-        {id:8, title: "Suelo", subTitle:"Gúias", image:"https://lorempixel.com/400/200/nature/3/"},
-        {id:9, title: "Suelo", subTitle:"Gúias", image:"https://lorempixel.com/400/200/nature/4/"},
-        {id:9, title: "Suelo",subTitle:"Gúias", image:"https://lorempixel.com/400/200/nature/5/"},
+        {id:1, title: "Generalidades", subTitle:"Guía", image:"http://delmaiz.info/wp-content/uploads/2017/01/caracter%C3%ADsticas-del-ma%C3%ADz.jpg"},
+        {id:2, title: "Siembra", subTitle:"Guía", image:"https://images.pexels.com/photos/169523/pexels-photo-169523.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"},
+        {id:3, title: "Fertilización", subTitle:"Guía", image:"https://pbs.twimg.com/media/EDOmFG-XYAALHiJ.jpg"} ,
+        {id:4, title: "Maleza", subTitle:"Guía", image:"https://cdn.pixabay.com/photo/2017/07/19/08/50/gardening-2518377_960_720.jpg"}, 
+        {id:5, title: "Plagas", subTitle:"Guía", image:"https://cdn.pixabay.com/photo/2016/11/28/20/13/desert-locust-1865955_960_720.jpg"}, 
+        {id:6, title: "Enfermedades", subTitle:"Guía", image:"https://t2.ev.ltmcdn.com/es/posts/9/9/1/roya_del_maiz_2199_5_600.jpg"}, 
+        {id:7, title: "Cosecha", subTitle:"Guía", image:"https://www.infobae.com/new-resizer/E-5eS6rvl_s_WAZXuO2ESrBShEU=/750x0/filters:quality(100)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/03/29110007/maiz-1.jpg"}, 
+        {id:8, title: "Postcosecha", subTitle:"Guía", image:"https://www.agrarheute.com/media/styles/lightbox/public/media/554410/554410.gif?itok=tZ-T_1V_"}, 
       ]
     };
   }
 
-  addProductToCart = () => {
-    Alert.alert('Success', 'The product has been added to your cart')
+  mensaje = () => {
+    Alert.alert('Información', 'Guías informativas del cultivo del maíz.')
   }
 
   render() {
@@ -64,7 +62,7 @@ export default class Store extends Component {
                 <View style={styles.cardFooter}>
                   <View style={styles.cardFooterContainer}>
                     <View style={styles.footerSection}>
-                      <TouchableOpacity style={styles.footerButton} onPress={() => this.addProductToCart()}>
+                      <TouchableOpacity style={styles.footerButton} onPress={() => this.mensaje()}>
                         <Image style={styles.icon} source={require('../../../assets/ir.png')}/>
                         <Text style={[styles.footerLabel, styles.labelColor]}>Acceder</Text>
                       </TouchableOpacity>
@@ -175,7 +173,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'lightblue',
+    backgroundColor: 'rgba(70, 160, 90, .9)',
     paddingTop: 4,
     paddingBottom: 4,
     paddingRight: 15,

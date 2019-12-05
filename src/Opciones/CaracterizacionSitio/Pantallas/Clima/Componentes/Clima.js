@@ -25,7 +25,7 @@ const Clima = (props) => {
     velocidadV,
     altitud,
     nRadiacion,
-    eventoIrSuelo
+    eventoIrSuelo,
   } = props;
 
     return (

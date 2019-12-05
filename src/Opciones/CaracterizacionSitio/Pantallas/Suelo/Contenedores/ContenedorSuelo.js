@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {Alert} from 'react-native';
 
 import Suelo from '../Componentes/Suelo';
 
@@ -106,14 +107,16 @@ class ContenedorSuelo extends Component{
             SueloApto:valoaptoSuelo
         }
         this.evaluarSuelo();
-        if(pickerSelection!='' || pickerSelection2 != '' || pickerSelection3 != '', PH != '' || Pendiente != '' || Profundidad != ''){
+        if(pickerSelection != '' && pickerSelection2 != '' && pickerSelection3 != '' && PH != '' && Pendiente != '' && Profundidad != ''){
             navigation.navigate('Agua',{...ADatos});
         }else{
-            alert("¡Oops Parece que olvidas llenar algunos datos!");
+            this.mensaje();
         }
-        
+    }
 
-    } 
+    mensaje = () => {
+        Alert.alert('Advertencia', '¡Ups!, Al parecer hacen falta datos.')
+    }
 
     //Funcion para hacer evaluacion del suelo
 
