@@ -9,18 +9,18 @@ import {
   ScrollView
 } from 'react-native';
 
-const Siembra = (props) => {
+const Plagas = (props) => {
 
   return (
     <>
       <ScrollView>
         <View>
           <View style={styles.header}>
-            <Image style={styles.headerImage} source={{uri:'https://images.pexels.com/photos/169523/pexels-photo-169523.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'}}/>
+            <Image style={styles.headerImage} source={{uri:'https://cdn.pixabay.com/photo/2016/11/28/20/13/desert-locust-1865955_960_720.jpg'}}/>
             <View style={{...styles.cardContent, ...styles.opacity}}>
               <View>
                 <Text style={styles.title}>Maíz</Text>
-                <Text style={styles.subTitle}>Siembra</Text>
+                <Text style={styles.subTitle}>Plagas</Text>
               </View>
             </View>
           </View>
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Siembra;
+export default Plagas;
