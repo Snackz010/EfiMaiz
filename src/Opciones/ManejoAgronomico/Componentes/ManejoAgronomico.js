@@ -95,7 +95,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 1,
     borderTopRightRadius: 1,
     flexDirection: 'row',
-    
   },
   cardContent: {
     paddingVertical: 12.5,
@@ -115,7 +114,6 @@ const styles = StyleSheet.create({
     height: 150,
     width: null,
   },
-
   title:{
     fontSize:16,
     color: "#316b71",
