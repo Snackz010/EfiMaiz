@@ -64,6 +64,12 @@ const Germinacion = (props) => {
               >
                 <Text style={styles.signUpText}>Calcular<Icon name='calculator' color="white" size={18}/></Text>
               </TouchableHighlight>
+              <TouchableHighlight 
+                style={[styles.buttonContainer, styles.calcButton, styles.marginButtonContainer]}
+                onPress={()=>{calcularPromedio(grupo1,grupo2,grupo3,grupo4)}}
+              >
+                <Text style={styles.signUpText}>Registrar<Icon name='plus-circle' color="white" size={18}/></Text>
+              </TouchableHighlight>
             </View>
           </ScrollView>
         </View>
@@ -80,6 +86,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width:300,
     borderRadius:20,
+  },
+  marginButtonContainer: {
+    marginTop: 10
   },
   calcButton: {
     backgroundColor: 'rgba(70, 160, 90, .9)',
