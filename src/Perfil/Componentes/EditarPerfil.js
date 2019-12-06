@@ -6,7 +6,6 @@ import {
   TouchableHighlight,
   StatusBar,
   TextInput,
-  Image,
   ScrollView,
   Modal,
 } from 'react-native';
@@ -33,7 +32,7 @@ const EditarPerfil = (props) => {
     pickerSelectionValue = pickerSelection;
     return (
       <>
-        <StatusBar barStyle="light-content" backgroundColor='#000000'/>
+        <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
         <View style={styles.center}>
           <View style={styles.body}>
             <ScrollView>
@@ -66,7 +65,6 @@ const EditarPerfil = (props) => {
                   <TextInput
                     keyboardType={"numeric"}
                     placeholderTextColor="white"
-                    autoCapitalize={'words'}
                     style={styles.textInput}
                     placeholder='Teléfono'
                     onChangeText = {handleTelefono}

@@ -8,7 +8,8 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-  TouchableHighlight
+  TouchableHighlight,
+  StatusBar,
 } from 'react-native';
 
 const Perfil = (props) => {
@@ -17,6 +18,7 @@ const Perfil = (props) => {
 
   return (
     <>
+      <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
       <View>
         <View style={styles.header}>
           <Image style={styles.avatar} source={require('../../assets/user.png')}/>

@@ -6,13 +6,15 @@ import {
   Text,
   View,
   Image,
-  ScrollView
+  ScrollView,
+  StatusBar,
 } from 'react-native';
 
 const GerminacionInstrucciones = (props) => {
 
   return (
     <>
+      <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
       <ScrollView>
         <View>
           <View style={styles.header}>

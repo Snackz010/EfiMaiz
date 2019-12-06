@@ -30,53 +30,53 @@ const Clima = (props) => {
 
     return (
       <>
-        <StatusBar barStyle="light-content" backgroundColor='#000000'/>
-          <View style={styles.center}>
-            <View style={styles.body}>
-              <ScrollView>
-                <View>
-                  <View >
-                    <Text style={styles.title}>Clima</Text>
-                    <Text style={styles.text}>Ingrese los datos del clima del sitio.</Text>
-                    <Text style={styles.textSubTitle}></Text>
-                  </View>
-                  <View style={styles.center}>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Temperatura' 
-                      onChangeText={eventoTxtTemperatura}
-                      value={temperatura}
-                    />
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Precipitación' 
-                      onChangeText={eventoTxtPrecipitacion}
-                      value={precipitacion}
-                    />
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Humedad' 
-                      onChangeText={eventoTxtHumedad}
-                      value={humedad}
-                    />
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Velocidad del viento' 
-                      onChangeText={eventoTxtVelocidad}
-                      value={velocidadV}
-                    />
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Altitud' 
-                      onChangeText={eventoTxtAltitud}
-                      value={altitud}
-                    />
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Nivel de Radiación' 
-                      onChangeText={eventoTxtNRadiacion}
-                      value={nRadiacion}
-                    />
-                  </View>
+        <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
+        <View style={styles.center}>
+          <View style={styles.body}>
+            <ScrollView>
+              <View>
+                <View >
+                  <Text style={styles.title}>Clima</Text>
+                  <Text style={styles.text}>Ingrese los datos del clima del sitio.</Text>
+                  <Text style={styles.textSubTitle}></Text>
                 </View>
-                <View style={styles.button}>
-                  <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}
-                    onPress={eventoIrSuelo}
-                  >
-                    <Text style={styles.signUpText}>Registrar <Icon name='plus-circle' color="white" size={18}/></Text>
-                  </TouchableHighlight>
+                <View style={styles.center}>
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Temperatura' 
+                    onChangeText={eventoTxtTemperatura}
+                    value={temperatura}
+                  />
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Precipitación' 
+                    onChangeText={eventoTxtPrecipitacion}
+                    value={precipitacion}
+                  />
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Humedad' 
+                    onChangeText={eventoTxtHumedad}
+                    value={humedad}
+                  />
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Velocidad del viento' 
+                    onChangeText={eventoTxtVelocidad}
+                    value={velocidadV}
+                  />
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Altitud' 
+                    onChangeText={eventoTxtAltitud}
+                    value={altitud}
+                  />
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Nivel de Radiación' 
+                    onChangeText={eventoTxtNRadiacion}
+                    value={nRadiacion}
+                  />
                 </View>
-              </ScrollView>
-            </View>
+              </View>
+              <View style={styles.button}>
+                <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}
+                  onPress={eventoIrSuelo}
+                >
+                  <Text style={styles.signUpText}>Registrar <Icon name='plus-circle' color="white" size={18}/></Text>
+                </TouchableHighlight>
+              </View>
+            </ScrollView>
           </View>
+        </View>
       </>
     );
 };

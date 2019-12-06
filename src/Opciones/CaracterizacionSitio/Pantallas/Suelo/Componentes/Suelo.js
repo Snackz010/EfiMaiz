@@ -36,97 +36,96 @@ const Suelo = (props) => {
   } = props;
     return (
       <>
-        <StatusBar barStyle="light-content" backgroundColor='#000000'/>
-          <View style={styles.center}>
-            <View style={styles.body}>
-              <ScrollView>
-                <View>
-                  <View >
-                    <Text style={styles.title}>Suelo</Text>
-                    <Text style={styles.text}>Ingrese los datos del suelo del sitio.</Text>
-                    <Text style={styles.textSubTitle}></Text>
-                  </View>
-                  <View style={styles.center}>
-
-                    <View style={styles.button2}>
-                      <TouchableHighlight onPress={togglePicker} style={[styles.buttonContainer2, styles.colorPickerButton]}>
-                        <Text style={styles.buttonText}>{pickerSelection}</Text>
-                      </TouchableHighlight>
-                    </View>
-                    <Modal visible={pickerDisplayed} animationType={"slide"} transparent={true}>
-                      <View style={styles.modal}>
-                        <Text style={styles.textOpacity}>Elija el tipo de suelo</Text>
-                        { pickerValues.map((value, index) => {
-                          return <TouchableHighlight key={index} onPress={() => setPickerValue(value.value)} style={styles.itemText}>
-                                    <Text>{ value.title }</Text>
-                                 </TouchableHighlight>
-                        })}
-                        <TouchableHighlight onPress={togglePicker} style={styles.buttonCancel}>
-                          <Text style={styles.textOpacity}>Cancelar</Text>
-                        </TouchableHighlight>
-                      </View>
-                    </Modal>
-
-                    <View style={styles.button2}>
-                      <TouchableHighlight onPress={togglePicker2} style={[styles.buttonContainer2, styles.colorPickerButton]}>
-                        <Text style={styles.buttonText}>{pickerSelection2}</Text>
-                      </TouchableHighlight>
-                    </View>
-                    <Modal visible={pickerDisplayed2} animationType={"slide"} transparent={true}>
-                      <View style={styles.modal}>
-                        <Text style={styles.textOpacity}>Elija el color del suelo</Text>
-                        { pickerValues2.map((value, index) => {
-                          return <TouchableHighlight key={index} onPress={() => setPickerValue2(value.value)} style={styles.itemText}>
-                                    <Text>{ value.title }</Text>
-                                 </TouchableHighlight>
-                        })}
-                        <TouchableHighlight onPress={togglePicker2} style={styles.buttonCancel}>
-                          <Text style={styles.textOpacity}>Cancelar</Text>
-                        </TouchableHighlight>
-                      </View>
-                    </Modal>
-
-                    <View style={styles.button2}>
-                      <TouchableHighlight onPress={togglePicker3} style={[styles.buttonContainer2, styles.colorPickerButton]}>
-                        <Text style={styles.buttonText}>{pickerSelection3}</Text>
-                      </TouchableHighlight>
-                    </View>
-                    <Modal visible={pickerDisplayed3} animationType={"slide"} transparent={true}>
-                      <View style={styles.modal}>
-                        <Text style={styles.textOpacity}>Elija la textura del suelo</Text>
-                        { pickerValues3.map((value, index) => {
-                          return <TouchableHighlight key={index} onPress={() => setPickerValue3(value.value)} style={styles.itemText}>
-                                    <Text>{ value.title }</Text>
-                                 </TouchableHighlight>
-                        })}
-                        <TouchableHighlight onPress={togglePicker3} style={styles.buttonCancel}>
-                          <Text style={styles.textOpacity}>Cancelar</Text>
-                        </TouchableHighlight>
-                      </View>
-                    </Modal>
-
-                    <TextInput
-                      keyboardType={"numeric"}
-                      placeholderTextColor="white"
-                      autoCapitalize={'words'}
-                      style={styles.textInput}
-                      placeholder='PH' 
-                      onChangeText={eventoTxtPH}
-                      value={ph}
-                    />
-                  </View>
+        <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
+        <View style={styles.center}>
+          <View style={styles.body}>
+            <ScrollView>
+              <View>
+                <View >
+                  <Text style={styles.title}>Suelo</Text>
+                  <Text style={styles.text}>Ingrese los datos del suelo del sitio.</Text>
+                  <Text style={styles.textSubTitle}></Text>
                 </View>
-                <View style={styles.button}>
-                  <TouchableHighlight
-                    style={[styles.buttonContainer, styles.logInButton]}
-                    onPress={eventoIrAgua}
-                  >
-                    <Text style={styles.signUpText}>Registrar <Icon name='plus-circle' color="white" size={18}/></Text>
-                  </TouchableHighlight>
+                <View style={styles.center}>
+
+                  <View style={styles.button2}>
+                    <TouchableHighlight onPress={togglePicker} style={[styles.buttonContainer2, styles.colorPickerButton]}>
+                      <Text style={styles.buttonText}>{pickerSelection}</Text>
+                    </TouchableHighlight>
+                  </View>
+                  <Modal visible={pickerDisplayed} animationType={"slide"} transparent={true}>
+                    <View style={styles.modal}>
+                      <Text style={styles.textOpacity}>Elija el tipo de suelo</Text>
+                      { pickerValues.map((value, index) => {
+                        return <TouchableHighlight key={index} onPress={() => setPickerValue(value.value)} style={styles.itemText}>
+                                  <Text>{ value.title }</Text>
+                                </TouchableHighlight>
+                      })}
+                      <TouchableHighlight onPress={togglePicker} style={styles.buttonCancel}>
+                        <Text style={styles.textOpacity}>Cancelar</Text>
+                      </TouchableHighlight>
+                    </View>
+                  </Modal>
+
+                  <View style={styles.button2}>
+                    <TouchableHighlight onPress={togglePicker2} style={[styles.buttonContainer2, styles.colorPickerButton]}>
+                      <Text style={styles.buttonText}>{pickerSelection2}</Text>
+                    </TouchableHighlight>
+                  </View>
+                  <Modal visible={pickerDisplayed2} animationType={"slide"} transparent={true}>
+                    <View style={styles.modal}>
+                      <Text style={styles.textOpacity}>Elija el color del suelo</Text>
+                      { pickerValues2.map((value, index) => {
+                        return <TouchableHighlight key={index} onPress={() => setPickerValue2(value.value)} style={styles.itemText}>
+                                  <Text>{ value.title }</Text>
+                                </TouchableHighlight>
+                      })}
+                      <TouchableHighlight onPress={togglePicker2} style={styles.buttonCancel}>
+                        <Text style={styles.textOpacity}>Cancelar</Text>
+                      </TouchableHighlight>
+                    </View>
+                  </Modal>
+
+                  <View style={styles.button2}>
+                    <TouchableHighlight onPress={togglePicker3} style={[styles.buttonContainer2, styles.colorPickerButton]}>
+                      <Text style={styles.buttonText}>{pickerSelection3}</Text>
+                    </TouchableHighlight>
+                  </View>
+                  <Modal visible={pickerDisplayed3} animationType={"slide"} transparent={true}>
+                    <View style={styles.modal}>
+                      <Text style={styles.textOpacity}>Elija la textura del suelo</Text>
+                      { pickerValues3.map((value, index) => {
+                        return <TouchableHighlight key={index} onPress={() => setPickerValue3(value.value)} style={styles.itemText}>
+                                  <Text>{ value.title }</Text>
+                                </TouchableHighlight>
+                      })}
+                      <TouchableHighlight onPress={togglePicker3} style={styles.buttonCancel}>
+                        <Text style={styles.textOpacity}>Cancelar</Text>
+                      </TouchableHighlight>
+                    </View>
+                  </Modal>
+
+                  <TextInput
+                    keyboardType={"numeric"}
+                    placeholderTextColor="white"
+                    style={styles.textInput}
+                    placeholder='PH' 
+                    onChangeText={eventoTxtPH}
+                    value={ph}
+                  />
                 </View>
-              </ScrollView>
-            </View>
+              </View>
+              <View style={styles.button}>
+                <TouchableHighlight
+                  style={[styles.buttonContainer, styles.logInButton]}
+                  onPress={eventoIrAgua}
+                >
+                  <Text style={styles.signUpText}>Registrar <Icon name='plus-circle' color="white" size={18}/></Text>
+                </TouchableHighlight>
+              </View>
+            </ScrollView>
           </View>
+        </View>
       </>
     );
 };

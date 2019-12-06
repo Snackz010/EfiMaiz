@@ -25,7 +25,7 @@ const SignUp = (props) => {
     pickerSelectionValue = pickerSelection;
     return (
       <>
-        <StatusBar barStyle="light-content" backgroundColor='#000000'/>
+        <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
         <ImageBackground source={require('../../assets/fondo3.jpg')} style={styles.image}>
           <View style={styles.center}>
             <View style={styles.body}>
@@ -48,7 +48,7 @@ const SignUp = (props) => {
                       placeholder='Nombre'
                       onChangeText={handleNombre}
                       value={estadoNombre}
-                    ></TextInput>
+                    />
 
                     <TextInput
                       keyboardType={"default"}
@@ -58,27 +58,25 @@ const SignUp = (props) => {
                       placeholder='Apellido'
                       onChangeText = {handleApellido}
                       value = {estadoApellido}
-                      ></TextInput>
+                    />
 
                     <TextInput
                       keyboardType={"numeric"}
                       placeholderTextColor="white"
-                      autoCapitalize={'words'}
                       style={styles.textInput}
                       placeholder='Teléfono'
                       onChangeText = {handleTelefono}
                       value = {estadoTelefono}
-                    ></TextInput>
+                    />
 
                     <TextInput
                       keyboardType={"default"}
                       placeholderTextColor="white"
-                      autoCapitalize={'words'}
                       style={styles.textInput}
                       placeholder='Correo'
                       onChangeText = {handleEmail}
                       value = {estadoEmail}
-                    ></TextInput>
+                    />
 
                     <View style={styles.button2}>
                       <TouchableHighlight onPress={togglePicker} style={[styles.buttonContainer2, styles.ocupationButton]}>
@@ -108,7 +106,7 @@ const SignUp = (props) => {
                       placeholder='Usuario'
                       onChangeText = {handleUsuario}
                       value = {estadoUsuario}
-                    ></TextInput>
+                    />
                     
                     <TextInput
                       keyboardType={"default"}
@@ -118,7 +116,7 @@ const SignUp = (props) => {
                       placeholder='Contraseña'
                       onChangeText = {handlePass}
                       value = {estadoClave}
-                    ></TextInput>
+                    />
 
                     <TextInput
                     onChangeText={handlePass2}
@@ -128,7 +126,7 @@ const SignUp = (props) => {
                     secureTextEntry={true}
                     style={styles.textInput}
                     placeholder='Confirmar Contraseña'
-                    ></TextInput>
+                    />
                   </View>
                 </View>
                 <View style={styles.button}>
@@ -210,11 +208,6 @@ const styles = StyleSheet.create({
     color: '#eee',
     textAlign: 'center',
   },
-  text2: {
-    fontSize: 12, 
-    color: '#9ed4a3',
-    textAlign: 'center',
-  },
   textOpacity: {
     color: '#999' 
   },
@@ -226,7 +219,6 @@ const styles = StyleSheet.create({
     fontSize: 12, 
     color: '#eee',
     textAlign: 'center',
-    marginTop: 20,
   },
   textSubTitle: {
     fontSize: 16, 
@@ -240,7 +232,6 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 50,
-    marginBottom: 50,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

@@ -25,46 +25,45 @@ const Agua = (props) => {
 
     return (
       <>
-        <StatusBar barStyle="light-content" backgroundColor='#000000'/>
-          <View style={styles.center}>
-            <View style={styles.body}>
-              <ScrollView>
-                <View>
-                  <View >
-                    <Text style={styles.title}>Agua</Text>
-                    <Text style={styles.text}>Ingrese los datos del agua del sitio.</Text>
-                    <Text style={styles.textSubTitle}></Text>
-                  </View>
-                  <View style={styles.center}>
-                    <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Volumen'
-                      onChangeText={eventoTxtVolumen}
-                      value={estadoVolumen}
-                    />
-                    <TextInput placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Calidad'
-                      onChangeText={eventoTxtCalidad}
-                      value={estadoCalidad}
-                    />
-                    <TextInput placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Fuente'
-                      onChangeText={eventoTxtFuente}
-                      value={estadoFuente}
-                    />
-                  </View>
+        <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
+        <View style={styles.center}>
+          <View style={styles.body}>
+            <ScrollView>
+              <View>
+                <View >
+                  <Text style={styles.title}>Agua</Text>
+                  <Text style={styles.text}>Ingrese los datos del agua del sitio.</Text>
+                  <Text style={styles.textSubTitle}></Text>
                 </View>
-                <View style={styles.button}>
-                  <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}
-                    onPress={irResultados}
-                  >
-                    <Text style={styles.signUpText}>Registrar <Icon name='plus-circle' color="white" size={18}/></Text>
-                  </TouchableHighlight>
+                <View style={styles.center}>
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Volumen'
+                    onChangeText={eventoTxtVolumen}
+                    value={estadoVolumen}
+                  />
+                  <TextInput placeholderTextColor="white" style={styles.textInput} placeholder='Calidad'
+                    onChangeText={eventoTxtCalidad}
+                    value={estadoCalidad}
+                  />
+                  <TextInput placeholderTextColor="white" style={styles.textInput} placeholder='Fuente'
+                    onChangeText={eventoTxtFuente}
+                    value={estadoFuente}
+                  />
                 </View>
-              </ScrollView>
-            </View>
+              </View>
+              <View style={styles.button}>
+                <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}
+                  onPress={irResultados}
+                >
+                  <Text style={styles.signUpText}>Registrar <Icon name='plus-circle' color="white" size={18}/></Text>
+                </TouchableHighlight>
+              </View>
+            </ScrollView>
           </View>
+        </View>
 
-            <Text>{estadoCalidad}</Text>
-            <Text>{estadoFuente}</Text>
-            <Text>{estadoVolumen}</Text>
-
+        <Text>{estadoCalidad}</Text>
+        <Text>{estadoFuente}</Text>
+        <Text>{estadoVolumen}</Text>
       </>
     );
 };
