@@ -10,7 +10,7 @@ import {
 
 const ManejoAgronomico = (props) => {
 
-  const {data, navegarPantalla} = props;
+  const {data, navegarPantalla,navegarPantallaLeer} = props;
 
   return (
     <View style={styles.container}>
@@ -45,7 +45,7 @@ const ManejoAgronomico = (props) => {
                       <Image style={styles.icon} source={require('../../../assets/ir.png')}/>
                       <Text style={[styles.footerLabel, styles.labelColor]}>Ir</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.footerButton} onPress={()=>{navegarPantalla(item.rutaLeer)}}>
+                    <TouchableOpacity style={styles.footerButton} onPress={()=>{navegarPantallaLeer(item.rutaLeer)}}>
                       <Image style={styles.icon} source={require('../../../assets/leer.png')}/>
                       <Text style={[styles.footerLabel, styles.labelColor]}>Leer</Text>
                     </TouchableOpacity>

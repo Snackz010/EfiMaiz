@@ -7,7 +7,7 @@ export default class ContenedorManejoAgro extends Component {
     super(props);
     this.state = {
       data: [
-        {id:1, rutaIr:"Germinacion", rutaLeer: "Germinacion", title: "Germinación", subTitle:"Funcionalidad", image:"https://hidroponia.mx/wp-content/uploads/2018/05/PLANTULAMAIZ-300x278.png"},
+        {id:1, rutaIr:"Germinacion", rutaLeer: "GerminacionInstru", title: "Germinación", subTitle:"Funcionalidad", image:"https://hidroponia.mx/wp-content/uploads/2018/05/PLANTULAMAIZ-300x278.png"},
       ]
     };
   }
@@ -16,10 +16,14 @@ export default class ContenedorManejoAgro extends Component {
     this.props.navigation.navigate(item);
   }
 
+  navegarPantallaLeer = (item) => {
+    this.props.navigation.navigate(item);
+  }
   render() {
     return (
       <ManejoAgronomico
       navegarPantalla={this.navegarPantalla}
+      navegarPantallaLeer={this.navegarPantallaLeer}
       data={this.state.data}
       />
     );
