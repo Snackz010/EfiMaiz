@@ -41,9 +41,13 @@ const ManejoAgronomico = (props) => {
               <View style={styles.cardFooter}>
                 <View style={styles.cardFooterContainer}>
                   <View style={styles.footerSection}>
-                    <TouchableOpacity style={styles.footerButton} onPress={()=>{navegarPantalla(item.ruta)}}>
+                    <TouchableOpacity style={styles.footerButton} onPress={()=>{navegarPantalla(item.rutaIr)}}>
                       <Image style={styles.icon} source={require('../../../assets/ir.png')}/>
-                      <Text style={[styles.footerLabel, styles.labelColor]}>Acceder</Text>
+                      <Text style={[styles.footerLabel, styles.labelColor]}>Ir</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.footerButton} onPress={()=>{navegarPantalla(item.rutaLeer)}}>
+                      <Image style={styles.icon} source={require('../../../assets/leer.png')}/>
+                      <Text style={[styles.footerLabel, styles.labelColor]}>Leer</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -156,7 +160,8 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
     paddingRight: 15,
     paddingLeft: 15,
-    borderRadius: 10
+    borderRadius: 10,
+    margin: 2
   }
 });
 
