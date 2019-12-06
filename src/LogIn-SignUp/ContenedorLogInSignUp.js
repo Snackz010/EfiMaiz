@@ -31,18 +31,18 @@ export default class ContenedorlogInSignUp extends Component {
     if(email != '' && clave != '' && clave2 != '' && nombre != '' && apellido != '' && telefono !='' && usuario!='' ){
           if(clave === clave2 ){
             firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.clave)
-            .then(success => (
+            .then((success) => (
               this.saveDataMethod(),
               this.cambiarPantalla(),
-              console.log('El resgistro realizado correctamente: ', success)))
-            .catch((error) => {
+              console.log('El resgistro realizado correctamente: ', success)
+              )).catch((error) => {
               // Handle Errors here.
               var errorCode = error.code;
               var errorMessage = error.message;
-              if (errorCode == 'auth/email-already-in-use') {
+              console.log(errorCode)
+              if (errorCode === 'auth/email-already-in-use') {
                 this.mensaje2();
               }
-              console.log(error);
             })
           }else{
             Alert.alert('Advertencia','Las contraseñas no coinciden.');
@@ -102,7 +102,7 @@ export default class ContenedorlogInSignUp extends Component {
       fOcupacion: this.state.pickerSelection,
       fUsuario: this.state.usuario,
     }).then((docRef) => {
-      this.SignUpMethod();
+      
       console.log("Datos registrados:")
     }).catch(function(error) {
       console.error("Error adding document: ", error);

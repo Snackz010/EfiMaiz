@@ -145,7 +145,6 @@ const SignUp = (props) => {
 };
 
 const elementosOcultos = () => {
-console.log(pickerSelectionValue)
   if(pickerSelectionValue === 'Productor'){
     return(
       <>
