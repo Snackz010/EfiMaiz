@@ -12,7 +12,11 @@ class ContenedorAgua extends Component{
         this.state = {
             Volumen:'',
             Calidad:'',
-            Fuente:''
+            Fuente:'',
+            pickerSelection: 'Calidad del agua',
+            pickerDisplayed: false,
+            pickerSelection2: 'Fuente',
+            pickerDisplayed2: false,
         }
     }
 
@@ -37,6 +41,32 @@ class ContenedorAgua extends Component{
         this.setState({
             Fuente: FuenteValue
         });
+    }
+
+    togglePicker = () => {
+        this.setState({
+            pickerDisplayed: !this.state.pickerDisplayed
+        })
+    }
+
+    setPickerValue = (newValue) =>{
+        this.setState({
+            pickerSelection: newValue
+        })
+        this.togglePicker();
+    }
+
+    togglePicker2 = () => {
+        this.setState({
+            pickerDisplayed2: !this.state.pickerDisplayed2
+        })
+    }
+
+    setPickerValue2 = (newValue) =>{
+        this.setState({
+            pickerSelection2: newValue
+        })
+        this.togglePicker2();
     }
 
 
@@ -77,13 +107,58 @@ class ContenedorAgua extends Component{
     }
 
     render(){
-        const {Volumen, Calidad, Fuente} = this.state;
-        
+        const pickerValues = [
+            {
+                title: 'Excelente',
+                value: 'Excelente'
+            },
+            {
+                title: 'Aceptable',
+                value: 'Aceptable'
+            },
+            {
+                title: 'Mala',
+                value: 'Mala'
+            },
+        ]
+
+        const pickerValues2 = [
+            {
+                title: 'Rio',
+                value: 'Rio'
+            },
+            {
+                title: 'Lago',
+                value: 'Lago'
+            },
+            {
+                title: 'Pozo',
+                value: 'Pozo'
+            },
+            {
+                title: 'Agua Pluvial',
+                value: 'Agua Pluvial'
+            },
+        ]
+
+        const {Volumen, Calidad, Fuente, pickerSelection, pickerDisplayed, pickerSelection2, pickerDisplayed2} = this.state;
 
         this.extraerParametros();
         
         return(
-            <Agua 
+            <Agua
+                pickerDisplayed={pickerDisplayed}
+                pickerValues={pickerValues}
+                togglePicker={this.togglePicker}
+                setPickerValue={this.setPickerValue}
+                pickerSelection={pickerSelection}
+
+                pickerDisplayed2={pickerDisplayed2}
+                pickerValues2={pickerValues2}
+                togglePicker2={this.togglePicker2}
+                setPickerValue2={this.setPickerValue2}
+                pickerSelection2={pickerSelection2}
+
                 eventoTxtCalidad={this.eventoTxtCalidad}
                 estadoCalidad={Calidad}
                 eventoTxtFuente={this.eventoTxtFuente}

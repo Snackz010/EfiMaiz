@@ -7,6 +7,7 @@ import {
   StatusBar,
   TextInput,
   ScrollView,
+  Modal,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons.js';
 
@@ -14,12 +15,18 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons.js';
 const Agua = (props) => {
 
   const {
+    pickerDisplayed,
+    pickerValues,
+    togglePicker,
+    setPickerValue,
+    pickerSelection,
+    pickerDisplayed2,
+    pickerValues2,
+    togglePicker2,
+    setPickerValue2,
+    pickerSelection2,
     eventoTxtVolumen,
-    eventoTxtCalidad,
-    eventoTxtFuente,
     estadoVolumen,
-    estadoCalidad,
-    estadoFuente,
     irResultados
   } = props;
 
@@ -40,14 +47,44 @@ const Agua = (props) => {
                     onChangeText={eventoTxtVolumen}
                     value={estadoVolumen}
                   />
-                  <TextInput placeholderTextColor="white" style={styles.textInput} placeholder='Calidad'
-                    onChangeText={eventoTxtCalidad}
-                    value={estadoCalidad}
-                  />
-                  <TextInput placeholderTextColor="white" style={styles.textInput} placeholder='Fuente'
-                    onChangeText={eventoTxtFuente}
-                    value={estadoFuente}
-                  />
+
+                  <View style={styles.button2}>
+                    <TouchableHighlight onPress={togglePicker} style={[styles.buttonContainer2, styles.colorPickerButton]}>
+                      <Text style={styles.buttonText}>{pickerSelection}</Text>
+                    </TouchableHighlight>
+                  </View>
+                  <Modal visible={pickerDisplayed} animationType={"slide"} transparent={true}>
+                    <View style={styles.modal}>
+                      <Text style={styles.textOpacity}>Selecione la calidad del suelo</Text>
+                      { pickerValues.map((value, index) => {
+                        return <TouchableHighlight key={index} onPress={() => setPickerValue(value.value)} style={styles.itemText}>
+                                  <Text>{ value.title }</Text>
+                                </TouchableHighlight>
+                      })}
+                      <TouchableHighlight onPress={togglePicker} style={styles.buttonCancel}>
+                        <Text style={styles.textOpacity}>Cancelar</Text>
+                      </TouchableHighlight>
+                    </View>
+                  </Modal>
+
+                  <View style={styles.button2}>
+                    <TouchableHighlight onPress={togglePicker2} style={[styles.buttonContainer2, styles.colorPickerButton]}>
+                      <Text style={styles.buttonText}>{pickerSelection2}</Text>
+                    </TouchableHighlight>
+                  </View>
+                  <Modal visible={pickerDisplayed2} animationType={"slide"} transparent={true}>
+                    <View style={styles.modal}>
+                      <Text style={styles.textOpacity}>Selecione la fuente del agua</Text>
+                      { pickerValues2.map((value, index) => {
+                        return <TouchableHighlight key={index} onPress={() => setPickerValue2(value.value)} style={styles.itemText}>
+                                  <Text>{ value.title }</Text>
+                                </TouchableHighlight>
+                      })}
+                      <TouchableHighlight onPress={togglePicker2} style={styles.buttonCancel}>
+                        <Text style={styles.textOpacity}>Cancelar</Text>
+                      </TouchableHighlight>
+                    </View>
+                  </Modal>
                 </View>
               </View>
               <View style={styles.button}>
@@ -60,10 +97,6 @@ const Agua = (props) => {
             </ScrollView>
           </View>
         </View>
-
-        <Text>{estadoCalidad}</Text>
-        <Text>{estadoFuente}</Text>
-        <Text>{estadoVolumen}</Text>
       </>
     );
 };
@@ -143,7 +176,49 @@ const styles = StyleSheet.create({
     width: 140,
     height: 125,
     marginTop: 50
-  }
+  },
+  button2: {
+    marginTop: 30,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonContainer2: {
+    height:50,
+    flexDirection: 'row',
+    paddingLeft: 10,
+    paddingTop: 10,
+    width:300,
+    borderRadius:10,
+  },
+  colorPickerButton: {
+    backgroundColor: 'rgba(0,0,0,0.4)',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  modal: {
+    margin: 20, padding: 20,
+    backgroundColor: '#efefef',
+    bottom: 20,
+    left: 20,
+    right: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+    position: 'absolute'
+  },
+  textOpacity: {
+    color: '#999' 
+  },
+  itemText: { 
+    paddingTop: 4,
+    paddingBottom: 4 
+  },
+  buttonCancel: {
+    paddingTop: 4, 
+    paddingBottom: 4 
+  },
 });
 
 export default Agua;
