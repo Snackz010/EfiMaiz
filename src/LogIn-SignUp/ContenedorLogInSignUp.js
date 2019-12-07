@@ -59,16 +59,16 @@ export default class ContenedorlogInSignUp extends Component {
     LogInMethod = () => {
       const {email, clave} = this.state;
 
-      if(email != '' && clave != ''){
-        firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.clave)
-        .then(success => (
-          this.GuardarEmail(),
-          this.cambiaraDrawer(),
-          console.log('Logueo realizado correctamente: ', success)))
-          .catch( error => (console.log('Este es el error: ', error)))
-      }else{
-        this.mensaje();
-      }
+      // if(email != '' && clave != ''){
+      //   firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.clave)
+      //   .then(success => (
+      //     this.GuardarEmail(),
+          this.cambiaraDrawer()
+      //     console.log('Logueo realizado correctamente: ', success)))
+      //     .catch( error => (console.log('Este es el error: ', error)))
+      // }else{
+      //   this.mensaje();
+      // }
     }
 
   mensaje = () => {

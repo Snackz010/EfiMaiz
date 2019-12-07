@@ -15,27 +15,36 @@ class ContenedorGerminacion extends Component {
   }
 
   eventoTxtGrupo1 = (grupoValue)=> {
-    this.setState({
-      grupo1: grupoValue
-    });
+    if(!this.validarDatos(grupoValue)){
+      this.setState({
+        grupo1: grupoValue
+      });
+    }
   }
 
   eventoTxtGrupo2 = (grupoValue)=> {
-    this.setState({
-      grupo2: grupoValue
-    });
+    if(!this.validarDatos(grupoValue)){
+      this.setState({
+        grupo2: grupoValue
+      });
+    }
   }
 
   eventoTxtGrupo3 = (grupoValue)=> {
-    this.setState({
-      grupo3: grupoValue
-    });
+    if(!this.validarDatos(grupoValue)){
+      this.setState({
+        grupo3: grupoValue
+      });
+    }
   }
 
   eventoTxtGrupo4 = (grupoValue)=> {
-    this.setState({
-      grupo4: grupoValue
-    });
+    if(!this.validarDatos(grupoValue)){
+      this.setState({
+        grupo4: grupoValue
+      });
+    }
+    
   }
 
   calcularPromedio = (g1,g2,g3,g4) => {
@@ -47,6 +56,15 @@ class ContenedorGerminacion extends Component {
       this.setState({
         promedio: prom
       });
+    }
+  }
+
+  validarDatos = (value) => {
+    if(value >100 || value < 0){
+      Alert.alert('Advertencia', 'Debe introducir valores entre 0 y 100 Unidades');
+      return true;
+    }else{
+      return false;
     }
   }
 
