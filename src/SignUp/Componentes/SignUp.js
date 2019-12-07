@@ -35,7 +35,7 @@ const SignUp = (props) => {
                     <Image style={styles.logo} source={require('../../assets/logo.png')}/>
                   </View>
                   <View >
-                    <Text style={styles.title}>Regitro</Text>
+                    <Text style={styles.title}>Registro</Text>
                     <Text style={styles.text}>Ingrese sus datos para registrarse.</Text>
                     <Text style={styles.textSubTitle}></Text>
                   </View>
