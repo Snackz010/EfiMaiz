@@ -31,7 +31,7 @@ const Fertilizante = (props) => {
               <View >
                 <Text style={styles.title}>Germinación</Text>
                 <Text style={styles.text}>Germinación de las semillas.</Text>
-                <Text style={styles.textSubTitle}>{promedio}</Text>
+                <Text style={styles.textSubTitle}></Text>
               </View>
               <View style={styles.center}>
                 <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Número de manzanas'

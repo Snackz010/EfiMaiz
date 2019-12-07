@@ -50,6 +50,19 @@ class ContenedorGerminacion extends Component {
     }
   }
 
+  obtenerAnioActual = ()=>{
+    const anio = new Date().getFullYear()
+
+    var Producciones ={}
+
+    Producciones['_'+anio] = {
+        AVGSemillas:this.state.promedio
+    }
+    
+    console.log(Producciones._2019.AVGSemillas);
+
+  }
+
   render(){
 
     const {grupo1,grupo2,grupo3,grupo4,promedio} = this.state;
@@ -66,6 +79,7 @@ class ContenedorGerminacion extends Component {
         eventoTxtGrupo4={this.eventoTxtGrupo4}
         promedio={promedio}
         calcularPromedio={this.calcularPromedio}
+        anioActual ={this.obtenerAnioActual}
       />
     );
   }

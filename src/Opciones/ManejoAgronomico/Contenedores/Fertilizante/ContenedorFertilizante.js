@@ -35,7 +35,7 @@ class ContenedorFertilizante extends Component {
     const {cantidadManzana, cantidadSurco, plantasSurco} = this.state;
 
     return(
-      <Abono
+      <Fertilizante
         cantidadManzana={cantidadManzana}
         cantidadSurco={cantidadSurco}
         plantasSurco={plantasSurco}
