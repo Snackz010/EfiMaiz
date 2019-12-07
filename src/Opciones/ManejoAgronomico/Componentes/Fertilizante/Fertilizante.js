@@ -19,6 +19,8 @@ const Fertilizante = (props) => {
     handleCantidadManzana,
     handleCantidadSurco,
     handlePlantasSurco,
+    fertilizante,
+    calFertiliza
   } = props;
 
   return (
@@ -29,9 +31,9 @@ const Fertilizante = (props) => {
           <ScrollView>
             <View>
               <View >
-                <Text style={styles.title}>Germinación</Text>
-                <Text style={styles.text}>Germinación de las semillas.</Text>
-                <Text style={styles.textSubTitle}></Text>
+                <Text style={styles.title}>Fertilizante</Text>
+                <Text style={styles.text}>Calcular cantidad de fertilizante a usar por un área dada.</Text>
+                <Text style={styles.textSubTitle}>{fertilizante}</Text>
               </View>
               <View style={styles.center}>
                 <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Número de manzanas'
@@ -51,6 +53,7 @@ const Fertilizante = (props) => {
             <View style={styles.button}>
               <TouchableHighlight 
                 style={[styles.buttonContainer, styles.calcButton]}
+                onPress={()=>{alert("No funiona :-(")}}
               >
                 <Text style={styles.signUpText}>Calcular<Icon name='calculator' color="white" size={18}/></Text>
               </TouchableHighlight>
