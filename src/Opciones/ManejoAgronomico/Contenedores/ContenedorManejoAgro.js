@@ -8,6 +8,7 @@ export default class ContenedorManejoAgro extends Component {
     this.state = {
       data: [
         {id:1, rutaIr:"Germinacion", rutaLeer: "GerminacionInstru", title: "Germinación", subTitle:"Funcionalidad", image:"https://hidroponia.mx/wp-content/uploads/2018/05/PLANTULAMAIZ-300x278.png"},
+        {id:2, rutaIr:"Fertilizante", rutaLeer: "Fertilizante", title: "Fertilizante", subTitle:"Funcionalidad", image:"https://hidroponia.mx/wp-content/uploads/2018/05/PLANTULAMAIZ-300x278.png"},
       ]
     };
   }
