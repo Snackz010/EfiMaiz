@@ -10,6 +10,7 @@ import Malezas from '../Componentes/Malezas';
 import Postcosecha from '../Componentes/PostCosecha';
 import Siembra from '../Componentes/Siembra';
 import Plagas from '../Componentes/Plagas'
+import GerminacionLeer from '../../ManejoAgronomico/Componentes/Germinacion/GerminacionInstrucciones';
 
 const stackGuias = createStackNavigator({
   GuiasInformativas:{
@@ -65,7 +66,13 @@ const stackGuias = createStackNavigator({
     navigationOptions:{
       header:null
     }
-  }
+  },
+  Germinacion:{
+    screen:GerminacionLeer,
+    navigationOptions:{
+      header:null
+    }
+  },
 });
 
 export default createAppContainer(stackGuias);
