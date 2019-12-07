@@ -2,7 +2,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 import  ContenedorGerminacion  from '../Contenedores/Germinacion/ContenedorGerminacion';
 import GerminacionInstrucciones from '../Componentes/Germinacion/GerminacionInstrucciones';
-import ContenedorFertilizante from '../Componentes/Fertilizante/Fertilizante';
+import ContenedorFertilizante from '../Contenedores/Fertilizante/ContenedorFertilizante';
 import FertilizanteInformacion from '../Componentes/Fertilizante/FertilizanteInformacion';
 import ContenedorManejoAgronomico from '../Contenedores/ContenedorManejoAgro';
 
