@@ -36,9 +36,8 @@ export default class ContenedorlogInSignUp extends Component {
               this.cambiarPantalla(),
               console.log('El resgistro realizado correctamente: ', success)
               )).catch((error) => {
-              // Handle Errors here.
+              // Oteniendo los errores para su respectivo manejo
               var errorCode = error.code;
-              var errorMessage = error.message;
               console.log(errorCode)
               if (errorCode === 'auth/email-already-in-use') {
                 this.mensaje2();
@@ -92,8 +91,6 @@ export default class ContenedorlogInSignUp extends Component {
   //Metodo para guardar datos en firestore
   saveDataMethod = () =>{
     var db = firebase.firestore();
-    //const {nombre, apellido, telefono, correo, pickerSelection, usuario} = this.props;
-
     db.collection("users").doc(this.state.email).set({
       fNombre: this.state.nombre,
       fApellido: this.state.apellido,
