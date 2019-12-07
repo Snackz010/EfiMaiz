@@ -9,6 +9,7 @@ class ContenedorFertilizante extends Component {
       cantidadManzana: '',
       cantidadSurco: '',
       plantasSurco: '',
+      fertilizante: '', 
     }
   }
 
@@ -30,9 +31,22 @@ class ContenedorFertilizante extends Component {
     });
   }
 
+  calcularFertilizante = () => {
+    const { cantidadManzana, cantidadSurco, plantasSurco } = this.state;
+    console.log(cantidadManzana, cantidadSurco, plantasSurco)
+    if(cantidadManzana==='' || cantidadSurco==='' || plantasSurco===''){
+        alert('¡Debes llenar todos lo campos!');
+    }else{
+      const cantidadFertilizante = ((parseInt(cantidadManzana)+parseInt(cantidadSurco)+parseInt(plantasSurco)))+'%gr';
+      this.setState({
+        fertilizante: cantidadFertilizante
+      });
+    }
+  }
+
   render(){
 
-    const {cantidadManzana, cantidadSurco, plantasSurco} = this.state;
+    const {cantidadManzana, cantidadSurco, plantasSurco, fertilizante} = this.state;
 
     return(
       <Fertilizante
@@ -42,6 +56,8 @@ class ContenedorFertilizante extends Component {
         handleCantidadManzana={this.handleCantidadManzana}
         handleCantidadSurco={this.handleCantidadSurco}
         handlePlantasSurco={this.handlePlantasSurco}
+        fertilizante={fertilizante}
+        calFertiliza = {this.calcularFertilizante}
       />
     );
   }
