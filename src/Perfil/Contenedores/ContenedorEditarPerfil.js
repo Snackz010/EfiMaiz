@@ -165,9 +165,4 @@ ObtenerEmail = async () => {
       this.getDataFirebase();
     }
   }
-
-  async componentWillMount (){
-      this.getDataFirebase();
-    }
-
 }
