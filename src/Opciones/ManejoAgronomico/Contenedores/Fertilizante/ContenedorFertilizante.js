@@ -9,7 +9,10 @@ class ContenedorFertilizante extends Component {
       cantidadManzana: '',
       cantidadSurco: '',
       plantasSurco: '',
-      fertilizante: '', 
+      fertilizante: '',//Este es el dato de fertilizante a almacenar
+      gramosPlanta: '',
+      pickerSelection: 'Tipo de Fertilizante',
+      pickerDisplayed: false,
     }
   }
 
@@ -32,24 +35,74 @@ class ContenedorFertilizante extends Component {
   }
 
   calcularFertilizante = () => {
-    const { cantidadManzana, cantidadSurco, plantasSurco } = this.state;
-    console.log(cantidadManzana, cantidadSurco, plantasSurco)
-    if(cantidadManzana=='' || cantidadSurco=='' || plantasSurco==''){
+    const { cantidadManzana, cantidadSurco, plantasSurco, pickerSelection, gramosPlanta } = this.state;
+    var quintales = 0;
+    if(cantidadManzana=='' || pickerSelection==='Tipo de Fertilizante'){
         Alert.alert('Advertencia','¡Debes llenar todos lo campos!');
-    }else{
-      const cantidadFertilizante = ((parseInt(cantidadManzana)+parseInt(cantidadSurco)+parseInt(plantasSurco)))+'gr';
+    }
+    else{
+      if(pickerSelection==='12-30-10' || pickerSelection==='10-30-20'){
+        quintales=2;
+      }
+      if(pickerSelection==='Urea'){
+        quintales=3;
+      }
+      const cantidadFertilizante = ((parseInt(cantidadManzana)*quintales));
+      const gramos = cantidadFertilizante * 45360;
+      const gramosP = (gramos/(parseInt(cantidadManzana)*parseInt(cantidadSurco)*parseInt(plantasSurco)));
+      Alert.alert('Resultado',`¡La cantidad de fertilizante necesaria para ${cantidadManzana} manzanas de cultivo es ${cantidadFertilizante} quintales.` );
       this.setState({
-        fertilizante: cantidadFertilizante
+        fertilizante: cantidadFertilizante,
+        gramosPlanta: gramosP,
+        cantidadSurco: '',
+        cantidadManzana: '',
+        plantasSurco: '',
+        pickerSelection: 'Tipo de Fertilizante'
       });
     }
   }
 
+  togglePicker = () => {
+    this.setState({
+        pickerDisplayed: !this.state.pickerDisplayed
+    })
+  }
+
+  setPickerValue = (newValue) =>{
+      this.setState({
+          pickerSelection: newValue
+      })
+      this.togglePicker();
+  }
+
   render(){
 
-    const {cantidadManzana, cantidadSurco, plantasSurco, fertilizante} = this.state;
+    const pickerValues = [
+      {
+          title: '12-30-10',
+          value: '12-30-10'
+      },
+      {
+          title: '10-30-20',
+          value: '10-30-20'
+      },
+      {
+          title: 'Urea',
+          value: 'Urea'
+      },
+  ]
+
+    const {cantidadManzana, cantidadSurco, plantasSurco, fertilizante, pickerSelection, pickerDisplayed, gramosPlanta} = this.state;
 
     return(
       <Fertilizante
+        pickerDisplayed={pickerDisplayed}
+        pickerValues={pickerValues}
+        togglePicker={this.togglePicker}
+        setPickerValue={this.setPickerValue}
+        pickerSelection={pickerSelection}
+
+        gramosPlanta={gramosPlanta}
         cantidadManzana={cantidadManzana}
         cantidadSurco={cantidadSurco}
         plantasSurco={plantasSurco}

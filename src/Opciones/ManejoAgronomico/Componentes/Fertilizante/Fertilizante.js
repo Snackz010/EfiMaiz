@@ -7,6 +7,7 @@ import {
   StatusBar,
   TextInput,
   ScrollView,
+  Modal
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons.js';
 
@@ -20,7 +21,13 @@ const Fertilizante = (props) => {
     handleCantidadSurco,
     handlePlantasSurco,
     fertilizante,
-    calcularFertilizante
+    calcularFertilizante,
+    pickerDisplayed,
+    pickerValues,
+    togglePicker,
+    setPickerValue,
+    pickerSelection,
+    gramosPlanta
   } = props;
 
   return (
@@ -33,21 +40,40 @@ const Fertilizante = (props) => {
               <View >
                 <Text style={styles.title}>Fertilizante</Text>
                 <Text style={styles.text}>Calcular cantidad de fertilizante a usar por un área dada.</Text>
-                <Text style={styles.textSubTitle}>{fertilizante}</Text>
+                <Text style={styles.textSubTitle3}>Cantidad fertilizante: {fertilizante===''?'0':fertilizante+' quintales'}</Text>
+                {/*<Text style={styles.textSubTitle2}>Gramos por planta: {gramosPlanta===''?'0':gramosPlanta}</Text>*/}
               </View>
               <View style={styles.center}>
                 <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Número de manzanas'
                   onChangeText={handleCantidadManzana}
                   value={cantidadManzana}
                 />
-                <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Surcos por manzana'
+                {/*<TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Surcos por manzana'
                   onChangeText={handleCantidadSurco}
                   value={cantidadSurco}
                 />
                 <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Plantas por surco'
                   onChangeText={handlePlantasSurco}
                   value={plantasSurco}
-                />
+                />*/}
+                <View style={styles.button2}>
+                  <TouchableHighlight onPress={togglePicker} style={[styles.buttonContainer2, styles.colorPickerButton]}>
+                    <Text style={styles.buttonText}>{pickerSelection}</Text>
+                  </TouchableHighlight>
+                </View>
+                <Modal visible={pickerDisplayed} animationType={"slide"} transparent={true}>
+                  <View style={styles.modal}>
+                    <Text style={styles.textOpacity}>Selecione la calidad del suelo</Text>
+                    { pickerValues.map((value, index) => {
+                      return <TouchableHighlight key={index} onPress={() => setPickerValue(value.value)} style={styles.itemText}>
+                                <Text>{ value.title }</Text>
+                              </TouchableHighlight>
+                    })}
+                    <TouchableHighlight onPress={togglePicker} style={styles.buttonCancel}>
+                      <Text style={styles.textOpacity}>Cancelar</Text>
+                    </TouchableHighlight>
+                  </View>
+                </Modal>
               </View>
             </View>
             <View style={styles.button}>
@@ -116,7 +142,18 @@ const styles = StyleSheet.create({
   },
   textSubTitle: {
     fontSize: 24,
-    marginTop: 30,
+    marginTop: 10,
+    textAlign: 'justify', 
+    textAlign: 'center',
+  },
+  textSubTitle2: {
+    fontSize: 18,
+    textAlign: 'justify', 
+    textAlign: 'center',
+  },
+  textSubTitle3: {
+    fontSize: 18,
+    marginTop: 20,
     textAlign: 'justify', 
     textAlign: 'center',
   },
@@ -149,7 +186,49 @@ const styles = StyleSheet.create({
     width: 140,
     height: 125,
     marginTop: 50
-  }
+  },
+  button2: {
+    marginTop: 30,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonContainer2: {
+    height:50,
+    flexDirection: 'row',
+    paddingLeft: 10,
+    paddingTop: 10,
+    width:300,
+    borderRadius:10,
+  },
+  colorPickerButton: {
+    backgroundColor: 'rgba(0,0,0,0.4)',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  modal: {
+    margin: 20, padding: 20,
+    backgroundColor: '#efefef',
+    bottom: 20,
+    left: 20,
+    right: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+    position: 'absolute'
+  },
+  textOpacity: {
+    color: '#999' 
+  },
+  itemText: { 
+    paddingTop: 4,
+    paddingBottom: 4 
+  },
+  buttonCancel: {
+    paddingTop: 4, 
+    paddingBottom: 4 
+  },
 });
 
 export default Fertilizante;
