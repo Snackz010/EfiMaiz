@@ -125,7 +125,6 @@ const ResultadoCaracterizacion = (props) => {
                     </View>
                   </View>
                 </Modal>
-              </View>
               {
                 resultadosClima()
               }
@@ -135,6 +134,14 @@ const ResultadoCaracterizacion = (props) => {
               <TouchableHighlight onPress={mostrarModal3} style={[styles.buttonContainer2, styles.actionButton2]}>
                 <Text style={styles.buttonText2}>Análisis del agua: Apto<Icon name='check' color="green" size={18}/></Text>
               </TouchableHighlight>
+              </View>
+              <View style={styles.center}>
+              <View style={styles.box}>
+                <Text style={styles.text2}>Segun la zona el tipo de semilla que se recomienda es:</Text>
+                <Text style={styles.title2}>NB - S</Text>
+              </View>
+              </View>
+
             </View>
             <View style={styles.button}>
               <TouchableHighlight style={[styles.buttonContainer, styles.actionButton]}
@@ -300,7 +307,28 @@ const styles = StyleSheet.create({
   },
   text: { 
     margin: 6
-  }
+  },
+  text2: {
+    fontSize: 16, 
+    textAlign: 'center',
+  },
+  box:{
+    backgroundColor: 'lightgreen',
+    height: 200,
+    width: 370,
+    borderRadius: 10,
+    marginTop: 30,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20
+  },
+  title2: {
+    fontSize: 24,
+    textAlign: 'center',
+    marginTop: 10,
+    color: 'darkgreen'
+  },
 });
 
 export default ResultadoCaracterizacion;

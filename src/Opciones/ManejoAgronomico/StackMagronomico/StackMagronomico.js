@@ -6,6 +6,7 @@ import ContenedorFertilizacion from '../Contenedores/Fertilizacion/ContenedorFer
 import FertilizacionInformacion from '../Componentes/Fertilizacion/FertilizacionInformacion';
 import ContenedorManejoAgronomico from '../Contenedores/ContenedorManejoAgro';
 import HerbicidasContenedor from '../Contenedores/Herbicidas/ContenedorHerbicidas';
+import HerbicidasInformacion from '../Componentes/Herbicidas/HerbicidasInformacion';
 
 const StackManejoAgronomico = createStackNavigator({
     ManejoAgronomico:{
@@ -40,6 +41,12 @@ const StackManejoAgronomico = createStackNavigator({
     },
     Herbicidas:{
         screen:HerbicidasContenedor,
+        navigationOptions:{
+            header:null
+        }
+    },
+    HerbicidasInfo:{
+        screen:HerbicidasInformacion,
         navigationOptions:{
             header:null
         }
