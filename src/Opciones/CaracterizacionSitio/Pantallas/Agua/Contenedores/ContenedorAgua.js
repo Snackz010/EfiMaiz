@@ -93,13 +93,13 @@ class ContenedorAgua extends Component{
 
     irResultados = () => {
         const {navigation} = this.props;
-        const { Volumen, Calidad, Fuente } = this.state;
+        const { pickerSelection, Volumen, pickerSelection2 } = this.state;
 
         const ADatos = {
             ...this.extraerParametros(),
             VolumenA:Volumen,
-            CalidadA: Calidad,
-            FuenteA: Fuente
+            CalidadA: pickerSelection,
+            FuenteA: pickerSelection2
         }
 
         navigation.navigate('Resultados',ADatos);        

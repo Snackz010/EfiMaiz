@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
-import {Alert} from 'react-native';
+import {Alert, AsyncStorage} from 'react-native';
+import firebase from 'react-native-firebase';
 import Fertilizante from '../../Componentes/Fertilizante/Fertilizante';
+import {NavigationActions, StackActions } from 'react-navigation';
 
 class ContenedorFertilizante extends Component {
   constructor(props){
@@ -10,7 +12,51 @@ class ContenedorFertilizante extends Component {
       cantidadSurco: '',
       plantasSurco: '',
       fertilizante: '', 
+      Email:''
     }
+  }
+
+  //Método para obtener el email del usuario para la extracción de los datos
+  ObtenerEmail = async () => {
+    const emailAsycn = await AsyncStorage.getItem ('DATO');
+    return emailAsycn;
+    }
+
+  GuardarResultFert = () =>{
+  const {cantidadManzana, fertilizante} = this.state;
+  const db = firebase.firestore();
+  const ResultFertilizante = db.collection("producción").doc(this.state.Email);
+  
+  var nuevoObjeto={};
+
+  const anioProduccion = new Date().getFullYear(); //Obteniendo el año actual
+  nuevoObjeto['Produccion_'+anioProduccion] = {
+    FRfertilizante:{
+      CManzanas:cantidadManzana,
+      CantidaFertilizante:fertilizante
+    }
+  }
+  ResultFertilizante.set(
+      {
+        ...nuevoObjeto
+      },
+      {
+        merge: true
+      }).then( () => {
+        Alert.alert('Éxito','Los datos se han registrado')
+        this.irInicio();
+      console.log("Resultados de fertilizante almacenados");
+    });
+
+  }
+
+  irInicio = () =>{
+    const resetAction = StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'inicio' })],
+    });
+    this.props.navigation.dispatch(resetAction);
+
   }
 
   handleCantidadManzana = (value)=> {
@@ -58,8 +104,19 @@ class ContenedorFertilizante extends Component {
         handlePlantasSurco={this.handlePlantasSurco}
         fertilizante={fertilizante}
         calcularFertilizante={this.calcularFertilizante}
+        guardarResultados={this.GuardarResultFert}
       />
     );
+  }
+  async componentDidMount(){
+    const datos = await this.ObtenerEmail();
+    console.log(datos);
+    if (datos !== null) {
+      const emailStorage = JSON.parse(datos);
+      this.setState({
+        Email: emailStorage,
+      })
+    }
   }
 }
 export default ContenedorFertilizante;

@@ -20,7 +20,8 @@ const Fertilizante = (props) => {
     handleCantidadSurco,
     handlePlantasSurco,
     fertilizante,
-    calcularFertilizante
+    calcularFertilizante,
+    guardarResultados
   } = props;
 
   return (
@@ -59,6 +60,7 @@ const Fertilizante = (props) => {
               </TouchableHighlight>
               <TouchableHighlight 
                 style={[styles.buttonContainer, styles.calcButton, styles.marginButtonContainer]}
+                onPress={guardarResultados}
               >
                 <Text style={styles.signUpText}>Registrar<Icon name='plus-circle' color="white" size={18}/></Text>
               </TouchableHighlight>
