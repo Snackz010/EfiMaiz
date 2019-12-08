@@ -25,30 +25,35 @@ class ContenedorFertilizante extends Component {
     }
 
   GuardarResultFert = () =>{
-    const {cantidadManzana, fertilizante} = this.state;
-    const db = firebase.firestore();
-    const ResultFertilizante = db.collection("producción").doc(this.state.Email);
-    
-    var nuevoObjeto={};
-
-    const anioProduccion = new Date().getFullYear(); //Obteniendo el año actual
-    nuevoObjeto['Produccion_'+anioProduccion] = {
-      FRfertilizante:{
-        CManzanas:cantidadManzana,
-        CantidaFertilizante:fertilizante
+    const {cantidadManzana, fertilizante, pickerSelection} = this.state;
+    if(cantidadManzana !== '' && fertilizante !=='' && pickerSelection!==''){
+      const db = firebase.firestore();
+      const ResultFertilizante = db.collection("producción").doc(this.state.Email);
+      
+      var nuevoObjeto={};
+  
+      const anioProduccion = new Date().getFullYear(); //Obteniendo el año actual
+      nuevoObjeto['Produccion_'+anioProduccion] = {
+        FRfertilizante:{
+          CManzanas:cantidadManzana,
+          CantidaFertilizante:fertilizante,
+          TipoFertilizante:pickerSelection
+        }
       }
+      ResultFertilizante.set(
+        {
+          ...nuevoObjeto
+        },
+        {
+          merge: true
+        }).then( () => {
+          Alert.alert('Éxito','Los datos se han registrado')
+          this.irInicio();
+        console.log("Resultados de fertilizante almacenados");
+      });
+    }else{
+      Alert.alert('Advertencia','Debes llenar todos los datos')
     }
-    ResultFertilizante.set(
-      {
-        ...nuevoObjeto
-      },
-      {
-        merge: true
-      }).then( () => {
-        Alert.alert('Éxito','Los datos se han registrado')
-        this.irInicio();
-      console.log("Resultados de fertilizante almacenados");
-    });
   }
 
   irInicio = () =>{
@@ -58,6 +63,8 @@ class ContenedorFertilizante extends Component {
     });
     this.props.navigation.dispatch(resetAction);
   }
+
+
 
   handleCantidadManzana = (value)=> {
     this.setState({
@@ -98,12 +105,13 @@ class ContenedorFertilizante extends Component {
         fertilizante: cantidadFertilizante,
         gramosPlanta: gramosP,
         cantidadSurco: '',
-        cantidadManzana: '',
         plantasSurco: '',
         pickerSelection: 'Tipo de Fertilizante'
       });
     }
   }
+
+
 
   togglePicker = () => {
     this.setState({

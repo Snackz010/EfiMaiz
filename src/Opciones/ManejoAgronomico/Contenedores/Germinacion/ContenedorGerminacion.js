@@ -24,14 +24,14 @@ class ContenedorGerminacion extends Component {
     }
   
   GuardarResultGerm = () =>{
-    const {promedio} = this.state;
+    const {promedio, grupo1, grupo2, grupo3, grupo4} = this.state;
 
-   
+    if(grupo1 !== '' && grupo2 !== '' && grupo3 !== '' && grupo4 !== ''){
       const db = firebase.firestore();
       const ResultGerminacion = db.collection("producción").doc(this.state.Email);
       var nuevoObjeto={};
     
-      const anioProduccion = new Date().getFullYear()+1; //Obteniendo el año actual
+      const anioProduccion = new Date().getFullYear(); //Obteniendo el año actual
       nuevoObjeto['Produccion_'+anioProduccion] = {
         FRgerminacion:{
           PromedioGermi:promedio
@@ -48,13 +48,26 @@ class ContenedorGerminacion extends Component {
             this.irInicio();
           console.log("Resultados de Germinación han almacenados");
         });
+      }else{
+        Alert.alert('Advertencia','Debes llenar todos los campos')
       }
+    }
   
     
   validadarProm = () => {
     const {promedio} = this.state;
     if(promedio !== ''){
       return true;
+    }
+  }
+
+  validarCampos=() => {
+    const { grupo1, grupo2, grupo3, grupo4 } = this.state;
+
+    if(grupo1 !== '' && grupo2 !== '' && grupo3 !== '' && grupo4 !== ''){
+      return true
+    }else{
+      return false;
     }
   }
   
