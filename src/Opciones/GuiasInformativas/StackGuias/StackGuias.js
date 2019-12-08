@@ -3,7 +3,7 @@ import {createAppContainer} from 'react-navigation';
 
 import Cosecha from '../Componentes/Cosecha';
 import Enfermedades from '../Componentes/Enfermedades';
-import Fertilizacion from '../Componentes/Fertilizacion';
+import Fertilizacion from '../../ManejoAgronomico/Componentes/Fertilizacion/FertilizacionInformacion';
 import Generalidades from '../Componentes/Generalidades';
 import ContenedorGuias from '../Contenedores/ContenedorGuias';
 import Malezas from '../Componentes/Malezas';
@@ -69,6 +69,12 @@ const stackGuias = createStackNavigator({
   },
   Germinacion:{
     screen:GerminacionLeer,
+    navigationOptions:{
+      header:null
+    }
+  },
+  Fertilizacion:{
+    screen:Fertilizacion,
     navigationOptions:{
       header:null
     }

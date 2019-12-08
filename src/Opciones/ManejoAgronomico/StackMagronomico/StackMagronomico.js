@@ -2,8 +2,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 import  ContenedorGerminacion  from '../Contenedores/Germinacion/ContenedorGerminacion';
 import GerminacionInstrucciones from '../Componentes/Germinacion/GerminacionInstrucciones';
-import ContenedorFertilizante from '../Contenedores/Fertilizante/ContenedorFertilizante';
-import FertilizanteInformacion from '../Componentes/Fertilizante/FertilizanteInformacion';
+import ContenedorFertilizacion from '../Contenedores/Fertilizante/ContenedorFertilizante';
+import FertilizacionInformacion from '../Componentes/Fertilizante/FertilizanteInformacion';
 import ContenedorManejoAgronomico from '../Contenedores/ContenedorManejoAgro';
 
 const StackManejoAgronomico = createStackNavigator({
@@ -25,14 +25,14 @@ const StackManejoAgronomico = createStackNavigator({
             header:null
         }
     },
-    Fertilizante:{
-        screen:ContenedorFertilizante,
+    Fertilizacion:{
+        screen:ContenedorFertilizacion,
         navigationOptions:{
             header:null
         }
     },
-    FertilizanteInfo:{
-        screen:FertilizanteInformacion,
+    FertilizacionInfo:{
+        screen:FertilizacionInformacion,
         navigationOptions:{
             header:null
         }

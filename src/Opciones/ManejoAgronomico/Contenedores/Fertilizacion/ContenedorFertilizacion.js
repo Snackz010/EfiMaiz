@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Alert} from 'react-native';
-import Fertilizante from '../../Componentes/Fertilizante/Fertilizante';
+import Fertilizante from '../../Componentes/Fertilizacion/Fertilizante';
 
 class ContenedorFertilizante extends Component {
   constructor(props){

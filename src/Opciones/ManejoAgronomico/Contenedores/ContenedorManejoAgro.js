@@ -8,7 +8,7 @@ export default class ContenedorManejoAgro extends Component {
     this.state = {
       data: [
         {id:1, rutaIr:"Germinacion", rutaLeer: "GerminacionInstru", title: "Germinación", subTitle:"Funcionalidad", image:"https://hidroponia.mx/wp-content/uploads/2018/05/PLANTULAMAIZ-300x278.png"},
-        {id:2, rutaIr:"Fertilizante", rutaLeer: "FertilizanteInfo", title: "Fertilizante", subTitle:"Funcionalidad", image:"https://www.fertiberia.com/media/605924/cabecera-maiz.jpg"},
+        {id:2, rutaIr:"Fertilizacion", rutaLeer: "FertilizacionInfo", title: "Fertilización", subTitle:"Funcionalidad", image:"https://www.fertiberia.com/media/605924/cabecera-maiz.jpg"},
       ]
     };
   }
