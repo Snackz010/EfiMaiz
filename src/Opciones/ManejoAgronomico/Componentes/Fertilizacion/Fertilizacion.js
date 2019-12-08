@@ -22,12 +22,16 @@ const Fertilizante = (props) => {
     handlePlantasSurco,
     fertilizante,
     calcularFertilizante,
+<<<<<<< HEAD:src/Opciones/ManejoAgronomico/Componentes/Fertilizante/Fertilizante.js
+    guardarResultados
+=======
     pickerDisplayed,
     pickerValues,
     togglePicker,
     setPickerValue,
     pickerSelection,
     gramosPlanta
+>>>>>>> 027169891e667e5adea276bc362acad9c32357f2:src/Opciones/ManejoAgronomico/Componentes/Fertilizacion/Fertilizacion.js
   } = props;
 
   return (
@@ -85,6 +89,7 @@ const Fertilizante = (props) => {
               </TouchableHighlight>
               <TouchableHighlight 
                 style={[styles.buttonContainer, styles.calcButton, styles.marginButtonContainer]}
+                onPress={guardarResultados}
               >
                 <Text style={styles.signUpText}>Registrar<Icon name='plus-circle' color="white" size={18}/></Text>
               </TouchableHighlight>

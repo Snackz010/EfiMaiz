@@ -52,11 +52,16 @@ export default class ContenedorResultados extends Component {
   GuardarResultadosCSitio = () =>{
 
   const db = firebase.firestore();
-  const ResultadosCSRef = db.collection("users").doc(this.state.Email);
-    
+  const ResultadosCSRef = db.collection("producción").doc(this.state.Email);
+  
+  var nuevoObjeto={};
+  const anioProduccion = new Date().getFullYear();
+  nuevoObjeto['Produccion_'+anioProduccion] = {
+    fResultadosCS:{...this.obtenerParametros()}
+  }
   ResultadosCSRef.set(
-      {fResultadosCS: 
-        {...this.obtenerParametros()}
+      {
+        ...nuevoObjeto
       },
       {
         merge: true
@@ -67,6 +72,15 @@ export default class ContenedorResultados extends Component {
   
   }
   
+  presentar = () => {
+    var nuevoObjeto={};
+    const anioProduccion = new Date().getFullYear();
+    nuevoObjeto['Produccion_'+anioProduccion] = {
+      fResultadosCS:{...this.obtenerParametros()}
+    }
+    console.log(nuevoObjeto);
+  }
+
   obtenerParametros=() => {
     const {navigation} = this.props;
     const ADatos = {
@@ -86,7 +100,7 @@ export default class ContenedorResultados extends Component {
       FuenteA:navigation.getParam('FuenteA'),
       CalidadA:navigation.getParam('CalidadA'),
     }
-    //console.log(ADatos)
+    console.log(ADatos)
 
     return ADatos;
   }

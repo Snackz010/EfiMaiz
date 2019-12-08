@@ -24,7 +24,7 @@ const Germinacion = (props) => {
     eventoTxtGrupo4,
     promedio,
     calcularPromedio,
-    anioActual
+    guardarResultados
   } = props;
 
   return (
@@ -37,7 +37,7 @@ const Germinacion = (props) => {
               <View >
                 <Text style={styles.title}>Germinación</Text>
                 <Text style={styles.text}>Germinación de las semillas.</Text>
-                <Text style={styles.textSubTitle}>{promedio}</Text>
+                <Text style={styles.textSubTitle}>{promedio}%</Text>
               </View>
               <View style={styles.center}>
                 <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Semillas grupo #1'
@@ -67,7 +67,7 @@ const Germinacion = (props) => {
               </TouchableHighlight>
               <TouchableHighlight 
                 style={[styles.buttonContainer, styles.calcButton, styles.marginButtonContainer]}
-                onPress={anioActual}
+                onPress={guardarResultados}
               >
                 <Text style={styles.signUpText}>Registrar<Icon name='plus-circle' color="white" size={18}/></Text>
               </TouchableHighlight>

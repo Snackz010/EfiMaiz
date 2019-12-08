@@ -32,7 +32,7 @@ const LogIn = (props) => {
                     <Text style={styles.textSubTitle}></Text>
                   </View>
                   <View style={styles.center}>
-                    <TextInput placeholderTextColor="white" style={styles.textInput} placeholder='Usuario'
+                    <TextInput placeholderTextColor="white" style={styles.textInput} placeholder='Correo electrónico'
                     onChangeText = {handleEmail} value = {estadoEmail}
                     ></TextInput>
                     <TextInput placeholderTextColor="white" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'

@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
-import {Alert} from 'react-native';
+import {Alert, AsyncStorage} from 'react-native';
+import firebase from 'react-native-firebase';
 import Germinacion from '../../Componentes/Germinacion/Germinacion';
+import {NavigationActions, StackActions } from 'react-navigation';
 
 class ContenedorGerminacion extends Component {
   constructor(props){
@@ -11,8 +13,65 @@ class ContenedorGerminacion extends Component {
       grupo3:'',
       grupo4: '',
       promedio:'',
+      Email:''
     }
   }
+
+  //Método para obtener el email del usuario para la extracción de los datos
+  ObtenerEmail = async () => {
+    const emailAsycn = await AsyncStorage.getItem ('DATO');
+    return emailAsycn;
+    }
+  
+  GuardarResultGerm = () =>{
+    const {promedio} = this.state;
+
+   
+      const db = firebase.firestore();
+      const ResultGerminacion = db.collection("producción").doc(this.state.Email);
+      var nuevoObjeto={};
+    
+      const anioProduccion = new Date().getFullYear()+1; //Obteniendo el año actual
+      nuevoObjeto['Produccion_'+anioProduccion] = {
+        FRgerminacion:{
+          PromedioGermi:promedio
+        }
+      }
+      ResultGerminacion.set(
+          {
+            ...nuevoObjeto
+          },
+          {
+            merge: true
+          }).then( () => {
+            Alert.alert('Éxito','Los datos se han almacenado')
+            this.irInicio();
+          console.log("Resultados de Germinación han almacenados");
+        });
+      }
+  
+    
+  validadarProm = () => {
+    const {promedio} = this.state;
+    if(promedio !== ''){
+      return true;
+    }
+  }
+  
+  irInicio = () =>{
+    const resetAction = StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'inicio' })],
+    });
+    this.props.navigation.dispatch(resetAction);
+  }
+    
+      handleCantidadManzana = (value)=> {
+        this.setState({
+          cantidadManzana: value
+        });
+      }
+  
 
   eventoTxtGrupo1 = (grupoValue)=> {
     if(!this.validarDatos(grupoValue)){
@@ -52,7 +111,7 @@ class ContenedorGerminacion extends Component {
       Alert.alert('Advertencia','¡Debes llenar todos lo campos!');
     }
     else{
-      const prom = ((parseInt(g1)+parseInt(g2)+parseInt(g3)+parseInt(g4))/4)+'%';
+      const prom = ((parseInt(g1)+parseInt(g2)+parseInt(g3)+parseInt(g4))/4);
       this.setState({
         promedio: prom
       });
@@ -98,8 +157,21 @@ class ContenedorGerminacion extends Component {
         promedio={promedio}
         calcularPromedio={this.calcularPromedio}
         anioActual ={this.obtenerAnioActual}
+        guardarResultados = {this.GuardarResultGerm}
       />
     );
   }
+
+  async componentDidMount (){
+    const datos = await this.ObtenerEmail();
+    console.log(datos);
+    if (datos !== null) {
+      const emailStorage = JSON.parse(datos);
+      this.setState({
+        Email: emailStorage,
+      })
+    }
+  }
+
 }
 export default ContenedorGerminacion;
