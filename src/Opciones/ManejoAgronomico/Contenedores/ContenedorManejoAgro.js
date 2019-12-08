@@ -9,6 +9,7 @@ export default class ContenedorManejoAgro extends Component {
       data: [
         {id:1, rutaIr:"Germinacion", rutaLeer: "GerminacionInstru", title: "Germinación", subTitle:"Funcionalidad", image:"https://hidroponia.mx/wp-content/uploads/2018/05/PLANTULAMAIZ-300x278.png"},
         {id:2, rutaIr:"Fertilizacion", rutaLeer: "FertilizacionInfo", title: "Fertilización", subTitle:"Funcionalidad", image:"https://www.fertiberia.com/media/605924/cabecera-maiz.jpg"},
+        {id:2, rutaIr:"Herbicidas", rutaLeer: "FertilizacionInfo", title: "Herbicidas", subTitle:"Funcionalidad", image:"https://www.eluniverso.com/sites/default/files/styles/powgallery_1280/public/fotos/2017/03/8291973.jpg?itok=gHzlN8Vr"},
       ]
     };
   }

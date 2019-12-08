@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Alert} from 'react-native';
-import Fertilizante from '../../Componentes/Fertilizacion/Fertilizante';
+import Fertilizacion from '../../Componentes/Fertilizacion/Fertilizacion';
 
 class ContenedorFertilizante extends Component {
   constructor(props){
@@ -95,7 +95,7 @@ class ContenedorFertilizante extends Component {
     const {cantidadManzana, cantidadSurco, plantasSurco, fertilizante, pickerSelection, pickerDisplayed, gramosPlanta} = this.state;
 
     return(
-      <Fertilizante
+      <Fertilizacion
         pickerDisplayed={pickerDisplayed}
         pickerValues={pickerValues}
         togglePicker={this.togglePicker}
