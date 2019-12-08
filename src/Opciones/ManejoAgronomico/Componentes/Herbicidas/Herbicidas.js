@@ -54,7 +54,7 @@ const Herbicidas = (props) => {
                 </Modal>
                 <View style={styles.box}>
                   <Text style={styles.text}>Se recominenda usar</Text>
-                  <Text style={styles.title}>{dosis}</Text>
+                  <Text style={styles.title2}>{dosis}</Text>
                 </View>
               </View>
             </View>
@@ -97,7 +97,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     textAlign: 'center',
-    marginTop: 10
+    marginTop: 10,
+  },
+  title2: {
+    fontSize: 24,
+    textAlign: 'center',
+    marginTop: 10,
+    color: 'darkgreen'
   },
   body: {
     width: '100%',
