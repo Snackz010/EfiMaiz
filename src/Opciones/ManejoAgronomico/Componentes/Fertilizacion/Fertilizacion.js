@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons.js';
 
-const Fertilizante = (props) => {
+const Fertilizacion = (props) => {
 
   const {
     cantidadManzana,
@@ -22,16 +22,13 @@ const Fertilizante = (props) => {
     handlePlantasSurco,
     fertilizante,
     calcularFertilizante,
-<<<<<<< HEAD:src/Opciones/ManejoAgronomico/Componentes/Fertilizante/Fertilizante.js
-    guardarResultados
-=======
     pickerDisplayed,
     pickerValues,
     togglePicker,
     setPickerValue,
     pickerSelection,
-    gramosPlanta
->>>>>>> 027169891e667e5adea276bc362acad9c32357f2:src/Opciones/ManejoAgronomico/Componentes/Fertilizacion/Fertilizacion.js
+    gramosPlanta,
+    guardarResultados
   } = props;
 
   return (
@@ -236,4 +233,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Fertilizante;
+export default Fertilizacion;
