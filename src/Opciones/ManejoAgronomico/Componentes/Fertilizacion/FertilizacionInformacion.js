@@ -13,9 +13,9 @@ import {
 const FertilizanteInformacion = (props) => {
   const tableHead=['Tipo', 'Cantidad', 'Momento', 'Aporque'];
   const tableData=[
-    ['12-30-10 o 10-30-20', '2 qq/mz', 'En la siembra', 'No'],
-    ['Urea', '2-3 qq / mz', '25 - 30 dds ', 'No'],
-    ['Urea', '2-3 qq / mz', '25 - 30 dds ', 'No'],
+    ['12-30-10 o 10-30-20', '2 qq / mz', 'En la siembra', 'No'],
+    ['Urea', '3 qq / mz', '25 - 30 dds ', 'Sí'],
+    ['Urea', '3 qq / mz', '25 - 30 dds ', 'Sí'],
   ];
   return (
     <>
@@ -42,6 +42,8 @@ const FertilizanteInformacion = (props) => {
               </Table>
             </View>
             <Text style={styles.textDescription}>La abreviación <Text style={styles.title2}>dds</Text> quiere decir días después de la siembra.</Text>
+            <Text style={styles.textDescription}><Text style={styles.title2}>Aporque:</Text> consiste en acumular suelo alrededor de la base de la planta para favorecer el anclaje y promover el desarrollo de raíces adventicias.</Text>
+            <Image style={styles.cardImage} source={{uri:'https://www.uaem.mx/gacetavirtual/uploads/posts/aporque-de-experimento-maiz-pozolero-2-59a46ca0eb72a.jpg'}}/>
           </View>
         </View>
       </ScrollView>
@@ -118,8 +120,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#f1f8ff'
   },
   text: { 
-    margin: 6
-  }
+    margin: 6,
+    fontSize: 12
+  },
+  cardImage:{
+    height:150,
+    flex: 1,
+    width: null,
+    borderRadius: 10,
+    marginTop: 20,
+    marginBottom: 10,
+  },
 });
 
 export default FertilizanteInformacion;

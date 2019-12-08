@@ -10,7 +10,7 @@ export default class ContenedorGuias extends Component {
         {id:1, ruta:"Generalidades",title: "Generalidades", subTitle:"Guía", image:"http://delmaiz.info/wp-content/uploads/2017/01/caracter%C3%ADsticas-del-ma%C3%ADz.jpg"},
         {id:2, ruta:"Germinacion",title: "Germinación", subTitle:"Guía", image:"https://hidroponia.mx/wp-content/uploads/2018/05/PLANTULAMAIZ-300x278.png"},
         {id:3, ruta:"Siembra",title: "Siembra", subTitle:"Guía", image:"https://images.pexels.com/photos/169523/pexels-photo-169523.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"},
-        {id:4, ruta:"Fertilizacion",title: "Fertilización", subTitle:"Guía", image:"https://pbs.twimg.com/media/EDOmFG-XYAALHiJ.jpg"} ,
+        {id:4, ruta:"Fertilizacion",title: "Fertilización", subTitle:"Guía", image:"https://www.fertiberia.com/media/605924/cabecera-maiz.jpg"} ,
         {id:5, ruta:"Malezas",title: "Maleza", subTitle:"Guía", image:"https://cdn.pixabay.com/photo/2017/07/19/08/50/gardening-2518377_960_720.jpg"}, 
         {id:6, ruta:"Plagas",title: "Plagas", subTitle:"Guía", image:"https://cdn.pixabay.com/photo/2016/11/28/20/13/desert-locust-1865955_960_720.jpg"}, 
         {id:7, ruta:"Enfermedades",title: "Enfermedades", subTitle:"Guía", image:"https://t2.ev.ltmcdn.com/es/posts/9/9/1/roya_del_maiz_2199_5_600.jpg"}, 
