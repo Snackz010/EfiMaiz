@@ -6,6 +6,7 @@ import {
   TouchableHighlight,
   StatusBar,
   Modal,
+  ScrollView,
   Dimensions
 } from 'react-native';
 
@@ -47,112 +48,115 @@ const ResultadoCaracterizacion = (props) => {
         <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
         <View style={styles.center}>
           <View style={styles.body}>
-            <View>
-              <Text style={styles.title}>
-                Resultados de la Caracterizacion de sitio
-              </Text>
+            <ScrollView>
               <View>
-                <Modal
-                  animationType="slide"
-                  transparent={false}
-                  visible={visible}
-                >
-                  <View style={styles.center}>
-                    <View style={styles.modalContainer}>
-                      <Text style={styles.title}>Resultados del Análisis del Clima</Text>
-                      <View style={styles.container}>
-                        <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
-                          <Row data={tableHead} style={styles.head} textStyle={styles.text}/>
-                          <Rows data={tableData} textStyle={styles.text}/>
-                        </Table>
-                      </View>
-                      <View style={styles.button}>
-                        <TouchableHighlight
-                          style={[styles.buttonContainer, styles.actionButton]}
-                          onPress={changeState}
-                        >
-                          <Text style={styles.buttonText}>Ok</Text>
-                        </TouchableHighlight>
-                      </View>
-                    </View>
-                  </View>
-                </Modal>
-                <Modal
-                  animationType="slide"
-                  transparent={false}
-                  visible={visible2}
-                >
-                  <View style={styles.center}>
-                    <View style={styles.modalContainer}>
-                      <Text style={styles.title}>Resultados del Análisis del Suelo</Text>
-                      <View style={styles.container}>
-                        <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
-                          <Row data={tableHead2} style={styles.head} textStyle={styles.text}/>
-                          <Rows data={tableData2} textStyle={styles.text}/>
-                        </Table>
-                      </View>
-                      <View style={styles.button}>
-                        <TouchableHighlight
-                          style={[styles.buttonContainer, styles.actionButton]}
-                          onPress={changeState2}
-                        >
-                          <Text style={styles.buttonText}>Ok</Text>
-                        </TouchableHighlight>
+                <Text style={styles.title}>
+                  Resultados de la Caracterizacion de sitio
+                </Text>
+                <View>
+                  <Modal
+                    animationType="slide"
+                    transparent={false}
+                    visible={visible}
+                  >
+                    <View style={styles.center}>
+                      <View style={styles.modalContainer}>
+                        <Text style={styles.title}>Resultados del Análisis del Clima</Text>
+                        <View style={styles.container}>
+                          <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+                            <Row data={tableHead} style={styles.head} textStyle={styles.text}/>
+                            <Rows data={tableData} textStyle={styles.text}/>
+                          </Table>
+                        </View>
+                        <View style={styles.button}>
+                          <TouchableHighlight
+                            style={[styles.buttonContainer, styles.actionButton]}
+                            onPress={changeState}
+                          >
+                            <Text style={styles.buttonText}>Ok</Text>
+                          </TouchableHighlight>
+                        </View>
                       </View>
                     </View>
-                  </View>
-                </Modal>
-                <Modal
-                  animationType="slide"
-                  transparent={false}
-                  visible={visible3}
-                >
-                  <View style={styles.center}>
-                    <View style={styles.modalContainer}>
-                      <Text style={styles.title}>Resultados del Análisis del Agua</Text>
-                      <View style={styles.container}>
-                        <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
-                          <Row data={tableHead3} style={styles.head} textStyle={styles.text}/>
-                          <Rows data={tableData3} textStyle={styles.text}/>
-                        </Table>
-                      </View>
-                      <View style={styles.button}>
-                        <TouchableHighlight
-                          style={[styles.buttonContainer, styles.actionButton]}
-                          onPress={changeState3}
-                        >
-                          <Text style={styles.buttonText}>Ok</Text>
-                        </TouchableHighlight>
+                  </Modal>
+                  <Modal
+                    animationType="slide"
+                    transparent={false}
+                    visible={visible2}
+                  >
+                    <View style={styles.center}>
+                      <View style={styles.modalContainer}>
+                        <Text style={styles.title}>Resultados del Análisis del Suelo</Text>
+                        <View style={styles.container}>
+                          <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+                            <Row data={tableHead2} style={styles.head} textStyle={styles.text}/>
+                            <Rows data={tableData2} textStyle={styles.text}/>
+                          </Table>
+                        </View>
+                        <View style={styles.button}>
+                          <TouchableHighlight
+                            style={[styles.buttonContainer, styles.actionButton]}
+                            onPress={changeState2}
+                          >
+                            <Text style={styles.buttonText}>Ok</Text>
+                          </TouchableHighlight>
+                        </View>
                       </View>
                     </View>
+                  </Modal>
+                  <Modal
+                    animationType="slide"
+                    transparent={false}
+                    visible={visible3}
+                  >
+                    <View style={styles.center}>
+                      <View style={styles.modalContainer}>
+                        <Text style={styles.title}>Resultados del Análisis del Agua</Text>
+                        <View style={styles.container}>
+                          <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+                            <Row data={tableHead3} style={styles.head} textStyle={styles.text}/>
+                            <Rows data={tableData3} textStyle={styles.text}/>
+                          </Table>
+                        </View>
+                        <View style={styles.button}>
+                          <TouchableHighlight
+                            style={[styles.buttonContainer, styles.actionButton]}
+                            onPress={changeState3}
+                          >
+                            <Text style={styles.buttonText}>Ok</Text>
+                          </TouchableHighlight>
+                        </View>
+                      </View>
+                    </View>
+                  </Modal>
+                  {
+                    resultadosClima()
+                  }
+                  {
+                    resultadosSuelo()
+                  }
+                  <View style={styles.center}>
+                    <TouchableHighlight onPress={mostrarModal3} style={[styles.buttonContainer2, styles.actionButton2]}>
+                      <Text style={styles.buttonText2}>Análisis del agua: Apto<Icon name='check' color="green" size={18}/></Text>
+                    </TouchableHighlight>
                   </View>
-                </Modal>
-                {
-                  resultadosClima()
-                }
-                {
-                  resultadosSuelo()
-                }
+                </View>
                 <View style={styles.center}>
-                  <TouchableHighlight onPress={mostrarModal3} style={[styles.buttonContainer2, styles.actionButton2]}>
-                    <Text style={styles.buttonText2}>Análisis del agua: Apto<Icon name='check' color="green" size={18}/></Text>
-                  </TouchableHighlight>
+                  <View style={styles.box}>
+                    <Text style={styles.text2}>Segun la zona el tipo de semilla que se recomienda es:</Text>
+                    <Text style={styles.title2}>{semillas}</Text>
+                  </View>
                 </View>
               </View>
-              <View style={styles.center}>
-                <View style={styles.box}>
-                  <Text style={styles.text2}>Segun la zona el tipo de semilla que se recomienda es:</Text>
-                  <Text style={styles.title2}>{semillas}</Text>
-                </View>
+              <View style={styles.button}>
+                <TouchableHighlight style={[styles.buttonContainer, styles.actionButton]}
+                  onPress={guardarResultados}
+                >
+                  <Text style={styles.buttonText}>Ir a Inicio <Icon name='home' color="white" size={18}/></Text>
+                </TouchableHighlight>
               </View>
-            </View>
-            <View style={styles.button}>
-              <TouchableHighlight style={[styles.buttonContainer, styles.actionButton]}
-                onPress={guardarResultados}
-              >
-                <Text style={styles.buttonText}>Ir a Inicio <Icon name='home' color="white" size={18}/></Text>
-              </TouchableHighlight>
-            </View>
+            </ScrollView>
+            
           </View>
         </View>
       </>

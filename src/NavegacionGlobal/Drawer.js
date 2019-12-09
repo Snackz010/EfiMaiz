@@ -5,6 +5,7 @@ import ContenedorInicio from '../Inicio//Contenedores/ContenedorInicio';
 import StackOpciones from '../Opciones/CaracterizacionSitio/StackOpciones/StackOpciones.js'
 import StackGuias from '../Opciones/GuiasInformativas/StackGuias/StackGuias';
 import StackMagronomico from '../Opciones/ManejoAgronomico/StackMagronomico/StackMagronomico';
+import EstadisticasPro from '../Opciones/Estadisticas/ContenedorEstadisticas';
 const Drawer = createDrawerNavigator({
     Inicio:{
         screen: ContenedorInicio,
@@ -34,6 +35,12 @@ const Drawer = createDrawerNavigator({
         screen: StackPerfil,
         navigationOptions:{
             drawerLabel:'Perfil de Usuario'
+        }
+    },
+    Estadisticas:{
+        screen: EstadisticasPro,
+        navigationOptions:{
+            drawerLabel:'Estadísticas de producción'
         }
     }
 }
