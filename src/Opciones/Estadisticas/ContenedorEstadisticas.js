@@ -12,6 +12,21 @@ class ContenedorEstadisticas extends Component {
     }
   }
 
+  getFirebaseDocument = () => {
+    var db = firebase.firestore();
+    var docRef = db.collection("producción").doc(this.state.Email);
+    docRef.get().then((doc) => {
+      if (doc.exists) {
+          console.log("Datos del docuemento: ", doc.data());
+      } else {
+          // doc.data() will be undefined in this case
+          console.log("No hay documento!");
+      }
+    }).catch((error) => {
+        console.log("Error al obtener el documento:", error);
+    });
+  }
+
   getspecificData = () =>{
 
     const {DatosProgresBar} = this.state;
@@ -52,7 +67,8 @@ class ContenedorEstadisticas extends Component {
         Email: emailStorage,
       })
     }
-    this.getspecificData();
+    //this.getspecificData();
+    this.getFirebaseDocument();
   }
 
 
