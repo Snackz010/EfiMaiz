@@ -34,7 +34,8 @@ const ResultadoCaracterizacion = (props) => {
       tableData3,
       guardarResultados,
       nivelClima,
-      nivelSuelo
+      nivelSuelo,
+      semillas
     } = props;
     nivelClimaValue = nivelClima;
     mostrarModl = mostrarModal;
@@ -138,7 +139,7 @@ const ResultadoCaracterizacion = (props) => {
               <View style={styles.center}>
               <View style={styles.box}>
                 <Text style={styles.text2}>Segun la zona el tipo de semilla que se recomienda es:</Text>
-                <Text style={styles.title2}>NB - S</Text>
+                <Text style={styles.title2}>{semillas}</Text>
               </View>
               </View>
 
@@ -179,7 +180,6 @@ resultadosClima = () => {
 }
 
 resultadosSuelo = () => {
-  console.log(nivelSueloValue);
   if(nivelSueloValue === 'Optimo'){
     return(
       <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton2]}>

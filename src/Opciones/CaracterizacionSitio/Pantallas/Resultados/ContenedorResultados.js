@@ -38,7 +38,9 @@ export default class ContenedorResultados extends Component {
       Parametros:{...this.obtenerParametros()},
       NivelClima:'',
       NivelSuelo:'',
-      Email:''
+      Email:'',
+      semillas:[],
+      cadenSemillas:''
     };
     
   }
@@ -78,7 +80,7 @@ export default class ContenedorResultados extends Component {
     nuevoObjeto['Produccion_'+anioProduccion] = {
       fResultadosCS:{...this.obtenerParametros()}
     }
-    console.log(nuevoObjeto);
+    //console.log(nuevoObjeto);
   }
 
   obtenerParametros=() => {
@@ -100,14 +102,11 @@ export default class ContenedorResultados extends Component {
       FuenteA:navigation.getParam('FuenteA'),
       CalidadA:navigation.getParam('CalidadA'),
     }
-    console.log(ADatos)
+    //console.log(ADatos)
 
     return ADatos;
   }
  
-  mostrarPara = ()=>{
-    console.log(this.state.Parametros)
-  }
 
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
@@ -153,6 +152,56 @@ export default class ContenedorResultados extends Component {
     this.props.navigation.dispatch(resetAction);
   }
 
+  evaluarSemilla = (RSuelo, RClima) => {
+    var FBVariedad;
+    if(RSuelo === 'Marginal' && RClima === 'Marginal'){
+      FBVariedad = 'Criollas';
+    }else if(RSuelo === 'Bueno' && RClima === 'Bueno'){
+      FBVariedad = 'Hibridos'
+    }else if(RSuelo === 'Optimo' && RClima === 'Optimo'){
+      FBVariedad = 'Mejoradas'
+    }else{
+      FBVariedad = 'Criollas'
+    }
+    return FBVariedad;
+  }
+
+  extraerDatosSemillaFireBase = (resultados) => {
+    var db = firebase.firestore(); //Referencia a firestore cloud
+    var docRef = db.collection('Semillas').doc(resultados); // refrencia al directorio específico de donde exraigo datos
+    docRef.get().then ( (doc) => {
+    if(doc.exists){
+      this.setState({
+        semillas: doc.data().Variedad
+      })
+      console.log(this.state.semillas)
+      this.valoresResultadoSemilla();
+    }else{
+      console.log('No existe el documento')
+    }
+    }).catch (function(error) {
+      console.log('Ha surgido el siguiente error: ', error) 
+    })
+  }
+
+  valoresResultadoSemilla = () => {
+    const {semillas} = this.state;
+    var cadena ='';
+    
+    for (let index = 0; index < semillas.length; index++) {
+      if(index+1 === semillas.length){
+        cadena += semillas[index]+'.'
+      }else{
+        cadena += semillas[index]+', '
+      }
+    }
+
+    this.setState({
+      cadenSemillas:cadena
+    });
+    console.log(cadena);
+  }
+
   render() {
     const {
       tableData,
@@ -166,7 +215,9 @@ export default class ContenedorResultados extends Component {
       tableHead3,
       modalVisible3,
       NivelClima,
-      NivelSuelo} = this.state
+      NivelSuelo,
+      cadenSemillas
+    } = this.state
     return (
         <ResultadosCaracterizacion 
           mostrarModal={this.mostrarModal}
@@ -192,6 +243,7 @@ export default class ContenedorResultados extends Component {
           nivelClima = {NivelClima}
           nivelSuelo = {NivelSuelo}
         
+          semillas={cadenSemillas}
         />
     );
   }
@@ -224,7 +276,7 @@ export default class ContenedorResultados extends Component {
 
     //Obteniendo el correo ID par guardar los resultados de caraterización del sito del usuario logueado en ese moment
     const datos = await this.ObtenerEmail();
-    console.log(datos);
+    //console.log(datos);
     if (datos !== null) {
       const emailStorage = JSON.parse(datos);
       this.setState({
@@ -233,5 +285,11 @@ export default class ContenedorResultados extends Component {
       //this.getDataFirebase(); //Enviar resultados de la caracterizaión del sitio al firebase
     }
 
+    this.extraerDatosSemillaFireBase(
+      this.evaluarSemilla(ADatos.SueloApto, ADatos.NivelaptoC)
+    );
+    console.log("Aquí voy");
+    
   }
+
 }
