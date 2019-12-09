@@ -38,7 +38,7 @@ export default class ContenedorPerfil extends Component{
       if (directorio.exists) {
         console.log(directorio.data().Produccion_2019.FRfertilizante.CManzanas)
       }else{
-        console.log('El docuento expecificado no existe en la colección')
+        console.log('El documento expecificado no existe en la colección')
       }
       
     })
@@ -70,7 +70,7 @@ export default class ContenedorPerfil extends Component{
   ObtenerEmail = async () => {
     const emailAsycn = await AsyncStorage.getItem ('DATO');
     return emailAsycn;
-    }
+  }
 
   irEditarPerfil = () => {
     const {navigation} = this.props;
