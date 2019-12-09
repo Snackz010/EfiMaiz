@@ -14,7 +14,7 @@ import {
 
 const Perfil = (props) => {
 
-  const {nombredb, apellidodb, ocupaciondb, telefonodb, usuariodb, correodb, irEditarPerfil} = props;
+  const {nombredb, apellidodb, ocupaciondb, telefonodb, usuariodb, correodb, irEditarPerfil, LogOut} = props;
 
   return (
     <>
