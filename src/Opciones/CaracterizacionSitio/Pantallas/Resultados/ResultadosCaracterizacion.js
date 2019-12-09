@@ -140,17 +140,10 @@ const ResultadoCaracterizacion = (props) => {
                 </View>
               </View>
               <View style={styles.center}>
-<<<<<<< HEAD
                 <View style={styles.box}>
                   <Text style={styles.text2}>Segun la zona el tipo de semilla que se recomienda es:</Text>
-                  <Text style={styles.title2}>NB - S</Text>
+                  <Text style={styles.title2}>{semillas}</Text>
                 </View>
-=======
-              <View style={styles.box}>
-                <Text style={styles.text2}>Segun la zona el tipo de semilla que se recomienda es:</Text>
-                <Text style={styles.title2}>{semillas}</Text>
-              </View>
->>>>>>> d827b5b991c6f65ae072ceff2a0b5cb5f8896368
               </View>
             </View>
             <View style={styles.button}>
