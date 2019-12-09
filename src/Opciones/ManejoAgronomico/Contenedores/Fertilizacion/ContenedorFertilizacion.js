@@ -106,7 +106,6 @@ class ContenedorFertilizante extends Component {
         gramosPlanta: gramosP,
         cantidadSurco: '',
         plantasSurco: '',
-        pickerSelection: 'Tipo de Fertilizante'
       });
     }
   }

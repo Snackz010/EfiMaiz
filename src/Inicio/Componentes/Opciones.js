@@ -80,6 +80,19 @@ const Opciones = (props) => {
               </View>
             </TouchableOpacity>
           </View>
+          <View>
+            <TouchableOpacity onPress={()=>{navigation.navigate('Estadisticas')}}>
+              <View style={styles.card}>
+                <Image style={styles.cardImage} source={require('../../assets/estadisticas.jpg')}/>
+                <View style={{...styles.cardContent, ...styles.opacity}}>
+                  <View>
+                    <Text style={styles.title}>Estadísticas</Text>
+                    <Text style={styles.subTitle}>Datos estadísticos de la Producción.</Text>
+                  </View>
+                </View>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     );
