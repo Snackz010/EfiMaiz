@@ -6,6 +6,8 @@ import StackOpciones from '../Opciones/CaracterizacionSitio/StackOpciones/StackO
 import StackGuias from '../Opciones/GuiasInformativas/StackGuias/StackGuias';
 import StackMagronomico from '../Opciones/ManejoAgronomico/StackMagronomico/StackMagronomico';
 import EstadisticasPro from '../Opciones/Estadisticas/ContenedorEstadisticas';
+import StackEP from '../Opciones/EconomiaProduccion/StackEconomiaProduccion/StackEP';
+
 const Drawer = createDrawerNavigator({
     Inicio:{
         screen: ContenedorInicio,
@@ -35,6 +37,12 @@ const Drawer = createDrawerNavigator({
         screen: StackPerfil,
         navigationOptions:{
             drawerLabel:'Perfil de Usuario'
+        }
+    },
+    EcoPro:{
+        screen: StackEP,
+        navigationOptions:{
+            drawerLabel:'Economía y producción'
         }
     },
     Estadisticas:{

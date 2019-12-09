@@ -8,9 +8,17 @@ class ContenedorProduccion extends Component {
     }
   }
 
+  navegarEconomia = () => {
+    const {navigation} = this.props;
+    navigation.navigate('Economia');
+  }
+
   render(){
     return(
-      <Produccion/>
+      <Produccion
+      
+      navegarEconomia={this.navegarEconomia}
+      />
     );
   }
 }

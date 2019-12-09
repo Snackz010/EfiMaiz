@@ -2,15 +2,20 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
+  Button,
+  Alert
 } from 'react-native';
 
 const Produccion = (props) => {
+  const { 
+    navegarEconomia
+  } = props; 
   return (
     <>
     <Text>Componente Produccion</Text>
     <Button
       title="Ir a economia"
-      onPress={() => Alert.alert('Hace el enrutamiendo hpta,  NO VAS A IR A COMALAPA ¡ENTENDELO!')}
+      onPress={navegarEconomia}
     />
     </>
   );
