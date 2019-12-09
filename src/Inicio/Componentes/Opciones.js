@@ -42,7 +42,7 @@ const Opciones = (props) => {
             </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>{navigation.navigate('EcoPro')}}>
               <View style={styles.card}>
                 <Image style={styles.cardImage} source={require('../../assets/ingresos.jpg')}/>
                 <View style={{...styles.cardContent, ...styles.opacity}}>
