@@ -6,10 +6,11 @@ import {
   TouchableHighlight,
   StatusBar,
   Modal,
+  Dimensions
 } from 'react-native';
+
 import { Table, Row, Rows } from 'react-native-table-component';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons.js';
-import ContenedorResultados from './ContenedorResultados';
 
 var nivelClimaValue;
 var nivelSueloValue;
@@ -125,23 +126,24 @@ const ResultadoCaracterizacion = (props) => {
                     </View>
                   </View>
                 </Modal>
-              {
-                resultadosClima()
-              }
-              {
-                resultadosSuelo()
-              }
-              <TouchableHighlight onPress={mostrarModal3} style={[styles.buttonContainer2, styles.actionButton2]}>
-                <Text style={styles.buttonText2}>Análisis del agua: Apto<Icon name='check' color="green" size={18}/></Text>
-              </TouchableHighlight>
+                {
+                  resultadosClima()
+                }
+                {
+                  resultadosSuelo()
+                }
+                <View style={styles.center}>
+                  <TouchableHighlight onPress={mostrarModal3} style={[styles.buttonContainer2, styles.actionButton2]}>
+                    <Text style={styles.buttonText2}>Análisis del agua: Apto<Icon name='check' color="green" size={18}/></Text>
+                  </TouchableHighlight>
+                </View>
               </View>
               <View style={styles.center}>
-              <View style={styles.box}>
-                <Text style={styles.text2}>Segun la zona el tipo de semilla que se recomienda es:</Text>
-                <Text style={styles.title2}>NB - S</Text>
+                <View style={styles.box}>
+                  <Text style={styles.text2}>Segun la zona el tipo de semilla que se recomienda es:</Text>
+                  <Text style={styles.title2}>NB - S</Text>
+                </View>
               </View>
-              </View>
-
             </View>
             <View style={styles.button}>
               <TouchableHighlight style={[styles.buttonContainer, styles.actionButton]}
@@ -159,21 +161,27 @@ const ResultadoCaracterizacion = (props) => {
 resultadosClima = () => {
   if(nivelClimaValue==='Optimo'){
     return(
-      <TouchableHighlight onPress={mostrarModl} style={[styles.buttonContainer2, styles.actionButton2]}>
-        <Text style={styles.buttonText2}>Análisis del clima: {nivelClimaValue}<Icon name='check' color="green" size={18}/></Text>
-      </TouchableHighlight>
+      <View style={styles.center}>
+        <TouchableHighlight onPress={mostrarModl} style={[styles.buttonContainer2, styles.actionButton2]}>
+          <Text style={styles.buttonText2}>Análisis del clima: {nivelClimaValue}<Icon name='check' color="green" size={18}/></Text>
+        </TouchableHighlight>
+      </View>
     );
   }else if(nivelClimaValue==='Bueno'){
     return(
-      <TouchableHighlight onPress={mostrarModl} style={[styles.buttonContainer2, styles.actionButton3]}>
-        <Text style={styles.buttonText2}>Análisis del clima: {nivelClimaValue}<Icon name='check' color="green" size={18}/></Text>
-      </TouchableHighlight>
+      <View style={styles.center}>
+        <TouchableHighlight onPress={mostrarModl} style={[styles.buttonContainer2, styles.actionButton3]}>
+          <Text style={styles.buttonText2}>Análisis del clima: {nivelClimaValue}<Icon name='check' color="green" size={18}/></Text>
+        </TouchableHighlight>
+      </View>
     );
   }else if(nivelClimaValue==='Marginal'){
     return(
-      <TouchableHighlight onPress={mostrarModl} style={[styles.buttonContainer2, styles.actionButton4]}>
-        <Text style={styles.buttonText2}>Análisis del clima: {nivelClimaValue}<Icon name='check' color="green" size={18}/></Text>
-      </TouchableHighlight>
+      <View style={styles.center}>
+        <TouchableHighlight onPress={mostrarModl} style={[styles.buttonContainer2, styles.actionButton4]}>
+          <Text style={styles.buttonText2}>Análisis del clima: {nivelClimaValue}<Icon name='check' color="green" size={18}/></Text>
+        </TouchableHighlight>
+      </View>
     );
   }
 }
@@ -182,21 +190,27 @@ resultadosSuelo = () => {
   console.log(nivelSueloValue);
   if(nivelSueloValue === 'Optimo'){
     return(
-      <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton2]}>
-        <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
-      </TouchableHighlight>
+      <View style={styles.center}>
+        <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton2]}>
+          <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
+        </TouchableHighlight>
+      </View>
     );
   }else if(nivelSueloValue === 'Bueno'){
     return(
-      <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton3]}>
-        <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
-      </TouchableHighlight>
+      <View style={styles.center}>
+        <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton3]}>
+          <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
+        </TouchableHighlight>
+      </View>
     );
   }else if(nivelSueloValue === 'Marginal'){
     return(
-      <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton4]}>
-        <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
-      </TouchableHighlight>
+      <View style={styles.center}>
+        <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton4]}>
+          <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
+        </TouchableHighlight>
+      </View>
     );
   }
 }
@@ -211,6 +225,7 @@ const styles = StyleSheet.create({
     borderRadius:20,
   },
   buttonContainer2: {
+    width:300,
     height:50,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -315,7 +330,7 @@ const styles = StyleSheet.create({
   box:{
     backgroundColor: 'lightgreen',
     height: 200,
-    width: 370,
+    width: 300,
     borderRadius: 10,
     marginTop: 30,
     display: 'flex',
