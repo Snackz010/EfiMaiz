@@ -45,7 +45,7 @@ const Produccion = (props) => {
                     value={numGranosFilaMazorca}
                   />
 
-                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Filas de grano por mazorca'
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='N° filas por mazorca'
                     onChangeText={eventoNumFilasMazorca}
                     value={numFilasMazorca}
                   />
