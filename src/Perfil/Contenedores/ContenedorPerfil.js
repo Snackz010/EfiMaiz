@@ -16,6 +16,34 @@ export default class ContenedorPerfil extends Component{
     }
   }
 
+  LogOut = () => {
+    firebase.auth().signOut().then( ()=>{
+      //Especificar el redireccionamiento al LogIn
+      this.irLogIn();
+    });
+  }
+
+  irLogIn = () => {
+    const { navigation } = this.props;
+
+    navigation.navigate('logSign');
+}
+
+  getspecificData = () =>{
+    var db = firebase.firestore();
+    var produccRef = db.collection('producción').doc(this.state.Email);
+
+    produccRef.get()
+    .then ((directorio)=> {
+      if (directorio.exists) {
+        console.log(directorio.data().Produccion_2019.FRfertilizante.CManzanas)
+      }else{
+        console.log('El docuento expecificado no existe en la colección')
+      }
+      
+    })
+  }
+
   //Obteniedo datos específicos desde firestore para caragarlos en el componente Perfil
   getDataFirebase = () => {
     
@@ -60,6 +88,7 @@ export default class ContenedorPerfil extends Component{
           telefonodb = {Telefono}
           usuariodb= {Usuario}
           irEditarPerfil={this.irEditarPerfil}
+          LogOut = {this.LogOut}
           />
       );
   }
@@ -74,6 +103,6 @@ export default class ContenedorPerfil extends Component{
       })
       this.getDataFirebase();
     }
-  
+    this.getspecificData();
   }
 }
