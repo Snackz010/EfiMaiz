@@ -44,24 +44,11 @@ const Opciones = (props) => {
           <View>
             <TouchableOpacity>
               <View style={styles.card}>
-                <Image style={styles.cardImage} source={require('../../assets/produccion.jpg')}/>
-                <View style={{...styles.cardContent, ...styles.opacity}}>
-                  <View>
-                    <Text style={styles.title}>Producción.</Text>
-                    <Text style={styles.subTitle}>Cálculo del rendimiento cultivo.</Text>
-                  </View>
-                </View>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity>
-              <View style={styles.card}>
                 <Image style={styles.cardImage} source={require('../../assets/ingresos.jpg')}/>
                 <View style={{...styles.cardContent, ...styles.opacity}}>
                   <View>
-                    <Text style={styles.title}>Economía</Text>
-                    <Text style={styles.subTitle}>Cálculo de ingresos y reportes de producción del cultivo.</Text>
+                    <Text style={styles.title}>Economía y Producción</Text>
+                    <Text style={styles.subTitle}>Cálculo de ingresos y producción del cultivo.</Text>
                   </View>
                 </View>
               </View>
