@@ -10,9 +10,54 @@ export default class ContenedorResultados extends Component {
       inversionQuintales: '',
       quintalesCosechados: '',
       ventaAproximada: '',
-      ganaciaAproximada: '',
+      gananciaAproximada: '',
       resultado: '',
     };
+  }
+
+  obtenerParametros = () => {
+    return this.props.navigation.state.params;
+  }
+  calcularVenta = () => {
+    const Param = this.obtenerParametros();
+    return parseInt(Param.numQuintalesCosechados * Param.precioActual);
+  }
+
+  calcularInversion = () => {
+    const Param = this.obtenerParametros();
+    return (Param.numQuintalesSembrados * Param.precioQuintalesSembrados);
+  }
+
+  determinarResultados = () => {
+    const Param = this.obtenerParametros();
+    const ganancia = Param.numQuintalesSembrados * Param.precioQuintalesSembrados;
+    const inversion = Param.numQuintalesSembrados * Param.precioQuintalesSembrados;
+    var valor;
+
+    if(ganancia > inversion){
+      valor = 'Ganancia';
+    }else if(inversion > ganancia){
+      valor = 'Perdida'
+    }else{
+      valor = 'Inversión recuperada';
+    }
+    return valor;
+  }
+
+  calcularDatos = () => {
+    const Param = this.obtenerParametros();
+    this.setState({
+      manzanas:Param.numManzanas,
+      quintalesSembrados:Param.numQuintalesSembrados,
+      inversionQuintales:this.calcularInversion(),
+      quintalesCosechados:Param.numQuintalesCosechados,
+
+      ventaAproximada:this.calcularVenta(),
+      gananciaAproximada:(this.calcularVenta() - this.calcularInversion()),
+      resultado:this.determinarResultados()
+
+
+    });
   }
 
   render() {
@@ -22,7 +67,7 @@ export default class ContenedorResultados extends Component {
       inversionQuintales,
       quintalesCosechados,
       ventaAproximada,
-      ganaciaAproximada,
+      gananciaAproximada,
       resultado,
     } = this.state;
     return (
@@ -32,9 +77,12 @@ export default class ContenedorResultados extends Component {
         inversionQuintales={inversionQuintales}
         quintalesCosechados={quintalesCosechados}
         ventaAproximada={ventaAproximada}
-        ganaciaAproximada={ganaciaAproximada}
+        gananciaAproximada={gananciaAproximada}
         resultado={resultado}
         />
     );
+  }
+  componentDidMount(){
+    this.calcularDatos();
   }
 }

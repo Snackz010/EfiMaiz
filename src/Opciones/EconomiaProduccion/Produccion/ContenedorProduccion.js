@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Produccion from './Produccion';
+import {Alert} from 'react-native';
 
 class ContenedorProduccion extends Component {
   constructor(props){
@@ -51,8 +52,30 @@ class ContenedorProduccion extends Component {
   }
 
   navegarEconomia = () => {
+    const{
+      numGranosFilaMazorca,
+      numFilasMazorca,
+      numMazorcasPlanta,
+      numPlantasSurco,
+      numSurcosManzana,
+      numManzanas
+    } = this.state;
+
+    const ADatos = {
+      numGranosFilaMazorca: numFilasMazorca,
+      numFilasMazorca:numFilasMazorca,
+      numMazorcasPlanta:numMazorcasPlanta,
+      numPlantasSurco:numPlantasSurco,
+      numSurcosManzana:numSurcosManzana,
+      numManzanas:numManzanas
+    }
     const {navigation} = this.props;
-    navigation.navigate('Economia');
+    if(numGranosFilaMazorca === '' || numFilasMazorca ==='' || numMazorcasPlanta && numPlantasSurco ==='' || numSurcosManzana ==='' 
+    || numManzanas === ''){
+      Alert.alert("Advertencia","Debes llenar todos los datos.")
+    }else{
+      navigation.navigate('Economia',ADatos);
+    }
   }
 
   render(){

@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {Alert} from 'react-native';
 import Economia from './Economia';
 
 class ContenedorEconomia extends Component {
@@ -36,11 +37,41 @@ class ContenedorEconomia extends Component {
     });
   }
 
-  navegarResultados= () => {
-    const {navigation} = this.props;
-    navigation.navigate('Resultados');
+
+  calcularQuintales = () => {
+    const Params = this.obtenerParametros();
+    var quintales = ((Params.numGranosFilaMazorca * Params.numFilasMazorca)*Params.numMazorcasPlanta)*Params.numPlantasSurco;
+    quintales = (quintales * Params.numSurcosManzana)*Params.numManzanas;
+    return parseInt(((quintales/271)*0.60))/100;
   }
 
+  navegarResultados= () => {
+    const {navigation} = this.props;
+    const {
+      numQuintalesSembrados,
+      precioQuintalesSembrados,
+      numQuintalesCosechados,
+      precioActual
+    } = this.state;
+    const ADatos = {
+      ...this.obtenerParametros(),
+      numQuintalesSembrados:numQuintalesSembrados,
+      precioQuintalesSembrados:precioQuintalesSembrados,
+      numQuintalesCosechados:numQuintalesCosechados,
+      precioActual:precioActual
+
+    }
+    if(numQuintalesSembrados === ''||precioQuintalesSembrados===''||numQuintalesCosechados===''||precioActual===''){
+      Alert.alert("Advertencia","Debes llenar todos los datos.");
+    }else{
+      navigation.navigate('Resultados',ADatos);
+    }
+    
+  }
+
+  obtenerParametros = () => {
+    return this.props.navigation.state.params;
+  }
 
   render(){
 
@@ -64,6 +95,12 @@ class ContenedorEconomia extends Component {
       navegarResultados={this.navegarResultados}
       />
     );
+  }
+
+  componentDidMount(){
+    this.setState({
+      numQuintalesCosechados:JSON.stringify(this.calcularQuintales())
+    })
   }
 }
 export default ContenedorEconomia;

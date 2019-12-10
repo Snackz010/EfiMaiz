@@ -8,7 +8,10 @@ class ContenedorEstadisticas extends Component {
     super(props);
     this.state = {
       Email:'',
-      DatosProgresBar:{}
+      DatosProgresBar:{
+        labels: ["", "", "", "", ""], // optional
+        data: [0, 0, 0, 0, 0],
+      }
     }
   }
 
@@ -17,7 +20,7 @@ class ContenedorEstadisticas extends Component {
     var docRef = db.collection("producción").doc(this.state.Email);
     docRef.get().then((doc) => {
       if (doc.exists) {
-        this.setDataInState(doc.data())
+        this.setDataInState(doc.data());
           //console.log("Datos del docuemento: ", doc.data());
       } else {
           // doc.data() will be undefined in this case
@@ -41,10 +44,6 @@ class ContenedorEstadisticas extends Component {
         if(NewData.length === 4)
           break;
       }
-      
-
-    
-    
     this.setState({
       DatosProgresBar:{
         labels:Labels.reverse(),
@@ -97,8 +96,9 @@ class ContenedorEstadisticas extends Component {
         Email: emailStorage,
       })
     }
-    //this.getspecificData();
     this.getFirebaseDocument();
+    //this.getspecificData();
+    
   }
 
 

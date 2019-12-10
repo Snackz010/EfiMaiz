@@ -6,6 +6,7 @@ import {
   View,
   Image,
   ScrollView,
+  Button,
   StatusBar,
 } from 'react-native';
 import {
@@ -18,12 +19,14 @@ import {
 } from "react-native-chart-kit";
 import { Dimensions } from 'react-native';
 const { height, width } = Dimensions.get('window');
+
 const data = {
   labels: ["2016", "2017", "2018", "2019", "2020"], // optional
   data: [0.11, 0.23, 0.44, 0.69, 0.89],
 };
+
 const Estadisticas = (props) => {
-  const {datosProgresBar}=props;
+  const {datosProgresBar, eventoCargar}=props;
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
@@ -35,6 +38,7 @@ const Estadisticas = (props) => {
               <View>
                 <Text style={styles.title}>Estadísticas</Text>
                 <Text style={styles.subTitle}>Estadísticas del ciclo de producción</Text>
+                
               </View>
             </View>
           </View>
