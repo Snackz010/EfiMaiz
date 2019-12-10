@@ -144,9 +144,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 10,
   },
-  body:{
-    marginTop:10,
-  },
   cardContent: {
     display: 'flex',
     alignItems: 'center',
