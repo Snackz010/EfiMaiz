@@ -88,10 +88,10 @@ const Agua = (props) => {
                 </View>
               </View>
               <View style={styles.button}>
-                <TouchableHighlight style={[styles.buttonContainer, styles.logInButton]}
+                <TouchableHighlight style={[styles.buttonContainer, styles.colorButton]}
                   onPress={irResultados}
                 >
-                  <Text style={styles.signUpText}>Registrar <Icon name='plus-circle' color="white" size={18}/></Text>
+                  <Text style={styles.textButton}>Registrar <Icon name='plus-circle' color="white" size={18}/></Text>
                 </TouchableHighlight>
               </View>
             </ScrollView>
@@ -110,10 +110,10 @@ const styles = StyleSheet.create({
     width:300,
     borderRadius:20,
   },
-  logInButton: {
+  colorButton: {
     backgroundColor: 'rgba(70, 160, 90, .9)',
   },
-  signUpText: {
+  textButton: {
     color: 'white',
     fontSize: 16,
   },

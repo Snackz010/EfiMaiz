@@ -5,12 +5,64 @@ class ContenedorEconomia extends Component {
   constructor(props){
     super(props);
     this.state = {
+      numQuintalesSembrados: '',
+      precioQuintalesSembrados: '',
+      numQuintalesCosechados: '',
+      precioActual: '',
     }
   }
 
+  eventoNumQuintalesSembrados = (quintalesSembrados)=> {
+    this.setState({
+      numQuintalesSembrados: quintalesSembrados
+    });
+  }
+
+  eventoPrecioQuintalesSembrados = (precio)=> {
+    this.setState({
+      precioQuintalesSembrados: precio
+    });
+  }
+
+  eventoNumQuintalesCosechados = (quintalesCosechados)=> {
+    this.setState({
+      numQuintalesCosechados: quintalesCosechados
+    });
+  }
+
+  eventoPrecioActual = (precio)=> {
+    this.setState({
+     precioActual: precio
+    });
+  }
+
+  navegarResultados= () => {
+    const {navigation} = this.props;
+    navigation.navigate('Resultados');
+  }
+
+
   render(){
+
+    const {
+      numQuintalesSembrados,
+      precioQuintalesSembrados,
+      numQuintalesCosechados,
+      precioActual,
+    } = this.state; 
+
     return(
-      <Economia/>
+      <Economia
+      eventoNumQuintalesSembrados={this.eventoNumQuintalesSembrados}
+      eventoPrecioQuintalesSembrados={this.eventoPrecioQuintalesSembrados}
+      eventoNumQuintalesCosechados={this.eventoNumQuintalesCosechados}
+      eventoPrecioActual={this.eventoPrecioActual}
+      numQuintalesSembrados={numQuintalesSembrados}
+      precioQuintalesSembrados={precioQuintalesSembrados}
+      numQuintalesCosechados={numQuintalesCosechados}
+      precioActual={precioActual}
+      navegarResultados={this.navegarResultados}
+      />
     );
   }
 }

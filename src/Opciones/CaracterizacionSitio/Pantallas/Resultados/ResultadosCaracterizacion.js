@@ -279,7 +279,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     textAlign: 'center',
-    marginTop: 10
+    margin: 15
   },
   body: {
     width: '100%',
