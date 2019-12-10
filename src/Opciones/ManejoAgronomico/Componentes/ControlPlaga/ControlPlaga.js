@@ -34,7 +34,7 @@ const ControlPlaga = (props) => {
           <ScrollView>
             <View>
               <View >
-                <Text style={styles.title}>Herbicidas</Text>
+                <Text style={styles.title}>Control de  Plagas</Text>
                 <View style={styles.padding}>
                   <Text style={styles.text2}>Selecione una plaga e introduzca el muestreo correspondiente para determinar si es necesario aplicar un control. En la parte inferior se sugiere un método químico de control.</Text>
                 </View>
@@ -52,11 +52,13 @@ const ControlPlaga = (props) => {
                 <Modal visible={pickerDisplayed} animationType={"slide"} transparent={true}>
                   <View style={styles.modal}>
                     <Text style={styles.textOpacity}>Selecione la calidad del suelo</Text>
-                    { pickerValues.map((value, index) => {
-                      return <TouchableHighlight key={index} onPress={() => {setPickerValue(value.value, value.textDecision, value.decision, value.tratamiento)}} style={styles.itemText}>
-                                <Text>{ value.title }</Text>
-                              </TouchableHighlight>
-                    })}
+                    <View style={styles.alignModal}>
+                      { pickerValues.map((value, index) => {
+                        return <TouchableHighlight key={index} onPress={() => {setPickerValue(value.value, value.textDecision, value.decision, value.tratamiento)}} style={styles.itemText}>
+                                  <Text>{ value.title }</Text>
+                                </TouchableHighlight>
+                      })}
+                    </View>
                     <TouchableHighlight onPress={togglePicker} style={styles.buttonCancel}>
                       <Text style={styles.textOpacity}>Cancelar</Text>
                     </TouchableHighlight>
@@ -196,6 +198,9 @@ const styles = StyleSheet.create({
   },
   padding:{
     padding: 15
+  },
+  alignModal: {
+    textAlign: 'left'
   }
 });
 
