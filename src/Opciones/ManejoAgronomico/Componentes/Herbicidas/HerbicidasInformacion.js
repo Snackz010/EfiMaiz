@@ -13,9 +13,19 @@ import {
 const HerbicidasInformacion = (props) => {
   const tableHead=['Tipo', 'Cantidad'];
   const tableData=[
-    ['Urea', '2 qq / mz'],
-    ['Urea', '3 qq / mz'],
-    ['Urea', '3 qq / mz'],
+    ['Gesagard PH 50%','1,5 - 2,0 kg / ha'],
+    ['Prometex PH 50% (Prometrina)','1,5 - 2,0 kg / ha'],
+    ['Gesapax PH 80%','2,0 - 2,5 kg / ha'],
+    ['Ametrex GD 80%','2,0 - 2,5 kg / ha'],
+    ['Ametrol SC 50%','2,0 - 2,5 kg / ha'],
+    ['Ametryn PH 80%','2,0 - 2,5 kg / ha'],
+    ['Glifosato SC 48%','1,44 -2,16 kg / ha'],
+    ['Glifosato 36 SL','3 - 3,5 L / mz'],
+    ['Gramoxone','2,0 - 2,5 L / Ha'],
+    ['Doblete','1,0 - 2,0 L / Ha'],
+    ['Fusilade (Fluazitop-p-bulito)','2,5 - 3,5 L / Ha'],
+    ['Leopar CE 10.8%','2,5 - 3,5 L / Ha'],
+    ['Mizil CE 10%','2,5 - 3,5 L / Ha'],
   ];
   return (
     <>
@@ -26,8 +36,8 @@ const HerbicidasInformacion = (props) => {
             <Image style={styles.headerImage} source={{uri:'https://www.eluniverso.com/sites/default/files/styles/powgallery_1280/public/fotos/2017/03/8291973.jpg?itok=gHzlN8Vr'}}/>
             <View style={{...styles.cardContent, ...styles.opacity}}>
               <View>
-                <Text style={styles.title}>Control de Malezas</Text>
-                <Text style={styles.subTitle}>Cultivo del maíz</Text>
+                <Text style={styles.title}>Herbicidas</Text>
+                <Text style={styles.subTitle}>Control de malezas</Text>
               </View>
             </View>
           </View>
@@ -45,9 +55,6 @@ const HerbicidasInformacion = (props) => {
                 <Rows data={tableData} textStyle={styles.text}/>
               </Table>
             </View>
-            <Text style={styles.textDescription}>La abreviación <Text style={styles.title2}>dds</Text> quiere decir días después de la siembra.</Text>
-            <Text style={styles.textDescription}><Text style={styles.title2}>Aporque:</Text> consiste en acumular suelo alrededor de la base de la planta para favorecer el anclaje y promover el desarrollo de raíces adventicias.</Text>
-            <Image style={styles.cardImage} source={{uri:'https://www.uaem.mx/gacetavirtual/uploads/posts/aporque-de-experimento-maiz-pozolero-2-59a46ca0eb72a.jpg'}}/>
           </View>
         </View>
       </ScrollView>
