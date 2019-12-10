@@ -26,7 +26,7 @@ const data = {
 };
 
 const Estadisticas = (props) => {
-  const {datosProgresBar, eventoCargar}=props;
+  const {datosProgresBar, eventoCargar,datosLineChart, datosBarChart}=props;
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
@@ -44,25 +44,7 @@ const Estadisticas = (props) => {
           </View>
           <View style={[styles.center, styles.margin]}>
             <BarChart
-              data={{
-                labels: [
-                  "2016",
-                  "2017", 
-                  "2018", 
-                  "2019", 
-                  "2020"], 
-                datasets: [
-                  {
-                    data: [
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                    ]
-                  }
-                ]
-              }}
+              data={datosBarChart}
               width={(Dimensions.get("window").width)-30} // from react-native
               height={220}
               yAxisSuffix={" qq"}
@@ -88,33 +70,15 @@ const Estadisticas = (props) => {
           <View style={[styles.center, styles.margin]}>
             <LineChart
 
-              data={{
-                labels: [
-                  "2016",
-                  "2017", 
-                  "2018", 
-                  "2019", 
-                  "2020"], 
-                datasets: [
-                  {
-                    data: [
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                    ]
-                  }
-                ]
-              }}
+              data={datosLineChart}
               width={(Dimensions.get("window").width)-30} // from react-native
               height={220}
-              yAxisSuffix={"qq"}
+              yAxisSuffix={"C$"}
               chartConfig={{
                 backgroundColor: "#e26a00",
                 backgroundGradientFrom: "#22a0a8",
                 backgroundGradientTo: "#ffffff",
-                decimalPlaces: 2, // optional, defaults to 2dp
+                decimalPlaces: 0, // optional, defaults to 2dp
                 color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                 labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                 style: {

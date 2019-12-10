@@ -11,6 +11,22 @@ class ContenedorEstadisticas extends Component {
       DatosProgresBar:{
         labels: ["", "", "", "", ""], // optional
         data: [0, 0, 0, 0, 0],
+      },
+      DatosLineChart:{
+        labels: ["2019", "2018", "2017", "2016",],
+        datasets: [
+          {
+            data: [0 ,0 ,0 ,0]
+          }
+        ]
+      },
+      DatosBarChat:{
+        labels: ["2019", "2018", "2017", "2016",],
+        datasets: [
+          {
+            data: [0 ,0 ,0 ,0]
+          }
+        ]
       }
     }
   }
@@ -20,7 +36,9 @@ class ContenedorEstadisticas extends Component {
     var docRef = db.collection("producción").doc(this.state.Email);
     docRef.get().then((doc) => {
       if (doc.exists) {
-        this.setDataInState(doc.data());
+        this.setDataInState(doc.data()),
+        this.setDataInState2(doc.data()),
+        this.setDataInState3(doc.data())
           //console.log("Datos del docuemento: ", doc.data());
       } else {
           // doc.data() will be undefined in this case
@@ -50,7 +68,67 @@ class ContenedorEstadisticas extends Component {
         data:NewData.reverse()
       }
     });
-    console.log(this.state.DatosProgresBar);
+   
+  }
+
+  setDataInState2 = (Data) => {
+    var year = new Date().getFullYear();
+    var NewData = []
+    var Labels = []
+    
+
+
+      for (let index = 0; index < Object.keys(Data).length; index++) {
+
+        Labels.push(JSON.stringify(year));
+        NewData.push((Data['Produccion_'+year].EcoProd.gananciaAproximada))
+        year -=1;
+        if(NewData.length === 4)
+          break;
+      }
+
+      const ObjetoDatos = {
+        labels:Labels.reverse(),
+        datasets:[{
+          data:NewData.reverse()
+        }]
+          
+        
+      }
+
+    this.setState({
+      DatosLineChart:ObjetoDatos
+    });
+  }
+
+  setDataInState3 = (Data) => {
+    var year = new Date().getFullYear();
+    var NewData = []
+    var Labels = []
+    
+
+
+      for (let index = 0; index < Object.keys(Data).length; index++) {
+
+        Labels.push(JSON.stringify(year));
+        NewData.push((Data['Produccion_'+year].EcoProd.numQuintalesCosechados))
+        year -=1;
+        if(NewData.length === 4)
+          break;
+      }
+
+      const ObjetoDatos = {
+        labels:Labels.reverse(),
+        datasets:[{
+          data:NewData.reverse()
+        }]
+          
+        
+      }
+
+    this.setState({
+      DatosBarChat:ObjetoDatos
+    });
   }
   
   getspecificData = () =>{
@@ -70,7 +148,7 @@ class ContenedorEstadisticas extends Component {
       }else{
         console.log('El documento expecificado no existe en la colección')
       }
-      console.log(this.state.DatosProgresBar)
+
     })
   }
 
@@ -80,10 +158,12 @@ class ContenedorEstadisticas extends Component {
   }
 
   render(){
-    const {DatosProgresBar} = this.state;
+    const {DatosProgresBar, DatosLineChart, DatosBarChat} = this.state;
     return(
       <Estadisticas
         datosProgresBar = {DatosProgresBar}
+        datosLineChart = {DatosLineChart}
+        datosBarChart = {DatosBarChat}
       />
     );
   }
