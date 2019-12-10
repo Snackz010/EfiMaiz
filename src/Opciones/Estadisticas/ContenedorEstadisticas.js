@@ -8,7 +8,7 @@ class ContenedorEstadisticas extends Component {
     super(props);
     this.state = {
       Email:'',
-      DatosProgresBar:[]
+      DatosProgresBar:{}
     }
   }
 
@@ -17,7 +17,8 @@ class ContenedorEstadisticas extends Component {
     var docRef = db.collection("producción").doc(this.state.Email);
     docRef.get().then((doc) => {
       if (doc.exists) {
-          console.log("Datos del docuemento: ", doc.data());
+        this.setDataInState(doc.data())
+          //console.log("Datos del docuemento: ", doc.data());
       } else {
           // doc.data() will be undefined in this case
           console.log("No hay documento!");
@@ -27,6 +28,32 @@ class ContenedorEstadisticas extends Component {
     });
   }
 
+  setDataInState = (Data) => {
+    var year = new Date().getFullYear();
+    var NewData = []
+    var Labels = []
+
+      for (let index = 0; index < Object.keys(Data).length; index++) {
+
+        Labels.push(JSON.stringify(year));
+        NewData.push((Data['Produccion_'+year].FRgerminacion.PromedioGermi)/100)
+        year -=1;
+        if(NewData.length === 4)
+          break;
+      }
+      
+
+    
+    
+    this.setState({
+      DatosProgresBar:{
+        labels:Labels.reverse(),
+        data:NewData.reverse()
+      }
+    });
+    console.log(this.state.DatosProgresBar);
+  }
+  
   getspecificData = () =>{
 
     const {DatosProgresBar} = this.state;
@@ -54,8 +81,11 @@ class ContenedorEstadisticas extends Component {
   }
 
   render(){
+    const {DatosProgresBar} = this.state;
     return(
-      <Estadisticas/>
+      <Estadisticas
+        datosProgresBar = {DatosProgresBar}
+      />
     );
   }
 

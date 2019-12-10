@@ -23,6 +23,7 @@ const data = {
   data: [0.11, 0.23, 0.44, 0.69, 0.89],
 };
 const Estadisticas = (props) => {
+  const {datosProgresBar}=props;
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
@@ -131,7 +132,7 @@ const Estadisticas = (props) => {
           </View>
           <View style={[styles.center, styles.margin]}>
             <ProgressChart
-              data={data}
+              data={datosProgresBar}
               width={Dimensions.get('window').width - 30}
               height={220}
               chartConfig={{
