@@ -3,6 +3,7 @@ import {createAppContainer} from 'react-navigation';
 
 import ContenedorEconomia from '../Economia/ContenedorEconomia';
 import ContenedorProduccion from '../Produccion/ContenedorProduccion'
+import ContenedorResultados from '../Resultados/ContenedorResultados';
 
 const StacKEP = createStackNavigator({
     
@@ -14,6 +15,12 @@ const StacKEP = createStackNavigator({
     },
     Economia:{
         screen:ContenedorEconomia,
+        navigationOptions:{
+            header:null
+        }
+    },
+    Resultados:{
+        screen:ContenedorResultados,
         navigationOptions:{
             header:null
         }

@@ -36,6 +36,12 @@ class ContenedorEconomia extends Component {
     });
   }
 
+  navegarResultados= () => {
+    const {navigation} = this.props;
+    navigation.navigate('Resultados');
+  }
+
+
   render(){
 
     const {
@@ -55,6 +61,7 @@ class ContenedorEconomia extends Component {
       precioQuintalesSembrados={precioQuintalesSembrados}
       numQuintalesCosechados={numQuintalesCosechados}
       precioActual={precioActual}
+      navegarResultados={this.navegarResultados}
       />
     );
   }

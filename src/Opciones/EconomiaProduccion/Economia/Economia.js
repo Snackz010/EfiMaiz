@@ -21,7 +21,7 @@ const Economia = (props) => {
     precioQuintalesSembrados,
     numQuintalesCosechados,
     precioActual,
-    navegarEconomia
+    navegarResultados,
   } = props; 
   return (
     <>
@@ -60,7 +60,7 @@ const Economia = (props) => {
               </View>
               <View style={styles.button}>
                 <TouchableHighlight style={[styles.buttonContainer, styles.colorButton]}
-                  onPress={navegarEconomia}
+                  onPress={navegarResultados}
                 >
                   <Text style={styles.textButton}>Registrar <Icon name='plus-circle' color="white" size={18}/></Text>
                 </TouchableHighlight>
