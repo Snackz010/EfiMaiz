@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
     padding: 15
   },
   alignModal: {
-    
+    textAlign: 'left'
   }
 });
 
