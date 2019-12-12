@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import Estadisticas from './Estadisticas';
-import { AsyncStorage } from 'react-native'
+import { AsyncStorage,PermissionsAndroid } from 'react-native'
 import firebase from 'react-native-firebase';
+import RNHTMLtoPDF from 'react-native-html-to-pdf';
 
 class ContenedorEstadisticas extends Component {
   constructor(props){
@@ -157,6 +158,26 @@ class ContenedorEstadisticas extends Component {
     return emailAsycn;
   }
 
+
+  generarDocumento = async () =>{
+    const options = {
+      html:`<strong> aqui va el html, Zorra <strong />`,
+      fileName: 'test',
+      directory: 'Documents',
+    };
+
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE)
+
+    if(granted === PermissionsAndroid.RESULTS.GRANTED){
+
+    const file = await RNHTMLtoPDF.convert(options)
+    // console.log(file.filePath);
+    alert(file.filePath);
+    }
+  } 
+
+
   render(){
     const {DatosProgresBar, DatosLineChart, DatosBarChat} = this.state;
     return(
@@ -164,6 +185,7 @@ class ContenedorEstadisticas extends Component {
         datosProgresBar = {DatosProgresBar}
         datosLineChart = {DatosLineChart}
         datosBarChart = {DatosBarChat}
+        generarDoc = {this.generarDocumento}
       />
     );
   }

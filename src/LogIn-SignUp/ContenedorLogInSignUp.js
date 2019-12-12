@@ -63,6 +63,10 @@ export default class ContenedorlogInSignUp extends Component {
          firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.clave)
          .then(success => (
           this.GuardarEmail(),
+          this.setState({
+               email:'',
+               clave:''
+          }),
           this.cambiaraDrawer(),
           console.log('Logueo realizado correctamente: ', success)))
            .catch( error => (console.log('Este es el error: ', error)))
@@ -99,8 +103,18 @@ export default class ContenedorlogInSignUp extends Component {
       fOcupacion: this.state.pickerSelection,
       fUsuario: this.state.usuario,
     }).then((docRef) => {
-      
-      console.log("Datos registrados:")
+      Alert.alert('Mensaje','Los datos del usuario han sido registrados');
+      console.log("Los datos han sido resgitrados")
+      this.setState({
+        email:'',
+        clave:'',
+        clave2:'',
+        nombre:'',
+        apellido:'',
+        telefono:'',
+        usuario:'',
+        pickerSelection:''
+      })
     }).catch(function(error) {
       console.error("Error adding document: ", error);
     });

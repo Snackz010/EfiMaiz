@@ -26,7 +26,7 @@ const data = {
 };
 
 const Estadisticas = (props) => {
-  const {datosProgresBar, eventoCargar,datosLineChart, datosBarChart}=props;
+  const {datosProgresBar, eventoCargar,datosLineChart, datosBarChart,generarDoc}=props;
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
@@ -120,6 +120,9 @@ const Estadisticas = (props) => {
             />
             <Text style={styles.chartText}>Porcentaje de germinación de semillas por año.</Text>
           </View>
+          <Button title='Generar estadisticas'
+          onPress={generarDoc}
+          />
           <View style={[styles.center, styles.margin]}>
             <LineChart
               data={{
