@@ -160,9 +160,10 @@ class ContenedorEstadisticas extends Component {
 
 
   generarDocumento = async () =>{
+    const anioActual = new Date().getFullYear();
     const options = {
       html:`<strong> aqui va el html, Zorra <strong />`,
-      fileName: 'test',
+      fileName: 'Reporte de produccion '+anioActual,
       directory: 'Documents',
     };
 
