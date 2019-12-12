@@ -160,10 +160,11 @@ class ContenedorEstadisticas extends Component {
 
 
   generarDocumento = async () =>{
+    const anioActual = new Date().getFullYear();
     const options = {
       html:`<strong> aqui va el html, Zorra <strong />`,
-      fileName: 'test',
-      directory: 'Reportes_EfiMaiz',
+      fileName: 'Reporte de produccion '+anioActual,
+      directory: 'Reportes_Efimaíz',
     };
 
     const granted = await PermissionsAndroid.request(

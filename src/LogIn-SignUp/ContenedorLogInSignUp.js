@@ -69,7 +69,17 @@ export default class ContenedorlogInSignUp extends Component {
           }),
           this.cambiaraDrawer(),
           console.log('Logueo realizado correctamente: ', success)))
-           .catch( error => (console.log('Este es el error: ', error)))
+           .catch( error => { 
+             const errorCode = error.code;
+
+              if(errorCode === 'auth/user-not-found'){
+                Alert.alert("Advertencia","El usuario ingresado no existe");
+              }
+              if(errorCode === 'auth/wrong-password'){
+                Alert.alert("Adverencia","El usuario o contraseña son inválidos");
+              }
+
+           })
        }else{
         this.mensaje();
       }
