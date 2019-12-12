@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import Estadisticas from './Estadisticas';
-import { AsyncStorage,PermissionsAndroid } from 'react-native'
+import { AsyncStorage,PermissionsAndroid, Alert } from 'react-native'
 import firebase from 'react-native-firebase';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 
@@ -163,7 +163,7 @@ class ContenedorEstadisticas extends Component {
     const options = {
       html:`<strong> aqui va el html, Zorra <strong />`,
       fileName: 'test',
-      directory: 'Documents',
+      directory: 'Reportes_EfiMaiz',
     };
 
     const granted = await PermissionsAndroid.request(
@@ -173,7 +173,7 @@ class ContenedorEstadisticas extends Component {
 
     const file = await RNHTMLtoPDF.convert(options)
     // console.log(file.filePath);
-    alert(file.filePath);
+    Alert.alert('El documento se guardó en la siguiente ruta: ',file.filePath);
     }
   } 
 
