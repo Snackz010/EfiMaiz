@@ -70,6 +70,13 @@ const ControlPlaga = (props) => {
                   <Text style={styles.text}>{tratamiento}</Text>
                 </View>
               </View>
+              <View style={styles.button}>
+                <TouchableHighlight 
+                  style={[styles.buttonContainer, styles.calcButton]}
+                >
+                  <Text style={styles.signUpText}>Registrar<Icon name='plus-circle' color="white" size={18}/></Text>
+                </TouchableHighlight>
+            </View>
             </View>
           </ScrollView>
         </View>
@@ -201,7 +208,17 @@ const styles = StyleSheet.create({
   },
   alignModal: {
     textAlign: 'left'
-  }
+  },
+  calcButton: {
+    backgroundColor: 'rgba(70, 160, 90, .9)',
+  },
+  button: {
+    marginTop: 40,
+    marginBottom: 50,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default ControlPlaga;

@@ -48,7 +48,7 @@ const HerbicidasInformacion = (props) => {
             <Text style={styles.textDescription}><Text style={styles.title2}>3) Químico:</Text> aplicación de productos con atomizador acoplados a tractores.</Text>
             <Text style={styles.textDescription}>Es importante estar bien informado acerca del periodo de tiempo durante el cual el cultivo debe estar prácticamente libre de malezas para evitar una reducción en el rendimiento o la calidad del cultivo o daños a los cultivos en el futuro.</Text>
             <Text style={styles.textDescription}>En este cultivo, el período crítico comprende las primeras 6 semanas de edad de manera que mantener limpio el cultivo es importante para evitar que las malezas afecten los rendimientos.</Text>
-            <Text style={styles.title2}>Herbicidas pre-emergentes contra malezas antes de la germinación del cultivo.</Text>
+            <Text style={styles.title3}>Herbicidas pre-emergentes contra malezas antes de la germinación del cultivo.</Text>
             <View style={styles.container}>
               <Table borderStyle={{borderWidth: 1, borderColor: 'black'}}>
                 <Row data={tableHead} style={styles.head} textStyle={styles.text}/>
@@ -102,6 +102,13 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     marginTop: 10,
     textAlign: 'justify',
+  },
+  title3:{
+    fontSize:14,
+    fontWeight:'bold',
+    marginTop: 10,
+    textAlign: 'justify',
+    color: 'darkgreen'
   },
   textDescription:{
     textAlign: 'justify',

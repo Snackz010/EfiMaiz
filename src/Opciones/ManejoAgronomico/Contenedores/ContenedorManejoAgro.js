@@ -10,7 +10,7 @@ export default class ContenedorManejoAgro extends Component {
         {id:1, rutaIr:"Germinacion", rutaLeer: "GerminacionInstru", title: "Germinación", subTitle:"Funcionalidad", image:"https://hidroponia.mx/wp-content/uploads/2018/05/PLANTULAMAIZ-300x278.png"},
         {id:2, rutaIr:"Fertilizacion", rutaLeer: "FertilizacionInfo", title: "Fertilización", subTitle:"Funcionalidad", image:"https://www.fertiberia.com/media/605924/cabecera-maiz.jpg"},
         {id:3, rutaIr:"Herbicidas", rutaLeer: "HerbicidasInfo", title: "Herbicidas", subTitle:"Funcionalidad", image:"https://www.eluniverso.com/sites/default/files/styles/powgallery_1280/public/fotos/2017/03/8291973.jpg?itok=gHzlN8Vr"},
-        {id:4, rutaIr:"ControlPlaga", rutaLeer: "HerbicidasInfo", title: "Control de Plaga", subTitle:"Funcionalidad", image:"https://www.lavozdemichoacan.com.mx/wp-content/uploads/2018/08/plagas-en-cultivos.jpg"},
+        {id:4, rutaIr:"ControlPlaga", rutaLeer: "ControlPlagaInfo", title: "Plagas", subTitle:"Funcionalidad", image:"https://cdn.pixabay.com/photo/2016/11/28/20/13/desert-locust-1865955_960_720.jpg"},
       ]
     };
   }

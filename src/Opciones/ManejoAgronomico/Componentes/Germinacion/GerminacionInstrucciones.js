@@ -34,10 +34,10 @@ const GerminacionInstrucciones = (props) => {
             </View>
           </View>
           <View style={styles.body}>
-            <Text style={styles.title2}>Prueba de germinación</Text>
+            <Text style={styles.title3}>Prueba de germinación</Text>
             <Text style={styles.textDescription}>Es una práctica que se realiza sobre una muestra de semilla que sirve para estimar el porcentaje de semillas con capacidad para germinar. Permite saber la cantidad de semilla requerida para el establecimiento en un área determinada.</Text>
-            <Text style={styles.textDescription}>Para obtener la población requerida y lograr buen rendimiento del cultivo es sumamente importante que se realice la prueba de germinación de la semilla 15 días antes de la siembra (das).</Text>
-            <Text style={styles.title2}>Procedimiento para realizar la prueba de germinación:</Text>
+            <Text style={styles.textDescription}>Para obtener la población requerida y lograr buen rendimiento del cultivo es sumamente importante que se realice la prueba de germinación de la semilla 15 días antes de la siembra.</Text>
+            <Text style={styles.title3}>Procedimiento para realizar la prueba de germinación:</Text>
             <Text style={styles.textDescription}><Text style={styles.title2}>1)</Text> Obtener una muestra de semilla del recipiente donde ha sido almacenada. Si tiene más de dos recipientes tomar una muestra y mezclarlas.</Text>
             <Text style={styles.textDescription}><Text style={styles.title2}>2)</Text> Retire 400 semillas sin escogerlas de la muestra.</Text>
             <Text style={styles.textDescription}><Text style={styles.title2}>3)</Text> Forme cuatro grupos de 100 semillas cada uno.</Text>
@@ -55,6 +55,7 @@ const GerminacionInstrucciones = (props) => {
               </Table>
             </View>
             <Text style={styles.textDescription}>Este resultado indica que la semilla tiene un 90% de germinación, es decir, que por cada 100 semillas que siembre 90 de éstas germinarán, lo cual es excelente.</Text>
+            <Text style={styles.textDescription}>Una semilla de buena calidad es quella que tiene como mínimo un 85 por ciento de germinación. Si tiene menos porcentaje de germinación siembre más tupido (más denso) o cámbiela por otra que usted esté seguro que es mejor.</Text>
           </View>
         </View>
       </ScrollView>
@@ -102,6 +103,13 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     marginTop: 10,
     textAlign: 'justify',
+  },
+  title3:{
+    fontSize:14,
+    fontWeight:'bold',
+    marginTop: 10,
+    textAlign: 'justify',
+    color: 'darkgreen'
   },
   textDescription:{
     textAlign: 'justify',

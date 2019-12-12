@@ -9,7 +9,7 @@ import ContenedorGuias from '../Contenedores/ContenedorGuias';
 import Malezas from '../Componentes/Malezas';
 import Postcosecha from '../Componentes/PostCosecha';
 import Siembra from '../Componentes/Siembra';
-import Plagas from '../Componentes/Plagas'
+import Plagas from '../../ManejoAgronomico/Componentes/ControlPlaga/ControlPlagaInformacion';
 import GerminacionLeer from '../../ManejoAgronomico/Componentes/Germinacion/GerminacionInstrucciones';
 
 const stackGuias = createStackNavigator({

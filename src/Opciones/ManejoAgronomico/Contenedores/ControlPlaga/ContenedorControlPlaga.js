@@ -56,6 +56,13 @@ class ContenedorControlPlaga extends Component {
 
     const pickerValues = [
       {
+          title: 'Gallina ciega (Phyllophaga spp)',
+          value: 'Gallina ciega (Phyllophaga spp)',
+          textDecision: 'N° Larvas',
+          decision: 5,
+          tratamiento: 'Se sugiere la reparación del suelo 15 días antes de la siembra. Las larvas quedan expuestas al sol, las que mueren por insolación o son depredadas por pájaros. También se puede realizar tratamiento al suelo.'
+      },
+      {
           title: 'Cortador (Agrotis spp)',
           value: 'Cortador (Agrotis spp)',
           textDecision: 'N° Plantas cortadas',
