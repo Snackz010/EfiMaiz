@@ -14,7 +14,7 @@ import {
 
 const Inicio = (props) => {
 
-  const { navigation } = props;
+  const { navigation, LogOut } = props;
 
   return (
     <>
@@ -38,7 +38,8 @@ const Inicio = (props) => {
                       onPress: () => console.log('Cancel Pressed'),
                       style: 'cancel',
                     },
-                    {text: 'Sí', onPress: () => console.log('OK Pressed')},
+                    {text: 'Sí', onPress: () => {LogOut()}
+                    },
                   ],
                   {cancelable: false},)}
               }/>
