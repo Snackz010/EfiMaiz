@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import Estadisticas from './Estadisticas';
-import { AsyncStorage,PermissionsAndroid } from 'react-native'
+import { AsyncStorage,PermissionsAndroid, Alert } from 'react-native'
 import firebase from 'react-native-firebase';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 
@@ -162,9 +162,126 @@ class ContenedorEstadisticas extends Component {
   generarDocumento = async () =>{
     const anioActual = new Date().getFullYear();
     const options = {
-      html:`<strong> aqui va el html, Zorra <strong />`,
+      html:`
+      <!DOCTYPE html>
+      <html lang="es">
+      
+      <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      </head>
+      
+      <body>
+        <div class=" navbar-fixed">
+          <nav class="blue">
+            <div class="nav-wrapper">
+              <div class="container">
+                <a href="#" class="brand-logo center" style="font-size: 18px;">Reporte estadístico de ciclo del producción</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      <br>
+        <div>
+          <div class="row">
+              <div class="center col s12 m12 l12 card-panel z-depth-2">
+                  <p class="center cyan white-text center" style="font-size: 20px;">Datos del productor</p>
+      
+                  <div class="center col s4 m4 l4 card-panel">
+                    <ul class="collection">
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Nombre:</a><br/>Eliab Jaiver</li>
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Apellido:</a><br/> Selva Cruz</li>
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Teléfono:</a><br/> 87373581</li>
+                    </ul>
+                  </div>
+                  <div class="center col s4 m4 l4 card-panel">
+                    <ul class="collection">
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Ocupación:</a><br/> Productor</li>
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Departamento:</a><br/> Chontales</li>
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Correo:</a><br/> eliabjselvacruz51@gmail.com</li>
+                    </ul>
+                  </div>
+                  <div class="center col s4 m4 l4 card-panel">
+                    <ul class="collection">
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Nombre de la finca:</a><br/> Los Luareles</li>
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Ubicaccion coordenada X:</a><br/> 121300897</li>
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Ubicaccion coordenada Y:</a><br/> -798003121</li>
+                    </ul>
+                  </div>
+                  <div class="row">
+                    <div class="col s12">
+                      <p class="center cyan lighten-2 white-text center" style="font-size: 20px;">Ganancias por año (C$)</p>
+                      <div class=" card-panel col s3 teal">
+                        <h5 style="font-size: 14px;">2000</h5>
+                        <p style="font-size: 12px;">Año 2019</ap>
+                      </div>
+                      <div class=" card-panel col s3 teal lighten-1">
+                        <h5 style="font-size: 14px;">2000</h5>
+                        <p style="font-size: 12px;">Año 2019</ap>
+                      </div>
+                      <div class=" card-panel col s3 teal lighten-2">
+                        <h5 style="font-size: 14px;">2000</h5>
+                        <p style="font-size: 12px;">Año 2019</ap>
+                      </div>
+                      <div class=" card-panel col s3 teal lighten-3">
+                        <h5 style="font-size: 14px;">2000</h5>
+                        <p style="font-size: 12px;">Año 2019</ap>
+                      </div>
+                    </div>
+                    <div class="col s6">
+                      <p class="center cyan lighten-2 white-text center" style="font-size: 18px;">Cosecha por año (Quintales)</p>
+                      <div class=" card-panel col s3 deep-orange">
+                        <h5 style="font-size: 12px;">2000</h5>
+                        <p style="font-size: 10px;">Año 2019</ap>
+                      </div>
+                      <div class=" card-panel col s3 deep-orange lighten-1">
+                        <h5 style="font-size: 12px;">2000</h5>
+                        <p style="font-size: 10px;">Año 2019</ap>
+                      </div>
+                      <div class=" card-panel col s3 deep-orange lighten-2">
+                        <h5 style="font-size: 12px;">2000</h5>
+                        <p style="font-size: 10px;">Año 2019</ap>
+                      </div>
+                      <div class=" card-panel col s3 deep-orange lighten-3">
+                        <h5 style="font-size: 12px;">2000</h5>
+                        <p style="font-size: 10px;">Año 2019</ap>
+                      </div>
+                    </div>
+                    <div class="col s6">
+                      <p class="center cyan lighten-2 white-text center" style="font-size: 18px;">Germinacion de semillas (%)</p>
+                      <div class=" card-panel col s3 green lighten-3">
+                        <h5 style="font-size: 12px;">2000</h5>
+                        <p style="font-size: 10px;">Año 2019</ap>
+                      </div>
+                      <div class=" card-panel col s3 green lighten-3">
+                        <h5 style="font-size: 12px;">2000</h5>
+                        <p style="font-size: 10px;">Año 2019</ap>
+                      </div>
+                      <div class=" card-panel col s3 green lighten-1">
+                        <h5 style="font-size: 12px;">2000</h5>
+                        <p style="font-size: 10px;">Año 2019</ap>
+                      </div>
+                      <div class=" card-panel col s3 green">
+                        <h5 style="font-size: 12px;">2000</h5>
+                        <p style="font-size: 10px;">Año 2019</ap>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+        <!--  CDN jQuery -->
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+        <!-- CDN Materialize JS  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      </body>
+      </html>
+      `,
       fileName: 'Reporte de produccion '+anioActual,
-      directory: 'Documents',
+      directory: 'Reportes_Efimaíz',
     };
 
     const granted = await PermissionsAndroid.request(
@@ -174,7 +291,7 @@ class ContenedorEstadisticas extends Component {
 
     const file = await RNHTMLtoPDF.convert(options)
     // console.log(file.filePath);
-    alert(file.filePath);
+    Alert.alert('El documento se guardó en la siguiente ruta: ',file.filePath);
     }
   } 
 

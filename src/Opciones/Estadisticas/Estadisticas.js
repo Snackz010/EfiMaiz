@@ -8,14 +8,12 @@ import {
   ScrollView,
   Button,
   StatusBar,
+  TouchableHighlight 
 } from 'react-native';
 import {
   LineChart,
   BarChart,
-  PieChart,
   ProgressChart,
-  ContributionGraph,
-  StackedBarChart
 } from "react-native-chart-kit";
 import { Dimensions } from 'react-native';
 const { height, width } = Dimensions.get('window');
@@ -120,9 +118,6 @@ const Estadisticas = (props) => {
             />
             <Text style={styles.chartText}>Porcentaje de germinación de semillas por año.</Text>
           </View>
-          <Button title='Generar estadisticas'
-          onPress={generarDoc}
-          />
           <View style={[styles.center, styles.margin]}>
             <LineChart
               data={{
@@ -185,6 +180,14 @@ const Estadisticas = (props) => {
             />
             <Text style={styles.chartText}>Estadísticas de producción por año.</Text>
           </View>
+          <View style={styles.button}>
+          <TouchableHighlight 
+              style={[styles.buttonContainer, styles.colorButton]}
+              onPress={generarDoc}
+            >
+              <Text style={styles.colorText}>Generar Reporte <Icon name='download' color="white" size={18}/></Text>
+            </TouchableHighlight>
+          </View>
         </View>
       </ScrollView>
     </>
@@ -240,7 +243,29 @@ const styles = StyleSheet.create({
   margin: {
     marginTop: 15,
     marginBottom: 25
-  }
+  },
+  button: {
+    marginTop: 20,
+    marginBottom: 50,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonContainer: {
+    height:50,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width:300,
+    borderRadius:20,
+  },
+  colorButton: {
+    backgroundColor: 'rgba(70, 160, 90, .9)',
+  },
+  colorText: {
+    color: 'white',
+    fontSize: 16,
+  },
 });
 
 export default Estadisticas;
