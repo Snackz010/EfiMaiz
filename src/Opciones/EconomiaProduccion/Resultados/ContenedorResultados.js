@@ -30,7 +30,7 @@ export default class ContenedorResultados extends Component {
 
   determinarResultados = () => {
     const Param = this.obtenerParametros();
-    const ganancia = Param.numQuintalesSembrados * Param.precioQuintalesSembrados;
+    const ganancia = Param.numQuintalesCosechados * Param.precioActual;
     const inversion = Param.numQuintalesSembrados * Param.precioQuintalesSembrados;
     var valor;
 
