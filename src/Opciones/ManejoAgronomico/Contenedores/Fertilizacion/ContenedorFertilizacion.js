@@ -22,7 +22,7 @@ class ContenedorFertilizante extends Component {
   ObtenerEmail = async () => {
     const emailAsycn = await AsyncStorage.getItem ('DATO');
     return emailAsycn;
-    }
+  }
 
   GuardarResultFert = () =>{
     const {cantidadManzana, fertilizante, pickerSelection} = this.state;
@@ -49,7 +49,7 @@ class ContenedorFertilizante extends Component {
         }).then( () => {
           Alert.alert('Éxito','Los datos se han registrado')
           this.irInicio();
-        console.log("Resultados de fertilizante almacenados");
+          console.log("Resultados de fertilizante almacenados");
       });
     }else{
       Alert.alert('Advertencia','Debes llenar todos los datos')
@@ -63,7 +63,6 @@ class ContenedorFertilizante extends Component {
     });
     this.props.navigation.dispatch(resetAction);
   }
-
 
 
   handleCantidadManzana = (value)=> {

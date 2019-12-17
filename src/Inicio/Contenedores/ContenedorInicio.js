@@ -19,7 +19,7 @@ class ContenedorInicio extends Component{
             console.log("Esta función está siendo pasada correctamente"),
             this.irLogIn();
         });
-        }
+    }
 
     irLogIn = () => {
         const { navigation } = this.props;

@@ -4,71 +4,75 @@
 
 import 'react-native';
 import React from 'react';
-//import ContenedorApp from '../src/App/ContenedorApp.js';
-// import LogIn from '../src/LogIn/LogIn.js';
-// import SignUp from '../src/LogIn/LogIn.js';
+import { 
+  evaluarSuelo,
+  evaluarClima,
+  calcularFertilizante,
+  calcularQuintales,
+  calcularVenta,
+  calcularInversion,
+  determinarResultados
+} from '../pruebasComponentes'
 
-// import Opciones from '../src/Opciones/Opciones.js'
-// import CaracterizacionSitio from '../src/Opciones/CaracterizacionSitio/CaracterizacionSitio.js'
-// import Agua from '../src/Opciones/CaracterizacionSitio/Agua/Agua.js'
-// import Suelo from '../src/Opciones/CaracterizacionSitio/Suelo/Suelo.js'
-// import Clima from '../src/Opciones/CaracterizacionSitio/Clima/Clima.js'
-
-import evaluarClima from '../src/Opciones/CaracterizacionSitio/Pantallas/Clima/Contenedores/ContenedorClima'
-
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
-
-/*it('Componente ContenedorApp se renderiza correctamente', () => {
-  const componente = renderer.create(<ContenedorApp />).toJSON();
-  expect(componente).toMatchSnapshot();
-});
-
-it('Componente LogIn se renderiza correctamente', () => {
-  const componente = renderer.create(<LogIn />).toJSON();
-  expect(componente).toMatchSnapshot();
-});
-
-it('Componente SignUp se renderiza correctamente', () => {
-  const componente = renderer.create(<SignUp />).toJSON();
-  expect(componente).toMatchSnapshot();
-});
-
-//Componentes de opciones
-
-it('Componente opciones se renderiza correctamente',()=>{
-  const componente = renderer.create(<Opciones />).toJSON();
-  expect(componente).toMatchSnapshot();
-})
-
-//Componentes de caracterizacion del sitio
-
-it('Componente CaracterizacionSitio se renderiza correctamente', () => {
-  const componente = renderer.create(<CaracterizacionSitio />).toJSON();
-  expect(componente).toMatchSnapshot();
-});
-
-it('Componente Suelo de caracterización de sitio se renderiza correctamente', () => {
-  const componente = renderer.create(<Suelo />).toJSON();
-  expect(componente).toMatchSnapshot();
-});
-
-it('Componente Clima de caracterización de sitio se renderiza correctamente', () => {
-  const componente = renderer.create(<Clima />).toJSON();
-  expect(componente).toMatchSnapshot();
-});
-
-it('Componente Agua de caracterización de sitio se renderiza correctamente', () => {
-  const componente = renderer.create(<Agua />).toJSON();
-  expect(componente).toMatchSnapshot();
-}); */
-
-it('Evaluar eficiencia del suelo para el cultivo de maiz', () => {
-
+test('Evaluar eficiencia del suelo para el cultivo de maiz', () => {
   const valores = {
-    Temperatura: 29 , 
-    Altitud: 50,
-    Precipitacion:2000
+    pickerSelection:'Franco',
+    PH:'6.6'
   }
-  expect(evaluarClima(valores)).toBe(9);
+  expect(evaluarSuelo(valores)).toBe(6);
 });
+
+test('Evaluar eficiencia del clima para el cultivo de maiz', () => {
+  const valoresC = {
+    Temperatura:'23',
+    Altitud:'350',
+    Precipitacion:'850'
+  }
+  expect(evaluarClima(valoresC)).toBe(9);
+});
+
+test('Calcular cantidad de fertilizante', () => {
+  const valoresF = {
+    cantidadManzana:'20', 
+    pickerSelection:'12-30-10',
+  }
+  expect(calcularFertilizante(valoresF)).toBe(40);
+});
+test('Calcular rendimiento de producción quintales', () => {
+  const valoresF = {
+    numGranosFilaMazorca:'20',
+    numFilasMazorca:'20',
+    numMazorcasPlanta:'10',
+    numPlantasSurco:'15',
+    numSurcosManzana:'10',
+    numManzanas:'3'
+  }
+  expect(calcularQuintales(valoresF)).toBe(39.85);
+});
+
+test('Calcular rendimiento de producción Venta quintales', () => {
+  const valoresF = {
+    numQuintalesCosechados:'39.85', 
+    precioActual:'550'
+  }
+  expect(calcularVenta(valoresF)).toBe(21917);
+});
+
+test('Calcular rendimiento de producción Inversion', () => {
+  const valoresF = {
+    numQuintalesSembrados:'3', 
+    precioQuintalesSembrados:'600'
+  }
+  expect(calcularInversion(valoresF)).toBe(1800);
+});
+
+test('Calcular rendimiento de producción Ganancia', () => {
+  const valoresF = {
+    numQuintalesSembrados:'10',
+    precioQuintalesSembrados:'500', 
+    numQuintalesCosechados:'200', 
+    precioActual:'500'
+  }
+  expect(determinarResultados(valoresF)).toBe('Ganancia');
+});
+

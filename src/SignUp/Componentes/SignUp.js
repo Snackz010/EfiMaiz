@@ -15,14 +15,26 @@ import {
 } from 'react-native';
 
 var pickerSelectionValue;
+var PhandleCoordenadax, PCoordenadasx, PhandleCoordenadasy, PCoordenadasy, 
+PhandleDepartamento, PDepartamento, PhandleNombreFinca, PNombreFinca;
 const SignUp = (props) => {
 
     const { pickerDisplayed, pickerValues,setPickerValue,togglePicker,pickerSelection,
             SignUpMethod, handlePass,handlePass2, handleEmail, estadoEmail, estadoClave, estadoClave2,saveDataMethod,
             handleNombre, estadoNombre, handleApellido, estadoApellido, handleTelefono, estadoTelefono,
-            handleUsuario, estadoUsuario, cambiarPantalla } = props;
+            handleUsuario, estadoUsuario, cambiarPantalla, 
+            handleCoordenadax, Coordenadasx, handleCoordenadasy, Coordenadasy, 
+            handleDepartamento, Departamento, handleNombreFinca, NombreFinca, } = props;
 
     pickerSelectionValue = pickerSelection;
+    PhandleCoordenadax = handleCoordenadax;
+    PCoordenadasx = Coordenadasx;
+    PhandleCoordenadasy = handleCoordenadasy; 
+    PCoordenadasy = Coordenadasy;
+    PhandleDepartamento = handleDepartamento;
+    PDepartamento = Departamento;
+    PhandleNombreFinca = handleNombreFinca;
+    PNombreFinca = NombreFinca;
     return (
       <>
         <StatusBar barStyle="light-content" backgroundColor='rgb(70, 160, 90)'/>
@@ -148,10 +160,10 @@ const elementosOcultos = () => {
   if(pickerSelectionValue === 'Productor'){
     return(
       <>
-      <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Departamento'></TextInput>
-      <TextInput keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Nombre de la Finca'></TextInput>
-      <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Coordenada X'></TextInput> 
-      <TextInput keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Coordenada Y'></TextInput> 
+      <TextInput onChangeText = {PhandleDepartamento} value = {PDepartamento} keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Departamento'></TextInput>
+      <TextInput onChangeText = {PhandleNombreFinca} value ={PNombreFinca} keyboardType={"default"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Nombre de la Finca'></TextInput>
+      <TextInput onChangeText = {PhandleCoordenadax} value = {PCoordenadasx} keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Coordenada X'></TextInput> 
+      <TextInput onChangeText = {PhandleCoordenadasy} value = {PCoordenadasy} keyboardType={"numeric"} placeholderTextColor="white" autoCapitalize={'words'} style={styles.textInput} placeholder='Coordenada Y'></TextInput> 
       </>
     );
   }

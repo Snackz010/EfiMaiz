@@ -14,7 +14,7 @@ class ContenedorEstadisticas extends Component {
         data: [0, 0, 0, 0, 0],
       },
       DatosLineChart:{
-        labels: ["2019", "2018", "2017", "2016",],
+        labels: ["", "", "", "",],
         datasets: [
           {
             data: [0 ,0 ,0 ,0]
@@ -22,7 +22,7 @@ class ContenedorEstadisticas extends Component {
         ]
       },
       DatosBarChat:{
-        labels: ["2019", "2018", "2017", "2016",],
+        labels: ["", "", "", "",],
         datasets: [
           {
             data: [0 ,0 ,0 ,0]
@@ -132,35 +132,45 @@ class ContenedorEstadisticas extends Component {
     });
   }
   
-  getspecificData = () =>{
-
-    const {DatosProgresBar} = this.state;
-
-    var db = firebase.firestore();
-    var produccRef = db.collection('producción').doc(this.state.Email);
-
-    produccRef.get()
-    .then ((directorio)=> {
-      if (directorio.exists) {
-        DatosProgresBar.push(parseInt(directorio.data().Produccion_20+'20'.FRfertilizante.CManzanas))
-        this.setState({
-          DatosProgresBar:DatosProgresBar
-        })
-      }else{
-        console.log('El documento expecificado no existe en la colección')
-      }
-
-    })
-  }
 
   ObtenerEmail = async () => {
     const emailAsycn = await AsyncStorage.getItem ('DATO');
     return emailAsycn;
   }
 
+  getDataFirebase = async () => {
+    
+    var db = firebase.firestore(); //Referencia a firestore cloud
+    var docRef = db.collection('users').doc(this.state.Email); // refrencia al directorio específico de donde exraigo datos
+    var User={};
+    await docRef.get().then ( (doc) => {
+    if(doc.exists){
+      User = {
+        Nombre:doc.data().fNombre,
+        Apellido:doc.data().fApellido,
+        Telefono:doc.data().fTelefono,
+        Ocupacion:doc.data().fOcupacion,
+        Usuario:doc.data().fUsuario,
+        Email:doc.data().fCorreoE
+      }
+      console.log(User);
+    }else{
+      console.log('No existe el documento')
+    }
+    }).catch (function(error) {
+      console.log('Ha surgido el siguiente error: ', error) 
+    })
+    return User;
+  }
+
 
   generarDocumento = async () =>{
+    const datosUser = {... await this.getDataFirebase()};
     const anioActual = new Date().getFullYear();
+
+    const {DatosBarChat, DatosLineChart,DatosProgresBar}=this.state;
+    console.log(DatosLineChart)
+
     const options = {
       html:`
       <!DOCTYPE html>
@@ -192,16 +202,16 @@ class ContenedorEstadisticas extends Component {
       
                   <div class="center col s4 m4 l4 card-panel">
                     <ul class="collection">
-                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Nombre:</a><br/>Eliab Jaiver</li>
-                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Apellido:</a><br/> Selva Cruz</li>
-                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Teléfono:</a><br/> 87373581</li>
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Nombre:</a><br/> ${datosUser.Nombre}</li>
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Apellido:</a><br/> ${datosUser.Apellido}</li>
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Teléfono:</a><br/> ${datosUser.Telefono}</li>
                     </ul>
                   </div>
                   <div class="center col s4 m4 l4 card-panel">
                     <ul class="collection">
-                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Ocupación:</a><br/> Productor</li>
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Ocupación:</a><br/> ${datosUser.Ocupacion}</li>
                       <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Departamento:</a><br/> Chontales</li>
-                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Correo:</a><br/> eliabjselvacruz51@gmail.com</li>
+                      <li class="collection-item" style="text-align: left; margin: 0px; padding: 2px; font-size: 12px;"> <a style="color: gray;">Correo:</a><br/> ${datosUser.Email}</li>
                     </ul>
                   </div>
                   <div class="center col s4 m4 l4 card-panel">
@@ -215,58 +225,58 @@ class ContenedorEstadisticas extends Component {
                     <div class="col s12">
                       <p class="center cyan lighten-2 white-text center" style="font-size: 20px;">Ganancias por año (C$)</p>
                       <div class=" card-panel col s3 teal">
-                        <h5 style="font-size: 14px;">2000</h5>
-                        <p style="font-size: 12px;">Año 2019</ap>
+                        <h5 style="font-size: 14px;">C$ ${DatosLineChart.datasets[0].data[0]}</h5>
+                        <p style="font-size: 12px;">Año ${DatosLineChart.labels[0]}</ap>
                       </div>
                       <div class=" card-panel col s3 teal lighten-1">
-                        <h5 style="font-size: 14px;">2000</h5>
-                        <p style="font-size: 12px;">Año 2019</ap>
+                        <h5 style="font-size: 14px;">C$ ${DatosLineChart.datasets[0].data[1]}</h5>
+                        <p style="font-size: 12px;">Año ${DatosLineChart.labels[1]}</ap>
                       </div>
                       <div class=" card-panel col s3 teal lighten-2">
-                        <h5 style="font-size: 14px;">2000</h5>
-                        <p style="font-size: 12px;">Año 2019</ap>
+                        <h5 style="font-size: 14px;">C$ ${DatosLineChart.datasets[0].data[2]}</h5>
+                        <p style="font-size: 12px;">Año ${DatosLineChart.labels[2]}</ap>
                       </div>
                       <div class=" card-panel col s3 teal lighten-3">
-                        <h5 style="font-size: 14px;">2000</h5>
-                        <p style="font-size: 12px;">Año 2019</ap>
+                        <h5 style="font-size: 14px;">C$ ${DatosLineChart.datasets[0].data[3]}</h5>
+                        <p style="font-size: 12px;">Año ${DatosLineChart.labels[3]}</ap>
                       </div>
                     </div>
                     <div class="col s6">
                       <p class="center cyan lighten-2 white-text center" style="font-size: 18px;">Cosecha por año (Quintales)</p>
                       <div class=" card-panel col s3 deep-orange">
-                        <h5 style="font-size: 12px;">2000</h5>
-                        <p style="font-size: 10px;">Año 2019</ap>
+                        <h5 style="font-size: 12px;">qq ${parseInt(DatosBarChat.datasets[0].data[0])}</h5>
+                        <p style="font-size: 10px;">Año ${DatosLineChart.labels[0]}</ap>
                       </div>
                       <div class=" card-panel col s3 deep-orange lighten-1">
-                        <h5 style="font-size: 12px;">2000</h5>
-                        <p style="font-size: 10px;">Año 2019</ap>
+                        <h5 style="font-size: 12px;">qq ${parseInt(DatosBarChat.datasets[0].data[1])}</h5>
+                        <p style="font-size: 10px;">Año ${DatosLineChart.labels[1]}</ap>
                       </div>
                       <div class=" card-panel col s3 deep-orange lighten-2">
-                        <h5 style="font-size: 12px;">2000</h5>
-                        <p style="font-size: 10px;">Año 2019</ap>
+                        <h5 style="font-size: 12px;">qq ${parseInt(DatosBarChat.datasets[0].data[2])}</h5>
+                        <p style="font-size: 10px;">Año ${DatosLineChart.labels[2]}</ap>
                       </div>
                       <div class=" card-panel col s3 deep-orange lighten-3">
-                        <h5 style="font-size: 12px;">2000</h5>
-                        <p style="font-size: 10px;">Año 2019</ap>
+                        <h5 style="font-size: 12px;">qq ${parseInt(DatosBarChat.datasets[0].data[3])}</h5>
+                        <p style="font-size: 10px;">Año ${DatosLineChart.labels[3]}</ap>
                       </div>
                     </div>
                     <div class="col s6">
                       <p class="center cyan lighten-2 white-text center" style="font-size: 18px;">Germinacion de semillas (%)</p>
                       <div class=" card-panel col s3 green lighten-3">
-                        <h5 style="font-size: 12px;">2000</h5>
-                        <p style="font-size: 10px;">Año 2019</ap>
+                        <h5 style="font-size: 12px;"> % ${parseInt(DatosProgresBar.data[0]*100)}</h5>
+                        <p style="font-size: 10px;">Año ${DatosProgresBar.labels[0]}</ap>
                       </div>
                       <div class=" card-panel col s3 green lighten-3">
-                        <h5 style="font-size: 12px;">2000</h5>
-                        <p style="font-size: 10px;">Año 2019</ap>
+                        <h5 style="font-size: 12px;">% ${parseInt(DatosProgresBar.data[1]*100)}</h5>
+                        <p style="font-size: 10px;">Año ${DatosProgresBar.labels[1]}</ap>
                       </div>
                       <div class=" card-panel col s3 green lighten-1">
-                        <h5 style="font-size: 12px;">2000</h5>
-                        <p style="font-size: 10px;">Año 2019</ap>
+                        <h5 style="font-size: 12px;">% ${parseInt(DatosProgresBar.data[2]*100)}</h5>
+                        <p style="font-size: 10px;">Año ${DatosProgresBar.labels[2]}</ap>
                       </div>
                       <div class=" card-panel col s3 green">
-                        <h5 style="font-size: 12px;">2000</h5>
-                        <p style="font-size: 10px;">Año 2019</ap>
+                        <h5 style="font-size: 12px;">% ${parseInt(DatosProgresBar.data[3]*100)}</h5>
+                        <p style="font-size: 10px;">Año ${DatosProgresBar.labels[3]}</ap>
                       </div>
                     </div>
                   </div>

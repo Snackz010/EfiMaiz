@@ -14,6 +14,10 @@ export default class ContenedorlogInSignUp extends Component {
       vistualActual: 'LogIn',
       pickerSelection: 'Ocupación',
       pickerDisplayed: false,
+      Departamento: '', //Datos solo para el productor
+      NombreFinca:'', //Datos solo para el productor
+      Coordenadasx: '', //Datos solo para el productor
+      Coordenadasy:'', //Datos solo para el productor
       email: '',
       clave:'',
       nombre:'',
@@ -26,13 +30,15 @@ export default class ContenedorlogInSignUp extends Component {
 
   //Método para registro de usurios con su correo y contraseña
   SignUpMethod = () => {
-    const { email,clave,clave2,nombre,apellido,telefono,usuario } = this.state;
+    const { email,clave,clave2,nombre,apellido,telefono,usuario, pickerSelection } = this.state;
 
-    if(email != '' && clave != '' && clave2 != '' && nombre != '' && apellido != '' && telefono !='' && usuario!='' ){
+    if ( pickerSelection === 'Productor' ) {
+
+        if(email != '' && clave != '' && clave2 != '' && nombre != '' && apellido != '' && telefono !='' && usuario!='' ){
           if(clave === clave2 ){
             firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.clave)
             .then((success) => (
-              this.saveDataMethod(),
+              this.saveDataMethodProductor(),
               this.cambiarPantalla(),
               console.log('El resgistro realizado correctamente: ', success)
               )).catch((error) => {
@@ -49,11 +55,41 @@ export default class ContenedorlogInSignUp extends Component {
     }else{
       Alert.alert('Advertencia','Ops, Parece que haz olvidado algunos datos');
     }
+    
+  }else{
+
+          if(email != '' && clave != '' && clave2 != '' && nombre != '' && apellido != '' && telefono !='' && usuario!='' ){
+            if(clave === clave2 ){
+              firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.clave)
+              .then((success) => (
+                this.saveDataMethodStuTea(),
+                this.cambiarPantalla(),
+                console.log('El resgistro realizado correctamente: ', success)
+                )).catch((error) => {
+                // Oteniendo los errores para su respectivo manejo
+                var errorCode = error.code;
+                console.log(errorCode)
+                if (errorCode === 'auth/email-already-in-use') {
+                  this.mensaje2();
+                }
+              })
+            }else{
+              Alert.alert('Advertencia','Las contraseñas no coinciden.');
+            }
+      }else{
+        Alert.alert('Advertencia','Ops, Parece que haz olvidado algunos datos');
+      }
+
+    }
+
+
   }
 
     mensaje2 = () => {
       Alert.alert('Advertencia', 'El usuario ya existe, porfavor resgistre otro.');
     }
+
+  ////////////////////////////////////////////////////////////////////////////////////
 
     //Método para iniciar sesión con su correo y contraseña
     LogInMethod = () => {
@@ -102,8 +138,8 @@ export default class ContenedorlogInSignUp extends Component {
     return emailAsycn;
   }
 
-  //Metodo para guardar datos en firestore
-  saveDataMethod = () =>{
+  //Metodo para guardar datos en firestore si el usuario es un estudiante o un docente
+  saveDataMethodStuTea = () =>{
     var db = firebase.firestore();
     db.collection("users").doc(this.state.email).set({
       fNombre: this.state.nombre,
@@ -124,6 +160,41 @@ export default class ContenedorlogInSignUp extends Component {
         telefono:'',
         usuario:'',
         pickerSelection:''
+      })
+    }).catch(function(error) {
+      console.error("Error adding document: ", error);
+    });
+  }
+
+  //Método para guardar los datos, si el usuario es un productor.
+  saveDataMethodProductor = () =>{
+    var db = firebase.firestore();
+    db.collection("users").doc(this.state.email).set({
+      fNombre: this.state.nombre,
+      fApellido: this.state.apellido,
+      fTelefono: this.state.telefono,
+      fCorreoE: this.state.email,
+      fOcupacion: this.state.pickerSelection,
+      fUsuario: this.state.usuario,
+      FDepartamento: this.state.Departamento,
+      FNombreFinca:this.state.NombreFinca,
+      FCoordenadasx: this.state.Coordenadasx,
+      FCoordenadasy:this.state.Coordenadasy,
+    }).then(() => {
+      Alert.alert('Mensaje','Los datos del usuario han sido registrados');
+      console.log("Los datos del productor han sido resgitrados")
+      this.setState({
+        email:'',
+        clave:'',
+        clave2:'',
+        nombre:'',
+        apellido:'',
+        telefono:'',
+        usuario:'',
+        Departamento: '',
+        NombreFinca:'',
+        Coordenadasx: '',
+        Coordenadasy:'',
       })
     }).catch(function(error) {
       console.error("Error adding document: ", error);
@@ -152,8 +223,36 @@ export default class ContenedorlogInSignUp extends Component {
     })
 
   }
+
+    //Manejando el cambio de estado para las coordenadas y del usuario
+    handleCoordenadasy = (CY) =>{
+    this.setState({
+      Coordenadasy: CY
+    })
+  } 
+
+  //Manejando el cambio de estado para las coordenads x del usuario
+  handleCoordenadasX = (CX) =>{
+    this.setState({
+      Coordenadasx: CX
+    })
+  }
   
-  //Manejando el cambio de estado para el correo del usuario
+  //Manejando el cambio de estado para el nombre de la finca del usuario
+  handleNombreFinca = (NF) =>{
+  this.setState({
+    NombreFinca: NF
+  })
+}
+
+  //Manejando el cambio de estado para el departamento del usuario
+  handleDepartamento = (Depart) =>{
+  this.setState({
+    Departamento: Depart
+  })
+}
+
+  //Manejando el cambio de estado para el nombre del usuario
   handleNombre = (nombreU) =>{
     this.setState({
       nombre:nombreU
@@ -238,7 +337,8 @@ export default class ContenedorlogInSignUp extends Component {
 
   render(){
     const {vistualActual, pickerDisplayed, pickerSelection} = this.state;
-    const {email, clave, clave2,nombre,apellido, telefono,usuario} = this.state;
+    const {email, clave, clave2, nombre, apellido, telefono, usuario, Departamento, 
+    NombreFinca, Coordenadasx, Coordenadasy} = this.state;
     
     //Valores que se cargan en el modal
     const pickerValues = [
@@ -294,6 +394,14 @@ export default class ContenedorlogInSignUp extends Component {
               estadoUsuario = {usuario}
               handlePass2 = {this.handlePass2}
               estadoClave2 = {clave2}
+              handleCoordenadax = {this.handleCoordenadasX}
+              Coordenadasx = {Coordenadasx}
+              handleCoordenadasy = {this.handleCoordenadasy}
+              Coordenadasy = {Coordenadasy}
+              handleDepartamento = {this.handleDepartamento}
+              Departamento = {Departamento}
+              handleNombreFinca = {this.handleNombreFinca}
+              NombreFinca = {NombreFinca}
               saveDataMethod = {this.saveDataMethod}
               cambiarPantalla = {this.cambiarPantalla}
               />
