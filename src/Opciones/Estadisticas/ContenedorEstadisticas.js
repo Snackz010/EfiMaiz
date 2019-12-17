@@ -179,7 +179,7 @@ class ContenedorEstadisticas extends Component {
           <nav class="blue">
             <div class="nav-wrapper">
               <div class="container">
-                <a href="#" class="brand-logo center" style="font-size: 18px;">Reporte estadístico de ciclo del producción</a>
+                <a href="#" class="brand-logo center" style="font-size: 18px;">Reporte  del ciclo de producción</a>
               </div>
             </div>
           </nav>

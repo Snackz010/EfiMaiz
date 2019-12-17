@@ -94,7 +94,7 @@ const Estadisticas = (props) => {
                 borderRadius: 10
               }}
             />
-            <Text style={styles.chartText}>Estadísticas deganancias por año.</Text>
+            <Text style={styles.chartText}>Estadísticas de ganancias por año.</Text>
           </View>
           <View style={[styles.center, styles.margin]}>
             <ProgressChart
