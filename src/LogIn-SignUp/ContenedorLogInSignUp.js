@@ -55,6 +55,8 @@ export default class ContenedorlogInSignUp extends Component {
       Alert.alert('Advertencia', 'El usuario ya existe, porfavor resgistre otro.');
     }
 
+  ////////////////////////////////////////////////////////////////////////////////////
+
     //Método para iniciar sesión con su correo y contraseña
     LogInMethod = () => {
       const {email, clave} = this.state;

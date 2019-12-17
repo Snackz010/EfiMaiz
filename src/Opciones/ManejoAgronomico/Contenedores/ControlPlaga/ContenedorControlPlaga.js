@@ -1,20 +1,168 @@
 import React,{Component} from 'react';
-import {Alert} from 'react-native';
+import {Alert, AsyncStorage} from 'react-native';
 import ControlPlaga from '../../Componentes/ControlPlaga/ControlPlaga';
+import firebase from 'react-native-firebase';
 
 class ContenedorControlPlaga extends Component {
   constructor(props){
     super(props);
     this.state = {
-      pickerSelection: 'Seleccione una plaga',
+      pickerSelection: 'Seleccione una plaga', //Guardar el tipo de plaga
       pickerDisplayed: false,
       textInput: 'Muestreo',
-      cantidadDecision: '',
+      cantidadDecision: '', //Corresponde al muestreointroducida por el user
       decisionSelect: '',
       texto: '',
       tratamiento: '',
-      tratamientoAux: ''
+      tratamientoAux: '',
+      Email: ''
     }
+  }
+
+  guardarIncidenciaPlaga = () => {
+
+    const {pickerSelection, textInput, decisionSelect, cantidadDecision} = this.state;
+    const db = firebase.firestore();
+    const anioProduccion = new Date().getFullYear(); //Obteniendo el año actual
+    const controlPlaga = db.collection("afectacion").doc(this.state.Email);
+    
+    var nuevoObjeto={};
+    
+ //#region   
+    var Plagas = [
+      {
+          title: 'Gallina',
+          value: 20         
+      },
+      {
+          title: 'Cortador (Agrotis spp)',
+          value: 0
+      },
+      {
+          title: 'Barrenador (Diatraea linoalata)',
+          value: 0
+      },
+      {
+        title: 'Cogollero (Spodoptera frugiperda)',
+        value: 0
+      },
+      {
+        title: 'Coralillo (Elasmopalpus lignosellus)',
+        value:0
+      },
+      {
+        title: 'Medidor de las gramíneas (Mocis latipes)',
+        value:0
+      },
+      {
+        title: 'Mosquita de la panoja (Contarinia sorguicola)',
+        value: 0
+      },
+      {
+        title: 'Chinches (Nezara viridula)',
+        value: 20
+      },
+      {
+        title: 'Spodoptera frugiperda, Helicoverpa zea',
+        value: 30
+      },
+  ];
+//#endregion
+   
+//#region 
+      var PlagasArray = []
+    // controlPlaga.get().then((Doc) =>{
+      
+    //   PlagasArray = Doc.data().Plagas
+
+    //   var obj ={}
+    
+    //   for (let index = 0; index < PlagasArray.length; index++) {
+        
+    //     if(PlagasArray[index].title === pickerSelection){
+    //       PlagasArray[index].value = cantidadDecision
+    //     }
+    //     obj[index] = {
+    //       title:PlagasArray[index].title,
+    //       value: PlagasArray[index].value
+    //     }
+    //   }
+ //#endregion
+
+    PlagasArray.push({
+      nombrePlaga: pickerSelection,
+      muestreo: cantidadDecision
+    });
+     
+
+      controlPlaga.set(
+        {
+          //Plagas:{...obj}
+          PlagasArray
+ 
+        }).then( () => {
+          Alert.alert('Éxito','Los datos se han registrado')
+          console.log("Resultados de la plaga almacenados");
+      });
+  }
+
+
+
+  //#region 
+  valoresPlaga = () => {
+    const pickerValues = [
+      {
+          title: 'Gallina',
+          value: 20         
+      },
+      {
+          title: 'Cortador (Agrotis spp)',
+          value: 0
+      },
+      {
+          title: 'Barrenador (Diatraea linoalata)',
+          value: 0
+      },
+      {
+        title: 'Cogollero (Spodoptera frugiperda)',
+        value: 0
+      },
+      {
+        title: 'Coralillo (Elasmopalpus lignosellus)',
+        value:0
+      },
+      {
+        title: 'Medidor de las gramíneas (Mocis latipes)',
+        value:0
+      },
+      {
+        title: 'Mosquita de la panoja (Contarinia sorguicola)',
+        value: 0
+      },
+      {
+        title: 'Chinches (Nezara viridula)',
+        value: 20
+      },
+      {
+        title: 'Spodoptera frugiperda, Helicoverpa zea',
+        value: 30
+      },
+  ]
+    var arrayPlagas={}
+      pickerValues.map(function (Plaga){
+      if(Plaga.valor>=1){
+        arrayPlagas[Plaga.title] = Plaga.valor
+      }
+    })
+    console.log(arrayPlagas);
+  }
+//#endregion
+
+
+  //Método para obtener el email del usuario para la extracción de los datos
+  ObtenerEmail = async () => {
+    const emailAsycn = await AsyncStorage.getItem ('DATO');
+    return emailAsycn;
   }
 
   togglePicker = () => {
@@ -141,8 +289,23 @@ class ContenedorControlPlaga extends Component {
         textInput={textInput}
         texto={texto}
         tratamiento={tratamiento}
+        guardarIncidenciaPlaga = {this.guardarIncidenciaPlaga}
       />
     );
   }
+
+  async componentDidMount(){
+    const datos = await this.ObtenerEmail();
+    console.log(datos);
+    if (datos !== null) {
+      const emailStorage = JSON.parse(datos);
+      this.setState({
+        Email: emailStorage,
+      })
+    }
+   // this.valoresPlaga();
+    
+  }
 }
+
 export default ContenedorControlPlaga;

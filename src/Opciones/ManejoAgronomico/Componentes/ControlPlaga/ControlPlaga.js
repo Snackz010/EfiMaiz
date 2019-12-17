@@ -23,7 +23,8 @@ const ControlPlaga = (props) => {
     cantidadDecision,
     textInput,
     texto,
-    tratamiento
+    tratamiento,
+    guardarIncidenciaPlaga
   } = props;
 
   return (
@@ -73,6 +74,7 @@ const ControlPlaga = (props) => {
               <View style={styles.button}>
                 <TouchableHighlight 
                   style={[styles.buttonContainer, styles.calcButton]}
+                  onPress = {guardarIncidenciaPlaga}
                 >
                   <Text style={styles.signUpText}>Registrar<Icon name='plus-circle' color="white" size={18}/></Text>
                 </TouchableHighlight>

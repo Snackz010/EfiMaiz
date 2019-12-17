@@ -132,26 +132,6 @@ class ContenedorEstadisticas extends Component {
     });
   }
   
-  getspecificData = () =>{
-
-    const {DatosProgresBar} = this.state;
-
-    var db = firebase.firestore();
-    var produccRef = db.collection('producción').doc(this.state.Email);
-
-    produccRef.get()
-    .then ((directorio)=> {
-      if (directorio.exists) {
-        DatosProgresBar.push(parseInt(directorio.data().Produccion_20+'20'.FRfertilizante.CManzanas))
-        this.setState({
-          DatosProgresBar:DatosProgresBar
-        })
-      }else{
-        console.log('El documento expecificado no existe en la colección')
-      }
-
-    })
-  }
 
   ObtenerEmail = async () => {
     const emailAsycn = await AsyncStorage.getItem ('DATO');
