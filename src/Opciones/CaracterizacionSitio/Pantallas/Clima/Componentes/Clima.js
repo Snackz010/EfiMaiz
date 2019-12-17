@@ -41,29 +41,25 @@ const Clima = (props) => {
                   <Text style={styles.textSubTitle}></Text>
                 </View>
                 <View style={styles.center}>
-                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Temperatura' 
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Temperatura (C°)' 
                     onChangeText={eventoTxtTemperatura}
                     value={temperatura}
                   />
-                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Precipitación' 
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Precipitación (mm)' 
                     onChangeText={eventoTxtPrecipitacion}
                     value={precipitacion}
                   />
-                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Humedad' 
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Humedad (%)' 
                     onChangeText={eventoTxtHumedad}
                     value={humedad}
                   />
-                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Velocidad del viento' 
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Velocidad del viento (km/h)' 
                     onChangeText={eventoTxtVelocidad}
                     value={velocidadV}
                   />
-                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Altitud' 
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Altitud (msnm)' 
                     onChangeText={eventoTxtAltitud}
                     value={altitud}
-                  />
-                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Nivel de Radiación' 
-                    onChangeText={eventoTxtNRadiacion}
-                    value={nRadiacion}
                   />
                 </View>
               </View>

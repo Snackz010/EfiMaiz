@@ -244,38 +244,38 @@ class ContenedorEstadisticas extends Component {
                     <div class="col s6">
                       <p class="center cyan lighten-2 white-text center" style="font-size: 18px;">Cosecha por año (Quintales)</p>
                       <div class=" card-panel col s3 deep-orange">
-                        <h5 style="font-size: 12px;">qq ${parseInt(DatosBarChat.datasets[0].data[0])}</h5>
+                        <h5 style="font-size: 12px;">${parseInt(DatosBarChat.datasets[0].data[0])} qq</h5>
                         <p style="font-size: 10px;">Año ${DatosLineChart.labels[0]}</ap>
                       </div>
                       <div class=" card-panel col s3 deep-orange lighten-1">
-                        <h5 style="font-size: 12px;">qq ${parseInt(DatosBarChat.datasets[0].data[1])}</h5>
+                        <h5 style="font-size: 12px;">${parseInt(DatosBarChat.datasets[0].data[1])} qq</h5>
                         <p style="font-size: 10px;">Año ${DatosLineChart.labels[1]}</ap>
                       </div>
                       <div class=" card-panel col s3 deep-orange lighten-2">
-                        <h5 style="font-size: 12px;">qq ${parseInt(DatosBarChat.datasets[0].data[2])}</h5>
+                        <h5 style="font-size: 12px;">${parseInt(DatosBarChat.datasets[0].data[2])} qq</h5>
                         <p style="font-size: 10px;">Año ${DatosLineChart.labels[2]}</ap>
                       </div>
                       <div class=" card-panel col s3 deep-orange lighten-3">
-                        <h5 style="font-size: 12px;">qq ${parseInt(DatosBarChat.datasets[0].data[3])}</h5>
+                        <h5 style="font-size: 12px;">${parseInt(DatosBarChat.datasets[0].data[3])} qq</h5>
                         <p style="font-size: 10px;">Año ${DatosLineChart.labels[3]}</ap>
                       </div>
                     </div>
                     <div class="col s6">
                       <p class="center cyan lighten-2 white-text center" style="font-size: 18px;">Germinacion de semillas (%)</p>
                       <div class=" card-panel col s3 green lighten-3">
-                        <h5 style="font-size: 12px;"> % ${parseInt(DatosProgresBar.data[0]*100)}</h5>
+                        <h5 style="font-size: 12px;">${parseInt(DatosProgresBar.data[0]*100)}%</h5>
                         <p style="font-size: 10px;">Año ${DatosProgresBar.labels[0]}</ap>
                       </div>
                       <div class=" card-panel col s3 green lighten-3">
-                        <h5 style="font-size: 12px;">% ${parseInt(DatosProgresBar.data[1]*100)}</h5>
+                        <h5 style="font-size: 12px;">${parseInt(DatosProgresBar.data[1]*100)}%</h5>
                         <p style="font-size: 10px;">Año ${DatosProgresBar.labels[1]}</ap>
                       </div>
                       <div class=" card-panel col s3 green lighten-1">
-                        <h5 style="font-size: 12px;">% ${parseInt(DatosProgresBar.data[2]*100)}</h5>
+                        <h5 style="font-size: 12px;">${parseInt(DatosProgresBar.data[2]*100)}%</h5>
                         <p style="font-size: 10px;">Año ${DatosProgresBar.labels[2]}</ap>
                       </div>
                       <div class=" card-panel col s3 green">
-                        <h5 style="font-size: 12px;">% ${parseInt(DatosProgresBar.data[3]*100)}</h5>
+                        <h5 style="font-size: 12px;">${parseInt(DatosProgresBar.data[3]*100)}%</h5>
                         <p style="font-size: 10px;">Año ${DatosProgresBar.labels[3]}</ap>
                       </div>
                     </div>

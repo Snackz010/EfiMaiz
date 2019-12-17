@@ -176,7 +176,7 @@ resultadosClima = () => {
     return(
       <View style={styles.center}>
         <TouchableHighlight onPress={mostrarModl} style={[styles.buttonContainer2, styles.actionButton3]}>
-          <Text style={styles.buttonText2}>Análisis del clima: {nivelClimaValue}<Icon name='check' color="green" size={18}/></Text>
+          <Text style={styles.buttonText2}>Análisis del clima: {nivelClimaValue}</Text>
         </TouchableHighlight>
       </View>
     );
@@ -184,7 +184,7 @@ resultadosClima = () => {
     return(
       <View style={styles.center}>
         <TouchableHighlight onPress={mostrarModl} style={[styles.buttonContainer2, styles.actionButton4]}>
-          <Text style={styles.buttonText2}>Análisis del clima: {nivelClimaValue}<Icon name='check' color="green" size={18}/></Text>
+          <Text style={styles.buttonText3}>Análisis del clima: {nivelClimaValue}</Text>
         </TouchableHighlight>
       </View>
     );
@@ -204,7 +204,7 @@ resultadosSuelo = () => {
     return(
       <View style={styles.center}>
         <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton3]}>
-          <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
+          <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}</Text>
         </TouchableHighlight>
       </View>
     );
@@ -212,7 +212,7 @@ resultadosSuelo = () => {
     return(
       <View style={styles.center}>
         <TouchableHighlight onPress={mostrarModl2} style={[styles.buttonContainer2, styles.actionButton4]}>
-          <Text style={styles.buttonText2}>Análisis del suelo: {nivelSueloValue}<Icon name='check' color="green" size={18}/></Text>
+          <Text style={styles.buttonText3}>Análisis del suelo: {nivelSueloValue}</Text>
         </TouchableHighlight>
       </View>
     );
@@ -252,12 +252,19 @@ const styles = StyleSheet.create({
   actionButton4:{
     backgroundColor:'#d02328'
   },
+  actionButton5:{
+    backgroundColor:'#ffffff'
+  },
   buttonText: {
     color: 'white',
     fontSize: 16,
   },
   buttonText2: {
     fontSize: 16,
+  },
+  buttonText3: {
+    fontSize: 16,
+    color: '#ffffff'
   },
   textContent: {
     fontSize: 16, 

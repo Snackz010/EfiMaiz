@@ -43,7 +43,7 @@ const Agua = (props) => {
                   <Text style={styles.textSubTitle}></Text>
                 </View>
                 <View style={styles.center}>
-                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Volumen'
+                  <TextInput keyboardType={"numeric"} placeholderTextColor="white" style={styles.textInput} placeholder='Volumen (m³)'
                     onChangeText={eventoTxtVolumen}
                     value={estadoVolumen}
                   />
@@ -55,7 +55,7 @@ const Agua = (props) => {
                   </View>
                   <Modal visible={pickerDisplayed} animationType={"slide"} transparent={true}>
                     <View style={styles.modal}>
-                      <Text style={styles.textOpacity}>Selecione la calidad del suelo</Text>
+                      <Text style={styles.textOpacity}>Selecione la calidad del agua</Text>
                       { pickerValues.map((value, index) => {
                         return <TouchableHighlight key={index} onPress={() => setPickerValue(value.value)} style={styles.itemText}>
                                   <Text>{ value.title }</Text>

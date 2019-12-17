@@ -118,68 +118,6 @@ const Estadisticas = (props) => {
             />
             <Text style={styles.chartText}>Porcentaje de germinación de semillas por año.</Text>
           </View>
-          <View style={[styles.center, styles.margin]}>
-            <LineChart
-              data={{
-                labels: [
-                  "Ene",
-                  "Feb", 
-                  "Mar", 
-                  "Abr", 
-                  "May", 
-                  "Jun", 
-                  "Jul", 
-                  "Ago", 
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dic"],
-                datasets: [
-                  {
-                    data: [
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100
-                    ]
-                  }
-                ]
-              }}
-              width={(Dimensions.get("window").width)-30} // from react-native
-              height={220}
-              yAxisSuffix={"qq"}
-              chartConfig={{
-                backgroundColor: "#e26a00",
-                backgroundGradientFrom: "#e67c38",
-                backgroundGradientTo: "#ffffff",
-                decimalPlaces: 2, // optional, defaults to 2dp
-                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                style: {
-                  borderRadius: 10
-                },
-                propsForDots: {
-                  r: "6",
-                  strokeWidth: "3",
-                  stroke: "#ab5d2b"
-                }
-              }}
-              bezier
-              style={{
-                marginVertical: 0,
-                borderRadius: 10
-              }}
-            />
-            <Text style={styles.chartText}>Estadísticas de producción por año.</Text>
-          </View>
           <View style={styles.button}>
           <TouchableHighlight 
               style={[styles.buttonContainer, styles.colorButton]}
