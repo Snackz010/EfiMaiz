@@ -1,4 +1,4 @@
-
+import firebase from 'react-native-firebase';
 
     //Metodos componente suelo
 
@@ -109,6 +109,7 @@ function determinarResultados(props){
     return valor;
   }
 
+
 export { 
     evaluarSuelo, 
     evaluarClima,
@@ -116,5 +117,6 @@ export {
     calcularQuintales,
     calcularVenta,
     calcularInversion,
-    determinarResultados
+    determinarResultados,
+    getFirebaseDocument
 };

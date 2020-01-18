@@ -9,6 +9,7 @@ import HerbicidasContenedor from '../Contenedores/Herbicidas/ContenedorHerbicida
 import HerbicidasInformacion from '../Componentes/Herbicidas/HerbicidasInformacion';
 import ContenedorControlPlaga from '../Contenedores/ControlPlaga/ContenedorControlPlaga';
 import ControlPlagaInformacion from '../Componentes/ControlPlaga/ControlPlagaInformacion';
+import muestreoPlaga from '../Componentes/ControlPlaga/MuestreoPlaga';
 
 const StackManejoAgronomico = createStackNavigator({
     ManejoAgronomico:{
@@ -65,6 +66,12 @@ const StackManejoAgronomico = createStackNavigator({
             header:null
         }
     },
+    MuestreoPlaga:{
+        screen:muestreoPlaga,
+        navigationOptions:{
+            header:null
+        }
+    }
 });
 
 export default createAppContainer(StackManejoAgronomico);

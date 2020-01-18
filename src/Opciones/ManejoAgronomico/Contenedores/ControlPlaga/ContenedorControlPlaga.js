@@ -15,6 +15,7 @@ class ContenedorControlPlaga extends Component {
       texto: '',
       tratamiento: '',
       tratamientoAux: '',
+      muestreoPlaga:'',
       Email: ''
     }
   }
@@ -190,14 +191,24 @@ class ContenedorControlPlaga extends Component {
     })
   }
 
-  setPickerValue = (newValue, textSelect, decisionSelected, tratamiento) =>{
+  setPickerValue = (newValue, textSelect, decisionSelected, tratamiento, muestreoPlaga) =>{
       this.setState({
           pickerSelection: newValue,
           textInput: textSelect,
           decisionSelect: decisionSelected,
           tratamientoAux: tratamiento,
+          muestreoPlaga: muestreoPlaga
       })
       this.togglePicker();
+  }
+
+  navegarMuestreo = () => {
+    const { pickerSelection, muestreoPlaga } = this.state;
+    const objetPlaga = {
+      Nombre: pickerSelection,
+      muestreoPlaga:muestreoPlaga
+    }
+    this.props.navigation.navigate('MuestreoPlaga',objetPlaga);
   }
 
   render(){
@@ -207,29 +218,33 @@ class ContenedorControlPlaga extends Component {
           title: 'Gallina ciega (Phyllophaga spp)',
           value: 'Gallina ciega (Phyllophaga spp)',
           textDecision: 'N° Larvas',
-          decision: 5,
-          tratamiento: 'Se sugiere la reparación del suelo 15 días antes de la siembra. Las larvas quedan expuestas al sol, las que mueren por insolación o son depredadas por pájaros. También se puede realizar tratamiento al suelo.'
+          decision: 4,
+          tratamiento: 'Se sugiere la reparación del suelo 15 días antes de la siembra. Las larvas quedan expuestas al sol, las que mueren por insolación o son depredadas por pájaros. También se puede realizar tratamiento al suelo.',
+          mMuestreo:'Crear trampas de agua, se preparan con un poco de levadura (1 sobre de levadura/3 L de agua), plátano macerado (1 plátano/ 3 L de agua) y un poco de detergente. Los cadáveres de estos escarabajos pueden ser utilizados en la trampa, debido a que liberan feromonas y cumplen la función de atraer más insectos, El monitoreo del suelo consiste en inspeccionar un cuadrante de 1 m2 a 25 cm de profundidad. Este monitoreo se realiza cada 15 días a partir de la siembra y su intensidad dependerá de la extensión y características de uniformidad del terreno (2 a 4 muestreos/5 ha). El umbral de 4 larvas por cuadrante en el cultivo de maíz representa una situación de emergencia que se debe atender de inmediato.'
       },
       {
           title: 'Cortador (Agrotis spp)',
           value: 'Cortador (Agrotis spp)',
           textDecision: 'N° Plantas cortadas',
-          decision: 6,
-          tratamiento: 'Tras superar los umbrales de daño aplicar un piretroide en pulverización (deltametrin, lambda cihalotrin, etc.). En producción ecológica se puede utilizar azadiractin.'
+          decision: 5,
+          tratamiento: 'Tras superar los umbrales de daño aplicar un piretroide en pulverización (deltametrin, lambda cihalotrin, etc.). En producción ecológica se puede utilizar azadiractin.',
+          mMuestreo:'Se deben examinar varios puntos del sitio de cultivo de un metro lineal contando las plantas cortadas por sitio e identificar las especies presentes. ingresar promedio contando todas las plantas cortadas y dividiendolas por la cantidad de puntos examinados.'
       },
       {
           title: 'Barrenador (Diatraea linoalata)',
           value: 'Barrenador (Diatraea linoalata)',
           textDecision: 'N° Huevos o larvas',
-          decision: 20,
-          tratamiento: ''
+          decision: 10,
+          tratamiento: '',
+          mMuestreo:'  Observar 10 plantas al azar y determinar presencia y color de las oviposiciones. Repetir este procedimiento en 4-6 sitios de muestreo por manzana'
       },
       {
         title: 'Cogollero (Spodoptera frugiperda)',
         value: 'Cogollero (Spodoptera frugiperda)',
         textDecision: 'N° Plantas con cogollero',
         decision: 10,
-        tratamiento: 'Se puede hacer control químico con un producto granulado como Counter 10% G a razón de 15 libras por manzana, aplicado a mano.'
+        tratamiento: 'Se puede hacer control químico con un producto granulado como Counter 10% G a razón de 15 libras por manzana, aplicado a mano.',
+        mMuestreo:'Escoger diez plantas aleatoriamente en diferentes puntos del sitio de cultivo y contar cuántas tienen larvas o daños en las hojas.'
       },
       {
         title: 'Coralillo (Elasmopalpus lignosellus)',
@@ -289,6 +304,7 @@ class ContenedorControlPlaga extends Component {
         textInput={textInput}
         texto={texto}
         tratamiento={tratamiento}
+        navegarMuestreo={this.navegarMuestreo}
         guardarIncidenciaPlaga = {this.guardarIncidenciaPlaga}
       />
     );

@@ -24,6 +24,7 @@ const ControlPlaga = (props) => {
     textInput,
     texto,
     tratamiento,
+    navegarMuestreo,
     guardarIncidenciaPlaga
   } = props;
 
@@ -55,7 +56,7 @@ const ControlPlaga = (props) => {
                     <Text style={styles.textOpacity}>Selecione la calidad del suelo</Text>
                     <View style={styles.alignModal}>
                       { pickerValues.map((value, index) => {
-                        return <TouchableHighlight key={index} onPress={() => {setPickerValue(value.value, value.textDecision, value.decision, value.tratamiento)}} style={styles.itemText}>
+                        return <TouchableHighlight key={index} onPress={() => {setPickerValue(value.value, value.textDecision, value.decision, value.tratamiento, value.mMuestreo)}} style={styles.itemText}>
                                   <Text>{ value.title }</Text>
                                 </TouchableHighlight>
                       })}
@@ -65,6 +66,11 @@ const ControlPlaga = (props) => {
                     </TouchableHighlight>
                   </View>
                 </Modal>
+                <View styles={styles.button}>
+                  <TouchableHighlight onPress={navegarMuestreo} style={[styles.buttonContainer, styles.calcButton]}>
+                    <Text>Ver método de muestreo</Text>
+                  </TouchableHighlight>
+                </View>
                 <View style={styles.box}>
                   <Text style={styles.text}>Nivel de decisión</Text>
                   <Text style={styles.title2}>{texto}</Text>

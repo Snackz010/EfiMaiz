@@ -11,7 +11,8 @@ import {
   calcularQuintales,
   calcularVenta,
   calcularInversion,
-  determinarResultados
+  determinarResultados,
+  getFirebaseDocument
 } from '../pruebasComponentes'
 
 test('Evaluar eficiencia del suelo para el cultivo de maiz', () => {
@@ -76,3 +77,14 @@ test('Calcular rendimiento de producción Ganancia', () => {
   expect(determinarResultados(valoresF)).toBe('Ganancia');
 });
 
+test('Extraer Datos para grafico 1', () => {
+  const valoresF = {
+    labels: ["2016", "2017", "2018", "2019",],
+    datasets: [
+      {
+        data: [42.5 ,47.39 ,21.8 ,6025.68]
+      }
+    ]
+  }
+  expect(getFirebaseDocument("Bob@gmail.com")).toBe(valoresF);
+});
