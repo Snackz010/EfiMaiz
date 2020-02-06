@@ -5,7 +5,6 @@ import { AsyncStorage, Alert} from 'react-native';
 import LogIn from '../LogIn/Componentes/LogIn.js';
 import SignUp from '../SignUp/Componentes/SignUp.js';
 
-
 export default class ContenedorlogInSignUp extends Component {
 
   constructor(props){
@@ -34,11 +33,33 @@ export default class ContenedorlogInSignUp extends Component {
 
     if ( pickerSelection === 'Productor' ) {
 
+      if(email != '' && clave != '' && clave2 != '' && nombre != '' && apellido != '' && telefono !='' && usuario!='' ){
+        if(clave === clave2 ){
+          firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.clave)
+          .then((success) => (
+            this.saveDataMethodProductor(),
+            this.cambiarPantalla(),
+            console.log('El resgistro realizado correctamente: ', success)
+            )).catch((error) => {
+            // Oteniendo los errores para su respectivo manejo
+            var errorCode = error.code;
+            console.log(errorCode)
+            if (errorCode === 'auth/email-already-in-use') {
+              this.mensaje2();
+            }
+          })
+        }else{
+          Alert.alert('Advertencia','Las contraseñas no coinciden.');
+        }
+    }else{
+      Alert.alert('Advertencia','Ops, Parece que haz olvidado algunos datos');
+    }
+  }else{
         if(email != '' && clave != '' && clave2 != '' && nombre != '' && apellido != '' && telefono !='' && usuario!='' ){
           if(clave === clave2 ){
             firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.clave)
             .then((success) => (
-              this.saveDataMethodProductor(),
+              this.saveDataMethodStuTea(),
               this.cambiarPantalla(),
               console.log('El resgistro realizado correctamente: ', success)
               )).catch((error) => {
@@ -52,44 +73,14 @@ export default class ContenedorlogInSignUp extends Component {
           }else{
             Alert.alert('Advertencia','Las contraseñas no coinciden.');
           }
-    }else{
-      Alert.alert('Advertencia','Ops, Parece que haz olvidado algunos datos');
-    }
-    
-  }else{
-
-          if(email != '' && clave != '' && clave2 != '' && nombre != '' && apellido != '' && telefono !='' && usuario!='' ){
-            if(clave === clave2 ){
-              firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.clave)
-              .then((success) => (
-                this.saveDataMethodStuTea(),
-                this.cambiarPantalla(),
-                console.log('El resgistro realizado correctamente: ', success)
-                )).catch((error) => {
-                // Oteniendo los errores para su respectivo manejo
-                var errorCode = error.code;
-                console.log(errorCode)
-                if (errorCode === 'auth/email-already-in-use') {
-                  this.mensaje2();
-                }
-              })
-            }else{
-              Alert.alert('Advertencia','Las contraseñas no coinciden.');
-            }
       }else{
         Alert.alert('Advertencia','Ops, Parece que haz olvidado algunos datos');
       }
-
     }
-
-
   }
-
     mensaje2 = () => {
       Alert.alert('Advertencia', 'El usuario ya existe, porfavor resgistre otro.');
     }
-
-  ////////////////////////////////////////////////////////////////////////////////////
 
     //Método para iniciar sesión con su correo y contraseña
     LogInMethod = () => {
@@ -114,7 +105,6 @@ export default class ContenedorlogInSignUp extends Component {
               if(errorCode === 'auth/wrong-password'){
                 Alert.alert("Adverencia","El usuario o contraseña son inválidos");
               }
-
            })
        }else{
         this.mensaje();
@@ -411,5 +401,4 @@ export default class ContenedorlogInSignUp extends Component {
         break;
     }
   }
-
 }

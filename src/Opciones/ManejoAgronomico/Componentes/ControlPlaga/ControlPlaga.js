@@ -66,9 +66,12 @@ const ControlPlaga = (props) => {
                     </TouchableHighlight>
                   </View>
                 </Modal>
-                <View styles={styles.button}>
-                  <TouchableHighlight onPress={navegarMuestreo} style={[styles.buttonContainer, styles.calcButton]}>
-                    <Text>Ver método de muestreo</Text>
+                <View style={styles.button2}>
+                  <TouchableHighlight 
+                    style={[styles.buttonContainer, styles.calcButton]}
+                    onPress = {navegarMuestreo}
+                  >
+                    <Text style={styles.signUpText}>Ver método de muestreo</Text>
                   </TouchableHighlight>
                 </View>
                 <View style={styles.box}>
@@ -82,9 +85,9 @@ const ControlPlaga = (props) => {
                   style={[styles.buttonContainer, styles.calcButton]}
                   onPress = {guardarIncidenciaPlaga}
                 >
-                  <Text style={styles.signUpText}>Registrar<Icon name='plus-circle' color="white" size={18}/></Text>
+                  <Text style={styles.signUpText}>Registrar <Icon name='plus-circle' color="white" size={18}/></Text>
                 </TouchableHighlight>
-            </View>
+              </View>
             </View>
           </ScrollView>
         </View>
@@ -223,6 +226,12 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 40,
     marginBottom: 50,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button2: {
+    marginTop: 40,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

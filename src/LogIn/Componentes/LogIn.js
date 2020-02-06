@@ -35,7 +35,10 @@ const LogIn = (props) => {
                     <TextInput placeholderTextColor="white" style={styles.textInput} placeholder='Correo electrónico'
                     onChangeText = {handleEmail} value = {estadoEmail}
                     ></TextInput>
-                    <TextInput placeholderTextColor="white" secureTextEntry={true} style={styles.textInput} placeholder='Contraseña'
+                    <TextInput 
+                    placeholderTextColor="white"
+                    secureTextEntry={true}
+                    style={styles.textInput} placeholder='Contraseña'
                     onChangeText = {handlePass} value = {estadoClave}
                     ></TextInput>
                   </View>
@@ -45,7 +48,9 @@ const LogIn = (props) => {
                     <Text style={styles.signUpText}>Ingresar</Text>
                   </TouchableHighlight>
                 </View>
-                <Text style={styles.textContainer}>Ingresar con <Text style={styles.text2}>Google</Text>   |   <Text onPress={cambiarPantallas} style={styles.text2}>Registrarse</Text></Text>
+                <Text style={styles.textContainer}>
+                  Ingresar con <Text style={styles.text2}>
+                  Google</Text>   |   <Text onPress={cambiarPantallas} style={styles.text2}>Registrarse</Text></Text>
               </ScrollView>
             </View>
           </View>

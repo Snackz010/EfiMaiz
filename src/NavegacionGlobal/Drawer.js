@@ -54,7 +54,7 @@ const Drawer = createDrawerNavigator({
     Publicidad:{
         screen: Publicidad,
         navigationOptions:{
-            drawerLabel:'Publicidad'
+            drawerLabel:'Agroquímicos'
         }
     }
 }
