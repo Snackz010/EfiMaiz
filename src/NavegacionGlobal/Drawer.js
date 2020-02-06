@@ -7,7 +7,7 @@ import StackGuias from '../Opciones/GuiasInformativas/StackGuias/StackGuias';
 import StackMagronomico from '../Opciones/ManejoAgronomico/StackMagronomico/StackMagronomico';
 import EstadisticasPro from '../Opciones/Estadisticas/ContenedorEstadisticas';
 import StackEP from '../Opciones/EconomiaProduccion/StackEconomiaProduccion/StackEP';
-
+import Publicidad from '../Publicidad/Publicidad.js';
 const Drawer = createDrawerNavigator({
     Inicio:{
         screen: ContenedorInicio,
@@ -49,6 +49,12 @@ const Drawer = createDrawerNavigator({
         screen: EstadisticasPro,
         navigationOptions:{
             drawerLabel:'Estadísticas de producción'
+        }
+    },
+    Publicidad:{
+        screen: Publicidad,
+        navigationOptions:{
+            drawerLabel:'Publicidad'
         }
     }
 }
