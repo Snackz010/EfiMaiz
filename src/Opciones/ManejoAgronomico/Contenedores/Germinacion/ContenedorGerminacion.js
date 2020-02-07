@@ -31,7 +31,7 @@ class ContenedorGerminacion extends Component {
       const ResultGerminacion = db.collection("producción").doc(this.state.Email);
       var nuevoObjeto={};
     
-      const anioProduccion = new Date().getFullYear()-4; //Obteniendo el año actual
+      const anioProduccion = new Date().getFullYear(); //Obteniendo el año actual
       nuevoObjeto['Produccion_'+anioProduccion] = {
         FRgerminacion:{
           PromedioGermi:promedio

@@ -244,19 +244,19 @@ class ContenedorEstadisticas extends Component {
                     <div class="col s6">
                       <p class="center cyan lighten-2 white-text center" style="font-size: 18px;">Cosecha por año (Quintales)</p>
                       <div class=" card-panel col s3 deep-orange">
-                        <h5 style="font-size: 12px;">${parseInt(DatosBarChat.datasets[0].data[0])} qq</h5>
+                        <h5 style="font-size: 12px;">${parseInt(DatosBarChat.datasets[0].data[0])} </h5>
                         <p style="font-size: 10px;">Año ${DatosLineChart.labels[0]}</ap>
                       </div>
                       <div class=" card-panel col s3 deep-orange lighten-1">
-                        <h5 style="font-size: 12px;">${parseInt(DatosBarChat.datasets[0].data[1])} qq</h5>
+                        <h5 style="font-size: 12px;">${parseInt(DatosBarChat.datasets[0].data[1])} </h5>
                         <p style="font-size: 10px;">Año ${DatosLineChart.labels[1]}</ap>
                       </div>
                       <div class=" card-panel col s3 deep-orange lighten-2">
-                        <h5 style="font-size: 12px;">${parseInt(DatosBarChat.datasets[0].data[2])} qq</h5>
+                        <h5 style="font-size: 12px;">${parseInt(DatosBarChat.datasets[0].data[2])} </h5>
                         <p style="font-size: 10px;">Año ${DatosLineChart.labels[2]}</ap>
                       </div>
                       <div class=" card-panel col s3 deep-orange lighten-3">
-                        <h5 style="font-size: 12px;">${parseInt(DatosBarChat.datasets[0].data[3])} qq</h5>
+                        <h5 style="font-size: 12px;">${parseInt(DatosBarChat.datasets[0].data[3])} </h5>
                         <p style="font-size: 10px;">Año ${DatosLineChart.labels[3]}</ap>
                       </div>
                     </div>

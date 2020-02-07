@@ -19,6 +19,7 @@ const Resultados = (props) => {
       ventaAproximada,
       gananciaAproximada,
       resultado,
+      guardarDatos
     } = props;
     return (
       <>
@@ -65,6 +66,7 @@ const Resultados = (props) => {
               </View>
               <View style={styles.button}>
                 <TouchableHighlight style={[styles.buttonContainer, styles.actionButton]}
+                  onPress={guardarDatos}
                 >
                   <Text style={styles.buttonText}>Ir a Inicio <Icon name='home' color="white" size={18}/></Text>
                 </TouchableHighlight>

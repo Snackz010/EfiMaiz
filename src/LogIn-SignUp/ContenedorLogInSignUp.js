@@ -343,7 +343,11 @@ export default class ContenedorlogInSignUp extends Component {
       {
         title: 'Productor',
         value: 'Productor'
-      }
+      },
+      {
+        title: 'Técnico',
+        value: 'Técnico'
+      },
     ]
 
     switch (vistualActual) {
