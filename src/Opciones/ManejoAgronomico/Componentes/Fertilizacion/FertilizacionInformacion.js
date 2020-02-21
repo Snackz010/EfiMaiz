@@ -15,7 +15,6 @@ const FertilizanteInformacion = (props) => {
   const tableData=[
     ['12-30-10 o 10-30-20', '2 qq / mz', 'En la siembra', 'No'],
     ['Urea', '3 qq / mz', '25 - 30 dds ', 'Sí'],
-    ['Urea', '3 qq / mz', '25 - 30 dds ', 'Sí'],
   ];
   return (
     <>
